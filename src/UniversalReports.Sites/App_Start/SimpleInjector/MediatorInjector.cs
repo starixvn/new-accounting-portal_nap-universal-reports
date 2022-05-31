@@ -6,7 +6,6 @@ using UniversalReports.AbnormalBet;
 using UniversalReports.ActualMemberBet;
 using UniversalReports.CashOutPerformance;
 using UniversalReports.Exchange;
-using UniversalReports.PlayForFun.Core;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.SBCustomerPerformanceByDanger;
 using UniversalReports.SBPerformance;
@@ -27,7 +26,6 @@ namespace UniversalReports.Sites.SimpleInjector
         private static IEnumerable<Assembly> GetAssemblies()
         {
             yield return typeof(PunterAnalysisAttribute).GetTypeInfo().Assembly;
-            yield return typeof(PlayForFunAttribute).GetTypeInfo().Assembly;
             yield return typeof(UpdatedUsernameAndCreditAttribute).GetTypeInfo().Assembly;
             yield return typeof(ExchangeAttribute).GetTypeInfo().Assembly;
             yield return typeof(ActualMemberBetAttribute).GetTypeInfo().Assembly;

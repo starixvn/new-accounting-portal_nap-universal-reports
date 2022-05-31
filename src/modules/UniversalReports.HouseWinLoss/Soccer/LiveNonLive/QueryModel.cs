@@ -13,6 +13,8 @@ namespace UniversalReports.HouseWinLoss.Soccer.LiveNonLive
 
         public bool IsNoDraw { get; set; }
 
-        public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
+        public int AliasProductID { get; set; }
+
+        public int PermissionProfileID { get; set; }
     }
 }

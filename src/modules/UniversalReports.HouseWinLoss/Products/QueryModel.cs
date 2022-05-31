@@ -10,7 +10,7 @@ namespace UniversalReports.HouseWinLoss.Products
 
         public bool NormalMode { get; set; } = true;
 
-        public string[] Permissions { get; set; }
+        public int PermissionProfileID { get; set; }
 
         public bool IsNoDraw { get; set; }
     }

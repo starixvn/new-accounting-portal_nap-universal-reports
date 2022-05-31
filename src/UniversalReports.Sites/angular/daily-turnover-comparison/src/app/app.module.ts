@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { SpinnerModule } from 'nap-components/spinner';
 import { NavbarModule, NavbarService } from 'nap-components/navbar';
+import { CustomNavbarService } from './custom-navbar-service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { NavbarModule, NavbarService } from 'nap-components/navbar';
     NavbarModule.forRoot(),
     SpinnerModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: NavbarService, useClass: CustomNavbarService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,6 @@ using ONEbook.UM.Transport;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Core.Configurations;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
@@ -33,7 +32,6 @@ namespace UniversalReports.Sites.SimpleInjector
 
             container.RegisterSingleton<ICache>(() => new MemoryCache(new MemoryCacheOptions()));
             container.Register<BalanceUpService, BalanceUpServiceImp>();
-            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
             container.Register<IDynamicRepository, DynamicRepository>();
             container.Register<ConfigurationService, ConfigurationServiceImp>();

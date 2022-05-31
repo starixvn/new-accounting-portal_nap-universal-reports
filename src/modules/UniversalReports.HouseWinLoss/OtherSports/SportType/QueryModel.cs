@@ -14,5 +14,7 @@ namespace UniversalReports.HouseWinLoss.OtherSports.SportType
         public bool NormalMode { get; set; } = true;
 
         public bool IsNoDraw { get; set; }
+
+        public int PermissionProfileID { get; set; }
     }
 }

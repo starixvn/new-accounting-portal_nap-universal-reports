@@ -34,7 +34,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.OutrightMatchD
         [Route("")]
         public IHttpActionResult Json(QueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalSportbookMatchDetailCriteria>(queryModel);
             var gridOptions = GetGridOptions(criteria, string.Empty, queryModel.SortColumnName, queryModel.SortDirection);
             return Json(gridOptions);
         }
@@ -42,7 +42,7 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.OutrightMatchD
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalSportbookMatchDetailCriteria>(queryModel);
             var gridOptions = GetGridOptions(criteria, queryModel.Title, queryModel.SortColumnName, queryModel.SortDirection);
             return new FanexExcelResult(gridOptions, Constants.SoccerMinorBetTypesSheetName);
         }

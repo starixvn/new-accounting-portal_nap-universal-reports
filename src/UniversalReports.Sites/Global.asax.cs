@@ -13,7 +13,6 @@ using UniversalReports.CN88WinLoss;
 using UniversalReports.Exchange;
 using UniversalReports.HouseWinLoss;
 using UniversalReports.NG2Statistics;
-using UniversalReports.PlayForFun;
 using UniversalReports.PunterAnalysis;
 using UniversalReports.SBCustomerPerformanceByDanger;
 using UniversalReports.SBPerformance;
@@ -42,7 +41,6 @@ namespace UniversalReports.Sites
             {
                 cfg.InitializeHouseWinLoss();
                 cfg.InitializeNG2Statistics();
-                cfg.InitializePlayForFun();
                 cfg.InitializePunterAnalysis();
                 cfg.InitializeUpdatedUsernameCredit();
                 cfg.InitializeExchange();

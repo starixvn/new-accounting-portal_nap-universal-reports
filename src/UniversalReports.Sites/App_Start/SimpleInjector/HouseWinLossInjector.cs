@@ -40,7 +40,7 @@ namespace UniversalReports.Sites.SimpleInjector
             container.Register<MatchDetail.GetTeamNameAndSuffixService, MatchDetail.GetTeamNameAndSuffixServiceImp>();
             container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>();
             container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>();
-            container.Register<Products.PermissionFilterService, Products.PermissionFilterServiceImp>();
+            container.Register<CommonServices.PermissionFilterService, CommonServices.PermissionFilterServiceImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
             container.Register<SimpleGrid.SimpleCriteriaFactory, SimpleGrid.SimpleCriteriaFactoryImp>();

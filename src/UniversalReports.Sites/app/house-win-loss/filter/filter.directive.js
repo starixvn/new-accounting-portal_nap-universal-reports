@@ -28,8 +28,8 @@ import moment from "moment";
         vm.minDate= moment("20110101", "YYYYMMDD");
         vm.currentLevel = 0;
         vm.accessDenied = modePermissions.length === 0 || productPermissions.length === 0;
-        vm.normalMode = modePermissions.indexOf("HouseWinLossByProducts_NormalMode") >= 0;
-        vm.showBothMode = modePermissions.indexOf("HouseWinLossByProducts_NormalMode") >= 0 && modePermissions.indexOf("HouseWinLossByProducts_HistoryMode") >= 0;
+        vm.normalMode = modePermissions.indexOf("HouseWLByProducts_NormalMode") >= 0;
+        vm.showBothMode = modePermissions.indexOf("HouseWLByProducts_NormalMode") >= 0 && modePermissions.indexOf("HouseWLByProducts_HistoryMode") >= 0;
         vm.today = config.today;
         vm.yesterday = config.yesterday;
         vm.date = config.today;
@@ -44,7 +44,8 @@ import moment from "moment";
         vm.updateDateRange = updateDateRange;
         vm.dataMenuId = 487;
         vm.legentTitle = 'House Win Loss Legend';
-        vm.turnover = 0;
+        vm.turnover = false;
+        vm.permissionProfileID = parseInt(permissionProfileID);
 
         $scope.$on('nap-filter-date', function (event, data) {
             updateDateRange(data);
@@ -86,14 +87,16 @@ import moment from "moment";
                     normalMode: vm.normalMode,
                     startDate: vm.date,
                     endDate: vm.date,
-                    isNoDraw: vm.turnover
+                    isNoDraw: parseInt(vm.turnover) === 1,
+                    permissionProfileID: vm.permissionProfileID
                 };
             } else {
                 return {
                     normalMode: vm.normalMode,
                     startDate: vm.startDate,
                     endDate: vm.endDate,
-                    isNoDraw: vm.turnover
+                    isNoDraw: parseInt(vm.turnover) === 1,
+                    permissionProfileID: vm.permissionProfileID
                 };
             }
         }

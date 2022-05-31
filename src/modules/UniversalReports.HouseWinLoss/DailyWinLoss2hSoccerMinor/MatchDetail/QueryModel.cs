@@ -21,7 +21,11 @@ namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.MatchDetail
 
         public int IsCorners { get; set; } = Constants.CornersDefault;
 
-        public int IsSabaSport { get; set; } = Constants.IsAllSportDefault;
+        public bool IsNoDraw { get; set; }
+
+        public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
+
+        public int PermissionProfileID { get; set; } = 1;
 
         public string SortColumnName { get; set; }
 

@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using Fanex.Excel.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
-using AutoMapper;
-using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.HouseWinLoss.SimpleGrid.SimpleCriteria;
 using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.NG2.BetType
@@ -32,7 +32,7 @@ namespace UniversalReports.HouseWinLoss.NG2.BetType
         [Route("api/house-win-loss-by-products/ng2-live-non-live/excel")]
         public async Task<IHttpActionResult> ExcelLiveNonLive(ExcelLiveNonLiveQueryModel queryModel)
         {
-            var criteria = Mapper.Map<UniversalBetTypeCriteria>(queryModel);
+            var criteria = Mapper.Map<UniversalThirdPartyBetTypeCriteria>(queryModel);
             var winlosses = await QueryLiveNonLiveBetType(criteria);
 
             var nonLiveGridOptions = builder.Build(winlosses[0], queryModel.NonLiveTitle);
@@ -44,7 +44,7 @@ namespace UniversalReports.HouseWinLoss.NG2.BetType
             return new FanexExcelResult(new List<GridOptions> { nonLiveGridOptions, liveGridOptions }, Constants.SheetName);
         }
 
-        private async Task<BasicWinLossModel[]> QueryLiveNonLiveBetType(UniversalBetTypeCriteria criteria)
+        private async Task<BasicWinLossModel[]> QueryLiveNonLiveBetType(UniversalThirdPartyBetTypeCriteria criteria)
         {
             var liveCriteria = criteria.Clone();
             liveCriteria.IsLive = 1;

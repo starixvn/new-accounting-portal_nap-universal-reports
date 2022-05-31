@@ -64,8 +64,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.NAP.Core.Client, Version=1.2.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.NAP.Core.Client.1.2.1.12\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\packages\Fanex.NAP.Core.Client.2.0.0\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.RemotingRef, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.RemotingRef.1.5.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
@@ -184,30 +183,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
-    <Compile Include="BetBuilder\BetType\BetBuilderBetTypeCriteria.cs" />
     <Compile Include="BetBuilder\BetType\ExcelQueryModel.cs" />
     <Compile Include="BetBuilder\BetType\QueryModel.cs" />
     <Compile Include="BetBuilder\BetType\BetBuilderBetTypeController.native.cs" />
-    <Compile Include="BetBuilder\SportType\Criteria.cs" />
+    <Compile Include="BetBuilder\MatchDetail\ExcelQueryModel.cs" />
+    <Compile Include="BetBuilder\MatchDetail\QueryModel.cs" />
+    <Compile Include="BetBuilder\MatchDetail\BetBuilderMatchDetailController.cs" />
+    <Compile Include="BetBuilder\Site\ExcelQueryModel.cs" />
+    <Compile Include="BetBuilder\Site\QueryModel.cs" />
+    <Compile Include="BetBuilder\Site\BetBuilderSiteController.cs" />
     <Compile Include="BetBuilder\SportType\ExcelQueryModel.cs" />
     <Compile Include="BetBuilder\SportType\BetBuilderSportTypeController..native.cs" />
     <Compile Include="BetBuilder\SportType\QueryModel.cs" />
-    <Compile Include="Bullfighting\MatchDetail\Criteria.cs" />
     <Compile Include="Bullfighting\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="Bullfighting\MatchDetail\QueryModel.cs" />
     <Compile Include="Bullfighting\MatchDetail\BullfightingMatchDetailController.cs" />
-    <Compile Include="CashOut\LiveNonLive\Criteria.cs" />
     <Compile Include="CashOut\LiveNonLive\ExcelQueryModel.cs" />
     <Compile Include="CashOut\LiveNonLive\CashOutLiveNonLiveController.cs" />
     <Compile Include="CashOut\LiveNonLive\CashOutLiveNonLiveWinLossService.cs" />
     <Compile Include="CashOut\LiveNonLive\QueryModel.cs" />
     <Compile Include="CashOut\MatchDetail\CashOutMatchDetailController.cs" />
-    <Compile Include="CashOut\MatchDetail\Criteria.cs" />
     <Compile Include="CashOut\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="CashOut\MatchDetail\GridOptionsBuilder.cs" />
     <Compile Include="CashOut\MatchDetail\QueryModel.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
+    <Compile Include="Common\Criteria\NumberGameDrilldownCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalSecondLevelCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalSportbookMatchDetailCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalThirdPartyMatchDetailCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalThirdPartySiteCriteria.cs" />
+    <Compile Include="Common\Criteria\UniversalThirdPartyBetTypeCriteria.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\BettypeGridOptionColumnDecorator.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\BettypeGridOptionColumnDecoratorFull.native.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\SoccerMinorMatchGridOptionColumnDecoratorFull.cs" />
@@ -216,14 +222,7 @@
     <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\SoccerMinorMatchGridOptionColumnDecorator.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\Sort.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\SortingInformation.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\CashOutSiteCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\BetTradeBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\BetTradeSiteCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\CasinoBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\CasinoSiteCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\CasinoProductCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\ColossusBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\ColossusSiteCriteria.cs" />
+    <Compile Include="Common\Criteria\PermissionCriteria.cs" />
     <Compile Include="Common\BasicWinLoss\BasicGridDataRowBuilder.native.cs" />
     <Compile Include="Common\BasicWinLoss\BasicGridOptionsBuilder.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBasic.native.cs" />
@@ -235,10 +234,6 @@
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecorator.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorBase.native.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnDecoratorFull.native.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\NonSportsRNGBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\NumberGameLeagueCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\NumberGameBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\NumberGameSiteCriteria.cs" />
     <Compile Include="Common\Extensions\ExcelValueExtension.cs" />
     <Compile Include="Common\MatchDetailByCode\GridOptionsBuilder.cs" />
     <Compile Include="Common\MatchDetailByCode\LeagueWinLoss.cs" />
@@ -253,11 +248,9 @@
     <Compile Include="Common\Models\GridDecorationModel.cs" />
     <Compile Include="Common\SiteWinLoss\SiteWinLossController.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\Site\Criteria.cs" />
-    <Compile Include="MetricGaming\BetType\Criteria.cs" />
     <Compile Include="MetricGaming\BetType\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\BetType\MetricGamingBetTypeController.cs" />
     <Compile Include="MetricGaming\BetType\QueryModel.cs" />
-    <Compile Include="MetricGaming\Site\Criteria.cs" />
     <Compile Include="MetricGaming\Site\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\Site\MetricGamingSiteController.cs" />
     <Compile Include="MetricGaming\Site\QueryModel.cs" />
@@ -273,7 +266,6 @@
     <Compile Include="Parlay\BetType\ExcelQueryModel.cs" />
     <Compile Include="Parlay\BetType\ParlayBetTypeController.cs" />
     <Compile Include="Parlay\BetType\QueryModel.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\NonSportsRNGSportTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleSiteGridController.cs" />
     <Compile Include="Configuration\Constants.cs" />
     <Compile Include="Common\Criteria\WinLossCriteria.cs" />
@@ -283,11 +275,9 @@
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\QueryModel.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\SoccerMinorBetTypeController.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\SoccerMinorBetTypeFullController.cs" />
-    <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\Criteria.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\QueryModel.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\SoccerMinorMatchDetailController.cs" />
-    <Compile Include="DailyWinLoss2hSoccerMinor\OutrightMatchDetail\Criteria.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\OutrightMatchDetail\ExcelQueryModel.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\OutrightMatchDetail\QueryModel.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\OutrightMatchDetail\SoccerMinorOutrightMatchDetailController.cs" />
@@ -299,12 +289,10 @@
     <Compile Include="DailyWinLoss2hSoccerMinor\SportType\QueryModel.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\SportType\SoccerMinorSportTypeController.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="MetricGaming\LiveNonLive\Criteria.cs" />
     <Compile Include="MetricGaming\LiveNonLive\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveController.cs" />
     <Compile Include="MetricGaming\LiveNonLive\MetricGamingLiveNonLiveWinLossService.cs" />
     <Compile Include="MetricGaming\LiveNonLive\QueryModel.cs" />
-    <Compile Include="MetricGaming\MatchDetail\Criteria.cs" />
     <Compile Include="MetricGaming\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="MetricGaming\MatchDetail\QueryModel.cs" />
     <Compile Include="MetricGaming\MatchDetail\MetricGamingMatchDetailController.cs" />
@@ -323,15 +311,13 @@
     <Compile Include="Parlay\Site\SiteModel.cs" />
     <Compile Include="Parlay\Site\SiteParlayModel.cs" />
     <Compile Include="Parlay\Site\WinLossService.cs" />
-    <Compile Include="Products\PermissionFilterService.cs" />
-    <Compile Include="Products\PermissionKeys.cs" />
+    <Compile Include="Common\Services\PermissionFilterService.cs" />
     <Compile Include="Products\ProductConstant.cs" />
     <Compile Include="Products\ProductWinLoss.cs" />
     <Compile Include="Common\Models\WinLossRaw.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossModel.cs" />
     <Compile Include="Common\Models\SiteWinLossSummary.cs" />
     <Compile Include="Common\Models\WinLoss.cs" />
-    <Compile Include="Common\BalanceUpServices\BalanceUpSourceChooser.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossService.cs" />
     <Compile Include="Common\Services\CalculationService.cs" />
     <Compile Include="Common\Services\RawWinLossService.cs" />
@@ -351,20 +337,15 @@
     <Compile Include="Products\ExcelQueryModel.cs" />
     <Compile Include="NumberGame\MatchDetail\NumberGameMatchDetailController.cs" />
     <Compile Include="NumberGame\MatchDetail\QueryModel.cs" />
-    <Compile Include="NumberGame\MatchDetail\Criteria.cs" />
     <Compile Include="Products\GridOptionsBuilder.cs" />
     <Compile Include="Products\ProductController.cs" />
     <Compile Include="Products\Criteria.cs" />
     <Compile Include="Products\QueryModel.cs" />
     <Compile Include="Products\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\RacingBetTypeCriteria.cs" />
     <Compile Include="Racing\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="Racing\MatchDetail\RacingMatchDetailController.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\RacingSiteCriteria.cs" />
-    <Compile Include="Racing\MatchDetail\Criteria.cs" />
     <Compile Include="Racing\MatchDetail\QueryModel.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\RacingSportTypeCriteria.cs" />
     <Compile Include="SimpleGrid\SimpleGridController.cs" />
     <Compile Include="SimpleGrid\SimpleCriteriaFactory.native.cs" />
     <Compile Include="Soccer\BaseService\BaseGridOptionsBuilder.cs" />
@@ -407,48 +388,30 @@
     <Compile Include="Soccer\SumBetType\SoccerSumBetTypeController.cs" />
     <Compile Include="Soccer\SumBetType\SumBetTypeWinLossModel.cs" />
     <Compile Include="Soccer\SumBetType\SumBetTypeWinLossService.cs" />
-    <Compile Include="Sportsbook\OutrightMatchDetail\Criteria.cs" />
     <Compile Include="Sportsbook\OutrightMatchDetail\ExcelQueryModel.cs" />
     <Compile Include="Sportsbook\OutrightMatchDetail\QueryModel.cs" />
     <Compile Include="Sportsbook\OutrightMatchDetail\SportsbookOutrightMatchDetailController.cs" />
-    <Compile Include="Sportsbook\MatchDetail\Criteria.cs" />
     <Compile Include="Sportsbook\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="Common\MatchDetail\GridOptionsBuilder.cs" />
     <Compile Include="Sportsbook\MatchDetail\QueryModel.cs" />
     <Compile Include="Sportsbook\MatchDetail\SportsbookMatchDetailController.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\FishingWorldBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\FishingWorldSiteCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\PokerGamesBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\PokerGameSiteCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\UniversalSportTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\UniversalBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\UniversalSiteCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\VirtualSportsBetradarBetTypeCriteria.cs" />
-    <Compile Include="Sportsbook\Site\Criteria.cs" />
+    <Compile Include="Common\Criteria\UniversalSportbookSiteCriteria.cs" />
     <Compile Include="Sportsbook\Site\ExcelQueryModel.cs" />
     <Compile Include="Sportsbook\Site\QueryModel.cs" />
     <Compile Include="Sportsbook\Site\SportsbookSiteController.cs" />
-    <Compile Include="VirtualSportsBetradar\MatchDetail\Criteria.cs" />
     <Compile Include="VirtualSportsBetradar\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="VirtualSportsBetradar\MatchDetail\QueryModel.cs" />
     <Compile Include="VirtualSportsBetradar\MatchDetail\VirtualSportsBetradarMatchDetailController.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\VirtualSportsBetradarSiteCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\VirtualSportsBetradarSportTypeCriteria.cs" />
     <Compile Include="VirtualSports\RacingDetail\ExcelQueryModel.cs" />
     <Compile Include="VirtualSports\RacingDetail\VirtualSportsRacingDetailController.cs" />
     <Compile Include="Common\MatchDetail\CalculationService.cs" />
-    <Compile Include="VirtualSports\SportsbookDetail\Criteria.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\ExcelQueryModel.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\QueryModel.cs" />
     <Compile Include="Common\MatchDetail\RawWinLossService.cs" />
     <Compile Include="Common\MatchDetail\RawWinLoss.cs" />
     <Compile Include="VirtualSports\SportsbookDetail\VirtualSportsSportsbookDetailController.cs" />
     <Compile Include="Common\MatchDetail\WinLoss.cs" />
-    <Compile Include="VirtualSports\RacingDetail\Criteria.cs" />
     <Compile Include="VirtualSports\RacingDetail\QueryModel.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\VirtualSportsSiteCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\VirtualSportsBetTypeCriteria.cs" />
-    <Compile Include="SimpleGrid\SimpleCriteria\VirtualSportsSportTypeCriteria.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">

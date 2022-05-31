@@ -3,8 +3,11 @@ using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
+using Olympus.FPSAPI.Client;
+using Olympus.FPSAPI.Client.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
@@ -47,8 +50,19 @@ namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
             var repository = Substitute.For<IDynamicRepository>();
             repository.FetchAsync<AssociatedSummaryModel>(Arg.Compat.Any<ICriteria>()).Returns(memberNonEmptySummary);
 
+            var listOfUserDevice = new List<CustomerDevice> {
+                 new CustomerDevice { Account = "member01" },
+                 new CustomerDevice { Account = "member02" },
+                 new CustomerDevice { Account = "agent01" },
+            };
+            var fraudService = Substitute.For<FraudServiceWrapper>();
+            fraudService.GetAssociatedCustomers(Arg.Compat.Any<string>(), Arg.Compat.Any<int>()).Returns(listOfUserDevice);
+            fraudService.GetCategory(Arg.Compat.Any<string>(), Arg.Compat.Any<string>()).Returns("category 1");
+
+            var configurationService = Substitute.For<ConfigurationService>();
+
             // Act
-            var facade = new AssociatedFacadeImp(repository);
+            var facade = new AssociatedFacadeImp(repository, fraudService, configurationService);
             var viewModel = await facade.Query(new HttpParameterJson());
 
             // Assert

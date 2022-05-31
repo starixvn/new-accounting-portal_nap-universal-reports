@@ -131,38 +131,17 @@
                 {
 					case SiteEnvironment.DEV:
 					case SiteEnvironment.LOCAL:
-						return "http://ha.nexdev.net:1712/api";
+						return "http://nap_api_netcore.nexdev.net:8787";
                     case SiteEnvironment.SIT:
-						return "http://172.16.4.106:1710/api";
+						return "http://172.16.2.44:8788";
                     case SiteEnvironment.UAT:
-						return "http://10.99.99.51:1710/api";
+						return "http://10.2.27.8:8788";
 					case SiteEnvironment.PRO:
+                       return "http://10.2.27.8:8788";
                     case SiteEnvironment.PROAWS:
-						return "http://10.99.99.51:1710/api";
+						return "http://vn-net-lb-fb2f50db9dc92512.elb.ap-northeast-1.amazonaws.com:8788";
 					case SiteEnvironment.MNL:
-                        return "http://10.2.98.3:1710/api";
-					default:
-                        return string.Empty;
-                }
-            }
-        }
-
-		public string NapAccessKey
-		 {
-            get
-            {
-                switch(Environment)
-                {
-					case SiteEnvironment.DEV:
-					case SiteEnvironment.LOCAL:
-						return "HTAiA6W/kzs0PjSnm3ll1kD7tXPyDyO0gTeD8Nz6078=";
-                    case SiteEnvironment.SIT:
-						return "ZU5inpesUej+dCIxitApgXAiRhK0N7uCuVHCCjPyT9o=";
-                    case SiteEnvironment.UAT:
-					case SiteEnvironment.PRO:
-                    case SiteEnvironment.PROAWS:
-					case SiteEnvironment.MNL:
-                        return "ZU5inpesUej+dCIxitApgXAiRhK0N7uCuVHCCjPyT9o=";
+                       return "http://10.2.27.8:8788";
 					default:
                         return string.Empty;
                 }

@@ -40,7 +40,7 @@ import { CustomNavbarService } from './custom-navbar-service';
     FilterModule
   ],
   providers: [
-    { provide: NavbarService, useClass: CustomNavbarService },
+  { provide: NavbarService, useClass: CustomNavbarService },
     AppService,
     {
       provide: APP_INITIALIZER,

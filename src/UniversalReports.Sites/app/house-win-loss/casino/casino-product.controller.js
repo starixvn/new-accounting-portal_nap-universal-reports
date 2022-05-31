@@ -31,9 +31,10 @@ import angular from "angular";
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
-                casinoProductId: productId,
                 casinoProductName: productName
             });
+
+            data.aliasProductID = productId;
             tab.goForward('betType', data);
         }
 

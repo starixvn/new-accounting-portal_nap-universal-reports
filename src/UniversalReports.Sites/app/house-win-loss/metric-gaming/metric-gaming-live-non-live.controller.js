@@ -76,7 +76,7 @@ import angular from "angular";
             angular.extend(data, {
                 betType: betType,
                 betTypeName: betTypeName,
-                site: site,
+                siteType: site,
                 mainColumnText: site,
                 isHegde: isHegde
             });

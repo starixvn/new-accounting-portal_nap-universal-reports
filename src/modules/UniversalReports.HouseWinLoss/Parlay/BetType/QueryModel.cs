@@ -9,5 +9,11 @@ namespace UniversalReports.HouseWinLoss.Parlay.BetType
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;
+
+        public int AliasProductID { get; set; }
+
+        public int PermissionProfileID { get; } = 1;
+
+        public bool IsNoDraw { get; set; }
     }
 }

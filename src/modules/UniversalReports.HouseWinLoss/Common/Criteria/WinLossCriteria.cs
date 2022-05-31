@@ -13,9 +13,6 @@ namespace UniversalReports.HouseWinLoss.Common.Criteria
 
         public DateTime EndDate { get; set; }
 
-        [SpParam(Ignored = true)]
-        public string Source { get; set; }
-
         public override bool IsValid() => true;
     }
 }

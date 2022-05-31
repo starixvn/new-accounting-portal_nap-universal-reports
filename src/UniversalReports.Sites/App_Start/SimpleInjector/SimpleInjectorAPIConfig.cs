@@ -21,7 +21,6 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterHouseWinLossServices()
                 .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()
-                .RegisterPlayForFunServices()
                 .RegisterUpdatedUsernameAndCreditServices()
                 .RegisterExchangeServices()
                 .RegisterActualMemberBetServices()

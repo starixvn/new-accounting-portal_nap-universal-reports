@@ -10,6 +10,10 @@ namespace UniversalReports.HouseWinLoss.CashOut.LiveNonLive
 
         public bool NormalMode { get; set; } = true;
 
-        public int IsLive { get; set; }
+        public bool IsNoDraw { get; set; }
+
+        public int AliasProductID { get; set; }
+
+        public int PermissionProfileID { get; set; }
     }
 }

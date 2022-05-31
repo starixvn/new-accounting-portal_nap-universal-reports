@@ -18,7 +18,7 @@
 
         public decimal VirtualIncome { get; set; }
 
-        public decimal VarianceIncome { get; set; }
+        public decimal Variance { get; set; }
 
         public decimal ExtraPT { get; set; }
 

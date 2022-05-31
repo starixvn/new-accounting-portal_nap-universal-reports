@@ -29,7 +29,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
                 Commission = 10m,
                 RealIncome = 200m,
                 VirtualIncome = 200m,
-                VarianceIncome = 0m,
+                Variance = 0m,
                 RealTurnover = 400m,
                 VirtualTurnover = 400m
             };
@@ -52,7 +52,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
                 Commission = 20m,
                 RealIncome = 400m,
                 VirtualIncome = 400m,
-                VarianceIncome = 0m,
+                Variance = 0m,
                 RealTurnover = 800m,
                 VirtualTurnover = 800m
             };
@@ -75,7 +75,7 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Common.MatchDetail
                 Commission = 30m,
                 RealIncome = 600m,
                 VirtualIncome = 600m,
-                VarianceIncome = 0m,
+                Variance = 0m,
                 RealTurnover = 1200m,
                 VirtualTurnover = 1200m
             };

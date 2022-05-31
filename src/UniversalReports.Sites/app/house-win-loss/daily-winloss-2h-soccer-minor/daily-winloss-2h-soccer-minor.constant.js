@@ -8,7 +8,7 @@ import moment from "moment";
             mainView: "product",
             product: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "SportTypeController",
+                controller: "Daily2hSoccerSportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/soccer-minor/sport-type",
                 mainParameters: { sheetName: "Soccer Minor Bet Types", type: "soccer-minor-sport-type", mainColumnText: "Sport Type", mainColumnWidth: 210 },

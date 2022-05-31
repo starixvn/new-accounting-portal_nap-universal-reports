@@ -29,7 +29,7 @@ namespace UniversalReports.CashOutPerformance.Common
                 "CashOutPerformance",
                 "LIVE")
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
-                .Select(p => p.Function.Key);
+                .Select(p => p.Key);
             return Json(permissions.Contains("CashOut_FullView"));
         }
     }

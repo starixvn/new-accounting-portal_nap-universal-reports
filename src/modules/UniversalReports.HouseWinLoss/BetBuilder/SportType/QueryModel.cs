@@ -1,5 +1,4 @@
 ﻿using System;
-using UniversalReports.HouseWinLoss.Configuration;
 
 namespace UniversalReports.HouseWinLoss.BetBuilder.SportType
 {
@@ -10,5 +9,11 @@ namespace UniversalReports.HouseWinLoss.BetBuilder.SportType
         public DateTime EndDate { get; set; }
 
         public bool NormalMode { get; set; } = true;
+
+        public bool IsNoDraw { get; set; }
+
+        public int AliasProductID { get; set; }
+
+        public int PermissionProfileID { get; set; }
     }
 }

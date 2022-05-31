@@ -25,11 +25,11 @@ export class CustomNavbarService extends NavbarService {
             this.userMenus = [
                 {
                     name: 'Change Password',
-                    link: this.legacyPath + '/UserControl/User/ChangePassword'
+                    link: this.legacyPath + '/Auth/ChangePassword'
                 },
                 {
                     name: 'Sign Out',
-                    link: this.legacyPath + '/UserLogin/Login/LogOut'
+                    link: this.legacyPath + '/Auth/LogOut'
                 }
             ];
 

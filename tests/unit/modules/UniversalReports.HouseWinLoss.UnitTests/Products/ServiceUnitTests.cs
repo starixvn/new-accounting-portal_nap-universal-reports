@@ -26,11 +26,8 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
             var rawWinLossService = Substitute.For<RawWinLossService>();
             rawWinLossService.Query(Arg.Compat.Any<WinLossCriteria>()).Returns(fakeData);
 
-            var permissionFilterService = Substitute.For<PermissionFilterService>();
-            permissionFilterService.Filter(Arg.Compat.Any<IEnumerable<WinLossRaw>>(), Arg.Compat.Any<IEnumerable<string>>()).Returns(fakeData);
-
             // Act
-            var service = new ServiceImp(rawWinLossService, permissionFilterService, calculationService);
+            var service = new ServiceImp(rawWinLossService, calculationService);
             var result = service.Query(new QueryModel());
 
             // Assert
@@ -48,10 +45,9 @@ namespace UniversalReports.HouseWinLoss.UnitTests.Products
             refService.GetMatchCode(Arg.Compat.Any<string>()).Returns("Any Name");
             var calculationService = new CalculationServiceImp(refService);
             var rawWinLossService = Substitute.For<RawWinLossService>();
-            var permissionFilterService = Substitute.For<PermissionFilterService>();
 
             // Act
-            var service = new ServiceImp(rawWinLossService, permissionFilterService, calculationService);
+            var service = new ServiceImp(rawWinLossService, calculationService);
             var result = service.GetProductGroup(fakeData, "Non-Sports Total");
 
             // Assert

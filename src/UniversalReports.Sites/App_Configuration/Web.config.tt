@@ -32,8 +32,7 @@
 		UnauthorizeUrl="~/Error/AccessDenied"
 		EnableReCheckin="<#= site.NapEnableReCheckin #>"
 		HubUrl=""
-		ServiceUrls="<#= site.NapServiceUrls #>"
-		AccessKey="<#= site.NapAccessKey #>" >
+		ServiceUrls="<#= site.NapServiceUrls #>" >
 	<Domain>
 		<add Name="<#= site.NapDomainName #>" Path="<#= site.NapDomainPath #>" />
 	</Domain>
@@ -69,7 +68,7 @@
 			  name=".REPORTASPXAUTH"
 			  ticketCompatibilityMode="Framework40"
 			  loginUrl="~/Common/SessionExpired"
-			  timeout="20"
+			  timeout="60"
 			  defaultUrl="~/Home" />
 		</authentication>
 		<authorization>

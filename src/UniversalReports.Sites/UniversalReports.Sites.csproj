@@ -24,8 +24,10 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <FileUpgradeFlags>40</FileUpgradeFlags>
-    <UpgradeBackupLocation>D:\Projects\nap-universal-reports\Backup44\</UpgradeBackupLocation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
     <OldToolsVersion>12.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <IISExpressWindowsAuthentication />
@@ -138,8 +140,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.NAP.Core.Client, Version=1.2.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.NAP.Core.Client.1.2.1.12\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\Fanex.NAP.Core.Client.2.0.0\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.RemotingRef, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.RemotingRef.1.5.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
@@ -400,8 +401,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UniversalReports.Application, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Olympus.UniversalReports.Application.1.0.1.4\lib\net461\UniversalReports.Application.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\packages\Olympus.UniversalReports.Application.1.0.1.5\lib\net461\UniversalReports.Application.dll</HintPath>
     </Reference>
     <Reference Include="UniversalReports.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Olympus.UniversalReports.MVC.1.0.1\lib\net461\UniversalReports.MVC.dll</HintPath>
@@ -438,7 +438,6 @@
     <Compile Include="App_Start\SimpleInjector\CN88WinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjector.cs" />
-    <Compile Include="App_Start\SimpleInjector\PlayForFunInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\PunterAnalysisInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\NG2Injector.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -487,6 +486,7 @@
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-2h-soccer-bettype-full.controller.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\soccer-minor-bettype.service.js" />
     <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-2h-soccer-match-detail.controller.js" />
+    <Content Include="app\house-win-loss\daily-winloss-2h-soccer-minor\daily-2h-socer-sport-type.controller.js" />
     <Content Include="app\house-win-loss\filter\filter.directive.html" />
     <Content Include="app\house-win-loss\filter\filter.directive.js" />
     <Content Include="app\house-win-loss\grid\product-show-hide-column.service.js" />
@@ -772,18 +772,12 @@
     <Content Include="wwwroot\exchange\favicon.ico" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.912ec66d7572ff821749.svg" />
     <Content Include="wwwroot\exchange\index.html" />
-    <Content Include="wwwroot\exchange\inline.bundle.js" />
-    <Content Include="wwwroot\exchange\main.bundle.js" />
-    <Content Include="wwwroot\exchange\polyfills.bundle.js" />
-    <Content Include="wwwroot\exchange\styles.bundle.css" />
-    <Content Include="wwwroot\exchange\vendor.bundle.js" />
-    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.912ec66d7572ff821749.svg" />
-    <Content Include="wwwroot\play-for-fun\index.html" />
-    <Content Include="wwwroot\play-for-fun\inline.bundle.js" />
-    <Content Include="wwwroot\play-for-fun\main.bundle.js" />
-    <Content Include="wwwroot\play-for-fun\polyfills.bundle.js" />
-    <Content Include="wwwroot\play-for-fun\styles.bundle.css" />
-    <Content Include="wwwroot\play-for-fun\vendor.bundle.js" />
+    <Content Include="wwwroot\exchange\logo.c6dee9a0f0d2da3e324d.png" />
+    <Content Include="wwwroot\exchange\main.js" />
+    <Content Include="wwwroot\exchange\polyfills.js" />
+    <Content Include="wwwroot\exchange\runtime.js" />
+    <Content Include="wwwroot\exchange\spinner.ea9634b3c5182edadb3c.gif" />
+    <Content Include="wwwroot\exchange\styles.css" />
     <Content Include="wwwroot\punter-analysis\3rdpartylicenses.txt" />
     <Content Include="wwwroot\punter-analysis\assets\logo.png" />
     <Content Include="wwwroot\punter-analysis\assets\spinner.gif" />
@@ -1141,22 +1135,12 @@
     </Content>
     <Content Include="Views\Shared\_AngularLayout.cshtml" />
     <Content Include="Views\FakeLogin\Index.cshtml" />
-    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
-    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
-    <Content Include="wwwroot\play-for-fun\fontawesome-webfont.fee66e712a8a08eef580.woff" />
-    <Content Include="wwwroot\play-for-fun\index.cshtml" />
     <Content Include="UniversalReports.Sites.ruleset" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\updated-username-credit\index.cshtml" />
-    <Content Include="wwwroot\exchange\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="wwwroot\exchange\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
-    <Content Include="wwwroot\exchange\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
-    <Content Include="wwwroot\exchange\fontawesome-webfont.fee66e712a8a08eef580.woff" />
-    <Content Include="wwwroot\exchange\index.cshtml" />
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\actual-member-bet\fontawesome-webfont.fee66e712a8a08eef580.woff" />
@@ -1182,11 +1166,6 @@
     <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\voiding-settled-tickets\index.cshtml" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.fee66e712a8a08eef580.woff" />
-    <Content Include="wwwroot\daily-turnover-comparison\index.cshtml" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1197,6 +1176,16 @@
     <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\cash-out-performance\index.cshtml" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\daily-turnover-comparison\index.cshtml" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="wwwroot\exchange\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="wwwroot\exchange\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -1230,10 +1219,6 @@
     <ProjectReference Include="..\modules\UniversalReports.Exchange\UniversalReports.Exchange.csproj">
       <Project>{247f87c2-0b58-4dbb-9caa-2607d4875997}</Project>
       <Name>UniversalReports.Exchange</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\modules\UniversalReports.PlayForFun\UniversalReports.PlayForFun.csproj">
-      <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
-      <Name>UniversalReports.PlayForFun</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.SBCustomerPerformanceByDanger\UniversalReports.SBCustomerPerformanceByDanger.csproj">
       <Project>{e79a0b96-75e6-4a0b-89ce-72965897df56}</Project>
@@ -1278,9 +1263,10 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CFG.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

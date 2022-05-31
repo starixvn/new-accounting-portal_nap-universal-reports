@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
+using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
 using UniversalReports.MVC.Results;
 
@@ -39,7 +40,7 @@ namespace UniversalReports.HouseWinLoss.CashOut.LiveNonLive
 
         private IEnumerable<GridOptions> BuildGridOptions(QueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalSecondLevelCriteria>(queryModel);
             var winlosses = service.Query(criteria).ToArray();
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), "Sport Type");
@@ -53,7 +54,7 @@ namespace UniversalReports.HouseWinLoss.CashOut.LiveNonLive
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var criteria = Mapper.Map<Criteria>(queryModel);
+            var criteria = Mapper.Map<UniversalSecondLevelCriteria>(queryModel);
             var winlosses = service.Query(criteria).ToArray();
 
             var majorMinorGridOptions = builder.Build(winlosses.First(), queryModel.BetTypeTitle);

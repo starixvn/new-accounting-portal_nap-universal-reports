@@ -6,7 +6,6 @@ using Fanex.Data.Repository;
 using Fanex.RemotingRef;
 using SimpleInjector;
 using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.HouseWinLoss.Common.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Tests.TestDoubles;
 using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
@@ -41,7 +40,6 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<CommonServices.RemotingRef3rdServiceImp, RemotingRef3rdServiceStub>();
 
             container.Register<BalanceUpService, BalanceUpServiceImp>();
-            container.Register<BalanceUpSourceChooser, BalanceUpSourceChooserImp>();
 
             container.Register<CommonServices.CalculationService, CommonServices.CalculationServiceImp>();
             container.Register<CommonServices.RawWinLossService, CommonServices.RawWinLossServiceImp>();
@@ -57,7 +55,7 @@ namespace UniversalReports.HouseWinLoss.Tests
             container.Register<MatchDetail.GetTeamNameAndSuffixService, MatchDetail.GetTeamNameAndSuffixServiceImp>();
             container.Register<MatchDetailByCode.WinLossService, MatchDetailByCode.WinLossServiceImp>();
             container.Register<MatchDetailByCode.GridOptionsBuilder, MatchDetailByCode.GridOptionsBuilderImp>();
-            container.Register<Products.PermissionFilterService, Products.PermissionFilterServiceImp>();
+            container.Register<CommonServices.PermissionFilterService, CommonServices.PermissionFilterServiceImp>();
             container.Register<Products.Service, Products.ServiceImp>();
             container.Register<Products.GridOptionsBuilder, Products.GridOptionsBuilderImp>();
             container.Register<SimpleGrid.SimpleCriteriaFactory, SimpleGrid.SimpleCriteriaFactoryImp>();

@@ -4,8 +4,10 @@ namespace UniversalReports.HouseWinLoss.Parlay.Site
 {
     public class Criteria : WinLossCriteria
     {
-        public string Site { get; set; }
+        public string SiteType { get; set; }
 
-        public override string GetSettingKey() => $"HouseWinLoss-SystemParlay-{Source}";
+        public int PermissionProfileID { get; set; }
+
+        public override string GetSettingKey() => $"HouseWinlossByProducts_LvlN_Parlay";
     }
 }

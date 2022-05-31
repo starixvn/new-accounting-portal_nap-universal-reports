@@ -15,7 +15,7 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.Site
 
         public int BetType { get; set; }
 
-        public string Site { get; set; }
+        public string SiteType { get; set; }
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 
@@ -26,5 +26,7 @@ namespace UniversalReports.HouseWinLoss.Sportsbook.Site
         public bool IsNoDraw { get; set; }
 
         public int IsSabaSport { get; set; } = Constants.IsSabaSportDefault;
+
+        public int PermissionProfileID { get; set; }
     }
 }

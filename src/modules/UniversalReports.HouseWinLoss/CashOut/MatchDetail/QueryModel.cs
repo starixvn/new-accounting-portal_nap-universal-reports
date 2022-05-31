@@ -14,5 +14,9 @@ namespace UniversalReports.HouseWinLoss.CashOut.MatchDetail
         public int IsLive { get; set; } = Constants.LiveDefault;
 
         public int SportType { get; set; }
+
+        public int BetType { get; set; }
+
+        public int PermissionProfileID { get; set; }
     }
 }
