@@ -68,7 +68,7 @@
 			  name=".REPORTASPXAUTH"
 			  ticketCompatibilityMode="Framework40"
 			  loginUrl="~/Common/SessionExpired"
-			  timeout="20"
+			  timeout="60"
 			  defaultUrl="~/Home" />
 		</authentication>
 		<authorization>
