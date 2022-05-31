@@ -45,7 +45,8 @@ namespace UniversalReports.Sites.Controllers
                 .Select(p => p.Key);
 
             ViewBag.ProductPermissions = productPermissions;
-            ViewBag.PermissionProfileID = permissionService.GetPermissionProfileId(productPermissions.FirstOrDefault());
+            var permission = productPermissions.Any() ? productPermissions.FirstOrDefault() : string.Empty;
+            ViewBag.PermissionProfileID = permissionService.GetPermissionProfileId(permission);
             ViewBag.ModePermissions = this.userService.GetPermissions(
                 currentSession.UserId,
                 NapSettings.Settings.SiteId,
