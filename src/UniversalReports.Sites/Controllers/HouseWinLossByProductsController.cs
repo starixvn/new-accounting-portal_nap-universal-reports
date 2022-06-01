@@ -42,6 +42,7 @@ namespace UniversalReports.Sites.Controllers
                 NapSettings.Settings.SiteId,
                 FunctionKeys.HouseWinLossProductPermission)
                 .Where(p => p.Policy >= (int)Constant.Policy.Read)
+                .OrderBy(x => x.Name)
                 .Select(p => p.Key);
 
             ViewBag.ProductPermissions = productPermissions;
