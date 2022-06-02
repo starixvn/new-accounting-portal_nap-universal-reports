@@ -296,7 +296,7 @@ import moment from "moment";
                 controller: "OtherSportsLiveNonLiveController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/other-sports/live-non-live",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", aliasProductID: -4 },
                 getTitleFunction: "getProductTitleLiveNonLive"
             },
             sportType: {
