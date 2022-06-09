@@ -37,7 +37,7 @@ export class EventStatusGridComponent implements Grid {
     return new Observable(observer => {
       this.service.getTickets(this.gridService.filterModel).subscribe(data => {
         this.dataViewModel = data;
-        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total);
+        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total, 'event-status-pagination');
         this.onPageChange();
       });
       observer.complete();
@@ -89,6 +89,7 @@ export class EventStatusGridComponent implements Grid {
     this.gridService.filterModel.liveIndicator = liveStatus;
     this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettypeForSport;
     this.gridService.filterModel.pageSize = this.originalPageSize;
+    this.gridService.filterModel.pageIndex = 1;
     this.gridService.generate(GridType.BetType);
   }
 
