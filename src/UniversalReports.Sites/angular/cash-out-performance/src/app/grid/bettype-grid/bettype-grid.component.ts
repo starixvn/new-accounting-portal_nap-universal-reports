@@ -37,7 +37,7 @@ export class BettypeGridComponent implements Grid {
     return new Observable(observer => {
       this.service.getTickets(this.gridService.filterModel).subscribe(data => {
         this.dataViewModel = data;
-        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total);
+        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total, 'bettype-pagination');
         this.onPageChange();
       });
       observer.complete();
@@ -59,6 +59,7 @@ export class BettypeGridComponent implements Grid {
         this.paginationInstance.itemsPerPage !== this.originalPageSize ? 1 : this.paginationInstance.currentPage;
       this.gridService.filterModel.pageIndex = this.paginationInstance.currentPage;
       this.gridService.filterModel.pageSize = this.paginationInstance.itemsPerPage;
+      this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettypeForSport;
 
       this.service.getTickets(this.gridService.filterModel).subscribe(data => {
         this.dataViewModel = data;
@@ -90,6 +91,7 @@ export class BettypeGridComponent implements Grid {
       this.gridService.cachedSportBettypeForSport.split(',').filter(x => x.split('_')[1] === betType.toString()).join(',');
     this.gridService.filterModel.sportBettype = sportBettypeList;
     this.gridService.filterModel.pageSize = this.originalPageSize;
+    this.gridService.filterModel.pageIndex = 1;
     this.gridService.generate(GridType.MatchDetail);
   }
 

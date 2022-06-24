@@ -40,7 +40,7 @@ export class MatchDetailGridComponent implements Grid {
     return new Observable(observer => {
       this.service.getTickets(this.gridService.filterModel).subscribe(data => {
         this.dataViewModel = data;
-        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total);
+        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total, 'match-detail-pagination');
         this.onPageChange();
       });
       observer.complete();
