@@ -24,8 +24,6 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<OtherSports.BetType.QueryModel, OtherSports.BetType.Criteria>();
             cfg.CreateMap<OtherSports.LiveNonLive.ExcelQueryModel, OtherSports.SportType.Criteria>();
             cfg.CreateMap<OtherSports.LiveNonLive.QueryModel, OtherSports.LiveNonLive.Criteria>();
-            cfg.CreateMap<OtherSports.NewCricket.ExcelQueryModel, OtherSports.NewCricket.Criteria>();
-            cfg.CreateMap<OtherSports.NewCricket.QueryModel, OtherSports.NewCricket.Criteria>();
             cfg.CreateMap<OtherSports.SportType.ExcelQueryModel, OtherSports.SportType.Criteria>();
             cfg.CreateMap<OtherSports.SportType.QueryModel, OtherSports.SportType.Criteria>();
             cfg.CreateMap<Parlay.BetType.ExcelQueryModel, Parlay.BetType.Criteria>();
