@@ -560,6 +560,8 @@
     <Content Include="app\cn88-win-loss\tab\tab.service.js" />
     <Content Include="app\root\components\cn-88-date-range-picker\date-range-picker.directive.html" />
     <Content Include="app\root\components\cn-88-date-range-picker\date-range-picker.directive.js" />
+    <Content Include="app\root\components\house-win-loss-date-range-picker\date-range-picker.directive.html" />
+    <Content Include="app\root\components\house-win-loss-date-range-picker\date-range-picker.directive.js" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-default.css" />
     <Content Include="app\root\components\ngDialog\ngDialog-theme-plain.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />
