@@ -47,6 +47,10 @@ import moment from "moment";
             if (vm.startDate.isAfter(vm.maxDateFrom)) {
                 vm.startDate = data.selectedDate;
             }
+
+            if (vm.startDate.isAfter(vm.endDate)) {
+                vm.endDate = data.startDate;
+            }
         });
 
         $scope.$watch('vm.startDate', function () {
@@ -102,22 +106,22 @@ import moment from "moment";
                 dateto: moment.utc(yesterday)
             };
             var currentWeekConfig = {
-                datefrom: moment.utc(yesterday).startOf('week'),
-                dateto: moment.utc(yesterday)
+                datefrom: moment.utc(today).startOf('isoWeek'),
+                dateto: moment.utc(today)
             };
             var lastWeekConfig = {
-                datefrom: moment.utc(yesterday).subtract(7, 'days').startOf('week'),
-                dateto: moment.utc(yesterday).subtract(7, 'days').endOf('week').subtract({ 'hours': 1 })
+                datefrom: moment.utc(today).subtract(7, 'days').startOf('isoWeek'),
+                dateto: moment.utc(today).subtract(7, 'days').endOf('isoWeek').subtract({ 'hours': 1 })
             };
             var currentMonthConfig = {
-                datefrom: moment.utc(yesterday).startOf('month'),
-                dateto: moment.utc(yesterday)
+                datefrom: moment.utc(today).startOf('month'),
+                dateto: moment.utc(today)
             };
             var lastMonthConfig = {
-                datefrom: moment.utc(yesterday).subtract(1, 'months').startOf('month'),
-                dateto: moment.utc(yesterday).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 })
+                datefrom: moment.utc(today).subtract(1, 'months').startOf('month'),
+                dateto: moment.utc(today).subtract(1, 'months').endOf('month').subtract({ 'hours': 1 })
             };
-            var specificDateConfig = yesterdayConfig;
+            var specificDateConfig = todayConfig;
 
             return {
                 "today": todayConfig,

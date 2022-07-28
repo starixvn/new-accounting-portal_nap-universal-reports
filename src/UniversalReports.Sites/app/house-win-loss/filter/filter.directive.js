@@ -113,15 +113,24 @@ import moment from "moment";
         }
 
         function validDateRange(fromDate, toDate) {
-            var isValidRange = toDate.diff(fromDate, 'days') <= 40;
+            var dateDiff = toDate.diff(fromDate, 'days');
 
-            if (isValidRange) {
-                return true;
-            }
-            else {
-                var contentMsg = "Date range should not exceed 40 days!";
+            if (dateDiff < 0) {
+                var contentMsg = "From Date must be less than or equal to To Date!";
                 showErrorMsg(contentMsg);
                 return false;
+            }
+            else {
+                var isValidRange = dateDiff <= 40;
+
+                if (isValidRange) {
+                    return true;
+                }
+                else {
+                    var contentMsg = "Date range should not exceed 40 days!";
+                    showErrorMsg(contentMsg);
+                    return false;
+                }
             }
         }
 
