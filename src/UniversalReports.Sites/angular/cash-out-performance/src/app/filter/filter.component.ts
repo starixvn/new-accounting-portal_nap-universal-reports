@@ -213,6 +213,11 @@ export class FilterComponent implements OnInit {
       return false;
     }
 
+    if (this.selectedGlobalShowTime.length === 0) {
+      this.toastService.activate(`Please select at least one Global Show Time (GMT + 8)!`);
+      return false;
+    }
+
     const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(3, 'month');
     if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
         this.toastService.activate(`Date range should not exceed 3 months!`);
