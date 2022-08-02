@@ -65,7 +65,7 @@ export class FilterComponent implements OnInit {
         startDate = moment.utc(CONFIG.date.yesterday);
         break;
       case TimePeriod.CurrentWeek:
-        startDate = moment.utc(CONFIG.date.today).startOf('week');
+        startDate = moment.utc(CONFIG.date.today).startOf('isoWeek');
         endDate = moment.utc(CONFIG.date.today);
 
         if (moment(startDate).isBefore(endDate)) {
@@ -73,8 +73,8 @@ export class FilterComponent implements OnInit {
         }
         break;
       case TimePeriod.LastWeek:
-        startDate = moment.utc(CONFIG.date.today).startOf('week').subtract(1, 'week');
-        endDate = moment.utc(startDate).endOf('week');
+        startDate = moment.utc(CONFIG.date.today).startOf('isoWeek').subtract(1, 'week');
+        endDate = moment.utc(startDate).endOf('isoWeek');
         break;
       case TimePeriod.CurrentMonth:
         startDate = moment.utc(CONFIG.date.today).startOf('month');
