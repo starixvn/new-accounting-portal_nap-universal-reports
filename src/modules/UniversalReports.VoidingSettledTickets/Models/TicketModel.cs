@@ -4,7 +4,7 @@ namespace UniversalReports.VoidingSettledTickets.Models
 {
     public class TicketModel
     {
-        public Int64 TransId { get; set; }
+        public string TransId { get; set; }
 
         public string Username { get; set; }
 

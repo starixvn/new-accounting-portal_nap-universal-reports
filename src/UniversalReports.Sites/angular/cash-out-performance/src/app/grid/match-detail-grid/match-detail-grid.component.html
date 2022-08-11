@@ -4,7 +4,7 @@
     <col *ngIf="isShowFullColumn" style="width: 150px" />
     <col style="width: 120px" />
     <col style="width: 120px" />
-    <col style="width: 120px" />
+    <col style="width: 130px" />
     <col style="width: 130px" />
     <col style="width: 150px" />
     <col style="width: 120px" />
@@ -124,7 +124,7 @@
 </ng-template>
 <div *ngIf="dataViewModel" [ngSwitch]="dataViewModel.Total > 0">
   <div class="nap-grid">
-    <div [style.width]="isShowFullColumn ? '4680px' : '4530px'">
+    <div [style.width]="isShowFullColumn ? '4690px' : '4540px'">
       <div class="header">
         <table>
           <ng-template [ngTemplateOutlet]="colgroup"></ng-template>

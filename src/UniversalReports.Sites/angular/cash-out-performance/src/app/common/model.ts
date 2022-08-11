@@ -49,7 +49,7 @@ export interface MatchDetailLevelModel extends CommonTicketModel {
   WLDate: Date;
   Username: string;
   Currency: string;
-  OrigID: number;
+  OrigID: string;
   BuyBackID: string;
   CashOutID: string;
   SportName: string;

@@ -8,7 +8,7 @@ namespace UniversalReports.VoidingSettledTickets.Models
         private string voidedTime;
 
         [Cell("A4")]
-        public Int64 TransId { get; set; }
+        public string TransId { get; set; }
 
         [Cell("B4")]
         public string Username { get; set; }
