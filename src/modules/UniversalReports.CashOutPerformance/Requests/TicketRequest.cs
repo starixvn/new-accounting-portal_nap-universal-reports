@@ -27,5 +27,7 @@ namespace UniversalReports.CashOutPerformance.Requests
         public int PageSize { get; set; }
 
         public string Server { get; set; }
+
+        public bool ExchangeBy { get; set; }
     }
 }

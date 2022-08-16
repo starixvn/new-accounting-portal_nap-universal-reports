@@ -152,10 +152,10 @@
     <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="CashOutPerformance">
-    <Setting Key="Acc_Rpt_COPerformance_SportType_WareHouse" SpName="Acc_Rpt_COPerformance_SportType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_LiveStatus_WareHouse" SpName="Acc_Rpt_COPerformance_LiveStatus" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_BetType_WareHouse" SpName="Acc_Rpt_COPerformance_BetType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_Cust_WareHouse" SpName="Acc_Rpt_COPerformance_Cust" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_SportType_WareHouse" SpName="Acc_Rpt_COPerformance_SportType_xtest" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_LiveStatus_WareHouse" SpName="Acc_Rpt_COPerformance_LiveStatus_xtest" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_BetType_WareHouse" SpName="Acc_Rpt_COPerformance_BetType_xtest" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_Cust_WareHouse" SpName="Acc_Rpt_COPerformance_Cust_xtest" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_COPerformance_LeagueSel" SpName="Acc_Rpt_COPerformance_LeagueSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
 </Functions>

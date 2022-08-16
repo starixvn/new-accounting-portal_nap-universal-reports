@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SelectItem } from 'nap-components/dropdown-select';
 import { HttpService } from 'nap-components/http';
 import { Observable } from 'rxjs';
-import { FilterGroupItemModel, FilterItemModel, LeagueModel, TicketStatus, TimePeriod, SiteModel } from './filter.model';
+import { FilterGroupItemModel, FilterItemModel, LeagueModel, TicketStatus, TimePeriod, SiteModel, ExchageRateValues } from './filter.model';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +40,13 @@ export class FilterService {
         { text: 'All', value:  TicketStatus.All},
         { text: 'Live', value: TicketStatus.Live },
         { text: 'Non-Live', value: TicketStatus.NonLive }
+    ];
+   }
+
+   getExchangeRateSelectItems(): SelectItem[] {
+    return [
+        { text: 'System Rate', value: ExchageRateValues.SystemRate },
+        { text: 'Daily Oanda Rate', value: ExchageRateValues.OandaRate}
     ];
    }
 
