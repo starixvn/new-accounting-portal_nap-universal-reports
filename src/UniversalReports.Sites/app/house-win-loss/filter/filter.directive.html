@@ -32,7 +32,7 @@
                 <button type="button" class="btn btn-sm btn-filter" data-ng-click="vm.viewHistoryMode()" data-ng-show="vm.showBothMode">History Report</button>
             </div>
             <div class="form-group" data-ng-hide="vm.normalMode">
-                <nap-month-picker data-start-date="vm.startDate" data-end-date="vm.endDate" data-min-date="vm.minDate" data-max-date="vm.yesterday"></nap-month-picker>
+                <nap-house-win-loss-date-range-picker data-start-date="vm.startDate" data-end-date="vm.endDate" data-min-date="vm.minDate" data-max-date="vm.today"></nap-house-win-loss-date-range-picker>
                 <div class="radio-group" ng-init="vm.turnover=0">
                     <label class="bold">Turnover</label>
                     <label><input type="radio" ng-value="0" ng-model="vm.turnover"> Normal</label>

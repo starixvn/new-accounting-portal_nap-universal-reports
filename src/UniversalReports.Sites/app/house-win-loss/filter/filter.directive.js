@@ -21,8 +21,8 @@ import moment from "moment";
         return directive;
     }
 
-    controller.$inject = ['$scope', '$rootScope', 'config', 'moment'];
-    function controller($scope, $rootScope, config, moment) {
+    controller.$inject = ['$scope', '$rootScope', 'config', 'moment', 'ngDialog'];
+    function controller($scope, $rootScope, config, moment, ngDialog) {
         /*jshint validthis: true */
         var vm = this;
         vm.minDate= moment("20110101", "YYYYMMDD");
@@ -53,8 +53,9 @@ import moment from "moment";
 
         function generate() {
             vm.dateRange = getDateRange();
-            console.log(vm.dateRange);
-            $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
+            if (validDateRange(vm.dateRange.startDate, vm.dateRange.endDate)) {
+                $rootScope.$broadcast('nap-filter-generate', vm.dateRange);
+            }
         }
 
         function todayClicked() {
@@ -109,6 +110,39 @@ import moment from "moment";
                 vm.startDate = dateRange.startDate;
                 vm.endDate = dateRange.endDate;
             }
+        }
+
+        function validDateRange(fromDate, toDate) {
+            var dateDiff = toDate.diff(fromDate, 'days');
+
+            if (dateDiff < 0) {
+                var contentMsg = "From Date must be less than or equal to To Date!";
+                showErrorMsg(contentMsg);
+                return false;
+            }
+            else {
+                var isValidRange = dateDiff <= 40;
+
+                if (isValidRange) {
+                    return true;
+                }
+                else {
+                    var contentMsg = "Date range should not exceed 40 days!";
+                    showErrorMsg(contentMsg);
+                    return false;
+                }
+            }
+        }
+
+        function showErrorMsg(msg) {
+            ngDialog.open({
+                template: '<div class="errorMsg"><p>' + msg + '</p></div>',
+                plain: true,
+                closeByDocument: true,
+                width: 295,
+                overlay: false,
+                className: 'ngdialog-theme-plain'
+            });
         }
     }
 })(angular);
