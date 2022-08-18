@@ -48,6 +48,13 @@
     &>.nap-control {
       float: left;
       width: 150px;
+      &>p {
+        color: red;
+        &>span {
+          width: 35px;
+          display: inline-block;
+        }
+      }
     }
     &>.width-180 {
       width: 180px !important;
@@ -65,4 +72,8 @@
 
 .width-190 {
   width: 190px !important;
+}
+
+.width-545 {
+  width: 545px !important;
 }
