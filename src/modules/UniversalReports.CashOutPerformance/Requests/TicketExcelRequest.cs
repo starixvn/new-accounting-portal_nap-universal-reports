@@ -35,5 +35,7 @@ namespace UniversalReports.CashOutPerformance.Requests
         public bool IsShowFullColumn { get; set; }
 
         public T ExcelViewModel { get; set; }
+
+        public bool ExchangeBy { get; set; }
     }
 }

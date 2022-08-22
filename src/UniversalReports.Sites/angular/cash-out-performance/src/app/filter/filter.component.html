@@ -66,6 +66,15 @@
             </div>
           </div>
         </div>
+        <div class="nap-col">
+          <div class="nap-group">
+            <label>Exchange by</label>
+            <div class="nap-control">
+              <nap-dropdown-select [items]="exchangeRateSelectItems" [(value)]="exchangeRate">
+              </nap-dropdown-select>
+            </div>
+          </div>
+        </div>
     </div>
     <div class="row">
       <div class="nap-col">
@@ -104,6 +113,16 @@
         <button type="button" class="btn btn-primary" (click)="onGenerateClick('Bettrans', yesterdayDate)">
           {{ yesterdayDate | date : 'MMM dd, YYYY' | uppercase }}
         </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="nap-col">
+        <div class="nap-group">
+          <label>&nbsp;</label>
+          <div class="nap-control width-545">
+            <p class="mb-0"><span>Note:</span>* Daily Oanda is supported from 16 Jun, 2022.</p>
+          </div>
+        </div>
       </div>
     </div>
 </div>

@@ -45,8 +45,14 @@ export interface FilterModel {
     breadCrumb: string[];
     server: string;
     isShowFullColumn: boolean;
+    exchangeBy: boolean
   }
 
   export interface SiteModel extends FilterItemModel {
     IsDeposit: boolean;
+}
+
+export enum ExchageRateValues {
+  SystemRate,
+  OandaRate
 }

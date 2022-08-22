@@ -145,7 +145,6 @@
     <Compile Include="Requests\LeagueGroupRequest.cs" />
     <Compile Include="Requests\LeagueRequest.cs" />
     <Compile Include="Requests\LicenseeRequest.cs" />
-    <Compile Include="Requests\SportLevelRequest.cs" />
     <Compile Include="Requests\SportRequest.cs" />
     <Compile Include="Requests\TicketExcelRequest.cs" />
     <Compile Include="Requests\TicketRequest.cs" />

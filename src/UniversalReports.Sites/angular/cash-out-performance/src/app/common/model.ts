@@ -93,4 +93,5 @@ export interface ExcelQueryModel {
     server: string;
     isShowFullColumn: boolean;
     title: string;
+    exchangeBy: boolean;
   }
