@@ -49,9 +49,9 @@
     <Setting Key="Acc_Rpt_COPerformance_LicenseesSel" SpName="Acc_Rpt_COPerformance_LicenseesSel" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="Acc_Rpt_COPerformance_SportSel" SpName="Acc_Rpt_COPerformance_SportSel" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="Acc_Rpt_COPerformance_LeagueGroupSel" SpName="Acc_Rpt_COPerformance_LeagueGroupSel" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_SportType_Bettrans" SpName="Acc_Rpt_COPerformance_SportType_xtest" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_LiveStatus_Bettrans" SpName="Acc_Rpt_COPerformance_LiveStatus_xtest" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_BetType_Bettrans" SpName="Acc_Rpt_COPerformance_BetType_xtest" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_Cust_Bettrans" SpName="Acc_Rpt_COPerformance_Cust_xtest" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_SportType_Bettrans" SpName="Acc_Rpt_COPerformance_SportType" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_LiveStatus_Bettrans" SpName="Acc_Rpt_COPerformance_LiveStatus" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_BetType_Bettrans" SpName="Acc_Rpt_COPerformance_BetType" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_COPerformance_Cust_Bettrans" SpName="Acc_Rpt_COPerformance_Cust" TimeOut="0" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
 </Functions>
