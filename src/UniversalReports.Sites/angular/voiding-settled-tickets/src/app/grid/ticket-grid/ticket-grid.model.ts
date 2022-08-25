@@ -1,5 +1,5 @@
 export interface TicketItem {
-  TransId: number;
+  TransId: string;
   Username: string;
   MatchId: number;
   VoidedTime: string;

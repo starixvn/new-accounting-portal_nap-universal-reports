@@ -10,7 +10,7 @@ namespace UniversalReports.CashOutPerformance.Models
 
         public string Currency { get; set; }
 
-        public long OrigID { get; set; }
+        public string OrigID { get; set; }
 
         public string BuyBackID { get; set; }
 
