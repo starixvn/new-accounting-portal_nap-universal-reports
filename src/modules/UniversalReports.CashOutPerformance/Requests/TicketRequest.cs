@@ -29,5 +29,7 @@ namespace UniversalReports.CashOutPerformance.Requests
         public string Server { get; set; }
 
         public bool ExchangeBy { get; set; }
+
+        public int FilterType { get; set; }
     }
 }

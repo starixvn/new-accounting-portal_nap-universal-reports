@@ -29,6 +29,8 @@ namespace UniversalReports.CashOutPerformance.Criteria
         [SpParam(Ignored = true)]
         public string Server { get; set; }
 
+        public int FilterType { get; set; }
+
         public bool ExchangeBy { get; set; }
 
         public override string GetSettingKey() => $"Acc_Rpt_COPerformance_SportType_{Server}";

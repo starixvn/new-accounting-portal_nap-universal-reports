@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SelectItem } from 'nap-components/dropdown-select';
 import { HttpService } from 'nap-components/http';
 import { Observable } from 'rxjs';
+import { FilterType } from '../common/model';
 import { FilterGroupItemModel, FilterItemModel, LeagueModel, TicketStatus, TimePeriod, SiteModel, ExchageRateValues } from './filter.model';
 
 @Injectable({
@@ -96,5 +97,15 @@ export class FilterService {
   showFullColumn(): Observable<boolean> {
     const url = this.url + 'common/check-full-view';
     return this.httpService.post<boolean>(url);
+  }
+
+  getFilterByOptions(): SelectItem[] {
+    return [{
+        text: 'Settled Date',
+        value: FilterType.SettledDate
+    }, {
+        text: 'Cashed-out Date',
+        value: FilterType.CashedOutDate
+    }];
   }
 }

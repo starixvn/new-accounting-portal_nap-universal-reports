@@ -56,6 +56,14 @@
         }
       }
     }
+    &>.filter-by {
+      width: 350px !important;
+      &>.form-check {
+        &>.form-check-label {
+          margin-top: 5px !important;
+        }
+      }
+    }
     &>.width-180 {
       width: 180px !important;
     }
@@ -63,7 +71,7 @@
 }
 
 .col-buttons {
-  margin-left: 20px;
+  margin-left: 100px;
 }
 
 .width-307 {

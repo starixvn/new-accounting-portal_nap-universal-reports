@@ -37,5 +37,7 @@ namespace UniversalReports.CashOutPerformance.Requests
         public T ExcelViewModel { get; set; }
 
         public bool ExchangeBy { get; set; }
+
+        public int FilterType { get; set; }
     }
 }

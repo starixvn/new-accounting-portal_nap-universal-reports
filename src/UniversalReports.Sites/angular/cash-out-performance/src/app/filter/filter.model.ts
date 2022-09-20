@@ -45,7 +45,8 @@ export interface FilterModel {
     breadCrumb: string[];
     server: string;
     isShowFullColumn: boolean;
-    exchangeBy: boolean
+    exchangeBy: boolean,
+    filterType: number
   }
 
   export interface SiteModel extends FilterItemModel {
