@@ -1,3 +1,4 @@
+import { SelectItem } from 'nap-components/dropdown-select';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import * as _ from 'lodash';
@@ -9,6 +10,7 @@ import { CONFIG } from '../common/date-config';
 import { ExchageRateValues, FilterGroupItemModel, FilterItemModel, FilterModel, LeagueModel, SiteModel, TicketStatus, TimePeriod } from './filter.model';
 import { FilterService } from './filter.service';
 import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
+import { FilterType } from '../common/model';
 
 @Component({
   selector: 'app-filter',
@@ -71,6 +73,9 @@ export class FilterComponent implements OnInit {
   leagueNamePlaceholder = 'League name';
   exchangeRateSelectItems = this.filterService.getExchangeRateSelectItems();
   exchangeRate: ExchageRateValues = ExchageRateValues.SystemRate;
+  filterByOptions: SelectItem[] = [];
+  FilterType = FilterType;
+  filterType = FilterType.SettledDate;
   constructor(
     private readonly filterService: FilterService,
     private readonly toastService: ToastService
@@ -92,6 +97,8 @@ export class FilterComponent implements OnInit {
     this.filterService.showFullColumn().subscribe(data => {
       this.isShowFullColumn = data;
     });
+
+    this.filterByOptions = this.filterService.getFilterByOptions();
   }
 
   onTimePeriodChange(): void {
@@ -152,6 +159,10 @@ export class FilterComponent implements OnInit {
     this.timePeriod = TimePeriod.SpecificDate;
   }
 
+  onFilterTypeChange($event): void {
+    this.filterType = $event;
+  }
+
   async onGenerateClick(dbServer: string, date: moment.Moment): Promise<void> {
     await this.OnGenerate(dbServer, date);
   }
@@ -196,7 +207,8 @@ export class FilterComponent implements OnInit {
       breadCrumb: [],
       server: dbServer,
       isShowFullColumn: this.isShowFullColumn,
-      exchangeBy: this.exchangeRate == ExchageRateValues.OandaRate
+      exchangeBy: this.exchangeRate == ExchageRateValues.OandaRate,
+      filterType: this.filterType
     };
   }
 

@@ -94,4 +94,10 @@ export interface ExcelQueryModel {
     isShowFullColumn: boolean;
     title: string;
     exchangeBy: boolean;
+    filterType: number;
+  }
+
+  export enum FilterType {
+    SettledDate,
+    CashedOutDate
   }
