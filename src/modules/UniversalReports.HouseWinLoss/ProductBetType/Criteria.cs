@@ -24,7 +24,7 @@ namespace UniversalReports.HouseWinLoss.ProductBetType
 
         public int PermissionProfileID { get; set; }
 
-        public bool IsMajor { get; set; }
+        public int IsMajor { get; set; }
 
         public override string GetSettingKey() => $"HouseWinlossByProducts_Lvl2_BettypePerformance";
     }

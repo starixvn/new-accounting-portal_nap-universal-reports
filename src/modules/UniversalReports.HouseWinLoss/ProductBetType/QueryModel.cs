@@ -15,7 +15,7 @@ namespace UniversalReports.HouseWinLoss.ProductBetType
 
         public bool IsNoDraw { get; set; }
 
-        public bool IsMajor { get; set; }
+        public int IsMajor { get; set; }
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 

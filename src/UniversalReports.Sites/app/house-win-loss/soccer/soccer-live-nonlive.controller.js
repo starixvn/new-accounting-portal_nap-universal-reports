@@ -143,14 +143,24 @@ import angular from "angular";
         }
 
         function generateProductBetTypes(name, siteType) {
-            var isMajor = false;
+            var isMajor = 2;
             var isLive = 2;
 
             if (name.includes('Major')) {
-                isMajor = true;
+                isMajor = 1;
             }
 
-            var isLive = name.includes('Non-Live') ? soccerConstants.NonLive : soccerConstants.Live;
+            if (name.includes('Minor')) {
+                isMajor = 0;
+            }
+
+            if (name.includes('Live')) {
+                isLive = soccerConstants.Live;
+            }
+
+            if (name.includes('Non-Live')) {
+                isLive = soccerConstants.NonLive;
+            }
 
             var data = {};
             angular.extend(data, pane.data);
