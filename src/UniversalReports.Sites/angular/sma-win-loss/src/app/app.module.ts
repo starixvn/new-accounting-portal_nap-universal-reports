@@ -28,6 +28,7 @@ import { PaginationModule, PaginationConfig } from 'nap-components/pagination';
 import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { VirtualRateGridComponent } from './virtual-rate-grid/virtual-rate-grid.component';
 import { ToastModule } from 'nap-components/toast';
+import { CommonItemTreeviewPipe } from './filter/common-item-treeview.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ToastModule } from 'nap-components/toast';
     SiteTreeviewPipe,
     SportTreeviewPipe,
     VirtualRateGridComponent,
-    LeagueGroupTreeviewPipe
+    LeagueGroupTreeviewPipe,
+    CommonItemTreeviewPipe
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { TreeviewConfig, DropdownTreeviewComponent } from 'ngx-treeview';
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
-import { SelectItem, FilterModel, Currency, Sport, Site, LeagueGroup } from './filter.model';
+import { SelectItem, FilterModel, Currency, Sport, Site, LeagueGroup, CommonItem } from './filter.model';
 import { NapDateStruct, DateHelper } from 'nap-components/date';
 import { CONFIG } from '../common/config';
 import { FilterService } from './fiter.service';
@@ -67,6 +67,16 @@ export class FilterComponent implements OnInit {
   });
   selectedleagueGroups: string[] = [];
   leagueGroups: LeagueGroup[] = [];
+  commonItemTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
+  selectedAccountStatus: string[] = [];
+  accountStatus: CommonItem[] = [];
+  selectedVRSettings: string[] = [];
+  vrSettings: CommonItem[] = [];
   availableDateData = '';
 
   constructor(private readonly filterService: FilterService, private readonly toastService: ToastService) { }
@@ -77,6 +87,8 @@ export class FilterComponent implements OnInit {
     this.getSite();
     this.getSport();
     this.getLeagueGroup();
+    this.getAccountStatus();
+    this.getVRSettings();
     this.yearSelected = this.yearOptions[0];
     this.betTypeSelected = this.betTypeOptions[0];
     this.levelSelected = this.levelOptions[0];
@@ -116,6 +128,14 @@ export class FilterComponent implements OnInit {
     this.filterService.getAvailableDateData().subscribe(date => this.availableDateData = `* Data is ready up to ${date}`);
   }
 
+  private getAccountStatus() {
+    this.accountStatus = this.filterService.getAccountStatus();
+  }
+
+  private getVRSettings() {
+    this.vrSettings = this.filterService.getVRSettings();
+  }
+
   private getYear() {
     for (let i = this.today.year; i > 2018; i--) {
       this.yearOptions.push(new SelectItem(i.toString(), i));
@@ -151,6 +171,8 @@ export class FilterComponent implements OnInit {
       sports: this.selectedSports.join(','),
       leagueGroupIds: this.selectedleagueGroups.join(','),
       divisions: this.selectedSites.join(','),
+      accountStatus: this.selectedAccountStatus.join(','),
+      vrSettings: this.selectedVRSettings.join(','),
       isPageChanged: false
     };
 
@@ -175,6 +197,16 @@ export class FilterComponent implements OnInit {
 
     if (this.selectedSites.length === 0) {
       this.toastService.activate(`Please select at least one division!`);
+      return false;
+    }
+
+    if (this.selectedAccountStatus.length === 0) {
+      this.toastService.activate(`Please select at least one Account Status!`);
+      return false;
+    }
+
+    if (this.selectedVRSettings.length === 0) {
+      this.toastService.activate(`Please select at least one VR Setting!`);
       return false;
     }
 

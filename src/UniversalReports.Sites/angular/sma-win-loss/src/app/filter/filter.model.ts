@@ -8,6 +8,8 @@ export interface FilterModel {
   sports: string;
   leagueGroupIds: string;
   divisions: string;
+  accountStatus: string;
+  vrSettings: string;
   pageSize: number;
   pageIndex: number;
   isPageChanged: boolean;
@@ -50,4 +52,9 @@ export interface Sport {
 export interface LeagueGroup {
   GroupId: string;
   GroupName: string;
+}
+
+export interface CommonItem {
+  Value: string;
+  Text: string;
 }
