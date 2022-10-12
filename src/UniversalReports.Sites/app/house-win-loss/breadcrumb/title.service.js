@@ -26,7 +26,8 @@ import angular from "angular";
             getSiteTitleLive: getSiteTitleLive,
             getMatchDetailTitle: getMatchDetailTitle,
             getMatchDetailTitleLive: getMatchDetailTitleLive,
-            getSoccerMinorBetTypeTitle: getSoccerMinorBetTypeTitle
+            getSoccerMinorBetTypeTitle: getSoccerMinorBetTypeTitle,
+            getProductBetTypeTitle: getProductBetTypeTitle
         };
         return service;
 
@@ -157,6 +158,10 @@ import angular from "angular";
 
         function getSoccerMinorBetTypeTitle(data) {
             return data.sportTypeName;
+        }
+
+        function getProductBetTypeTitle(data) {
+            return data.productName + ' > ' + data.siteType;
         }
     }
 })(angular);

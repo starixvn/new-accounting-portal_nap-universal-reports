@@ -16,6 +16,7 @@
 	<Setting Key="HouseWinlossByProducts_LvlN_3rd_MatchDetail" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_MatchDetail" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 	<Setting Key="HouseWinlossByProducts_LvlN_3rd_Site" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 	<Setting Key="HouseWinlossByProducts-GetPermisionProfileID" SpName="Acc_Rpt_GetPermisionProfileID" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	<Setting Key="HouseWinlossByProducts_Lvl2_BettypePerformance" SpName="Acc_Rpt_HouseWinlossByProducts_BettypePerformance" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="CN88WinLossByProducts">
     <Setting Key="CN88WinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />

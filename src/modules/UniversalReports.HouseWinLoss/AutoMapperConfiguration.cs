@@ -84,6 +84,8 @@ namespace UniversalReports.HouseWinLoss
             cfg.CreateMap<BetBuilder.Site.QueryModel, UniversalThirdPartySiteCriteria>();
             cfg.CreateMap<BetBuilder.MatchDetail.ExcelQueryModel, UniversalThirdPartyMatchDetailCriteria>();
             cfg.CreateMap<BetBuilder.MatchDetail.QueryModel, UniversalThirdPartyMatchDetailCriteria>();
+            cfg.CreateMap<ProductBetType.ExcelQueryModel, ProductBetType.Criteria>();
+            cfg.CreateMap<ProductBetType.QueryModel, ProductBetType.Criteria>();
         }
     }
 }

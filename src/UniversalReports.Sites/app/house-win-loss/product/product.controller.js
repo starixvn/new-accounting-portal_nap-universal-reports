@@ -16,6 +16,7 @@ import numeral from "numeral";
         $scope.show = showHideColumnBuilder.toggle;
         $scope.generate = generate;
         $scope.generateProduct = generateProduct;
+        $scope.generateProductBetTypes = generateProductBetTypes;
         $scope.viewSetting = {};
 
         function generateProduct(productName, productId) {
@@ -24,6 +25,13 @@ import numeral from "numeral";
             angular.extend(data, { productName: productName, aliasProductID: productId });
             var level = houseWinlossService.getMainView(productName);
             tab.goForward(level, data);
+        }
+
+        function generateProductBetTypes(productName, productId, siteType) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, { productName: productName, aliasProductID: productId, siteType: siteType, isLive: 2 });
+            tab.goForward('productBetType', data);
         }
 
         function generate(viewSetting) {
@@ -56,13 +64,31 @@ import numeral from "numeral";
             for (var i = 0; i < data.bodyRows.length; i++) {
                 var productRow = data.bodyRows[i];
                 var customAttr = productRow.CustomAttr;
+                var productName = productRow.Columns[0].Value;
+                var productId = parseInt(productRow.Columns[0].CustomAttr);
                 if (customAttr === 'product') {
-                    var productName = productRow.Columns[0].Value;
-                    var productId = parseInt(productRow.Columns[0].CustomAttr);
                     if(productName != 'SB Adjustment') {
                         productRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProduct(\'' + productName.replace(/'/g, "\\'") + '\',' + productId + '\)">' + productName + '</a>';
                     } else {
                         productRow.Columns[0].Value = productName;
+                    }
+                }
+
+                if (productName === 'Soccer' ||
+                    productName === 'SABA Soccer' ||
+                    productName === 'SABA Soccer PinGoal' ||
+                    productName === 'Metric Gaming - Superlive' ||
+                    productName === 'Other Sports' ||
+                    productName === 'Parlay' ||
+                    productName === 'SB Adjustment' ||
+                    productName === 'Bet Builder') {
+
+                    if (productRow != null && productRow.SubRows != null) {
+                        for (var j = 0; j < productRow.SubRows.length; j++) {
+                            var subRow = productRow.SubRows[j];
+                            var siteType = subRow.Columns[0].Value;
+                            subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(\'' + productName.replace(/'/g, "\\'") + '\',' + productId + ',' + '\'' + siteType + '\')">' + siteType + '</a>';
+                        }
                     }
                 }
             }
