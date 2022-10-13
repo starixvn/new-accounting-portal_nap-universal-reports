@@ -19,6 +19,8 @@ import angular from "angular";
         $scope.generateBetType = generateBetType;
         $scope.generateSportType = generateSportType;
         $scope.viewSetting = {};
+        $scope.generateProductBetTypes = generateProductBetTypes;
+        $scope.generateProductLiveNonLiveBetTypes = generateProductLiveNonLiveBetTypes;
 
         function generate(viewSetting) {
             $scope.viewSetting = viewSetting;
@@ -73,7 +75,7 @@ import angular from "angular";
                     for (var j = 0; j < sportTypeRow.SubRows.length; j++) {
                         var subRow = sportTypeRow.SubRows[j];
                         var siteType = subRow.Columns[0].Value;
-                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(' + sportType + ', \'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isSabaSport + '\'' + siteType + '\')">' + siteType + '</a>';
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(' + sportType + ', \'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isSabaSport + ',\'' + siteType + '\')">' + siteType + '</a>';
                     }
                 }
             }
@@ -102,7 +104,7 @@ import angular from "angular";
                     for (var j = 0; j < row.SubRows.length; j++) {
                         var subRow = row.SubRows[j];
                         var siteType = subRow.Columns[0].Value;
-                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(' + isLive + ', \'' + siteType + '\')">' + siteType + '</a>';
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductLiveNonLiveBetTypes(' + isLive + ', \'' + siteType + '\')">' + siteType + '</a>';
                     }
                 }
             }
@@ -140,6 +142,29 @@ import angular from "angular";
                 liveNonLiveTitle: liveNonLiveTitle
             });
             pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
+        }
+
+        function generateProductBetTypes(sportType, sportTypeName, isSabaSport, siteType) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                sportType: sportType,
+                sportTypeName: sportTypeName,
+                isLive: 2,
+                isSabaSport: isSabaSport,
+                siteType: siteType
+            });
+            tab.goForward('productBetType', data);
+        }
+
+        function generateProductLiveNonLiveBetTypes(isLive, siteType) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                isLive: isLive,
+                siteType: siteType
+            });
+            tab.goForward('productBetType', data);
         }
     }
 })(angular, undefined);

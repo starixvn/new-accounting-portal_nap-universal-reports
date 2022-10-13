@@ -19,13 +19,14 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
         [Route("excel")]
         public IHttpActionResult Excel(ExcelQueryModel queryModel)
         {
-            var betTypeFullGridOptionFactory = factory.CreateGridOptionFactory(queryModel.IsMajor, 2);
+            var isMajor = queryModel.IsMajor == Constants.IsMajor;
+            var betTypeFullGridOptionFactory = factory.CreateGridOptionFactory(isMajor, 2);
             var betTypeFullGridOptions = betTypeFullGridOptionFactory.CreateGridOption(queryModel, queryModel.BetTypeFullTitle, 2);
 
-            var betTypeLiveGridOptionFactory = factory.CreateGridOptionFactory(queryModel.IsMajor, 1);
+            var betTypeLiveGridOptionFactory = factory.CreateGridOptionFactory(isMajor, 1);
             var betTypeLiveGridOptions = betTypeLiveGridOptionFactory.CreateGridOption(queryModel, queryModel.BetTypeLiveTitle, 1);
 
-            var betTypeNonLiveGridOptionFactory = factory.CreateGridOptionFactory(queryModel.IsMajor, 0);
+            var betTypeNonLiveGridOptionFactory = factory.CreateGridOptionFactory(isMajor, 0);
             var betTypeNonLiveGridOptions = betTypeNonLiveGridOptionFactory.CreateGridOption(queryModel, queryModel.BetTypeNonLiveTitle, 0);
 
             return new FanexExcelResult(
