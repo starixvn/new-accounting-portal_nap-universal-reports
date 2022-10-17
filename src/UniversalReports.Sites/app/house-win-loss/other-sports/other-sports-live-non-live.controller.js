@@ -104,7 +104,7 @@ import angular from "angular";
                     for (var j = 0; j < row.SubRows.length; j++) {
                         var subRow = row.SubRows[j];
                         var siteType = subRow.Columns[0].Value;
-                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductLiveNonLiveBetTypes(' + isLive + ', \'' + siteType + '\')">' + siteType + '</a>';
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductLiveNonLiveBetTypes(' + isLive + ',\'' + name + '\',\'' + siteType + '\')">' + siteType + '</a>';
                     }
                 }
             }
@@ -153,17 +153,20 @@ import angular from "angular";
                 isLive: 2,
                 isSabaSport: isSabaSport,
                 siteType: siteType,
-                isDrilldownFromMain: false
+                isDrilldownFromMain: false,
+                nameDrilldown: sportTypeName
             });
             tab.goForward('productBetType', data);
         }
 
-        function generateProductLiveNonLiveBetTypes(isLive, siteType) {
+        function generateProductLiveNonLiveBetTypes(isLive, name, siteType) {
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
                 isLive: isLive,
-                siteType: siteType
+                siteType: siteType,
+                isDrilldownFromMain: false,
+                nameDrilldown: name
             });
             tab.goForward('productBetType', data);
         }

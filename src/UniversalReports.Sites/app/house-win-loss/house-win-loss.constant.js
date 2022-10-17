@@ -327,7 +327,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 2 },
-                getTitleFunction: "getProductBetTypeTitle"
+                getTitleFunction: "getProductBetTypeLiveTitle"
             },
             liveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",

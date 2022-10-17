@@ -169,7 +169,7 @@ import angular from "angular";
                 isMajor: isMajor,
                 isLive: isLive,
                 isDrilldownFromMain: false,
-                nameDrilldown: name,
+                nameDrilldown: name
             });
             tab.goForward('productBetType', data);
         }
