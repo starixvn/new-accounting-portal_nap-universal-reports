@@ -24,7 +24,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions },
-                getTitleFunction: "getProductBetTypeTitle"
+                getTitleFunction: "getProductBetTypeLiveTitle"
             },
             soccerLiveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
@@ -110,7 +110,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 1 },
-                getTitleFunction: "getProductBetTypeTitle"
+                getTitleFunction: "getProductBetTypeLiveTitle"
             },
             soccerLiveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
@@ -197,7 +197,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 3  },
-                getTitleFunction: "getProductBetTypeTitle"
+                getTitleFunction: "getProductBetTypeLiveTitle"
             },
             soccerLiveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",

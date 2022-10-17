@@ -168,7 +168,8 @@ import angular from "angular";
                 siteType: siteType,
                 isMajor: isMajor,
                 isLive: isLive,
-                isDrilldownFromMain: false
+                isDrilldownFromMain: false,
+                nameDrilldown: name,
             });
             tab.goForward('productBetType', data);
         }
