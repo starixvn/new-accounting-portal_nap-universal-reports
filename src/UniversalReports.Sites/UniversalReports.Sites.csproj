@@ -477,6 +477,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\cn88-win-loss\shared\bet-type.new-cricket.controller.js" />
+    <Content Include="app\house-win-loss\bet-builder\bet-builder-sport-type-controller.js" />
     <Content Include="app\house-win-loss\breadcrumb\breadcrumb.service.js" />
     <Content Include="app\house-win-loss\breadcrumb\title.service.js" />
     <Content Include="app\house-win-loss\cashout\cash-out-live-non-live.controller.js" />

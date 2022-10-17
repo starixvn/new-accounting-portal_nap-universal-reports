@@ -30,7 +30,7 @@ import numeral from "numeral";
         function generateProductBetTypes(productName, productId, siteType) {
             var data = {};
             angular.extend(data, pane.data);
-            angular.extend(data, { productName: productName, aliasProductID: productId, siteType: siteType, isLive: 2, isMajor: 2 });
+            angular.extend(data, { productName: productName, aliasProductID: productId, siteType: siteType, isLive: 2, isMajor: 2, isDrilldownFromMain: true });
             tab.goForward('productBetType', data);
         }
 

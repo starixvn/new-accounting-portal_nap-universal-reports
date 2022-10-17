@@ -167,7 +167,8 @@ import angular from "angular";
             angular.extend(data, {
                 siteType: siteType,
                 isMajor: isMajor,
-                isLive: isLive
+                isLive: isLive,
+                isDrilldownFromMain: false
             });
             tab.goForward('productBetType', data);
         }

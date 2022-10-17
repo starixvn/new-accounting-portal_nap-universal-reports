@@ -152,7 +152,8 @@ import angular from "angular";
                 sportTypeName: sportTypeName,
                 isLive: 2,
                 isSabaSport: isSabaSport,
-                siteType: siteType
+                siteType: siteType,
+                isDrilldownFromMain: false
             });
             tab.goForward('productBetType', data);
         }

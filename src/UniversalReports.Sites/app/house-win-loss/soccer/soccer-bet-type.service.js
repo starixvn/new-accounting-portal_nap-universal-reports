@@ -62,10 +62,10 @@ import angular from "angular";
         function buildUrl(isLive, isMajor)
         {
             var url = "api/house-win-loss-by-products/soccer/bettype";
-            if (isMajor && isLive === soccerConstants.LiveNonLive) {
+            if (isMajor === 1 && isLive === soccerConstants.LiveNonLive) {
                 url = "api/house-win-loss-by-products/soccer/sum-bettype";
             }
-            else if (isMajor && isLive === soccerConstants.NonLive) {
+            else if (isMajor === 1 && isLive === soccerConstants.NonLive) {
                 url = "api/house-win-loss-by-products/soccer/group-bettype";
             }
 

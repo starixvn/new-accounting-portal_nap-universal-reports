@@ -19,7 +19,7 @@
             var betTypeNameMajorMinor = data.betTypeNameMajorMinor;
             var isMajor = betTypeNameMajorMinor === "Soccer-Major Bet Types"
                 || betTypeNameMajorMinor === "SABA Soccer-Major Bet Types"
-                || betTypeNameMajorMinor === "SABA Soccer PinGoal-Major Bet Types";
+                || betTypeNameMajorMinor === "SABA Soccer PinGoal-Major Bet Types" ? 1 : 0;
             var isSumBetType = isMajor && isLive === 2;
             var isGroupBetType = isMajor && isLive === 0;
             var url = "api/house-win-loss-by-products/soccer/bettype";
@@ -45,7 +45,7 @@
             var betTypeNameMajorMinor = data.betTypeNameMajorMinor;
             var isMajor = betTypeNameMajorMinor === "Soccer-Major Bet Types"
                 || betTypeNameMajorMinor === "SABA Soccer-Major Bet Types"
-                || betTypeNameMajorMinor === "SABA Soccer PinGoal-Major Bet Types";
+                || betTypeNameMajorMinor === "SABA Soccer PinGoal-Major Bet Types" ? 1 : 0;
             var httpData = { isMajor: isMajor };
             angular.extend(httpData, data);
 

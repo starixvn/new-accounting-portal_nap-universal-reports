@@ -161,7 +161,7 @@ import angular from "angular";
         }
 
         function getProductBetTypeTitle(data) {
-            return data.productName + ' > ' + data.siteType;
+            return data.isDrilldownFromMain ? data.productName + ' > ' + data.siteType : data.sportTypeName + ' > ' + data.siteType;
         }
     }
 })(angular);

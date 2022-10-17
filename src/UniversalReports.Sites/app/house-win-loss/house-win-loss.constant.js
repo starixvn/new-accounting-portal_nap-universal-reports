@@ -55,9 +55,9 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: function (data) {
-                    var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types";
-                    var isSumBetType = isMajor && data.isLive === 2;
-                    var isGroupBetType = isMajor && data.isLive === 0;
+                    var isMajor = data.betTypeNameMajorMinor === "Soccer-Major Bet Types" ? 1 : 0;
+                    var isSumBetType = isMajor === 1 && data.isLive === 2;
+                    var isGroupBetType = isMajor === 1 && data.isLive === 0;
 
                     if (isSumBetType) {
                         return "api/house-win-loss-by-products/soccer/sum-bettype";
@@ -70,7 +70,7 @@ import moment from "moment";
                     }
                 },
                 mainParameters: function (data) {
-                    var isMajor = data.betTypeNameMajorMinor.includes('Major');
+                    var isMajor = data.betTypeNameMajorMinor.includes('Major') ? 1 : 0;
                     return {
                         isMajor: isMajor,
                         type: "soccer-bet-type",
@@ -110,7 +110,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 1 },
-                getTitleFunction: "getMainTitle"
+                getTitleFunction: "getProductBetTypeTitle"
             },
             soccerLiveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
@@ -141,9 +141,9 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: function (data) {
-                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer-Major Bet Types";
-                    var isSumBetType = isMajor && data.isLive === 2;
-                    var isGroupBetType = isMajor && data.isLive === 0;
+                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer-Major Bet Types" ? 1 : 0;
+                    var isSumBetType = isMajor === 1 && data.isLive === 2;
+                    var isGroupBetType = isMajor === 1 && data.isLive === 0;
 
                     if (isSumBetType) {
                         return "api/house-win-loss-by-products/soccer/sum-bettype";
@@ -156,7 +156,7 @@ import moment from "moment";
                     }
                 },
                 mainParameters: function (data) {
-                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer-Major Bet Types";
+                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer-Major Bet Types" ? 1 : 0;
                     return {
                         isMajor: isMajor,
                         type: "soccer-bet-type",
@@ -197,7 +197,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 3  },
-                getTitleFunction: "getMainTitle"
+                getTitleFunction: "getProductBetTypeTitle"
             },
             soccerLiveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
@@ -228,9 +228,9 @@ import moment from "moment";
                 controller: "BetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: function (data) {
-                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer PinGoal-Major Bet Types";
-                    var isSumBetType = isMajor && data.isLive === 2;
-                    var isGroupBetType = isMajor && data.isLive === 0;
+                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer PinGoal-Major Bet Types" ? 1 : 0;
+                    var isSumBetType = isMajor === 1 && data.isLive === 2;
+                    var isGroupBetType = isMajor === 1 && data.isLive === 0;
 
                     if (isSumBetType) {
                         return "api/house-win-loss-by-products/soccer/sum-bettype";
@@ -243,7 +243,7 @@ import moment from "moment";
                     }
                 },
                 mainParameters: function (data) {
-                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer PinGoal-Major Bet Types";
+                    var isMajor = data.betTypeNameMajorMinor === "SABA Soccer PinGoal-Major Bet Types" ? 1 : 0;
                     return {
                         isMajor: isMajor,
                         type: "soccer-bet-type",
@@ -284,7 +284,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 2 },
-                getTitleFunction: "getMainTitle"
+                getTitleFunction: "getProductBetTypeTitle"
             },
             liveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
@@ -327,7 +327,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 2 },
-                getTitleFunction: "getMainTitle"
+                getTitleFunction: "getProductBetTypeTitle"
             },
             liveNonLive: {
                 templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
@@ -382,7 +382,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 2 },
-                getTitleFunction: "getMainTitle"
+                getTitleFunction: "getProductBetTypeTitle"
             },
             betType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
@@ -875,7 +875,7 @@ import moment from "moment";
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
                 mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 2 },
-                getTitleFunction: "getMainTitle"
+                getTitleFunction: "getProductBetTypeTitle"
             },
             sportType: {
                 templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
