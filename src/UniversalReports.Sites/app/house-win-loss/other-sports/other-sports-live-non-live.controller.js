@@ -154,7 +154,8 @@ import angular from "angular";
                 isSabaSport: isSabaSport,
                 siteType: siteType,
                 isDrilldownFromMain: false,
-                nameDrilldown: sportTypeName
+                nameDrilldown: sportTypeName,
+                isMajor: 2
             });
             tab.goForward('productBetType', data);
         }
@@ -166,7 +167,8 @@ import angular from "angular";
                 isLive: isLive,
                 siteType: siteType,
                 isDrilldownFromMain: false,
-                nameDrilldown: name
+                nameDrilldown: name,
+                isMajor: 2
             });
             tab.goForward('productBetType', data);
         }
