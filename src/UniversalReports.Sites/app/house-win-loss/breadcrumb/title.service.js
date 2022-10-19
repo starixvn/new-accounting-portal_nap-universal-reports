@@ -162,11 +162,11 @@ import angular from "angular";
         }
 
         function getProductBetTypeTitle(data) {
-            return data.isDrilldownFromMain ? data.productName + ' | ' + data.siteType : data.sportTypeName + ' | ' + data.siteType;
+            return data.isDrilldownFromMain ? data.productName + ' | ' + data.siteType + ' SITE': data.sportTypeName + ' | ' + data.siteType + ' SITE';
         }
 
         function getProductBetTypeLiveTitle(data) {
-            return data.isDrilldownFromMain ? data.productName + ' | ' + data.siteType : data.nameDrilldown + ' | ' + data.siteType;
+            return data.isDrilldownFromMain ? data.productName + ' | ' + data.siteType + ' SITE' : data.nameDrilldown + ' | ' + data.siteType + ' SITE';
         }
     }
 })(angular);
