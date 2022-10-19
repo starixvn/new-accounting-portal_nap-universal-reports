@@ -1153,17 +1153,6 @@ import moment from "moment";
                 mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             },
-        },
-        "SB Adjustment": {
-            mainView: "productBetType",
-            productBetType: {
-                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
-                controller: "ProductBetTypeController",
-                service: "remoteDataService",
-                serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
-                mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions },
-                getTitleFunction: "getProductBetTypeTitle"
-            }
         }
     };
     angular

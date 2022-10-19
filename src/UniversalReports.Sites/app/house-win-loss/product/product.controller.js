@@ -80,7 +80,6 @@ import numeral from "numeral";
                     productName === 'Metric Gaming - Superlive' ||
                     productName === 'Other Sports' ||
                     productName === 'Parlay' ||
-                    productName === 'SB Adjustment' ||
                     productName === 'Bet Builder') {
 
                     if (productRow != null && productRow.SubRows != null) {
