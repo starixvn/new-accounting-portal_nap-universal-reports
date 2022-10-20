@@ -57,7 +57,7 @@ import angular from "angular";
                     for (var j = 0; j < sportTypeRow.SubRows.length; j++) {
                         var subRow = sportTypeRow.SubRows[j];
                         var siteType = subRow.Columns[0].Value;
-                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(' + sportTypeId + ', \'' + sportTypeName.replace(/'/g, "\\'") + '\',\'' + siteType + '\')">' + siteType + '</a>';
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(' + sportTypeId + ', \'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isLive + ',\''  + siteType + '\')">' + siteType + '</a>';
                     }
                 }
             }
@@ -79,13 +79,13 @@ import angular from "angular";
             pane.service.exportExcelForSingleGrid($scope.viewSetting, tab, pane);
         }
 
-        function generateProductBetTypes(sportType, sportTypeName, siteType) {
+        function generateProductBetTypes(sportType, sportTypeName, isLive, siteType) {
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
                 sportType: sportType,
                 sportTypeName: sportTypeName,
-                isLive: 2,
+                isLive: isLive,
                 isSabaSport: 2,
                 isDrilldownFromMain: false,
                 nameDrilldown: sportTypeName,

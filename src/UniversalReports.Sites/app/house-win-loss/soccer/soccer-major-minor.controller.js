@@ -99,7 +99,6 @@ import angular from "angular";
 
         function generateProductBetTypes(betTypeNameMajorMinor, siteType) {
             var isMajor = 2;
-            var isLive = 2;
 
             if (betTypeNameMajorMinor.includes('Major')) {
                 isMajor = 1;
@@ -114,7 +113,6 @@ import angular from "angular";
             angular.extend(data, {
                 siteType: siteType,
                 isMajor: isMajor,
-                isLive: isLive,
                 isDrilldownFromMain: false,
                 nameDrilldown: betTypeNameMajorMinor
             });
