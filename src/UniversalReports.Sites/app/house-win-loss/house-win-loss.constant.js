@@ -326,7 +326,7 @@ import moment from "moment";
                 controller: "ProductBetTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/product-bettype",
-                mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions, isSabaSport: 2 },
+                mainParameters: { sheetName: "House Win Loss by Products", permissions: productPermissions },
                 getTitleFunction: "getProductBetTypeLiveTitle"
             },
             liveNonLive: {

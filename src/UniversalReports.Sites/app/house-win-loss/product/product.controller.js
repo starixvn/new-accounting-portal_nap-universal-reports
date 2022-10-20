@@ -28,9 +28,23 @@ import numeral from "numeral";
         }
 
         function generateProductBetTypes(productName, productId, siteType) {
+            var isSabaSport = 2;
+
+            if (productId === -1) {
+                isSabaSport = 0;
+            }
+
+            if (productId === -2) {
+                isSabaSport = 1;
+            }
+
+            if (productId === -3) {
+                isSabaSport = 3;
+            }
+
             var data = {};
             angular.extend(data, pane.data);
-            angular.extend(data, { productName: productName, aliasProductID: productId, siteType: siteType, isLive: 2, isMajor: 2, isDrilldownFromMain: true });
+            angular.extend(data, { productName: productName, aliasProductID: productId, siteType: siteType, isLive: 2, isMajor: 2, isDrilldownFromMain: true, isSabaSport: isSabaSport });
             tab.goForward('productBetType', data);
         }
 
