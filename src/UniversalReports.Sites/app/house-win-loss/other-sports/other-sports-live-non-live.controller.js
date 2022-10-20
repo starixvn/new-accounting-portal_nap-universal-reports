@@ -168,7 +168,8 @@ import angular from "angular";
                 siteType: siteType,
                 isDrilldownFromMain: false,
                 nameDrilldown: name,
-                isMajor: 2
+                isMajor: 2,
+                isSabaSport: 2
             });
             tab.goForward('productBetType', data);
         }
