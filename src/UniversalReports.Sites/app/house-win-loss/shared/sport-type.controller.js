@@ -84,9 +84,9 @@ import angular from "angular";
 
             if (sportTypeName === 'Basketball' || sportTypeName === 'Cricket') {
                 isSabaSport = 0;
-            } else if (sportTypeName === 'Saba Basketball' || sportTypeName === 'Saba Cricket') {
+            } else if (sportTypeName === 'SABA Basketball' || sportTypeName === 'SABA Cricket') {
                 isSabaSport = 1;
-            } else if (sportTypeName === 'Saba Basketball PinGoal') {
+            } else if (sportTypeName === 'SABA Basketball PinGoal') {
                 isSabaSport = 1;
             } else {
                 isSabaSport = 2;
