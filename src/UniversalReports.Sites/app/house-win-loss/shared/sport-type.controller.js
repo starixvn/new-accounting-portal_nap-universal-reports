@@ -80,13 +80,25 @@ import angular from "angular";
         }
 
         function generateProductBetTypes(sportType, sportTypeName, isLive, siteType) {
+            var isSabaSport = 2;
+
+            if (sportTypeName === 'Basketball' || sportTypeName === 'Cricket') {
+                isSabaSport = 0;
+            } else if (sportTypeName === 'Saba Basketball' || sportTypeName === 'Saba Cricket') {
+                isSabaSport = 1;
+            } else if (sportTypeName === 'Saba Basketball PinGoal') {
+                isSabaSport = 1;
+            } else {
+                isSabaSport = 2;
+            }
+
             var data = {};
             angular.extend(data, pane.data);
             angular.extend(data, {
                 sportType: sportType,
                 sportTypeName: sportTypeName,
                 isLive: isLive,
-                isSabaSport: 2,
+                isSabaSport: isSabaSport,
                 isDrilldownFromMain: false,
                 nameDrilldown: sportTypeName,
                 isMajor: 2,
