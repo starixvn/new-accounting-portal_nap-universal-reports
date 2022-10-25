@@ -23,7 +23,7 @@ namespace UniversalReports.HouseWinLoss.Tests.Soccer.BetTypeFull
         {
             var queryModel = new ExcelQueryModel
             {
-                IsMajor = true,
+                IsMajor = 1,
                 BetTypeFullTitle = "BetTypeFullTitle",
                 BetTypeLiveTitle = "BetTypeLiveTitle",
                 BetTypeNonLiveTitle = "BetTypeNonLiveTitle"

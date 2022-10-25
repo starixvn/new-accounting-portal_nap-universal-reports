@@ -11,7 +11,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
 
         public bool NormalMode { get; set; } = true;
 
-        public bool IsMajor { get; set; }
+        public int IsMajor { get; set; }
 
         public int IsLive { get; set; } = Constants.LiveDefault;
 

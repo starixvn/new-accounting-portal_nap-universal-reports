@@ -26,7 +26,9 @@ import angular from "angular";
             getSiteTitleLive: getSiteTitleLive,
             getMatchDetailTitle: getMatchDetailTitle,
             getMatchDetailTitleLive: getMatchDetailTitleLive,
-            getSoccerMinorBetTypeTitle: getSoccerMinorBetTypeTitle
+            getSoccerMinorBetTypeTitle: getSoccerMinorBetTypeTitle,
+            getProductBetTypeTitle: getProductBetTypeTitle,
+            getProductBetTypeLiveTitle: getProductBetTypeLiveTitle
         };
         return service;
 
@@ -157,6 +159,14 @@ import angular from "angular";
 
         function getSoccerMinorBetTypeTitle(data) {
             return data.sportTypeName;
+        }
+
+        function getProductBetTypeTitle(data) {
+            return data.isDrilldownFromMain ? data.productName + ' | ' + data.siteType + ' SITE': data.sportTypeName + ' | ' + data.siteType + ' SITE';
+        }
+
+        function getProductBetTypeLiveTitle(data) {
+            return data.isDrilldownFromMain ? data.productName + ' | ' + data.siteType + ' SITE' : data.nameDrilldown + ' | ' + data.siteType + ' SITE';
         }
     }
 })(angular);

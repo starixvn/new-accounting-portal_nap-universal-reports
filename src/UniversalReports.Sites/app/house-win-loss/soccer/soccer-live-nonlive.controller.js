@@ -20,6 +20,7 @@ import angular from "angular";
         $scope.generateSoccerBetTypePane = generateSoccerBetTypePane;
         $scope.viewSetting = {};
         pane.data.isLive = soccerConstants.LiveNonLive;
+        $scope.generateProductBetTypes = generateProductBetTypes;
 
         function generate(viewSetting) {
             var majorMinorGridOptions,
@@ -82,6 +83,14 @@ import angular from "angular";
                 var betTypeRow = data.bodyRows[i];
                 var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
                 betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
+
+                if (betTypeRow != null && betTypeRow.SubRows != null) {
+                    for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                        var subRow = betTypeRow.SubRows[j];
+                        var siteType = subRow.Columns[0].Value;
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(\'' + betTypeNameMajorMinor + '\',' + '\'' + siteType + '\')">' + siteType + '</a>';
+                    }
+                }
             }
         }
 
@@ -100,6 +109,14 @@ import angular from "angular";
                 var betTypeRow = data.bodyRows[i];
                 var soccerLiveNonLive = betTypeRow.Columns[0].Value;
                 betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLivePane(\'' + soccerLiveNonLive + '\')">' + soccerLiveNonLive + '</a>';
+
+                if (betTypeRow != null && betTypeRow.SubRows != null) {
+                    for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                        var subRow = betTypeRow.SubRows[j];
+                        var siteType = subRow.Columns[0].Value;
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(\'' + soccerLiveNonLive + '\',' + '\'' + siteType + '\')">' + siteType + '</a>';
+                    }
+                }
             }
         }
 
@@ -123,6 +140,38 @@ import angular from "angular";
             };
             angular.extend(httpData, pane.data);
             pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
+        }
+
+        function generateProductBetTypes(name, siteType) {
+            var isMajor = 2;
+            var isLive = 2;
+
+            if (name.includes('Major')) {
+                isMajor = 1;
+            }
+
+            if (name.includes('Minor')) {
+                isMajor = 0;
+            }
+
+            if (name.includes('Live')) {
+                isLive = soccerConstants.Live;
+            }
+
+            if (name.includes('Non-Live')) {
+                isLive = soccerConstants.NonLive;
+            }
+
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                siteType: siteType,
+                isMajor: isMajor,
+                isLive: isLive,
+                isDrilldownFromMain: false,
+                nameDrilldown: name
+            });
+            tab.goForward('productBetType', data);
         }
     }
 })(angular, undefined);

@@ -21,5 +21,7 @@
         public const int IsAllSportDefault = 2;
 
         public const int CornersDefault = 2;
+
+        public const int IsMajor = 1;
     }
 }

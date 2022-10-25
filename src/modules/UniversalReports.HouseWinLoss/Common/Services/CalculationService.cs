@@ -18,6 +18,8 @@ namespace UniversalReports.HouseWinLoss.Common.Services
         IEnumerable<SiteWinLossSummary> CalculateSiteWinLossSummary(IEnumerable<WinLossRaw> rawWinLosses);
 
         IEnumerable<WinLoss> CalculateRM(IEnumerable<WinLossRaw> rawWinLosses);
+
+        IEnumerable<WinLoss> CalculateBetTypes(IEnumerable<WinLossRaw> rawWinLosses);
     }
 
     public class CalculationServiceImp : CalculationService
@@ -182,6 +184,11 @@ namespace UniversalReports.HouseWinLoss.Common.Services
             return string.IsNullOrEmpty(matchCode) ?
                 string.Empty :
                 refService.GetMatchCode(matchCode);
+        }
+
+        public IEnumerable<WinLoss> CalculateBetTypes(IEnumerable<WinLossRaw> rawWinLosses)
+        {
+            return from rawWinLoss in rawWinLosses select FromRawWinLossByGroupName(rawWinLoss);
         }
     }
 }

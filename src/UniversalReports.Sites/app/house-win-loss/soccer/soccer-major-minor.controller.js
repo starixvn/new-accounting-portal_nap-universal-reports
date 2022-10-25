@@ -19,6 +19,7 @@ import angular from "angular";
         pane.data.isLive = pane.data.soccerLiveNonLive.includes('Non-Live')
             ? soccerConstants.NonLive 
             : soccerConstants.Live;
+        $scope.generateProductBetTypes = generateProductBetTypes;
 
         function generate(viewSetting) {
             $scope.viewSetting = viewSetting;
@@ -50,6 +51,14 @@ import angular from "angular";
                 var betTypeRow = data.bodyRows[i];
                 var betTypeNameMajorMinor = betTypeRow.Columns[0].Value;
                 betTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSoccerLiveNonLiveBetTypePane(\'' + betTypeNameMajorMinor + '\')">' + betTypeNameMajorMinor + '</a>';
+
+                if (betTypeRow != null && betTypeRow.SubRows != null) {
+                    for (var j = 0; j < betTypeRow.SubRows.length; j++) {
+                        var subRow = betTypeRow.SubRows[j];
+                        var siteType = subRow.Columns[0].Value;
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(\'' + betTypeNameMajorMinor + '\',' + '\'' + siteType + '\')">' + siteType + '</a>';
+                    }
+                }
             }
         }
 
@@ -86,6 +95,28 @@ import angular from "angular";
             };
             angular.extend(httpData, pane.data);
             pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
+        }
+
+        function generateProductBetTypes(betTypeNameMajorMinor, siteType) {
+            var isMajor = 2;
+
+            if (betTypeNameMajorMinor.includes('Major')) {
+                isMajor = 1;
+            }
+
+            if (betTypeNameMajorMinor.includes('Minor')) {
+                isMajor = 0;
+            }
+
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                siteType: siteType,
+                isMajor: isMajor,
+                isDrilldownFromMain: false,
+                nameDrilldown: betTypeNameMajorMinor
+            });
+            tab.goForward('productBetType', data);
         }
     }
 })(angular, undefined);

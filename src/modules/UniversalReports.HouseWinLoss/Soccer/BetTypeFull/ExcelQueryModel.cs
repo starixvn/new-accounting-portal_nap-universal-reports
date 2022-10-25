@@ -11,7 +11,7 @@ namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
 
         public bool NormalMode { get; set; } = true;
 
-        public bool IsMajor { get; set; }
+        public int IsMajor { get; set; }
 
         public string BetTypeFullTitle { get; set; }
 

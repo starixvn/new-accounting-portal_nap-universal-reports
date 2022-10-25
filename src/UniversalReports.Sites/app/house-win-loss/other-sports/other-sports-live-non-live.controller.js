@@ -19,6 +19,8 @@ import angular from "angular";
         $scope.generateBetType = generateBetType;
         $scope.generateSportType = generateSportType;
         $scope.viewSetting = {};
+        $scope.generateProductBetTypes = generateProductBetTypes;
+        $scope.generateProductLiveNonLiveBetTypes = generateProductLiveNonLiveBetTypes;
 
         function generate(viewSetting) {
             $scope.viewSetting = viewSetting;
@@ -67,7 +69,15 @@ import angular from "angular";
                 var sportTypeName = sportTypeRow.Columns[0].Value;
                 var sportType = sportTypeRow.Columns[0].CustomAttr;
                 var isSabaSport = sportTypeRow.Columns[1].CustomAttr;
-                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportType + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isSabaSport  + ')">' + sportTypeName + '</a>';
+                sportTypeRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateBetType(' + sportType + ',\'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isSabaSport + ')">' + sportTypeName + '</a>';
+
+                if (sportTypeRow != null && sportTypeRow.SubRows != null) {
+                    for (var j = 0; j < sportTypeRow.SubRows.length; j++) {
+                        var subRow = sportTypeRow.SubRows[j];
+                        var siteType = subRow.Columns[0].Value;
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductBetTypes(' + sportType + ', \'' + sportTypeName.replace(/'/g, "\\'") + '\',' + isSabaSport + ',\'' + siteType + '\')">' + siteType + '</a>';
+                    }
+                }
             }
         }
 
@@ -89,6 +99,14 @@ import angular from "angular";
                 var name = row.Columns[0].Value;
                 var isLive = parseInt(row.Columns[0].CustomAttr);
                 row.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateSportType(' + isLive + ')">' + name + '</a>';
+
+                if (row != null && row.SubRows != null) {
+                    for (var j = 0; j < row.SubRows.length; j++) {
+                        var subRow = row.SubRows[j];
+                        var siteType = subRow.Columns[0].Value;
+                        subRow.Columns[0].Value = '<a class="drill-down" href data-nap-click="generateProductLiveNonLiveBetTypes(' + isLive + ',\'' + name + '\',\'' + siteType + '\')">' + siteType + '</a>';
+                    }
+                }
             }
         }
 
@@ -124,6 +142,36 @@ import angular from "angular";
                 liveNonLiveTitle: liveNonLiveTitle
             });
             pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
+        }
+
+        function generateProductBetTypes(sportType, sportTypeName, isSabaSport, siteType) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                sportType: sportType,
+                sportTypeName: sportTypeName,
+                isLive: 2,
+                isSabaSport: isSabaSport,
+                siteType: siteType,
+                isDrilldownFromMain: false,
+                nameDrilldown: sportTypeName,
+                isMajor: 2
+            });
+            tab.goForward('productBetType', data);
+        }
+
+        function generateProductLiveNonLiveBetTypes(isLive, name, siteType) {
+            var data = {};
+            angular.extend(data, pane.data);
+            angular.extend(data, {
+                isLive: isLive,
+                siteType: siteType,
+                isDrilldownFromMain: false,
+                nameDrilldown: name,
+                isMajor: 2,
+                isSabaSport: 2
+            });
+            tab.goForward('productBetType', data);
         }
     }
 })(angular, undefined);
