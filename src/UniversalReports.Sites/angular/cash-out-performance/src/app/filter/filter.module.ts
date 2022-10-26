@@ -37,7 +37,7 @@ export class FilterModule {
     private readonly legendService: LegendService
   ) {
     legendService.resolveUrl = (id) => {
-      return `https://reports.oneops.net/NAP-Reports-Legend-API/api/legend/${id}`;
+      return `https://reports.oneops.net/Reports-Legend-API/api/legend/${id}`;
     };
   }
 }
