@@ -44,8 +44,8 @@ export class FilterService {
   getAccountStatus(): CommonItem[] {
     return [
       { Text: 'Open', Value: '1' },
-      { Text: 'Suspended', Value: '3' },
       { Text: 'Closed', Value: '2' },
+      { Text: 'Suspended', Value: '3' },
       { Text: 'Disabled', Value: '4' }
     ];
   }
