@@ -22,6 +22,10 @@ namespace UniversalReports.SMAWinLoss.Summary
 
         public string Divisions { get; set; }
 
+        public string AccountStatus { get; set; }
+
+        public string VRSettings { get; set; }
+
         public int PageIndex { get; set; }
 
         public int PageSize { get; set; }

@@ -8,6 +8,8 @@ export interface QueryModel {
   sports: string;
   leagueGroupIds: string;
   divisions: string;
+  accountStatus: string;
+  vrSettings: string;
   pageSize: number;
   pageIndex: number;
 }

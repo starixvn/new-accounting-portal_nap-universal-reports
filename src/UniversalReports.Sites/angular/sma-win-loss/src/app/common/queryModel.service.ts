@@ -16,6 +16,8 @@ export class QueryModelService {
       sports: filterModel.sports,
       leagueGroupIds: filterModel.leagueGroupIds,
       divisions: filterModel.divisions,
+      accountStatus: filterModel.accountStatus,
+      vrSettings: filterModel.vrSettings,
       pageIndex: filterModel.pageIndex,
       pageSize: filterModel.pageSize
     };

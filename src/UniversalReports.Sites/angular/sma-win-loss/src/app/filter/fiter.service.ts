@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from 'nap-components/http';
-import { Currency, LeagueGroup, Site, Sport } from './filter.model';
+import { CommonItem, Currency, LeagueGroup, Site, Sport } from './filter.model';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -39,5 +39,35 @@ export class FilterService {
   getAvailableDateData(): Observable<string> {
     const url = `${this.url}/available-date-data`;
     return this.httpService.post<string>(url);
+  }
+
+  getAccountStatus(): CommonItem[] {
+    return [
+      { Text: 'Open', Value: '1' },
+      { Text: 'Closed', Value: '2' },
+      { Text: 'Suspended', Value: '3' },
+      { Text: 'Disabled', Value: '4' }
+    ];
+  }
+
+  getVRSettings(): CommonItem[] {
+    return [
+      { Text: '+200', Value: '200' },
+      { Text: '+100', Value: '100' },
+      { Text: '+50', Value: '50' },
+      { Text: '+5', Value: '5' },
+      { Text: '0', Value: '0' },
+      { Text: '-50', Value: '-50' },
+      { Text: '-60', Value: '-60' },
+      { Text: '-70', Value: '-70' },
+      { Text: '-80', Value: '-80' },
+      { Text: '-85', Value: '-85' },
+      { Text: '-88', Value: '-88' },
+      { Text: '-90', Value: '-90' },
+      { Text: '-92', Value: '-92' },
+      { Text: 'Other +VR', Value: 'Other+VR' },
+      { Text: 'Other -VR', Value: 'Other-VR' },
+      { Text: 'Disabled', Value: 'Disabled' }
+    ];
   }
 }
