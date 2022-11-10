@@ -46,6 +46,7 @@ namespace UniversalReports.SMAWinLoss.Summary
             BuildHeader(year);
             BuildBody(winlosses);
             BuildTotal(winlosses);
+            FormatWorksheets();
             ClearTemplate();
             return ExcelPackage;
         }
@@ -153,6 +154,11 @@ namespace UniversalReports.SMAWinLoss.Summary
                 summarySheet.Cells[rowIndex, monthlyColIndex].Value = month.Value;
                 monthlyColIndex++;
             }
+        }
+
+        private void FormatWorksheets()
+        {
+            summarySheet.Cells[summarySheet.Dimension.Address].AutoFitColumns();
         }
 
         private void ClearTemplate()
