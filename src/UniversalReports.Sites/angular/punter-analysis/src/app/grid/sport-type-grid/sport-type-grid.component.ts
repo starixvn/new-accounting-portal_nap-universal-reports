@@ -63,10 +63,6 @@ export class SportTypeGridComponent implements Grid {
   showBetCount(sportId: number, sportName: string, leagueGroupId: number): void {
     let leagueGroupIdValue = leagueGroupId;
 
-    if (sportId === 43 && this.gridService.filterModel.league === undefined) {
-      leagueGroupIdValue = 0;
-    }
-
     this.betCountGridService.model = this.service.createBetCountGridModel(sportId, sportName, leagueGroupIdValue);
     this.gridService.generate(GridType.BetCount);
   }
