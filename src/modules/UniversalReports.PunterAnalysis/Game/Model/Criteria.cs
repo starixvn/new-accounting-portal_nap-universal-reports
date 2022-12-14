@@ -21,6 +21,8 @@ namespace UniversalReports.PunterAnalysis.Game.Model
 
         public string ListLeagueGroupId { get; set; }
 
+        public int LeagueGroupId { get; set; }
+
         public override string GetSettingKey() => "Punter-Game";
 
         public override bool IsValid() => true;
