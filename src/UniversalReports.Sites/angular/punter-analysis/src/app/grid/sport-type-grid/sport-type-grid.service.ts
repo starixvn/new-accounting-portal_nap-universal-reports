@@ -29,12 +29,13 @@ export class SportTypeGridService {
         });
     }
 
-    createGameGridModel(sportId: number, sportName: string): GameGridModel {
+    createGameGridModel(sportId: number, sportName: string, leagueGroupId): GameGridModel {
         return _.extend(this.model, {
             custId: this.model.custId,
             custName: this.model.custName,
             sportId: sportId,
-            sportName: sportName
+            sportName: sportName,
+            leagueGroupId: leagueGroupId
         });
     }
 

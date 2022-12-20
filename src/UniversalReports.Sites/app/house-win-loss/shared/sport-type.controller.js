@@ -82,9 +82,9 @@ import angular from "angular";
         function generateProductBetTypes(sportType, sportTypeName, isLive, siteType) {
             var isSabaSport = 2;
 
-            if (sportTypeName === 'Basketball' || sportTypeName === 'Cricket') {
+            if (sportTypeName === 'Basketball' || sportTypeName === 'Cricket' || sportTypeName === 'E-Sports') {
                 isSabaSport = 0;
-            } else if (sportTypeName === 'SABA Basketball' || sportTypeName === 'SABA Cricket') {
+            } else if (sportTypeName === 'SABA Basketball' || sportTypeName === 'SABA Cricket' || sportTypeName === 'SABA E-Sports PinGoal') {
                 isSabaSport = 1;
             } else if (sportTypeName === 'SABA Basketball PinGoal') {
                 isSabaSport = 4;

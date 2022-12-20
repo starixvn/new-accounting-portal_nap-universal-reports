@@ -3,6 +3,7 @@ export interface GameGridModel {
     custName: string;
     sportId: number;
     sportName: string;
+    leagueGroupId: number;
 }
 
 export interface GameItem {

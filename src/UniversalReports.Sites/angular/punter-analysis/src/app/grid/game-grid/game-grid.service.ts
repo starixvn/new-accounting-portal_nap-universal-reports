@@ -76,7 +76,8 @@ export class GameGridService {
             toDate: filterModelWrapper.toDateQueryString,
             listCombinationId: filterModelWrapper.userLeagueWrapper.listCombinationId,
             custId: this.model.custId,
-            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId
+            listLeagueGroupId: filterModelWrapper.userLeagueWrapper.listLeagueGroupCombinationId,
+            leagueGroupId: this.model.leagueGroupId
         };
     }
 }
