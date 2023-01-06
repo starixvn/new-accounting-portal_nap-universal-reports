@@ -77,7 +77,7 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Controllers
 
             // Act
             var controller = new CashOutPerformanceApiController(mediator);
-            var request = new TicketRequest<SportLevelModel>();
+            var request = new SportLevelRequest();
             await controller.SportLevel(request);
 
             // Assert

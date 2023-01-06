@@ -15,7 +15,7 @@ import * as _ from 'lodash';
 })
 export class SportGridComponent implements Grid {
 
-  dataViewModel: TicketViewModel<SportLevelModel>;
+  dataViewModel: SportLevelModel;
   paginationInstance: PaginationInstance;
   originalPageSize = 100;
 
@@ -37,7 +37,7 @@ export class SportGridComponent implements Grid {
     return new Observable(observer => {
       this.service.getTickets(this.gridService.filterModel).subscribe(data => {
         this.dataViewModel = data;
-        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.Total, 'sport-pagination');
+        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.TotalItems, 'sport-pagination');
         this.onPageChange();
       });
       observer.complete();
@@ -71,14 +71,14 @@ export class SportGridComponent implements Grid {
   }
 
   private createPagingTransform(): void {
-    const paginateData = this.paginatePipe.transform(this.dataViewModel.TicketList, this.paginationInstance);
-    this.dataViewModel.TicketList = _.cloneDeep(paginateData);
+    const paginateData = this.paginatePipe.transform(this.dataViewModel.Sports, this.paginationInstance);
+    this.dataViewModel.Sports = _.cloneDeep(paginateData);
     this.gridService.filterModel.isPageChanged = true;
     this.originalPageSize = this.paginationInstance.itemsPerPage;
   }
 
   get hasData(): boolean {
-    return !_.isNil(this.dataViewModel) && this.dataViewModel.Total > 0;
+    return !_.isNil(this.dataViewModel) && this.dataViewModel.TotalItems > 0;
   }
 
   isShowNotAvailable(data: number) : boolean {

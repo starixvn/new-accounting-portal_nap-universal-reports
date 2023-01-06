@@ -3,6 +3,7 @@ using OfficeOpenXml;
 using System;
 using System.IO;
 using UniversalReports.CashOutPerformance.Constants;
+using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.ViewModels;
 using UniversalReports.Core.Configurations;
 
@@ -11,6 +12,8 @@ namespace UniversalReports.CashOutPerformance.Services
     public interface TicketsExcelBuilder<T>
     {
         ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn);
+
+        ExcelPackage BuildSportLevel(string title, string[] breadCrumb, SportLevelModel model, bool IsShowFullColumn);
     }
 
     public class TicketsExcelBuilderImp<T> : TicketsExcelBuilder<T>
@@ -106,6 +109,30 @@ namespace UniversalReports.CashOutPerformance.Services
                 sheet.DeleteColumn(usernameColumnIndex);
                 totalSheet.DeleteColumn(usernameColumnIndex);
             }
+        }
+
+        public ExcelPackage BuildSportLevel(string title, string[] breadCrumb, SportLevelModel model, bool IsShowFullColumn)
+        {
+            var fileExcel = "SimpleCashOutPerformance.xlsx";
+            var cellAddressOfTitle = "A1:L1";
+            var cellAddressOfBreadCrumb = "A3:L3";
+            var totalLength = 1;
+            var startRowIndex = 6;
+    
+            LoadTemplate(fileExcel);
+            BuilTitle(title, cellAddressOfTitle);
+            BuildBreadCrumb(breadCrumb, cellAddressOfBreadCrumb);
+            
+            foreach(var sportItem in model.Sports)
+            {
+                sheet.ApplyModel(sportItem.SportTotal);
+                startRowIndex += 1;
+                sheet.ApplyVertical(sportItem.ChildItems, startRowIndex);
+            }
+
+            ClearTemplate();
+            RemoveUsernameColumn(IsShowFullColumn);
+            return ExcelPackage;
         }
     }
 }
