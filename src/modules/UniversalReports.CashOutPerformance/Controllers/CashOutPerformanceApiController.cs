@@ -79,7 +79,7 @@ namespace UniversalReports.CashOutPerformance.Controllers
 
         [Route("excel-sport")]
         [HttpPost]
-        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<SportLevelModel> request)
+        public async Task<IHttpActionResult> TicketsExcel(SportLevelExcelRequest request)
         {
             var excelPackage = await mediator.Send(request);
             return new EpplusExcelResult(excelPackage);
