@@ -26,6 +26,8 @@ namespace UniversalReports.CashOutPerformance.Services
 
         private ExcelWorksheet totalSheet;
 
+        private ExcelWorksheet headerSheet;
+
         private const int StartRowIndex = 6;
 
         private ExcelPackage ExcelPackage { get; set; }
@@ -70,6 +72,7 @@ namespace UniversalReports.CashOutPerformance.Services
                 sheet = ExcelPackage.Workbook.Worksheets.Copy("BodyTemplate", "Cash Out");
                 templateSheet = ExcelPackage.Workbook.Worksheets["BodyTemplate"];
                 totalSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
+                headerSheet = ExcelPackage.Workbook.Worksheets["HeaderTemplate"];
             }
         }
 
@@ -104,6 +107,7 @@ namespace UniversalReports.CashOutPerformance.Services
         {
             ExcelPackage.Workbook.Worksheets.Delete("BodyTemplate");
             ExcelPackage.Workbook.Worksheets.Delete("TotalTemplate");
+            ExcelPackage.Workbook.Worksheets.Delete("HeaderTemplate");
         }
 
         private void RemoveUsernameColumn(bool IsShowFullColumn)
@@ -131,7 +135,7 @@ namespace UniversalReports.CashOutPerformance.Services
             foreach(var sportItem in model.Sports)
             {
                 updateRowIndex.Add(startRowIndex);
-                sheet.ApplyModel(templateSheet, sportItem.SportTotal, startRowIndex);
+                sheet.ApplyModel(headerSheet, sportItem.SportTotal, startRowIndex);
                 startRowIndex += 1;
                 foreach(var childItem in sportItem.ChildItems)
                 {
@@ -141,6 +145,8 @@ namespace UniversalReports.CashOutPerformance.Services
             }
 
             sheet.ApplyModel(totalSheet,model.GrandTotal, startRowIndex);
+            sheet.Cells[$"A{startRowIndex}"].Value = "Grand Total";
+            sheet.Cells[$"A5"].Value = "Sport";
             UpdateValueColumnSport(updateRowIndex);
             ClearTemplate();
             RemoveUsernameColumn(IsShowFullColumn);
