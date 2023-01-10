@@ -16,17 +16,11 @@ import * as _ from 'lodash';
 export class SportGridComponent implements Grid {
 
   dataViewModel: SportLevelModel;
-  paginationInstance: PaginationInstance;
   originalPageSize = 100;
-
-  private paginatePipe: PaginatePipe;
 
   constructor(
     private readonly service: SportGridService,
-    private readonly gridService: GridService,
-    private readonly paginationService: PaginationService,
-    private readonly ngxPaginationService: NgxPaginationService) {
-    this.paginatePipe = new PaginatePipe(this.ngxPaginationService);
+    private readonly gridService: GridService) {
   }
 
   get title(): string {
@@ -37,8 +31,6 @@ export class SportGridComponent implements Grid {
     return new Observable(observer => {
       this.service.getTickets(this.gridService.filterModel).subscribe(data => {
         this.dataViewModel = data;
-        this.paginationInstance = this.paginationService.createPaginationInstance(this.dataViewModel.TotalItems, 'sport-pagination');
-        this.onPageChange();
       });
       observer.complete();
     });
@@ -47,34 +39,6 @@ export class SportGridComponent implements Grid {
   exportExcel(): void {
     this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettype;
     this.service.exportExcel(this.gridService.filterModel);
-  }
-
-  onPageChange(): void {
-    this.createPaging();
-  }
-
-  private createPaging(): void {
-    if (this.gridService.filterModel.isPageChanged) {
-      this.paginationInstance.currentPage =
-        this.paginationInstance.itemsPerPage !== this.originalPageSize ? 1 : this.paginationInstance.currentPage;
-      this.gridService.filterModel.pageIndex = this.paginationInstance.currentPage;
-      this.gridService.filterModel.pageSize = this.paginationInstance.itemsPerPage;
-      this.gridService.filterModel.liveIndicator = this.gridService.cachedLiveIndicator;
-      this.gridService.filterModel.sportBettype = this.gridService.cachedSportBettype;
-      this.service.getTickets(this.gridService.filterModel).subscribe(data => {
-        this.dataViewModel = data;
-        this.createPagingTransform();
-      });
-    }
-
-    this.createPagingTransform();
-  }
-
-  private createPagingTransform(): void {
-    const paginateData = this.paginatePipe.transform(this.dataViewModel.Sports, this.paginationInstance);
-    this.dataViewModel.Sports = _.cloneDeep(paginateData);
-    this.gridService.filterModel.isPageChanged = true;
-    this.originalPageSize = this.paginationInstance.itemsPerPage;
   }
 
   get hasData(): boolean {

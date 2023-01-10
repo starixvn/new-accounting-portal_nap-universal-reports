@@ -145,11 +145,6 @@
               <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.GrandTotal.COIncome_RM"></td>
               <td class="text-right red-positive" [napDecimalFormat]="dataViewModel.GrandTotal.TotalIncome_RM"></td>
             </tr>
-            <tr>
-              <td colspan="12">
-                <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
-              </td>
-            </tr>
           </tfoot>
         </table>
       </div>
