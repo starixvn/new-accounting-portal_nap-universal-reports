@@ -38,7 +38,7 @@
 <ng-template #rowSportItem let-item="item">
   <tr class="sub-total-row font-weight-bold">
   <td (click)="item.collapsed=!item.collapsed">
-    <i [ngClass]="{'fa-caret-right': item.collapsed, 'fa-caret-down': !item.collapsed}"
+    <i [ngClass]="{'fa-caret-down': item.collapsed, 'fa-caret-right': !item.collapsed}"
                                     class="fa"></i>&nbsp;
     <a href="javascript:;" (click)="showEventStatusLevel(item.SportType, item.SportName)">{{item.SportName}}</a></td>
   <td class="text-right" [napDecimalFormat]="item.COTurnover_RM"></td>
