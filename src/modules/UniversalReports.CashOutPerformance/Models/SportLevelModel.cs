@@ -1,9 +1,13 @@
-﻿namespace UniversalReports.CashOutPerformance.Models
-{
-    public class SportLevelModel : CommonTicketModel
-    {
-        public int SportType { get; set; }
+﻿using System.Collections.Generic;
 
-        public string SportName { get; set; }
+namespace UniversalReports.CashOutPerformance.Models
+{
+    public class SportLevelModel
+    {
+        public IEnumerable<SportModel> Sports { get; set; }
+
+        public SportItemModel GrandTotal { get; set; }
+
+        public int TotalItems { get; set; }
     }
 }

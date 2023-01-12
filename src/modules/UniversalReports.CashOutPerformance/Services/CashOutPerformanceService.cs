@@ -1,4 +1,5 @@
 ﻿using Fanex.Data.Repository;
+using Linq.DynamicSum;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace UniversalReports.CashOutPerformance.Services
         Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria);
 
         Task<IEnumerable<FilterItemModel>> GetLeagueGroups(LeagueGroupCriteria criteria);
+
+        Task<SportLevelModel> GetSportLevel(SportLevelCriteria criteria);
     }
 
     public class CashOutPerformanceServiceImp : CashOutPerformanceService
@@ -72,6 +75,33 @@ namespace UniversalReports.CashOutPerformance.Services
         public async Task<IEnumerable<FilterItemModel>> GetLeagueGroups(LeagueGroupCriteria criteria)
         {
             return await repository.FetchAsync<FilterItemModel>(criteria);
+        }
+
+        public async Task<SportLevelModel> GetSportLevel(SportLevelCriteria criteria)
+        {
+            var (firstResultSet, secondResultSet, thirdResultSet) = await repository.FetchMultipleAsync<SportItemModel, SportItemModel, int>(criteria);
+
+            var groups = firstResultSet.Select(r => new { SportName = r.SportName, SportType = r.SportType })
+                            .Distinct();
+            var sports = from @group in groups
+                      let rawSports = firstResultSet.Where(r => r.SportType == @group.SportType && r.SportName == @group.SportName).ToArray()
+                      select CalculateSport(rawSports);
+
+            return new SportLevelModel
+            {
+                Sports = sports,
+                GrandTotal = secondResultSet.FirstOrDefault(),
+                TotalItems = thirdResultSet.FirstOrDefault()
+            };
+        }
+
+        private SportModel CalculateSport(IEnumerable<SportItemModel> rawData)
+        {
+            return new SportModel
+            {
+                SportTotal = rawData.DynamicSum(),
+                ChildItems = rawData
+            };
         }
     }
 }

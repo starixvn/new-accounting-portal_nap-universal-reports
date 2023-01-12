@@ -77,7 +77,7 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Controllers
 
             // Act
             var controller = new CashOutPerformanceApiController(mediator);
-            var request = new TicketRequest<SportLevelModel>();
+            var request = new SportLevelRequest();
             await controller.SportLevel(request);
 
             // Assert
@@ -137,7 +137,7 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Controllers
 
             // Act
             var controller = new CashOutPerformanceApiController(mediator);
-            await controller.TicketsExcel(new TicketExcelRequest<SportLevelModel>());
+            await controller.TicketsExcel(new SportLevelExcelRequest());
 
             // Assert
             await mediator.Received().Send(Arg.Compat.Any<TicketExcelRequest<SportLevelModel>>());

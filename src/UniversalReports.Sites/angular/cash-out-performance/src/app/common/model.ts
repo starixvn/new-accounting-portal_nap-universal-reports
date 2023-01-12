@@ -31,9 +31,21 @@ export interface TicketModel extends CommonTicketModel {
     MemberWL: number;
   }
 
-export interface SportLevelModel extends CommonTicketModel {
+export interface SportItemModel extends CommonTicketModel {
     SportType: number;
     SportName: string;
+    LeagueName: string;
+}
+
+export interface SportModel {
+  SportTotal: SportItemModel;
+  ChildItems: SportItemModel[];
+}
+
+export interface SportLevelModel {
+  Sports: SportModel[];
+  GrandTotal: SportItemModel;
+  TotalItems: number;
 }
 
 export interface EventStatusLevelModel extends CommonTicketModel {

@@ -47,7 +47,7 @@ namespace UniversalReports.CashOutPerformance.Controllers
 
         [Route("sport-level")]
         [HttpPost]
-        public async Task<IHttpActionResult> SportLevel(TicketRequest<SportLevelModel> request)
+        public async Task<IHttpActionResult> SportLevel(SportLevelRequest request)
         {
             var viewModel = await mediator.Send(request);
             return Json(viewModel);
@@ -79,7 +79,7 @@ namespace UniversalReports.CashOutPerformance.Controllers
 
         [Route("excel-sport")]
         [HttpPost]
-        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<SportLevelModel> request)
+        public async Task<IHttpActionResult> TicketsExcel(SportLevelExcelRequest request)
         {
             var excelPackage = await mediator.Send(request);
             return new EpplusExcelResult(excelPackage);

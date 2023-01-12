@@ -15,8 +15,10 @@ export class SportGridService {
 
   constructor(private httpService: HttpService) { }
 
-  getTickets(fiterModel: FilterModel): Observable<TicketViewModel<SportLevelModel>> {
-    return this.httpService.post<TicketViewModel<SportLevelModel>>(`${CommonConfig.API}sport-level`, fiterModel);
+  getTickets(fiterModel: FilterModel): Observable<SportLevelModel> {
+    fiterModel.pageIndex = 0;
+    fiterModel.pageSize = 0;
+    return this.httpService.post<SportLevelModel>(`${CommonConfig.API}sport-level`, fiterModel);
   }
 
   exportExcel(filterModel: FilterModel): void {

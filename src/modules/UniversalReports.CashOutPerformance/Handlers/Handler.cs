@@ -1,19 +1,19 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
+using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
-using System.Threading;
 using UniversalReports.CashOutPerformance.Services;
-using UniversalReports.CashOutPerformance.Criteria;
-using AutoMapper;
 using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Handlers
 {
     public class Handler : IRequestHandler<SportRequest, IEnumerable<FilterGroupItemModel>>,
         IRequestHandler<LicenseeRequest, IEnumerable<SiteModel>>,
-        IRequestHandler<TicketRequest<SportLevelModel>, TicketViewModel<SportLevelModel>>,
+        IRequestHandler<SportLevelRequest, SportLevelModel>,
         IRequestHandler<TicketRequest<EventStatusLevelModel>, TicketViewModel<EventStatusLevelModel>>,
         IRequestHandler<TicketRequest<BetTypeLevelModel>, TicketViewModel<BetTypeLevelModel>>,
         IRequestHandler<TicketRequest<MatchDetailLevelModel>, TicketViewModel<MatchDetailLevelModel>>,
@@ -39,10 +39,10 @@ namespace UniversalReports.CashOutPerformance.Handlers
             return await service.GetLicensees(criteria);
         }
 
-        public async Task<TicketViewModel<SportLevelModel>> Handle(TicketRequest<SportLevelModel> request, CancellationToken cancellationToken)
+        public async Task<SportLevelModel> Handle(SportLevelRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<SportLevelCriteria>(request);
-            return await service.GetTickets<SportLevelModel, SportLevelCriteria>(criteria);
+            return await service.GetSportLevel(criteria);
         }
 
         public async Task<TicketViewModel<EventStatusLevelModel>> Handle(TicketRequest<EventStatusLevelModel> request, CancellationToken cancellationToken)

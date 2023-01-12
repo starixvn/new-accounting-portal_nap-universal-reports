@@ -1,8 +1,11 @@
 ﻿using Epplus.Mapper.Extensions;
 using OfficeOpenXml;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UniversalReports.CashOutPerformance.Constants;
+using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.ViewModels;
 using UniversalReports.Core.Configurations;
 
@@ -11,6 +14,8 @@ namespace UniversalReports.CashOutPerformance.Services
     public interface TicketsExcelBuilder<T>
     {
         ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn);
+
+        ExcelPackage BuildSportLevel(string title, string[] breadCrumb, SportLevelExcelModel model, bool IsShowFullColumn);
     }
 
     public class TicketsExcelBuilderImp<T> : TicketsExcelBuilder<T>
@@ -21,9 +26,13 @@ namespace UniversalReports.CashOutPerformance.Services
 
         private ExcelWorksheet totalSheet;
 
+        private ExcelWorksheet headerSheet;
+
         private const int StartRowIndex = 6;
 
         private ExcelPackage ExcelPackage { get; set; }
+
+        private ExcelWorksheet templateSheet;
 
         public TicketsExcelBuilderImp(ConfigurationService configurationService)
         {
@@ -61,7 +70,9 @@ namespace UniversalReports.CashOutPerformance.Services
             {
                 ExcelPackage = new ExcelPackage(stream);
                 sheet = ExcelPackage.Workbook.Worksheets.Copy("BodyTemplate", "Cash Out");
+                templateSheet = ExcelPackage.Workbook.Worksheets["BodyTemplate"];
                 totalSheet = ExcelPackage.Workbook.Worksheets["TotalTemplate"];
+                headerSheet = ExcelPackage.Workbook.Worksheets["HeaderTemplate"];
             }
         }
 
@@ -96,6 +107,7 @@ namespace UniversalReports.CashOutPerformance.Services
         {
             ExcelPackage.Workbook.Worksheets.Delete("BodyTemplate");
             ExcelPackage.Workbook.Worksheets.Delete("TotalTemplate");
+            ExcelPackage.Workbook.Worksheets.Delete("HeaderTemplate");
         }
 
         private void RemoveUsernameColumn(bool IsShowFullColumn)
@@ -106,6 +118,54 @@ namespace UniversalReports.CashOutPerformance.Services
                 sheet.DeleteColumn(usernameColumnIndex);
                 totalSheet.DeleteColumn(usernameColumnIndex);
             }
+        }
+
+        public ExcelPackage BuildSportLevel(string title, string[] breadCrumb, SportLevelExcelModel model, bool IsShowFullColumn)
+        {
+            var fileExcel = "SimpleCashOutPerformance.xlsx";
+            var cellAddressOfTitle = "A1:L1";
+            var cellAddressOfBreadCrumb = "A3:L3";
+            var startRowIndex = 6;
+            var updateRowIndex = new List<int>();
+    
+            LoadTemplate(fileExcel);
+            BuilTitle(title, cellAddressOfTitle);
+            BuildBreadCrumb(breadCrumb, cellAddressOfBreadCrumb);
+            
+            foreach(var sportItem in model.Sports)
+            {
+                updateRowIndex.Add(startRowIndex);
+                sheet.ApplyModel(headerSheet, sportItem.SportTotal, startRowIndex);
+                startRowIndex += 1;
+                foreach(var childItem in sportItem.ChildItems)
+                {
+                    sheet.ApplyModel(templateSheet, childItem, startRowIndex);
+                    startRowIndex += 1;
+                }
+            }
+
+            sheet.ApplyModel(totalSheet,model.GrandTotal, startRowIndex);
+            sheet.Cells[$"A{startRowIndex}"].Value = "Grand Total";
+            sheet.Cells[$"A5"].Value = "Sport";
+            UpdateValueColumnSport(updateRowIndex);
+            ClearTemplate();
+            RemoveUsernameColumn(IsShowFullColumn);
+            RemoveSportColumn();
+            return ExcelPackage;
+        }
+
+        private void UpdateValueColumnSport(List<int> updateRowIndex)
+        {
+            foreach(var item in updateRowIndex)
+            {
+                sheet.Cells[$"A{item}"].Value = sheet.Cells[$"M{item}"].Value;
+            }
+        }
+
+        private void RemoveSportColumn()
+        {
+            var sportColumnIndex = 13;
+            sheet.DeleteColumn(sportColumnIndex);
         }
     }
 }

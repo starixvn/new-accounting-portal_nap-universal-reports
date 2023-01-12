@@ -14,7 +14,7 @@ using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Handlers
 {
-    public class HandlerExcel : IRequestHandler<TicketExcelRequest<SportLevelModel>, ExcelPackage>,
+    public class HandlerExcel : IRequestHandler<SportLevelExcelRequest, ExcelPackage>,
         IRequestHandler<TicketExcelRequest<EventStatusLevelModel>, ExcelPackage>,
         IRequestHandler<TicketExcelRequest<BetTypeLevelModel>, ExcelPackage>,
         IRequestHandler<TicketExcelRequest<MatchDetailLevelModel>, ExcelPackage>
@@ -38,12 +38,12 @@ namespace UniversalReports.CashOutPerformance.Handlers
             this.service = service;
         }
 
-        public async Task<ExcelPackage> Handle(TicketExcelRequest<SportLevelModel> request, CancellationToken cancellationToken)
+        public async Task<ExcelPackage> Handle(SportLevelExcelRequest request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<SportLevelCriteria>(request);
-            var reportData = await service.GetTickets<SportLevelModel, SportLevelCriteria>(criteria);
-            var excelModel = Mapper.Map<TicketViewExcelModel<SportLevelExcelModel>>(reportData);
-            var excelPackage = ticketsSportExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.Sport, true);
+            var reportData = await service.GetSportLevel(criteria);
+            var excelModel = Mapper.Map<SportLevelExcelModel>(reportData);
+            var excelPackage = ticketsSportExcelBuilder.BuildSportLevel(request.Title, request.BreadCrumb, excelModel, true);
             return excelPackage;
         }
 
