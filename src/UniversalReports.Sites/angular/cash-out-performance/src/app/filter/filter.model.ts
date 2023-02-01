@@ -49,8 +49,11 @@ export interface FilterModel {
     filterType: number
   }
 
-  export interface SiteModel extends FilterItemModel {
-    IsDeposit: boolean;
+  export interface SiteModel {
+    SiteGroup: string;
+    SiteId: number;
+    SiteName: string;
+    SiteLabel: string;
 }
 
 export enum ExchageRateValues {
