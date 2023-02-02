@@ -8,6 +8,13 @@ export interface LeagueModel {
   Name: string;
 }
 
+export interface SiteModel {
+  SiteGroup: string;
+  SiteId: number;
+  SiteName: string;
+  SiteLabel: string;
+}
+
 
 export interface FilterModel {
   fromDate: string;

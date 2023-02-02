@@ -8,7 +8,6 @@ using UniversalReports.CashOutPerformance.Handlers;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 using UniversalReports.CashOutPerformance.Services;
-using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.UnitTests.Handlers
 {
@@ -22,8 +21,8 @@ namespace UniversalReports.CashOutPerformance.UnitTests.Handlers
             // Arrange
             var expectedLicensees = new List<SiteModel>
             {
-                new SiteModel { Id = 871, Name = "108betTest" },
-                new SiteModel { Id = 865, Name = "109betTest" }
+                new SiteModel { SiteId = 871, SiteName = "108betTest" },
+                new SiteModel { SiteId = 865, SiteName = "109betTest" }
             };
 
             var cashOutPerformanceService = Substitute.For<CashOutPerformanceService>();

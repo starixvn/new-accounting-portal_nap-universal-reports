@@ -7,7 +7,7 @@ using UniversalReports.AbnormalBet.Model;
 
 namespace UniversalReports.AbnormalBet.Filter
 {
-    public class FilterHandler : IRequestHandler<SiteHttpParameter, IEnumerable<FilterItemModel>>,
+    public class FilterHandler : IRequestHandler<SiteHttpParameter, IEnumerable<SiteModel>>,
          IRequestHandler<SportHttpParameter, IEnumerable<FilterItemModel>>,
          IRequestHandler<BetTypeHttpParameter, IEnumerable<FilterItemModel>>,
          IRequestHandler<ReasonHttpParameter, IEnumerable<FilterItemModel>>,
@@ -46,7 +46,7 @@ namespace UniversalReports.AbnormalBet.Filter
             return await filterService.QuerySport();
         }
 
-        public async Task<IEnumerable<FilterItemModel>> Handle(SiteHttpParameter request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<SiteModel>> Handle(SiteHttpParameter request, CancellationToken cancellationToken)
         {
             return await filterService.QuerySite();
         }

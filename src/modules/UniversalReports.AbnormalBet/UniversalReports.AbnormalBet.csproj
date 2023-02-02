@@ -123,6 +123,7 @@
     <Compile Include="Model\MemberModel.cs" />
     <Compile Include="Model\LicenseeItemModel.cs" />
     <Compile Include="Model\MemberItemModel.cs" />
+    <Compile Include="Model\SiteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report\AbnormalBetReportController.cs" />
     <Compile Include="Report\ReportExcelBuilder.cs" />

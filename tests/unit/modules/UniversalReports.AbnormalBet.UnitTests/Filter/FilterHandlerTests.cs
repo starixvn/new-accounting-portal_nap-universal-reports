@@ -21,7 +21,7 @@ namespace UniversalReports.AbnormalBet.UnitTests.Filter
         public async Task Handle_WithAnyMessage_ReturnRightSite()
         {
             // Arrange
-            var sites = fixture.Create<IEnumerable<FilterItemModel>>();
+            var sites = fixture.Create<IEnumerable<SiteModel>>();
 
             var service = Substitute.For<FilterService>();
             service.QuerySite().Returns(sites);

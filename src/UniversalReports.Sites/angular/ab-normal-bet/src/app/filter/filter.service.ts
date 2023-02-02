@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FilterItemModel, LeagueModel } from './filter.model';
+import { FilterItemModel, LeagueModel, SiteModel } from './filter.model';
 import { Observable } from 'rxjs';
 import { HttpService } from 'nap-components/http';
 
@@ -27,9 +27,9 @@ export class FilterService {
     return this.httpService.post<FilterItemModel[]>(url);
   }
 
-  getSite(): Observable<FilterItemModel[]> {
+  getSite(): Observable<SiteModel[]> {
     const url = this.url + 'site';
-    return this.httpService.post<FilterItemModel[]>(url);
+    return this.httpService.post<SiteModel[]>(url);
   }
   getCurrency(): Observable<FilterItemModel[]> {
     const url = this.url + 'currency';

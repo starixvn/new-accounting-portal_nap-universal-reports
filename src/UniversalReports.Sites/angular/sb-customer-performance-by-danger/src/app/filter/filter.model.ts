@@ -11,9 +11,10 @@ export interface FilterModel {
 }
 
 export interface Site {
-  SiteGroup: number;
+  SiteGroup: string;
   SiteId: number;
   SiteName: string;
+  SiteLabel: string;
 }
 
 export interface LeagueGroup {

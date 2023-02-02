@@ -39,7 +39,7 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
             return new GridDataRow { Columns = columns };
         }
 
-        private int GetSabaSportValue(int id, string name)
+        private static int GetSabaSportValue(int id, string name)
         {
             var isSabaSport = 0;
             
@@ -48,9 +48,9 @@ namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
                 isSabaSport = 1;
             }
 
-            if(id < 0 && name.Contains("Basketball PinGoal"))
+            if(id < 0 && name.ToLower().Contains("pingoal"))
             {
-                isSabaSport = 4;
+                isSabaSport = 3;
             }
 
             return isSabaSport;
