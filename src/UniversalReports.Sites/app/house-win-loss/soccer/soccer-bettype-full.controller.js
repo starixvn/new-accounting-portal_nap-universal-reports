@@ -163,15 +163,25 @@ import angular from "angular";
         }
 
         function exportExcel() {
-
+            var isSabaSport = 0;
             var betTypeFullTitle = tab.generateBreadcrumbText();
             var betTypeLiveTitle = tab.generateBreadcrumbTextWithSuffix(' "LIVE"');
             var betTypeNonLiveTitle = tab.generateBreadcrumbTextWithSuffix(' "NON-LIVE"');
+            var productName = pane.data.productName;
+
+            if (productName === 'SABA Soccer') {
+                isSabaSport = 1;
+            }
+
+            if (productName === 'SABA Soccer PinGoal') {
+                isSabaSport = 3;
+            }
 
             var httpData = {
                 betTypeFullTitle: betTypeFullTitle,
                 betTypeLiveTitle: betTypeLiveTitle,
-                betTypeNonLiveTitle: betTypeNonLiveTitle
+                betTypeNonLiveTitle: betTypeNonLiveTitle,
+                isSabaSport: isSabaSport
             };
             angular.extend(httpData, pane.data);
             pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
