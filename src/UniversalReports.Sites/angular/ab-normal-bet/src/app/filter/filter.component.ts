@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { DateHelper, NapDateStruct, DateFormat } from 'nap-components/date';
 import { FilterService } from './filter.service';
-import { FilterModel, FilterItemModel } from './filter.model';
+import { FilterModel, FilterItemModel, SiteModel } from './filter.model';
 import { TreeviewConfig, DropdownTreeviewComponent } from 'ngx-treeview';
 import { CONFIG } from '../common/date-config';
 import * as moment from 'moment';
@@ -27,7 +27,7 @@ export class FilterComponent implements OnInit {
     maxHeight: 500
   });
   selectedReasons: number[] = [];
-  sites: FilterItemModel[] = [];
+  sites: SiteModel[] = [];
   siteTreeviewConfig = TreeviewConfig.create({
     hasFilter: true,
     hasAllCheckBox: true,

@@ -12,7 +12,7 @@ namespace UniversalReports.AbnormalBet.Filter
 
         Task<IEnumerable<FilterItemModel>> QueryReason();
 
-        Task<IEnumerable<FilterItemModel>> QuerySite();
+        Task<IEnumerable<SiteModel>> QuerySite();
 
         Task<IEnumerable<FilterItemModel>> QueryBetType(string sportId);
 
@@ -38,9 +38,9 @@ namespace UniversalReports.AbnormalBet.Filter
             });
         }
 
-        public async Task<IEnumerable<FilterItemModel>> QuerySite()
+        public async Task<IEnumerable<SiteModel>> QuerySite()
         {
-            return await repository.FetchAsync<FilterItemModel>(new SiteQueryCriteria());
+            return await repository.FetchAsync<SiteModel>(new SiteQueryCriteria());
         }
 
         public async Task<IEnumerable<FilterItemModel>> QueryReason()

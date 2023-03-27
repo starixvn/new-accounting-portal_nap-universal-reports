@@ -15,6 +15,7 @@ import { FilterItemTreeviewPipe } from './filter-item-treeview.pipe';
 import { CommonModule } from '@angular/common';
 import { PeriodTypeComponent } from './period-type/period-type.component';
 import { PeriodTypeModule } from './period-type/period-type.module';
+import { SiteTreeviewPipe } from './site-treeview.pipe';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { PeriodTypeModule } from './period-type/period-type.module';
   ],
   declarations: [
     FilterComponent,
-    FilterItemTreeviewPipe
+    FilterItemTreeviewPipe,
+    SiteTreeviewPipe
   ],
   providers: [
     FilterService

@@ -1,7 +1,13 @@
 ﻿namespace UniversalReports.CashOutPerformance.Models
 {
-    public class SiteModel : FilterItemModel
+    public class SiteModel
     {
-        public bool IsDeposit { get; set; }
+        public string SiteGroup { get; set; }
+
+        public int SiteId { get; set; }
+
+        public string SiteName { get; set; }
+
+        public string SiteLabel { get; set; }
     }
 }

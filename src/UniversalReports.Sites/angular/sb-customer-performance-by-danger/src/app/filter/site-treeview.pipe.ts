@@ -9,9 +9,10 @@ import { TreeviewItem } from 'ngx-treeview';
 
 export class SiteTreeviewPipe implements PipeTransform {
   transform(sites: Site[]): TreeviewItem[] {
-    const creditGroup = 0;
-    const creditSites = new TreeviewItem({ text: 'Credit', value: 0 });
-    const depoSitSites = new TreeviewItem({ text: 'Deposit', value: 1 });
+    const creditGroup = 'Credit';
+    const creditSites = new TreeviewItem({ text: 'Credit', value: '0' });
+    const depoSitSites = new TreeviewItem({ text: 'Deposit', value: '1' });
+    let siteLabelsOfCredit: string[] = [];
 
     if (_.isNil(sites)) {
       return undefined;
@@ -21,19 +22,21 @@ export class SiteTreeviewPipe implements PipeTransform {
       const item = new TreeviewItem({ text: site.SiteName, value: site.SiteName });
       let groupTreeviewItem: TreeviewItem;
 
-      switch (site.SiteGroup) {
-        case creditGroup:
-          groupTreeviewItem = creditSites;
-          break;
-        default:
-          groupTreeviewItem = depoSitSites;
-          break;
-      }
-
-      if (_.isNil(groupTreeviewItem.children)) {
-        groupTreeviewItem.children = [item];
+      if (site.SiteGroup === creditGroup) {
+        groupTreeviewItem = creditSites;
+        const indexOfSiteLabel = siteLabelsOfCredit.indexOf(site.SiteLabel);
+        if (siteLabelsOfCredit.length === 0 || indexOfSiteLabel === -1)
+        {
+          siteLabelsOfCredit.push(site.SiteLabel);
+          this.addItemForChildren(groupTreeviewItem, new TreeviewItem({ text: site.SiteLabel, value: '0' }));
+          this.addItemForChildren(groupTreeviewItem.children[groupTreeviewItem.children.length-1], item);
+        } else {
+          this.addItemForChildren(groupTreeviewItem.children[indexOfSiteLabel], item);
+        }
       } else {
-        groupTreeviewItem.children.push(item);
+        
+        groupTreeviewItem = depoSitSites;
+        this.addItemForChildren(groupTreeviewItem, item);
       }
     });
 
@@ -43,6 +46,14 @@ export class SiteTreeviewPipe implements PipeTransform {
     ];
 
     return siteTreeItems.filter(item => !_.isNil(item.children) && item.children.length > 0);
+  }
+
+  addItemForChildren(groupTreeviewItem: TreeviewItem, item: TreeviewItem): void {
+    if (_.isNil(groupTreeviewItem.children)) {
+      groupTreeviewItem.children = [item];
+    } else {
+      groupTreeviewItem.children.push(item);
+    }
   }
 }
 

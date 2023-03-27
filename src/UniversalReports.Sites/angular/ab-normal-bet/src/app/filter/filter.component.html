@@ -46,7 +46,7 @@
       <div class="nap-group">
         <label>Licensee</label>
         <div class="nap-control">
-          <ngx-dropdown-treeview #siteDropdownTreeview [items]="sites | filterItemTreeview:sites"
+          <ngx-dropdown-treeview #siteDropdownTreeview [items]="sites | siteTreeview:sites"
             [config]="siteTreeviewConfig" (selectedChange)="selectedSites = $event">
           </ngx-dropdown-treeview>
         </div>

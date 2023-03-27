@@ -122,7 +122,7 @@
     <Setting Key="Acc_Rpt_AbnormalBet_SportSel" SpName="Acc_Rpt_AbnormalBet_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_AbnormalBet_ReasonSel" SpName="Acc_Rpt_AbnormalBet_ReasonSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_AbnormalBet_Member" SpName="Acc_Rpt_AbnormalBet_Member" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_LicenseeSel" SpName="Acc_Rpt_AbnormalBet_LicenseeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_AbnormalBet_LicenseeSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_AbnormalBet_BetTypeSel" SpName="Acc_Rpt_AbnormalBet_BetTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_AbnormalBet_Licensee" SpName="Acc_Rpt_AbnormalBet_Licensee" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_AbnormalBet_CurrencySel" SpName="Acc_Rpt_AbnormalBet_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
@@ -138,7 +138,7 @@
   <Function Name="SMA Win Loss">
     <Setting Key="SMAWinLoss-CurrencySel" SpName="Acc_Rpt_SMAWinlossSummary_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="SMAWinLoss-Summary" SpName="Acc_Rpt_SMAWinlossSummary" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
-    <Setting Key="SMAWinLoss-SiteSel" SpName="Acc_Rpt_SMAWinlossSummary_DivisionSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="SMAWinLoss-SiteSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="SMAWinLoss-SportSel" SpName="Acc_Rpt_SMAWinlossSummary_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="SMAWinLoss-VirtualRate" SpName="Acc_Rpt_SMAWinlossSummary_CustVirtualMultiplierSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="SMAWinLoss-LeagueGroupSel" SpName="Acc_Rpt_SMAWinlossSummary_LeagueGroupSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
@@ -150,7 +150,7 @@
     <Setting Key="DailyJob_CheckTasksStatus" SpName="DailyJob_CheckTasksStatus" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
   </Function>
   <Function Name="SBCustomerPerformanceByDangers">
-    <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+    <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SiteList" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
   <Function Name="CashOutPerformance">
     <Setting Key="Acc_Rpt_COPerformance_SportType_WareHouse" SpName="Acc_Rpt_COPerformance_SportType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
@@ -158,5 +158,6 @@
     <Setting Key="Acc_Rpt_COPerformance_BetType_WareHouse" SpName="Acc_Rpt_COPerformance_BetType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_COPerformance_Cust_WareHouse" SpName="Acc_Rpt_COPerformance_Cust" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
     <Setting Key="Acc_Rpt_COPerformance_LeagueSel" SpName="Acc_Rpt_COPerformance_LeagueSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	<Setting Key="Acc_Rpt_COPerformance_LicenseesSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
   </Function>
 </Functions>
