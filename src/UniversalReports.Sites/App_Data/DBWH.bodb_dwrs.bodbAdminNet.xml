@@ -1,163 +1,166 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
-  <Function Name="HouseWinLossByProducts">
-    <Setting Key="HouseWinLoss-Soccer-Minor-SportType" SpName="Acc_Rpt_DailyWinLossSoccerMinorBetTypes_Lvl1" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-    <Setting Key="HouseWinLoss-Soccer-Minor-BetType" SpName="Acc_Rpt_DailyWinLossSoccerMinorBetTypes_Lvl2" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_Lvl1" SpName="Acc_Rpt_HouseWinlossByProducts_Lvl1" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_Lvl2" SpName="Acc_Rpt_HouseWinlossByProducts_Lvl2" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_Parlay" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Parlay" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_MajorMinor" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_MajorMinor" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_Sporttype" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_Sporttype" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_Bettype" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_Bettype" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_MatchDetail" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_MatchDetail" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_Site" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_NumberGame" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_NumberGame" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_3rd_Bettype" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_Bettype" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_3rd_MatchDetail" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_MatchDetail" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_LvlN_3rd_Site" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts-GetPermisionProfileID" SpName="Acc_Rpt_GetPermisionProfileID" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-	<Setting Key="HouseWinlossByProducts_Lvl2_BettypePerformance" SpName="Acc_Rpt_HouseWinlossByProducts_BettypePerformance" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
-  </Function>
-  <Function Name="CN88WinLossByProducts">
-    <Setting Key="CN88WinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
-    <Setting Key="CN88WinLoss-Universal-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_SportType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-Universal-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-NumberGame-League-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_League_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-VirtualSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-VirtualSports-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-Soccer-MajorMinor-LiveStatus-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_LiveStatus_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-OtherSports-SportType-LiveStatus-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_LiveStatus_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-OtherSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
-    <Setting Key="CN88WinLoss-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-Sportsbook-Outright-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-Parlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Parlay_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-VirtualSportsBetradar-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_SportType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-VirtualSportsBetradar-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-VirtualSportsBetradar-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-Soccer-Minor-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="CN88WinLoss-Soccer-Minor-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-  </Function>
-  <Function Name="NG2-Statistics">
-    <Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily" DbName="DBWH.bodb_dwrs.bodbAdminNet">
-      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
-      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
-      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
-    </Setting>
-    <Setting Key="NG2-Statistics-GrandTotal" SpName="Acc_Rpt_NG2Statistic_GrandTotal" DbName="DBWH.bodb_dwrs.bodbAdminNet">
-      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
-      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
-      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
-    </Setting>
-    <Setting Key="NG2-Statistics-UserName" SpName="Acc_Rpt_NG2Statistic_Username" DbName="DBWH.bodb_dwrs.bodbAdminNet">
-      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
-      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
-      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
-    </Setting>
-    <Setting Key="NG2-Statistics-Bettype" SpName="Acc_Rpt_NG2Statistic_bettype" DbName="DBWH.bodb_dwrs.bodbAdminNet">
-      <Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
-      <Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
-      <Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
-    </Setting>
-  </Function>
-  <Function Name="Punter-Analysis">
-    <Setting Key="Punter-BetCount" SpName="Acc_Punter_Top_DrillDownBetcount" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-BetType" SpName="Acc_Punter_Top_DrillDownUsernameSportType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-League" SpName="Acc_Punter_Top_DrillDownUsernameSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-SportType" SpName="Acc_Punter_Top_DrillDownUsername" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-Summary" SpName="Acc_Punter_TopByUsername" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	<Function Name="HouseWinLossByProducts">
+		<Setting Key="HouseWinLoss-Soccer-Minor-SportType" SpName="Acc_Rpt_DailyWinLossSoccerMinorBetTypes_Lvl1" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinLoss-Soccer-Minor-BetType" SpName="Acc_Rpt_DailyWinLossSoccerMinorBetTypes_Lvl2" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_Lvl1" SpName="Acc_Rpt_HouseWinlossByProducts_Lvl1" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_Lvl2" SpName="Acc_Rpt_HouseWinlossByProducts_Lvl2" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_Parlay" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Parlay" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_MajorMinor" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_MajorMinor" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_Sporttype" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_Sporttype" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_Bettype" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_Bettype" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_MatchDetail" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_MatchDetail" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_Site" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_NumberGame" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_NumberGame" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_3rd_Bettype" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_Bettype" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_3rd_MatchDetail" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_MatchDetail" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_3rd_Site" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_Lvl2_BettypePerformance" SpName="Acc_Rpt_HouseWinlossByProducts_BettypePerformance" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+	</Function>
+	<Function Name="CN88WinLossByProducts">
+		<Setting Key="CN88WinLoss-Products-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Products_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
+		<Setting Key="CN88WinLoss-Universal-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_SportType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-Universal-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Universal_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-NumberGame-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-NumberGame-League-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_League_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-NumberGame-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_NumberGame_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-VirtualSports-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_SportType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-VirtualSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSports_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-VirtualSports-Racing-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualRacing_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-VirtualSports-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsbook_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-Soccer-MajorMinor-LiveStatus-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Major_Minor_LiveStatus_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-Soccer-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-OtherSports-SportType-LiveStatus-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_SportType_LiveStatus_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-OtherSports-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_OtherSports_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="300" />
+		<Setting Key="CN88WinLoss-Sportsbook-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-Sportsbook-Outright-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Sportsbook_Outright_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-Parlay-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Parlay_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-VirtualSportsBetradar-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_SportType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-VirtualSportsBetradar-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_BetType_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-VirtualSportsBetradar-MatchDetail-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_VirtualSportsBetradar_MatchDetail_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-Soccer-Minor-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="CN88WinLoss-Soccer-Minor-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
+	<Function Name="NG2-Statistics">
+		<Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily" DbName="DBWH.bodb_dwrs.bodbAdminNet">
+			<Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
+			<Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
+			<Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
+		</Setting>
+		<Setting Key="NG2-Statistics-GrandTotal" SpName="Acc_Rpt_NG2Statistic_GrandTotal" DbName="DBWH.bodb_dwrs.bodbAdminNet">
+			<Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
+			<Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
+			<Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
+		</Setting>
+		<Setting Key="NG2-Statistics-UserName" SpName="Acc_Rpt_NG2Statistic_Username" DbName="DBWH.bodb_dwrs.bodbAdminNet">
+			<Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
+			<Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
+			<Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
+		</Setting>
+		<Setting Key="NG2-Statistics-Bettype" SpName="Acc_Rpt_NG2Statistic_bettype" DbName="DBWH.bodb_dwrs.bodbAdminNet">
+			<Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
+			<Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
+			<Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
+		</Setting>
+	</Function>
+	<Function Name="Punter-Analysis">
+		<Setting Key="Punter-BetCount" SpName="Acc_Punter_Top_DrillDownBetcount" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-BetType" SpName="Acc_Punter_Top_DrillDownUsernameSportType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-League" SpName="Acc_Punter_Top_DrillDownUsernameSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-SportType" SpName="Acc_Punter_Top_DrillDownUsername" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-Summary" SpName="Acc_Punter_TopByUsername" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 
-    <Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_Punter_ProductSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
-      <Mapping DataField="ProductName" ObjectProperty="ProductName" />
-      <Mapping DataField="SportGroup" ObjectProperty="SportGroup" />
-      <Mapping DataField="SportName" ObjectProperty="SportName" />
-      <Mapping DataField="BettypeGroup" ObjectProperty="BetTypeGroup" />
-      <Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
-      <Mapping DataField="Value" ObjectProperty="Value" />
-      <Mapping DataField="RenderType" ObjectProperty="RenderType" />
-    </Setting>
-    <Setting Key="Punter-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-AvailableDateRangeQuery" SpName="Acc_Punter_GetDateRangeSupport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-SportsbookSportBetTypeQuery" SpName="Acc_Punter_League_ProductSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
-      <Mapping DataField="SportType" ObjectProperty="SportType" />
-      <Mapping DataField="SportName" ObjectProperty="SportName" />
-      <Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
-      <Mapping DataField="CombinationID" ObjectProperty="CombinationId" />
-    </Setting>
-    <Setting Key="Punter-SportTypeLeagueQuery" SpName="Acc_Punter_GetLeagueBySport" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
-      <Mapping DataField="leagueids" ObjectProperty="LeagueId" />
-      <Mapping DataField="LeagueName" ObjectProperty="LeagueName" />
-    </Setting>
-    <Setting Key="Punter-Performance-BetType" SpName="Acc_Punter_PerformanceTopBettype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-Performance-Event" SpName="Acc_Punter_PerformanceEventtype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-Performance-Month" SpName="Acc_Punter_PerformanceByMonth" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-Performance-ProductTurnover" SpName="Acc_Punter_PerformanceByProduct" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-Performance-Sport" SpName="Acc_Punter_PerformanceTopSporttype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-Performance-SportsbookBetCount" SpName="Acc_Punter_PerformanceByEventtype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-Performance-SportsbookSport" SpName="Acc_Punter_PerformanceBySport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-PerformanceOfMembers" SpName="Acc_Punter_Top_DrillDownAssocAcc" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-LeagueGroupQuery" SpName="Acc_Punter_LeagueGroup" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
-      <Mapping DataField="SportType" ObjectProperty="SportType" />
-      <Mapping DataField="Sport" ObjectProperty="Sport" />
-      <Mapping DataField="LeagueGroupID" ObjectProperty="LeagueGroupId" />
-      <Mapping DataField="LeagueGroupName" ObjectProperty="LeagueGroupName" />
-    </Setting>
-    <Setting Key="Punter-Game" SpName="Acc_Punter_Top_DrillDownSportEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-BetTypeGroup" SpName="Acc_Punter_Top_DrillDownLeagueGroupEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Punter-GameBetType" SpName="Acc_Punter_Top_DrillDownBettypeGroupEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-  </Function>
-  <Function Name="Actual-Member-Bet">
-    <Setting Key="Actual-Member-Bet-Site" SpName="Acc_Rpt_ActualMemberBet_SiteTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Actual-Member-Bet-Odds" SpName="Acc_Rpt_ActualMemberBet_OddsTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Actual-Member-Bet-BetType" SpName="Acc_Rpt_ActualMemberBet_Detail" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Actual-Member-Bet-Product" SpName="Acc_Rpt_ActualMemberBet" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Actual-Member-Bet-Currency" SpName="Acc_Rpt_ActualMemberBet_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-  </Function>
-  <Function Name="Abnormal Bet Report">
-    <Setting Key="Acc_Rpt_AbnormalBet_SportSel" SpName="Acc_Rpt_AbnormalBet_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_ReasonSel" SpName="Acc_Rpt_AbnormalBet_ReasonSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_Member" SpName="Acc_Rpt_AbnormalBet_Member" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_LicenseeSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_BetTypeSel" SpName="Acc_Rpt_AbnormalBet_BetTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_Licensee" SpName="Acc_Rpt_AbnormalBet_Licensee" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_CurrencySel" SpName="Acc_Rpt_AbnormalBet_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_AbnormalBet_LeagueSel" SpName="Acc_Rpt_AbnormalBet_LeagueSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-  </Function>
-  <Function Name="SBPerformance">
-    <Setting Key="SBPerformanceMonitor-Dashboard-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_Dashboard_DWH" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SBPerformanceMonitor-Site-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SBPerformanceMonitor-Sport-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Sport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SBPerformanceMonitor-League-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_League" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SBPerformanceMonitor-Member-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Member" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-  </Function>
-  <Function Name="SMA Win Loss">
-    <Setting Key="SMAWinLoss-CurrencySel" SpName="Acc_Rpt_SMAWinlossSummary_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SMAWinLoss-Summary" SpName="Acc_Rpt_SMAWinlossSummary" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
-    <Setting Key="SMAWinLoss-SiteSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SMAWinLoss-SportSel" SpName="Acc_Rpt_SMAWinlossSummary_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SMAWinLoss-VirtualRate" SpName="Acc_Rpt_SMAWinlossSummary_CustVirtualMultiplierSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SMAWinLoss-LeagueGroupSel" SpName="Acc_Rpt_SMAWinlossSummary_LeagueGroupSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SMAWinLoss-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="SMAWinLoss-ReportLatestDate" SpName="Acc_Rpt_SMAWinlossSummary_ReportLatestDate" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-  </Function>
-  <Function Name="Fraud and Risk">
-    <Setting Key="Acc_Rpt_SBTurnoverComparison_Daily" SpName="Acc_Rpt_SBTurnoverComparison_Daily" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="DailyJob_CheckTasksStatus" SpName="DailyJob_CheckTasksStatus" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
-  </Function>
-  <Function Name="SBCustomerPerformanceByDangers">
-    <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SiteList" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-  </Function>
-  <Function Name="CashOutPerformance">
-    <Setting Key="Acc_Rpt_COPerformance_SportType_WareHouse" SpName="Acc_Rpt_COPerformance_SportType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_LiveStatus_WareHouse" SpName="Acc_Rpt_COPerformance_LiveStatus" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_BetType_WareHouse" SpName="Acc_Rpt_COPerformance_BetType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_Cust_WareHouse" SpName="Acc_Rpt_COPerformance_Cust" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_COPerformance_LeagueSel" SpName="Acc_Rpt_COPerformance_LeagueSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-	<Setting Key="Acc_Rpt_COPerformance_LicenseesSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-  </Function>
+		<Setting Key="Punter-ProductSportBetTypeQuery" SpName="Acc_Punter_ProductSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+			<Mapping DataField="ProductName" ObjectProperty="ProductName" />
+			<Mapping DataField="SportGroup" ObjectProperty="SportGroup" />
+			<Mapping DataField="SportName" ObjectProperty="SportName" />
+			<Mapping DataField="BettypeGroup" ObjectProperty="BetTypeGroup" />
+			<Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
+			<Mapping DataField="Value" ObjectProperty="Value" />
+			<Mapping DataField="RenderType" ObjectProperty="RenderType" />
+		</Setting>
+		<Setting Key="Punter-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-AvailableDateRangeQuery" SpName="Acc_Punter_GetDateRangeSupport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-SportsbookSportBetTypeQuery" SpName="Acc_Punter_League_ProductSportBetType" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+			<Mapping DataField="SportType" ObjectProperty="SportType" />
+			<Mapping DataField="SportName" ObjectProperty="SportName" />
+			<Mapping DataField="BettypeName" ObjectProperty="BetTypeName" />
+			<Mapping DataField="CombinationID" ObjectProperty="CombinationId" />
+		</Setting>
+		<Setting Key="Punter-SportTypeLeagueQuery" SpName="Acc_Punter_GetLeagueBySport" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+			<Mapping DataField="leagueids" ObjectProperty="LeagueId" />
+			<Mapping DataField="LeagueName" ObjectProperty="LeagueName" />
+		</Setting>
+		<Setting Key="Punter-Performance-BetType" SpName="Acc_Punter_PerformanceTopBettype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-Performance-Event" SpName="Acc_Punter_PerformanceEventtype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-Performance-Month" SpName="Acc_Punter_PerformanceByMonth" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-Performance-ProductTurnover" SpName="Acc_Punter_PerformanceByProduct" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-Performance-Sport" SpName="Acc_Punter_PerformanceTopSporttype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-Performance-SportsbookBetCount" SpName="Acc_Punter_PerformanceByEventtype" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-Performance-SportsbookSport" SpName="Acc_Punter_PerformanceBySport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-PerformanceOfMembers" SpName="Acc_Punter_Top_DrillDownAssocAcc" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-LeagueGroupQuery" SpName="Acc_Punter_LeagueGroup" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0">
+			<Mapping DataField="SportType" ObjectProperty="SportType" />
+			<Mapping DataField="Sport" ObjectProperty="Sport" />
+			<Mapping DataField="LeagueGroupID" ObjectProperty="LeagueGroupId" />
+			<Mapping DataField="LeagueGroupName" ObjectProperty="LeagueGroupName" />
+		</Setting>
+		<Setting Key="Punter-Game" SpName="Acc_Punter_Top_DrillDownSportEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-BetTypeGroup" SpName="Acc_Punter_Top_DrillDownLeagueGroupEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Punter-GameBetType" SpName="Acc_Punter_Top_DrillDownBettypeGroupEsport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
+	<Function Name="Actual-Member-Bet">
+		<Setting Key="Actual-Member-Bet-Site" SpName="Acc_Rpt_ActualMemberBet_SiteTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Actual-Member-Bet-Odds" SpName="Acc_Rpt_ActualMemberBet_OddsTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Actual-Member-Bet-BetType" SpName="Acc_Rpt_ActualMemberBet_Detail" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Actual-Member-Bet-Product" SpName="Acc_Rpt_ActualMemberBet" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Actual-Member-Bet-Currency" SpName="Acc_Rpt_ActualMemberBet_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
+	<Function Name="Abnormal Bet Report">
+		<Setting Key="Acc_Rpt_AbnormalBet_SportSel" SpName="Acc_Rpt_AbnormalBet_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_AbnormalBet_ReasonSel" SpName="Acc_Rpt_AbnormalBet_ReasonSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_AbnormalBet_Member" SpName="Acc_Rpt_AbnormalBet_Member" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_AbnormalBet_LicenseeSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_AbnormalBet_BetTypeSel" SpName="Acc_Rpt_AbnormalBet_BetTypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_AbnormalBet_Licensee" SpName="Acc_Rpt_AbnormalBet_Licensee" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_AbnormalBet_CurrencySel" SpName="Acc_Rpt_AbnormalBet_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_AbnormalBet_LeagueSel" SpName="Acc_Rpt_AbnormalBet_LeagueSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
+	<Function Name="SBPerformance">
+		<Setting Key="SBPerformanceMonitor-Dashboard-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_Dashboard_DWH" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SBPerformanceMonitor-Site-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SBPerformanceMonitor-Sport-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Sport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SBPerformanceMonitor-League-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_League" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SBPerformanceMonitor-Member-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Member" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
+	<Function Name="SMA Win Loss">
+		<Setting Key="SMAWinLoss-CurrencySel" SpName="Acc_Rpt_SMAWinlossSummary_CurrencySel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SMAWinLoss-Summary" SpName="Acc_Rpt_SMAWinlossSummary_xpre" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
+		<Setting Key="SMAWinLoss-SiteSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SMAWinLoss-SportSel" SpName="Acc_Rpt_SMAWinlossSummary_SportSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SMAWinLoss-VirtualRate" SpName="Acc_Rpt_SMAWinlossSummary_CustVirtualMultiplierSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SMAWinLoss-LeagueGroupSel" SpName="Acc_Rpt_SMAWinlossSummary_LeagueGroupSel_xpre" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SMAWinLoss-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SMAWinLoss-ReportLatestDate" SpName="Acc_Rpt_SMAWinlossSummary_ReportLatestDate" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SMAWinLoss-BetFromSel" SpName="Acc_Rpt_SMAWinlossSummary_BetfromSel_xpre" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
+	<Function Name="Fraud and Risk">
+		<Setting Key="Acc_Rpt_SBTurnoverComparison_Daily" SpName="Acc_Rpt_SBTurnoverComparison_Daily" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="DailyJob_CheckTasksStatus" SpName="DailyJob_CheckTasksStatus" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
+	</Function>
+	<Function Name="SBCustomerPerformanceByDangers">
+		<Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SiteList" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
+	<Function Name="CashOutPerformance">
+		<Setting Key="Acc_Rpt_COPerformance_SportType_WareHouse" SpName="Acc_Rpt_COPerformance_SportType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_COPerformance_LiveStatus_WareHouse" SpName="Acc_Rpt_COPerformance_LiveStatus" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_COPerformance_BetType_WareHouse" SpName="Acc_Rpt_COPerformance_BetType" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_COPerformance_Cust_WareHouse" SpName="Acc_Rpt_COPerformance_Cust" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_COPerformance_LeagueSel" SpName="Acc_Rpt_COPerformance_LeagueSel" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Acc_Rpt_COPerformance_LicenseesSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
+	<Function Name="Permission">
+		<Setting Key="HouseWinlossByProducts-GetPermisionProfileID" SpName="Acc_Rpt_GetPermisionProfileID" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+	</Function>
 </Functions>

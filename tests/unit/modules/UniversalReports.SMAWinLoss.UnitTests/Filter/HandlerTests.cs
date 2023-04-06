@@ -24,7 +24,10 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             var service = Substitute.For<FilterService>();
             service.GetSites().Returns(sites);
 
-            var handler = new Handler(service);
+            var permissionService = Substitute.For<PermissionService>();
+            permissionService.GetPermissionProfileId(Arg.Any<string>()).Returns(1);
+
+            var handler = new Handler(service, permissionService);
 
             // Act
             var model = await handler.Handle(new SiteHttpParameter(), new CancellationToken());
@@ -42,7 +45,10 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             var service = Substitute.For<FilterService>();
             service.GetSports().Returns(sports);
 
-            var handler = new Handler(service);
+            var permissionService = Substitute.For<PermissionService>();
+            permissionService.GetPermissionProfileId(Arg.Any<string>()).Returns(1);
+
+            var handler = new Handler(service, permissionService);
 
             // Act
             var model = await handler.Handle(new SportHttpParameter(), new CancellationToken());
@@ -60,7 +66,10 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             var service = Substitute.For<FilterService>();
             service.GetCurrencies().Returns(currencies);
 
-            var handler = new Handler(service);
+            var permissionService = Substitute.For<PermissionService>();
+            permissionService.GetPermissionProfileId(Arg.Any<string>()).Returns(1);
+
+            var handler = new Handler(service, permissionService);
 
             // Act
             var model = await handler.Handle(new CurrencyHttpParameter(), new CancellationToken());
@@ -73,12 +82,15 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         public async Task Handle_WithAnyMessage_ReturnRightLeagueGroup()
         {
             // Arrange
-            var leagueGroups = fixture.Create<IEnumerable<LeagueGroup>>();
+            var leagueGroups = fixture.Create<List<LeagueGroup>>();
 
             var service = Substitute.For<FilterService>();
             service.GetLeagueGroup().Returns(leagueGroups);
 
-            var handler = new Handler(service);
+            var permissionService = Substitute.For<PermissionService>();
+            permissionService.GetPermissionProfileId(Arg.Any<string>()).Returns(1);
+
+            var handler = new Handler(service, permissionService);
 
             // Act
             var model = await handler.Handle(new LeagueGroupHttpParameter(), new CancellationToken());
@@ -96,7 +108,10 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             var service = Substitute.For<FilterService>();
             service.GetAvailableDatabase().Returns(availableDatabase);
 
-            var handler = new Handler(service);
+            var permissionService = Substitute.For<PermissionService>();
+            permissionService.GetPermissionProfileId(Arg.Any<string>()).Returns(1);
+
+            var handler = new Handler(service, permissionService);
 
             // Act
             var model = await handler.Handle(new AvailableDatabaseHttpParameter(), new CancellationToken());
@@ -114,7 +129,10 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
             var service = Substitute.For<FilterService>();
             service.GetAvailableDateData().Returns(availableDateData);
 
-            var handler = new Handler(service);
+            var permissionService = Substitute.For<PermissionService>();
+            permissionService.GetPermissionProfileId(Arg.Any<string>()).Returns(1);
+
+            var handler = new Handler(service, permissionService);
 
             // Act
             var model = await handler.Handle(new AvailableDateDataHttpParameter(), new CancellationToken());

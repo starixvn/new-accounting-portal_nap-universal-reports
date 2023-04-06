@@ -14,12 +14,13 @@ export class QueryModelService {
       currencies: filterModel.currencies,
       isAppliedVR: filterModel.isAppliedVR === 1,
       sports: filterModel.sports,
-      leagueGroupIds: filterModel.leagueGroupIds,
+      leagueIds: filterModel.leagueIds,
       divisions: filterModel.divisions,
       accountStatus: filterModel.accountStatus,
       vrSettings: filterModel.vrSettings,
       pageIndex: filterModel.pageIndex,
-      pageSize: filterModel.pageSize
+      pageSize: filterModel.pageSize,
+      permissionProfileId: filterModel.permissionProfileId
     };
 
     return queryModel;

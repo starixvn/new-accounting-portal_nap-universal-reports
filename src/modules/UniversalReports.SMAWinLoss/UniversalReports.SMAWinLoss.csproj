@@ -121,9 +121,17 @@
     <Compile Include="Filter\AvailableDatabaseCriteria.cs" />
     <Compile Include="Filter\AvailableDateDataCriteria.cs" />
     <Compile Include="Filter\AvailableDateDataHttpParameter.cs" />
+    <Compile Include="Filter\BetFrom.cs" />
+    <Compile Include="Filter\BetFromCriteria.cs" />
+    <Compile Include="Filter\BetFromHttpParameter.cs" />
     <Compile Include="Filter\LeagueGroup.cs" />
+    <Compile Include="Filter\LeagueGroupChildItem.cs" />
     <Compile Include="Filter\LeagueGroupHttpParameter.cs" />
     <Compile Include="Filter\LeagueGroupCriteria.cs" />
+    <Compile Include="Filter\LeagueGroupItem.cs" />
+    <Compile Include="Filter\PermissionCriteria.cs" />
+    <Compile Include="Filter\PermissionHttpParameter.cs" />
+    <Compile Include="Filter\PermissionService.cs" />
     <Compile Include="Filter\Site.cs" />
     <Compile Include="Filter\SportCriteria.cs" />
     <Compile Include="Filter\SiteCriteria.cs" />

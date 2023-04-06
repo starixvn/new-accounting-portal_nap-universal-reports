@@ -16,11 +16,29 @@ export class LeagueGroupTreeviewPipe implements PipeTransform {
     }
 
     leagueGroups.forEach(leagueGroup => {
-      const item = new TreeviewItem({ text: leagueGroup.GroupName, value: leagueGroup.GroupId });
+      const item = new TreeviewItem({ text: leagueGroup.GroupName, value: leagueGroup.LeagueIds });
+      var numberItems = leagueGroup.ChildItems.length;
+      if(numberItems === 1) {
       treeItems.push(item);
+      } else {
+        leagueGroup.ChildItems.forEach(childItem => {
+          var childTreeViewItem = new TreeviewItem ({text: childItem.GroupName, value: childItem.LeagueIds});
+          this.addItemForChildren(item, childTreeViewItem);
+        });
+
+        treeItems.push(item);
+      }
     });
 
     return treeItems;
+  }
+
+  addItemForChildren(groupTreeviewItem: TreeviewItem, item: TreeviewItem): void {
+    if (_.isNil(groupTreeviewItem.children)) {
+      groupTreeviewItem.children = [item];
+    } else {
+      groupTreeviewItem.children.push(item);
+    }
   }
 }
 

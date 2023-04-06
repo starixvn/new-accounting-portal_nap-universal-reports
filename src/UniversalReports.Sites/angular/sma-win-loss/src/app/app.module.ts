@@ -1,3 +1,4 @@
+import { BetFromTreeviewPipe } from './filter/bet-from-treeview.pipe';
 import { CommonModule } from '@angular/common';
 import { LeagueGroupTreeviewPipe } from './filter/league-group-treeview.pipe';
 import { DropdownTypeaheadModule } from 'nap-components/dropdown-typeahead';
@@ -19,7 +20,7 @@ import { SpinnerModule } from 'nap-components/spinner';
 import { HttpModule } from 'nap-components/http/http.module';
 import { CustomNavbarService } from './custom-navbar-service';
 import { AppService } from './app.service';
-import { CONFIG, DateConfig, CustomPaginationConfig } from './common/config';
+import { CONFIG, DateConfig, CustomPaginationConfig, Permission } from './common/config';
 import * as moment from 'moment';
 import { TreeviewModule } from 'ngx-treeview';
 import { CurrencyTreeviewPipe } from './filter/currency-treeview.pipe';
@@ -40,7 +41,8 @@ import { CommonItemTreeviewPipe } from './filter/common-item-treeview.pipe';
     SportTreeviewPipe,
     VirtualRateGridComponent,
     LeagueGroupTreeviewPipe,
-    CommonItemTreeviewPipe
+    CommonItemTreeviewPipe,
+    BetFromTreeviewPipe
   ],
   imports: [
     BrowserModule,
@@ -81,6 +83,11 @@ export function initConfiguration(service: AppService): Function {
     service.getToday().subscribe(model => {
       const today = moment.utc(model);
       CONFIG.date = new DateConfig(today);
+      resolve(true);
+    });
+
+    service.getPermissionProfileId().subscribe(permission => {
+      CONFIG.permission = new Permission(permission);
       resolve(true);
     });
   });

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from 'nap-components/http';
-import { CommonItem, Currency, LeagueGroup, Site, Sport } from './filter.model';
+import { CommonItem, Currency, LeagueGroup, Site, Sport, BetFrom } from './filter.model';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -68,6 +68,19 @@ export class FilterService {
       { Text: 'Other +VR', Value: 'Other+VR' },
       { Text: 'Other -VR', Value: 'Other-VR' },
       { Text: 'Disabled', Value: 'Disabled' }
+    ];
+  }
+
+  getBetFrom(): Observable<BetFrom[]> {
+    const url = `${this.url}/bet-from`;
+    return this.httpService.post<BetFrom[]>(url);
+  }
+
+  getLiveStatus(): CommonItem[] {
+    return [
+      { Text: 'Live', Value: '0' },
+      { Text: 'Non-Live', Value: '1' },
+      { Text: 'Mix Live & Non-Live', Value: '2' }
     ];
   }
 }

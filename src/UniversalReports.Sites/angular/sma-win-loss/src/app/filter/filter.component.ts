@@ -1,6 +1,6 @@
 import { TreeviewConfig, DropdownTreeviewComponent } from 'ngx-treeview';
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
-import { SelectItem, FilterModel, Currency, Sport, Site, LeagueGroup, CommonItem } from './filter.model';
+import { SelectItem, FilterModel, Currency, Sport, Site, LeagueGroup, CommonItem, BetFrom } from './filter.model';
 import { NapDateStruct, DateHelper } from 'nap-components/date';
 import { CONFIG } from '../common/config';
 import { FilterService } from './fiter.service';
@@ -78,6 +78,18 @@ export class FilterComponent implements OnInit {
   selectedVRSettings: string[] = [];
   vrSettings: CommonItem[] = [];
   availableDateData = '';
+  liveStatus: CommonItem[] = [];
+  selectedLiveStatus: CommonItem[] = [];
+
+  betFromTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
+  selectedBetFroms: string[] = [];
+  betFroms: BetFrom[] = [];
+  permissionProfileId: number = CONFIG.permission.permissionProfileId;
 
   constructor(private readonly filterService: FilterService, private readonly toastService: ToastService) { }
 
@@ -93,9 +105,12 @@ export class FilterComponent implements OnInit {
     this.betTypeSelected = this.betTypeOptions[0];
     this.levelSelected = this.levelOptions[0];
     this.getAvailableDateData();
+    this.getBetFroms();
+    this.getLiveStatus();
   }
 
   onGenerateClick() {
+    var permissionProfileId = CONFIG.permission.permissionProfileId;
     this.OnGenerate();
   }
 
@@ -164,16 +179,31 @@ export class FilterComponent implements OnInit {
       custLevel: this.levelSelected.Value,
       username: this.isEnableSearchExactly ? this.username : '',
       isDownline: this.isSearchDownlines,
-      currencies: this.selectedCurrencies.join(','),
+      currencies: this.selectedCurrencies.length === this.currencies.length ?
+      'All' :
+       this.selectedCurrencies.join(','),
       isAppliedVR: this.betTypeSelected.Value,
       pageSize: 200,
       pageIndex: 1,
-      sports: this.selectedSports.join(','),
-      leagueGroupIds: this.selectedleagueGroups.join(','),
+      sports: this.selectedSports.length === this.sports.length ?
+      'All' :
+      this.selectedSports.join(','),
+      leagueIds: this.selectedleagueGroups.join(','),
       divisions: this.selectedSites.join(','),
-      accountStatus: this.selectedAccountStatus.join(','),
-      vrSettings: this.selectedVRSettings.join(','),
-      isPageChanged: false
+      accountStatus: this.selectedAccountStatus.length === this.accountStatus.length ?
+      'All' :
+      this.selectedAccountStatus.join(','),
+      vrSettings: this.selectedVRSettings.length === this.vrSettings.length ?
+      'All' :
+      this.selectedVRSettings.join(','),
+      isPageChanged: false,
+      liveStatus: this.selectedLiveStatus.length === this.liveStatus.length ?
+      'All' :
+      this.selectedLiveStatus.join(','),
+      betFromIds: this.selectedBetFroms.length === this.betFroms.length ?
+      'All' :
+      this.selectedBetFroms.join(','),
+      permissionProfileId: CONFIG.permission.permissionProfileId
     };
 
     return model;
@@ -210,6 +240,24 @@ export class FilterComponent implements OnInit {
       return false;
     }
 
+    if (this.selectedLiveStatus.length === 0) {
+      this.toastService.activate(`Please select at least one Status!`);
+      return false;
+    }
+
+    if (this.selectedBetFroms.length === 0) {
+      this.toastService.activate(`Please select at least one Betfrom!`);
+      return false;
+    }
+
     return true;
+  }
+
+  private getLiveStatus() {
+    this.liveStatus = this.filterService.getLiveStatus();
+  }
+
+  private getBetFroms() {
+    this.filterService.getBetFrom().subscribe(betFroms => this.betFroms = betFroms);
   }
 }
