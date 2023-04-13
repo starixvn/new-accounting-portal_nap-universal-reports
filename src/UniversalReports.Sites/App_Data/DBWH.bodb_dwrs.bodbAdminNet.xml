@@ -161,6 +161,6 @@
 		<Setting Key="Acc_Rpt_COPerformance_LicenseesSel" SpName="Acc_Rpt_SiteList" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 	</Function>
 	<Function Name="Permission">
-		<Setting Key="HouseWinlossByProducts-GetPermisionProfileID" SpName="Acc_Rpt_GetPermisionProfileID" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
+		<Setting Key="Permission-GetPermisionProfileID" SpName="Acc_Rpt_GetPermisionProfileID" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
 	</Function>
 </Functions>
