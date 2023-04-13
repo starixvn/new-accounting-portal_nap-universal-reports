@@ -13,6 +13,8 @@ export interface QueryModel {
   pageSize: number;
   pageIndex: number;
   permissionProfileId: number;
+  liveStatus: string;
+  betFromIds: string;
 }
 
 export interface MonthModel {

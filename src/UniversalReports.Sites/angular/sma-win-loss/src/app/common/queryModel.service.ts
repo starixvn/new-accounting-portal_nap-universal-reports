@@ -20,7 +20,9 @@ export class QueryModelService {
       vrSettings: filterModel.vrSettings,
       pageIndex: filterModel.pageIndex,
       pageSize: filterModel.pageSize,
-      permissionProfileId: filterModel.permissionProfileId
+      permissionProfileId: filterModel.permissionProfileId,
+      liveStatus: filterModel.liveStatus,
+      betFromIds: filterModel.betFromIds
     };
 
     return queryModel;
