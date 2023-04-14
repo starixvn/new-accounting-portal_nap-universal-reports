@@ -78,8 +78,8 @@ export class FilterService {
 
   getLiveStatus(): CommonItem[] {
     return [
-      { Text: 'Live', Value: '0' },
-      { Text: 'Non-Live', Value: '1' },
+      { Text: 'Live', Value: '1' },
+      { Text: 'Non-Live', Value: '0' },
       { Text: 'Mix Live & Non-Live', Value: '2' }
     ];
   }
