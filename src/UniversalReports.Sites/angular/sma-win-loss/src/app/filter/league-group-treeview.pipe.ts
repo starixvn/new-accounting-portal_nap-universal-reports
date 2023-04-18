@@ -16,7 +16,7 @@ export class LeagueGroupTreeviewPipe implements PipeTransform {
     }
 
     leagueGroups.forEach(leagueGroup => {
-      const item = new TreeviewItem({ text: leagueGroup.GroupName, value: leagueGroup.LeagueIds });
+      const item = new TreeviewItem({ text: leagueGroup.GroupName, value: leagueGroup.LeagueIds, collapsed: true });
       var isUnCheck = leagueGroup.GroupName.includes('EURO') ||
       leagueGroup.GroupName.includes('World Cup') ||
       leagueGroup.GroupName.includes('Pingoal') ||
