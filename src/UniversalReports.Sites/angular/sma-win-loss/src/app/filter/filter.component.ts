@@ -62,7 +62,7 @@ export class FilterComponent implements OnInit {
   leagueGroupTreeviewConfig = TreeviewConfig.create({
     hasFilter: true,
     hasAllCheckBox: true,
-    hasCollapseExpand: false,
+    hasCollapseExpand: true,
     maxHeight: 500
   });
   selectedleagueGroups: string[] = [];

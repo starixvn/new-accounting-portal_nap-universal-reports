@@ -17,12 +17,16 @@ export class LeagueGroupTreeviewPipe implements PipeTransform {
 
     leagueGroups.forEach(leagueGroup => {
       const item = new TreeviewItem({ text: leagueGroup.GroupName, value: leagueGroup.LeagueIds });
+      var isUnCheck = leagueGroup.GroupName.includes('EURO') ||
+      leagueGroup.GroupName.includes('World Cup') ||
+      leagueGroup.GroupName.includes('Pingoal') ||
+      leagueGroup.GroupName.includes('SABA Sport');
       var numberItems = leagueGroup.ChildItems.length;
       if(numberItems === 1) {
       treeItems.push(item);
       } else {
         leagueGroup.ChildItems.forEach(childItem => {
-          var childTreeViewItem = new TreeviewItem ({text: childItem.GroupName, value: childItem.LeagueIds});
+          var childTreeViewItem = new TreeviewItem ({text: childItem.GroupName, value: childItem.LeagueIds, checked: !isUnCheck});
           this.addItemForChildren(item, childTreeViewItem);
         });
 
