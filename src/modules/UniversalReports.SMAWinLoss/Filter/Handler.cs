@@ -8,7 +8,7 @@ namespace UniversalReports.SMAWinLoss.Filter
     public class Handler : IRequestHandler<CurrencyHttpParameter, IEnumerable<Currency>>,
         IRequestHandler<SiteHttpParameter, IEnumerable<Site>>,
         IRequestHandler<SportHttpParameter, IEnumerable<Sport>>,
-        IRequestHandler<LeagueGroupHttpParameter, List<LeagueGroup>>,
+        IRequestHandler<LeagueGroupHttpParameter, LeagueGroupModel>,
         IRequestHandler<AvailableDatabaseHttpParameter, bool>,
         IRequestHandler<AvailableDateDataHttpParameter, string>,
         IRequestHandler<BetFromHttpParameter, IEnumerable<BetFrom>>,
@@ -24,7 +24,7 @@ namespace UniversalReports.SMAWinLoss.Filter
             this.permissionService = permissionService;
         }
 
-        public async Task<List<LeagueGroup>> Handle(LeagueGroupHttpParameter request, CancellationToken cancellationToken)
+        public async Task<LeagueGroupModel> Handle(LeagueGroupHttpParameter request, CancellationToken cancellationToken)
         {
             return await service.GetLeagueGroup();
         }

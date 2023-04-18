@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UniversalReports.SMAWinLoss.Filter
 {
-    public class LeagueGroupHttpParameter : IRequest<List<LeagueGroup>>
+    public class LeagueGroupHttpParameter : IRequest<LeagueGroupModel>
     {
     }
 }

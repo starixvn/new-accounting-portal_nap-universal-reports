@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import * as _ from 'lodash';
-import { LeagueGroup } from './filter.model';
+import { LeagueGroup, LeagueGroupModel } from './filter.model';
 import { TreeviewItem } from 'ngx-treeview';
 
 @Pipe({
@@ -8,14 +8,14 @@ import { TreeviewItem } from 'ngx-treeview';
 })
 
 export class LeagueGroupTreeviewPipe implements PipeTransform {
-  transform(leagueGroups: LeagueGroup[]): TreeviewItem[] {
+  transform(leagueGroups: LeagueGroupModel): TreeviewItem[] {
     const treeItems: TreeviewItem[] = [];
 
     if (_.isNil(leagueGroups)) {
       return undefined;
     }
 
-    leagueGroups.forEach(leagueGroup => {
+    leagueGroups.LeagueGroups.forEach(leagueGroup => {
       const item = new TreeviewItem({ text: leagueGroup.GroupName, value: leagueGroup.LeagueIds, collapsed: true });
       var isUnCheck = leagueGroup.GroupName.includes('EURO') ||
       leagueGroup.GroupName.includes('World Cup') ||

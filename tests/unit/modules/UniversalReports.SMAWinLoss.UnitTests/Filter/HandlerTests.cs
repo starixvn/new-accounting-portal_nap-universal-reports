@@ -82,7 +82,7 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         public async Task Handle_WithAnyMessage_ReturnRightLeagueGroup()
         {
             // Arrange
-            var leagueGroups = fixture.Create<List<LeagueGroup>>();
+            var leagueGroups = fixture.Create<LeagueGroupModel>();
 
             var service = Substitute.For<FilterService>();
             service.GetLeagueGroup().Returns(leagueGroups);

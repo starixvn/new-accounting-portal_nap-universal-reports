@@ -75,4 +75,13 @@ export interface LeagueGroupItem {
   LeagueIds: string;
 }
 
+export class LeagueGroupModel {
+  constructor(private readonly _numberItems: number, private readonly _leagueGroups: LeagueGroup[]) {
+    this.NumberItems = _numberItems;
+    this.LeagueGroups = _leagueGroups;
+  }
+  NumberItems: number;
+  LeagueGroups: LeagueGroup[]
+}
+
 

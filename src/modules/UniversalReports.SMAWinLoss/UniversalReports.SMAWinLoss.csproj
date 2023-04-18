@@ -129,6 +129,7 @@
     <Compile Include="Filter\LeagueGroupHttpParameter.cs" />
     <Compile Include="Filter\LeagueGroupCriteria.cs" />
     <Compile Include="Filter\LeagueGroupItem.cs" />
+    <Compile Include="Filter\LeagueGroupModel.cs" />
     <Compile Include="Filter\PermissionCriteria.cs" />
     <Compile Include="Filter\PermissionHttpParameter.cs" />
     <Compile Include="Filter\PermissionService.cs" />

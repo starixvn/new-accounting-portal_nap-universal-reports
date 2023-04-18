@@ -1,6 +1,6 @@
 import { TreeviewConfig, DropdownTreeviewComponent } from 'ngx-treeview';
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
-import { SelectItem, FilterModel, Currency, Sport, Site, LeagueGroup, CommonItem, BetFrom } from './filter.model';
+import { SelectItem, FilterModel, Currency, Sport, Site, LeagueGroup, CommonItem, BetFrom, LeagueGroupModel } from './filter.model';
 import { NapDateStruct, DateHelper } from 'nap-components/date';
 import { CONFIG } from '../common/config';
 import { FilterService } from './fiter.service';
@@ -66,7 +66,7 @@ export class FilterComponent implements OnInit {
     maxHeight: 500
   });
   selectedleagueGroups: string[] = [];
-  leagueGroups: LeagueGroup[] = [];
+  leagueGroups: LeagueGroupModel = new LeagueGroupModel(0, []);
   commonItemTreeviewConfig = TreeviewConfig.create({
     hasFilter: true,
     hasAllCheckBox: true,
@@ -188,8 +188,12 @@ export class FilterComponent implements OnInit {
       sports: this.selectedSports.length === this.sports.length ?
       'All' :
       this.selectedSports.join(','),
-      leagueIds: this.selectedleagueGroups.join(','),
-      divisions: this.selectedSites.join(','),
+      leagueIds: this.selectedleagueGroups.length === this.leagueGroups.NumberItems ?
+      'All' :
+       this.selectedleagueGroups.join(','),
+      divisions: this.selectedSites.length === this.sites.length ?
+      'All' :
+       this.selectedSites.join(','),
       accountStatus: this.selectedAccountStatus.length === this.accountStatus.length ?
       'All' :
       this.selectedAccountStatus.join(','),

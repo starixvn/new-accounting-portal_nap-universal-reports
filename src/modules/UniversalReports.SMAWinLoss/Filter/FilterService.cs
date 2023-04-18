@@ -14,7 +14,7 @@ namespace UniversalReports.SMAWinLoss.Filter
 
         Task<IEnumerable<Sport>> GetSports();
 
-        Task<List<LeagueGroup>> GetLeagueGroup();
+        Task<LeagueGroupModel> GetLeagueGroup();
 
         Task<bool> GetAvailableDatabase();
 
@@ -51,13 +51,20 @@ namespace UniversalReports.SMAWinLoss.Filter
             return await repository.FetchAsync<Currency>(criteria);
         }
 
-        public async Task<List<LeagueGroup>> GetLeagueGroup()
+        public async Task<LeagueGroupModel> GetLeagueGroup()
         {
-            var result = new List<LeagueGroup>();
+            var result = new LeagueGroupModel
+            {
+                NumberItems = 0,
+                LeagueGroups = new List<LeagueGroup>()
+            };
+
+          //  var result = new List<LeagueGroup>();
 
             var criteria = new LeagueGroupCriteria();
 
             var leagueGroupChildItems = await repository.FetchAsync<LeagueGroupChildItem>(criteria);
+            result.NumberItems = leagueGroupChildItems.Count();
 
             var leagueGroups = leagueGroupChildItems.GroupBy(x => x.Label);
 
@@ -72,7 +79,7 @@ namespace UniversalReports.SMAWinLoss.Filter
                     ChildItems = childItems
                 };
 
-                result.Add(leagueGroupItem);
+                result.LeagueGroups.Add(leagueGroupItem);
             }
 
 
