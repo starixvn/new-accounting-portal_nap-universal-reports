@@ -116,6 +116,29 @@
         </div>
       </div>
     </div>
+
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Status</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #liveStatusDropdownTreeview [items]="liveStatus | commonItemTreeview:liveStatus"
+            [config]="commonItemTreeviewConfig" (selectedChange)="selectedLiveStatus = $event">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+
+    <div class="nap-col">
+      <div class="nap-group">
+        <label>Betfrom</label>
+        <div class="nap-control">
+          <ngx-dropdown-treeview #betFromDropdownTreeview [items]="betFroms | betFromTreeview:betFroms"
+            [config]="betFromTreeviewConfig" (selectedChange)="selectedBetFroms = $event">
+          </ngx-dropdown-treeview>
+        </div>
+      </div>
+    </div>
+
   </div>
   <div class="row">
     <div class="nap-col col-buttons">

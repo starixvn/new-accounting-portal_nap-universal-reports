@@ -6,12 +6,15 @@ export interface QueryModel {
   currencies: string;
   isAppliedVR: boolean;
   sports: string;
-  leagueGroupIds: string;
+  leagueIds: string;
   divisions: string;
   accountStatus: string;
   vrSettings: string;
   pageSize: number;
   pageIndex: number;
+  permissionProfileId: number;
+  liveStatus: string;
+  betFromIds: string;
 }
 
 export interface MonthModel {

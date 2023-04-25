@@ -1,6 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace UniversalReports.SMAWinLoss.Filter
@@ -13,11 +14,13 @@ namespace UniversalReports.SMAWinLoss.Filter
 
         Task<IEnumerable<Sport>> GetSports();
 
-        Task<IEnumerable<LeagueGroup>> GetLeagueGroup();
+        Task<LeagueGroupModel> GetLeagueGroup();
 
         Task<bool> GetAvailableDatabase();
 
         Task<string> GetAvailableDateData();
+
+        Task<IEnumerable<BetFrom>> GetBetFroms();
     }
 
     public class FilterServiceImp : FilterService
@@ -48,10 +51,39 @@ namespace UniversalReports.SMAWinLoss.Filter
             return await repository.FetchAsync<Currency>(criteria);
         }
 
-        public async Task<IEnumerable<LeagueGroup>> GetLeagueGroup()
+        public async Task<LeagueGroupModel> GetLeagueGroup()
         {
+            var result = new LeagueGroupModel
+            {
+                NumberItems = 0,
+                LeagueGroups = new List<LeagueGroup>()
+            };
+
+          //  var result = new List<LeagueGroup>();
+
             var criteria = new LeagueGroupCriteria();
-            return await repository.FetchAsync<LeagueGroup>(criteria);
+
+            var leagueGroupChildItems = await repository.FetchAsync<LeagueGroupChildItem>(criteria);
+            result.NumberItems = leagueGroupChildItems.Count();
+
+            var leagueGroups = leagueGroupChildItems.GroupBy(x => x.Label);
+
+            foreach (var group in leagueGroups)
+            {
+                var childItems = leagueGroupChildItems.Where(x => x.Label == group.Key);
+
+                var leagueGroupItem = new LeagueGroup
+                {
+                    GroupName = group.Key,
+                    LeagueIds = childItems.Select(x => x.LeagueIds).FirstOrDefault(),
+                    ChildItems = childItems
+                };
+
+                result.LeagueGroups.Add(leagueGroupItem);
+            }
+
+
+            return result;
         }
 
         public async Task<IEnumerable<Site>> GetSites()
@@ -64,6 +96,12 @@ namespace UniversalReports.SMAWinLoss.Filter
         {
             var criteria = new SportCriteria();
             return await repository.FetchAsync<Sport>(criteria);
+        }
+
+        public async Task<IEnumerable<BetFrom>> GetBetFroms()
+        {
+            var criteria = new BetFromCriteria();
+            return await repository.FetchAsync<BetFrom>(criteria);
         }
     }
 }

@@ -8,18 +8,23 @@ namespace UniversalReports.SMAWinLoss.Filter
     public class Handler : IRequestHandler<CurrencyHttpParameter, IEnumerable<Currency>>,
         IRequestHandler<SiteHttpParameter, IEnumerable<Site>>,
         IRequestHandler<SportHttpParameter, IEnumerable<Sport>>,
-        IRequestHandler<LeagueGroupHttpParameter, IEnumerable<LeagueGroup>>,
+        IRequestHandler<LeagueGroupHttpParameter, LeagueGroupModel>,
         IRequestHandler<AvailableDatabaseHttpParameter, bool>,
-        IRequestHandler<AvailableDateDataHttpParameter, string>
+        IRequestHandler<AvailableDateDataHttpParameter, string>,
+        IRequestHandler<BetFromHttpParameter, IEnumerable<BetFrom>>,
+        IRequestHandler<PermissionHttpParameter, int>
     {
         private readonly FilterService service;
 
-        public Handler(FilterService service)
+        private readonly PermissionService permissionService;
+
+        public Handler(FilterService service, PermissionService permissionService)
         {
             this.service = service;
+            this.permissionService = permissionService;
         }
 
-        public async Task<IEnumerable<LeagueGroup>> Handle(LeagueGroupHttpParameter request, CancellationToken cancellationToken)
+        public async Task<LeagueGroupModel> Handle(LeagueGroupHttpParameter request, CancellationToken cancellationToken)
         {
             return await service.GetLeagueGroup();
         }
@@ -47,6 +52,16 @@ namespace UniversalReports.SMAWinLoss.Filter
         public async Task<bool> Handle(AvailableDatabaseHttpParameter request, CancellationToken cancellationToken)
         {
             return await service.GetAvailableDatabase();
+        }
+
+        public async Task<IEnumerable<BetFrom>> Handle(BetFromHttpParameter request, CancellationToken cancellationToken)
+        {
+            return await service.GetBetFroms();
+        }
+
+        public async Task<int> Handle(PermissionHttpParameter request, CancellationToken cancellationToken)
+        {
+            return await permissionService.GetPermissionProfileId(request.FunctionKey);
         }
     }
 }

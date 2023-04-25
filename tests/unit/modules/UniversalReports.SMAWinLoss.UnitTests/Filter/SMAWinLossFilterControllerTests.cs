@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using Fanex.NAP.Core.Service.Interface;
+using Fanex.NAP.Core.Web.Session;
+using MediatR;
 using NSubstitute;
 using NUnit.Framework;
 using System.Threading.Tasks;
@@ -15,9 +17,11 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var currentSession = Substitute.For<ICurrentSession>();
+            var userService = Substitute.For<IUserService>();
 
             // Act
-            var controller = new SMAWinLossFilterController(mediator);
+            var controller = new SMAWinLossFilterController(mediator, currentSession, userService);
             await controller.Sport();
 
             // Assert
@@ -29,9 +33,11 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var currentSession = Substitute.For<ICurrentSession>();
+            var userService = Substitute.For<IUserService>();
 
             // Act
-            var controller = new SMAWinLossFilterController(mediator);
+            var controller = new SMAWinLossFilterController(mediator, currentSession, userService);
             await controller.Site();
 
             // Assert
@@ -43,9 +49,11 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var currentSession = Substitute.For<ICurrentSession>();
+            var userService = Substitute.For<IUserService>();
 
             // Act
-            var controller = new SMAWinLossFilterController(mediator);
+            var controller = new SMAWinLossFilterController(mediator, currentSession, userService);
             await controller.Currency();
 
             // Assert
@@ -56,9 +64,11 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var currentSession = Substitute.For<ICurrentSession>();
+            var userService = Substitute.For<IUserService>();
 
             // Act
-            var controller = new SMAWinLossFilterController(mediator);
+            var controller = new SMAWinLossFilterController(mediator, currentSession, userService);
             await controller.LeagueGroup(new LeagueGroupHttpParameter());
 
             // Assert
@@ -69,9 +79,11 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var currentSession = Substitute.For<ICurrentSession>();
+            var userService = Substitute.For<IUserService>();
 
             // Act
-            var controller = new SMAWinLossFilterController(mediator);
+            var controller = new SMAWinLossFilterController(mediator, currentSession, userService);
             await controller.AvailableDatabase();
 
             // Assert
@@ -82,9 +94,11 @@ namespace UniversalReports.SMAWinLoss.UnitTests.Filter
         {
             // Arrange
             var mediator = Substitute.For<IMediator>();
+            var currentSession = Substitute.For<ICurrentSession>();
+            var userService = Substitute.For<IUserService>();
 
             // Act
-            var controller = new SMAWinLossFilterController(mediator);
+            var controller = new SMAWinLossFilterController(mediator, currentSession, userService);
             await controller.AvailableDateData();
 
             // Assert

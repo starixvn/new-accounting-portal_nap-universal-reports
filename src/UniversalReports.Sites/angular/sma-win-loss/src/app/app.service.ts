@@ -12,4 +12,8 @@ export class AppService {
   getToday(): Observable<moment.Moment> {
     return this.httpService.post<moment.Moment>('state-api/application/today');
   }
+
+  getPermissionProfileId() : Observable<number> {
+    return this.httpService.post<number>('api/sma-win-loss/filter/permission');
+  }
 }

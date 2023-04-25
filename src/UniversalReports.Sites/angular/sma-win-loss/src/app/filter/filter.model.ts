@@ -6,13 +6,16 @@ export interface FilterModel {
   currencies: string;
   isAppliedVR: number;
   sports: string;
-  leagueGroupIds: string;
+  leagueIds: string;
   divisions: string;
   accountStatus: string;
   vrSettings: string;
   pageSize: number;
   pageIndex: number;
   isPageChanged: boolean;
+  liveStatus: string;
+  betFromIds: string;
+  permissionProfileId: number
 }
 
 export class SelectItem {
@@ -51,11 +54,34 @@ export interface Sport {
 }
 
 export interface LeagueGroup {
-  GroupId: string;
   GroupName: string;
+  LeagueIds: string;
+  ChildItems: LeagueGroupItem[];
 }
 
 export interface CommonItem {
   Value: string;
   Text: string;
 }
+
+export interface BetFrom {
+  Platform: string;
+  BetFromId: string;
+}
+
+export interface LeagueGroupItem {
+  Label: string;
+  GroupName: string;
+  LeagueIds: string;
+}
+
+export class LeagueGroupModel {
+  constructor(private readonly _numberItems: number, private readonly _leagueGroups: LeagueGroup[]) {
+    this.NumberItems = _numberItems;
+    this.LeagueGroups = _leagueGroups;
+  }
+  NumberItems: number;
+  LeagueGroups: LeagueGroup[]
+}
+
+
