@@ -15,15 +15,21 @@ import { BreadcrumbModule } from 'nap-components/breadcrumb';
 import { PaginationModule, PaginationConfig } from 'nap-components/pagination';
 import { CustomPaginationConfig, DateConfig, CONFIG } from './common/config';
 import { CustomNavbarService } from './custom-navbar-service';
-import { GridComponent } from './grid/grid.component';
 import { AppService } from './app.service';
 import * as moment from 'moment';
+import { GridDrillDownComponent } from './grid/grid.component';
+import { LicenseeComponent } from './grid/licensee/licensee.component';
+import { SportComponent } from './grid/sport/sport.component';
+import { EventComponent } from './grid/event/event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
-    GridComponent
+    GridDrillDownComponent,
+    LicenseeComponent,
+    SportComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,

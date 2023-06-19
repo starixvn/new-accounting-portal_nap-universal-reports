@@ -1,5 +1,25 @@
+import { Observable } from "rxjs";
+
+export interface Grid {
+    title: string;
+    query(): Observable<ExchangeModel>;
+    exportExcel(): void;
+}
+
+export enum GridType {
+    Licensee,
+    Sport,
+    Event
+}
+
+export interface QueryModel {
+  licenseeName: string;
+  eventType: string;
+  drillLevel: number;
+}
+
 export interface Exchange {
-    LicenseeName: string;
+    Name: string;
     MemberCount: number;
     BetCount: number;
     TurnOver: number;

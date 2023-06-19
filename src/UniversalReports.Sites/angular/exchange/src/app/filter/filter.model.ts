@@ -13,8 +13,9 @@ export interface Licensee {
   export interface FilterModel {
       fromDate: string;
       toDate: string;
-      licenseeId: string;
-      sportType: string;
+      licenseeName: string;
+      eventType: string;
+      drillLevel: number;
   }
 
   export enum TimePeriod {

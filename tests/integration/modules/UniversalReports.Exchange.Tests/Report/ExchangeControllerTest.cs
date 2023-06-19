@@ -31,8 +31,9 @@ namespace UniversalReports.Exchange.Tests.Report
             {
                 FromDate = new DateTime(2018, 9, 1),
                 ToDate = new DateTime(2018, 9, 20),
-                LicenseeId = "1, 2, 3",
-                SportType = "1, 2, 3"
+                LicenseeName = "12Bet",
+                EventType = "SOCCER,TENNIS,CRICKET,HORSE_RACING,FANCYBET,BASKETBALL,FANCYBET",
+                DrillLevel = 1
             });
 
             var excelPackage = (httpActionResult as EpplusExcelResult).ExcelPackage;

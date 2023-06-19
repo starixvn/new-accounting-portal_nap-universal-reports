@@ -2,7 +2,5 @@
 <Functions>
   <Function Name="Misc - Exchange">
     <Setting Key="Exchange-LicenseeQuery" SpName="Acc_Rpt_ExchangePerformance_LicenseesSel" DbName="DBEXT.bodb02.bodbAdminNet" />
-    <Setting Key="Exchange-SportQuery" SpName="Acc_Rpt_ExchangePerformance_SporttypeSel" DbName="DBEXT.bodb02.bodbAdminNet" />
-    <Setting Key="Exchange-ReportQuery" SpName="Acc_Rpt_ExchangePerformance" DbName="DBEXT.bodb02.bodbAdminNet" />
   </Function>
 </Functions>

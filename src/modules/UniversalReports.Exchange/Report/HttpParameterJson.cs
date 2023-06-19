@@ -10,8 +10,10 @@ namespace UniversalReports.Exchange.Report
 
         public DateTime ToDate { get; set; }
 
-        public string LicenseeId { get; set; }
+        public string LicenseeName { get; set; }
 
-        public string SportType { get; set; }
+        public string EventType { get; set; }
+
+        public byte DrillLevel { get; set; }
     }
 }

@@ -70,7 +70,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
         {
             return new ExchangeEntity
             {
-                LicenseeName = "Any name",
+                Name = "Any name",
                 MemberCount = 1,
                 BetCount = 1,
                 TurnOver = 20,

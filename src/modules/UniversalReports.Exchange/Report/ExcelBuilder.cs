@@ -35,6 +35,7 @@ namespace UniversalReports.Exchange.Report
             BuilTitle(excelParams);
             exchangeSheet.ApplyVertical(model.Entities, StartRowIndex);
             exchangeSheet.ApplyModel(totalSheet, model.Total, StartRowIndex + model.Entities.Count);
+            SetNameForFirstHeaderColumn(excelParams.DrillLevel);
             ClearTemplate();
             return ExcelPackage;
         }
@@ -55,6 +56,24 @@ namespace UniversalReports.Exchange.Report
             var fromDate = $"{excelParams.FromDate: MMM dd, yyyy}";
             var toDate = $"{excelParams.ToDate: MMM dd, yyyy}";
             exchangeSheet.Cells["A1:N2"].Value = $"Exchange WinLoss From {fromDate} to {toDate}";
+        }
+
+        private void SetNameForFirstHeaderColumn(byte drillDownLevel)
+        {
+            string name;
+            switch (drillDownLevel)
+            {
+                case 0:
+                    name = "Licensee";
+                    break;
+                case 1:
+                    name = "Sport";
+                    break;
+                default:
+                    name = "Event";
+                    break;
+            }
+            exchangeSheet.Cells["A3:A4"].Value = name;
         }
 
         private void ClearTemplate()

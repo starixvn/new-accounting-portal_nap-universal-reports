@@ -136,17 +136,18 @@ export class FilterComponent implements OnInit {
     const model: FilterModel = {
        fromDate:  DateHelper.formatMomentDate(fromDate, DateFormat.Date),
        toDate:  DateHelper.formatMomentDate(toDate, DateFormat.Date),
-       licenseeId: this.selectedLicenseeTreeviewItems.map(licenseeItem => licenseeItem.item.value).join(','),
-       sportType: this.selectedSportTreeviewItems.map(sportItem => sportItem.item.value).join(',')
+       licenseeName: this.selectedLicenseeTreeviewItems.map(licenseeItem => licenseeItem.item.text).join(','),
+       eventType: this.selectedSportTreeviewItems.map(sportItem => sportItem.item.text).join(','),
+       drillLevel: 0
     };
 
     return model;
   }
 
   private get isValid(): boolean {
-    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(3, 'month');
+    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(1, 'year');
     if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
-        this.toastService.activate(`Date range selection is limited to 3 months to protect system's performance!`);
+        this.toastService.activate(`Date range selection is limited to 1 year to protect system's performance!`);
         return false;
     }
 
