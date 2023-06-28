@@ -23,7 +23,6 @@ export class GridDrillDownComponent implements OnInit, OnChanges, OnDestroy {
   @Input() filterModel: FilterModel;
   @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
   
-  startDateForDrillDown: NgbDateStruct = { year: 2022, month: 1, day: 1 };
   gridType = GridType.Licensee;
   breadcrumbItems: string[];
   private components: ComponentRef<Grid>[] = [];
@@ -52,7 +51,6 @@ export class GridDrillDownComponent implements OnInit, OnChanges, OnDestroy {
       this.gridType = GridType.Licensee;
       this.service.filterModel = this.filterModel;
       this.service.queryModel = this.filterModel;
-      this.service.isDrillDown = this.isDrillDown();
       this.createGridComponent();
     }
   }
@@ -65,11 +63,6 @@ export class GridDrillDownComponent implements OnInit, OnChanges, OnDestroy {
     const component = this.components[this.components.length - 1];
     const grid = component.instance;
     grid.exportExcel();
-  }
-
-  isDrillDown(): boolean {
-    const maxDate = DateHelper.convertDateStructToMoment(this.startDateForDrillDown);
-    return DateHelper.convertStringToMomentDate(this.filterModel.fromDate, 'll').isSameOrAfter(maxDate);
   }
 
   private generate(gridType: GridType, model: QueryModel) {

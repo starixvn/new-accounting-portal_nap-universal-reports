@@ -34,7 +34,8 @@ export class FilterService {
         { text: 'Last Month', value: TimePeriod.LastMonth },
         { text: 'Since Last Month', value: TimePeriod.SinceLastMonth },
         { text: 'Specific Date', value: TimePeriod.SpecificDate },
-        { text: 'Last 3 Months', value: TimePeriod.LastThreeMonths }
+        { text: 'Last 3 Months', value: TimePeriod.LastThreeMonths },
+        { text: 'Since Last Year', value: TimePeriod.SinceLastYear }
     ];
    }
 

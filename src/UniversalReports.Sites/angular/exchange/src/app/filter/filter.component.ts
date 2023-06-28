@@ -25,7 +25,7 @@ export class FilterComponent implements OnInit {
   @Output() generated = new EventEmitter<FilterModel>();
   timePeriodSelectItems = this.filterService.getTimeSelectItems();
   timePeriod: TimePeriod = TimePeriod.Yesterday;
-  minStartDate: NgbDateStruct = { year: 2014, month: 1, day: 1 };
+  minStartDate: NgbDateStruct = { year: 2020, month: 1, day: 1 };
   maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
   startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
@@ -101,6 +101,10 @@ export class FilterComponent implements OnInit {
       case TimePeriod.LastThreeMonths:
         startDate = moment.utc(CONFIG.date.today).subtract(3, 'month').startOf('month');
         endDate = moment.utc(CONFIG.date.today).subtract(1, 'month').endOf('month');
+        break;
+      case TimePeriod.SinceLastYear:
+        startDate = moment.utc(CONFIG.date.today).subtract(1, 'year');
+        endDate = moment.utc(CONFIG.date.yesterday);
         break;
     }
 

@@ -33,7 +33,7 @@ export class SportComponent implements Grid {
     return new Observable(observer => {
       this.sportService.query().subscribe(data => {
           this.exchangeModel = data;
-          this.paginationInstance = this.paginationService.createPaginationInstance(this.exchangeModel.Entities.length);
+          this.paginationInstance = this.paginationService.createPaginationInstance(this.exchangeModel.Entities.length, 'sport-pagination');
           this.onPageChange();
           observer.complete();
       });

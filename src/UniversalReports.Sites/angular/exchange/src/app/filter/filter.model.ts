@@ -27,6 +27,7 @@ export interface Licensee {
     LastMonth,
     SinceLastMonth,
     SpecificDate,
-    LastThreeMonths
+    LastThreeMonths,
+    SinceLastYear
 }
 

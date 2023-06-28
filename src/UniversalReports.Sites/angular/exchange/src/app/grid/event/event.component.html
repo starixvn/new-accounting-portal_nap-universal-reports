@@ -1,6 +1,6 @@
 <ng-template #colgroup>
   <colgroup>
-      <col style="width: 120px" />
+      <col style="width: 300px" />
       <col style="width: 80px" />
       <col style="width: 80px" />
       <col style="width: 120px" />
@@ -59,7 +59,7 @@
 </ng-template>
 <div *ngIf="exchangeModel" [ngSwitch]="exchangeModel.Entities.length > 0">
   <div class="nap-grid">
-      <div style="width: 1620px">
+      <div style="width: 1800px">
           <div class="header">
               <table>
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -93,7 +93,7 @@
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                   <tfoot>
                       <tr class="font-weight-bold">
-                          <td>{{ exchangeModel.Total.LicenseeName }}</td>
+                          <td>Grand Total</td>
                           <td class="text-right" [napIntegerFormat]="exchangeModel.Total.MemberCount"></td>
                           <td class="text-right" [napIntegerFormat]="exchangeModel.Total.BetCount"></td>
                           <td class="text-right" [napDecimalFormat]="exchangeModel.Total.TurnOver"></td>

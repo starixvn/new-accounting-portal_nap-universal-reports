@@ -22,7 +22,6 @@ export class LicenseeComponent implements Grid {
   paginationInstance: PaginationInstance;
   breadcrumbItems: string;
   originalEventType: string;
-  isDrillDown: boolean;
   private paginatePipe: PaginatePipe;
 
   constructor(
@@ -35,7 +34,6 @@ export class LicenseeComponent implements Grid {
     this.paginatePipe = new PaginatePipe(this.ngxPaginationService);
     this.breadcrumbItems = this.breadcrumbService.createBreadcrumb(this.gridService.filterModel);
     this.originalEventType = this.gridService.filterModel.eventType;
-    this.isDrillDown = this.gridService.isDrillDown;
    }
 
   title: string = 'Main';
@@ -44,7 +42,7 @@ export class LicenseeComponent implements Grid {
     return new Observable(observer => {
       this.licenseeService.query().subscribe(data => {
           this.exchangeModel = data;
-          this.paginationInstance = this.paginationService.createPaginationInstance(this.exchangeModel.Entities.length);
+          this.paginationInstance = this.paginationService.createPaginationInstance(this.exchangeModel.Entities.length, 'licensee-pagination');
           this.onPageChange();
           observer.complete();
       });

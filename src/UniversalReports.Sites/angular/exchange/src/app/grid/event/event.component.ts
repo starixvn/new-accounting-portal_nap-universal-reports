@@ -33,7 +33,7 @@ export class EventComponent implements Grid {
     return new Observable(observer => {
       this.eventService.query().subscribe(data => {
           this.exchangeModel = data;
-          this.paginationInstance = this.paginationService.createPaginationInstance(this.exchangeModel.Entities.length);
+          this.paginationInstance = this.paginationService.createPaginationInstance(this.exchangeModel.Entities.length, 'event-pagination');
           this.onPageChange();
           observer.complete();
       });

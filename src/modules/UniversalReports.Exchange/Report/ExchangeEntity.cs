@@ -34,7 +34,6 @@
         {
             return new ExchangeEntity
             {
-                Name = "Grand Total",
                 MemberCount = a.MemberCount + b.MemberCount,
                 BetCount = a.BetCount + b.BetCount,
                 TurnOver = a.TurnOver + b.TurnOver,

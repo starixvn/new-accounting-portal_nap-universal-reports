@@ -49,10 +49,9 @@
   </div>
 </ng-template>
 <ng-template #rowItem let-item="item">
-  <td *ngIf="isDrillDown">
+  <td>
     <a href="javascript:;" (click)="showSports(item.Name)">{{ item.Name }}</a>
   </td>
-  <td *ngIf="!isDrillDown">{{ item.Name }}</td>
   <td class="text-right" [napIntegerFormat]="item.MemberCount"></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napDecimalFormat]="item.TurnOver"></td>
@@ -107,7 +106,7 @@
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                   <tfoot>
                       <tr class="font-weight-bold">
-                          <td>{{ exchangeModel.Total.LicenseeName }}</td>
+                          <td>Grand Total</td>
                           <td class="text-right" [napIntegerFormat]="exchangeModel.Total.MemberCount"></td>
                           <td class="text-right" [napIntegerFormat]="exchangeModel.Total.BetCount"></td>
                           <td class="text-right" [napDecimalFormat]="exchangeModel.Total.TurnOver"></td>

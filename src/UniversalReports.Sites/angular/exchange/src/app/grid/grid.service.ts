@@ -11,7 +11,6 @@ export class GridService {
   queryModel: FilterModel;
   sportTitle: string;
   eventTitle: string;
-  isDrillDown: boolean;
   cachedLicenseeFilterModel: FilterModel;
   cachedSportFilterModel: FilterModel;
   generate: (gridType: GridType, queryModel: QueryModel) => void;
