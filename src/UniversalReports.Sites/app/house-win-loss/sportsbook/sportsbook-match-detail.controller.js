@@ -89,6 +89,7 @@ import angular from "angular";
             };
 
             data.titleInfo = titleInfo;
+            data.customPager = true;
             data.showPager = true;
             data.pagerOption = {
                 itemsPerPage: 50,
