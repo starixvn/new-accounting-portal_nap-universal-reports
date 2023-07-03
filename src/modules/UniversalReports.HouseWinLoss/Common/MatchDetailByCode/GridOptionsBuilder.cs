@@ -23,7 +23,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
                 BodyRows = BuildBodyRows(winLoss.Leagues),
                 FooterRows = BuildFooter(winLoss.Total),
                 ShowFooter = true,
-                ShowDistinctRow = false
+                ShowDistinctRow = false,
+                TotalItems = winLoss.TotalRows
             };
 
             return gridOptions;

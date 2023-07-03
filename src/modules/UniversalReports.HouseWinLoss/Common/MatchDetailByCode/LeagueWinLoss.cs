@@ -10,5 +10,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
         public List<WinLoss> Matches { get; set; }
 
         public WinLoss Total { get; set; }
+
+        public int TotalRows { get; set; }
     }
 }

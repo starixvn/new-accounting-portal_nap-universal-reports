@@ -94,13 +94,14 @@ import angular from "angular";
                 itemsPerPage: 50,
                 currentPage: 0,
                 itemsPerPageArray: [50, 100, 200, 500],
-                totalItem: data.bodyRows.length,
+                totalItem: data.totalItems,
                 afterPagedFunction: function () {
                     pane.compileDrilldown();
                 }
             };
             data.gridExpandHeight = fanexGridService.calculateExpandHeight(gridElement, true);
             data.bottomBorderWidth = 3;
+            data.pagerOption.totalItem = data.totalItems;
             gridElement.fanexGrid(data);
         }
 

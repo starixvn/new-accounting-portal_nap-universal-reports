@@ -30,7 +30,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 BodyRows = BuildBodyRows(winLoss.Leagues),
                 FooterRows = BuildFooter(winLoss),
                 ShowFooter = true,
-                ShowDistinctRow = false
+                ShowDistinctRow = false,
+                TotalItems = winLoss.TotalRows
             };
 
             return gridOptions;
