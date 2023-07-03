@@ -11,6 +11,5 @@ export class AppComponent {
 
   generate(filterModel: FilterModel) {
     this.filterModel = filterModel;
-    console.log(this.filterModel);
   }
 }

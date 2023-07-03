@@ -163,4 +163,8 @@
 	<Function Name="Permission">
 		<Setting Key="Permission-GetPermisionProfileID" SpName="Acc_Rpt_GetPermisionProfileID" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="180" />
 	</Function>
+	<Function Name="Misc - Exchange">
+		<Setting Key="Exchange-ReportQuery" SpName="Acc_Rpt_ExchangePerformance" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="Exchange-SportQuery" SpName="Acc_Rpt_ExchangePerformance_SporttypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+	</Function>
 </Functions>

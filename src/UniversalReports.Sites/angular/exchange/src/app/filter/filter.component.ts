@@ -25,7 +25,7 @@ export class FilterComponent implements OnInit {
   @Output() generated = new EventEmitter<FilterModel>();
   timePeriodSelectItems = this.filterService.getTimeSelectItems();
   timePeriod: TimePeriod = TimePeriod.Yesterday;
-  minStartDate: NgbDateStruct = { year: 2014, month: 1, day: 1 };
+  minStartDate: NgbDateStruct = { year: 2020, month: 1, day: 1 };
   maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.yesterday);
   startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
   endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.yesterday));
@@ -102,6 +102,10 @@ export class FilterComponent implements OnInit {
         startDate = moment.utc(CONFIG.date.today).subtract(3, 'month').startOf('month');
         endDate = moment.utc(CONFIG.date.today).subtract(1, 'month').endOf('month');
         break;
+      case TimePeriod.SinceLastYear:
+        startDate = moment.utc(CONFIG.date.today).subtract(1, 'year');
+        endDate = moment.utc(CONFIG.date.yesterday);
+        break;
     }
 
     if (!_.isNil(startDate) && !_.isNil(endDate)) {
@@ -136,17 +140,18 @@ export class FilterComponent implements OnInit {
     const model: FilterModel = {
        fromDate:  DateHelper.formatMomentDate(fromDate, DateFormat.Date),
        toDate:  DateHelper.formatMomentDate(toDate, DateFormat.Date),
-       licenseeId: this.selectedLicenseeTreeviewItems.map(licenseeItem => licenseeItem.item.value).join(','),
-       sportType: this.selectedSportTreeviewItems.map(sportItem => sportItem.item.value).join(',')
+       licenseeName: this.selectedLicenseeTreeviewItems.map(licenseeItem => licenseeItem.item.text).join(','),
+       eventType: this.selectedSportTreeviewItems.map(sportItem => sportItem.item.text).join(','),
+       drillLevel: 0
     };
 
     return model;
   }
 
   private get isValid(): boolean {
-    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(3, 'month');
+    const maxDate = DateHelper.convertDateStructToMoment(this.startDate).add(1, 'year');
     if (!DateHelper.convertDateStructToMoment(this.endDate).isBefore(maxDate)) {
-        this.toastService.activate(`Date range selection is limited to 3 months to protect system's performance!`);
+        this.toastService.activate(`Date range selection is limited to 1 year to protect system's performance!`);
         return false;
     }
 

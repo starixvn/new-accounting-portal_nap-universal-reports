@@ -2,7 +2,7 @@
 {
     public class ExchangeEntity
     {
-        public string LicenseeName { get; set; }
+        public string Name { get; set; }
 
         public int MemberCount { get; set; }
 
@@ -34,7 +34,6 @@
         {
             return new ExchangeEntity
             {
-                LicenseeName = "Grand Total",
                 MemberCount = a.MemberCount + b.MemberCount,
                 BetCount = a.BetCount + b.BetCount,
                 TurnOver = a.TurnOver + b.TurnOver,

@@ -5,7 +5,7 @@ namespace UniversalReports.Exchange.Report
     public class ExchangeExcelEntity
     {
         [Cell("A5")]
-        public string LicenseeName { get; set; }
+        public string Name { get; set; }
 
         [Cell("B5")]
         public int MemberCount { get; set; }
