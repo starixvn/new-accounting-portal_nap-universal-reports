@@ -33,11 +33,13 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
             var leagueWinLosses = leagues.Select(l => CalculateLeagueWinLoss(l, rawWinLosses))
                                          .OrderBy(l => l.Name);
             var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
+            var totalRows = rawWinLosses.Count();
 
             return new WinLossModel
             {
                 Leagues = leagueWinLosses.ToList(),
-                Total = grandTotal
+                Total = grandTotal,
+                TotalRows = totalRows
             };
         }
 
