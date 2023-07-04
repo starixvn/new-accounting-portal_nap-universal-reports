@@ -33,11 +33,13 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
             var leagueWinLosses = leagues.Select(l => CalculateLeagueWinLoss(l, rawWinLosses))
                                          .OrderBy(l => l.Name);
             var grandTotal = calculationService.CalculateSumWinLoss("Grand Total", rawWinLosses);
+            var totalRows = rawWinLosses.Count();
 
             return new WinLossModel
             {
                 Leagues = leagueWinLosses.ToList(),
-                Total = grandTotal
+                Total = grandTotal,
+                TotalRows = totalRows
             };
         }
 
@@ -48,11 +50,14 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetailByCode
                 .Select(m => calculationService.FromRawWinLossByRowName(m))
                 .OrderBy(m => m.Name);
             var total = calculationService.CalculateSumWinLoss(string.Empty, rawLeagueWinLosses);
+            var totalRows = rawWinLosses.Count();
+
             return new LeagueWinLoss
             {
                 Name = league,
                 Matches = matchWinLosses.ToList(),
-                Total = total
+                Total = total,
+                TotalRows = totalRows
             };
         }
     }
