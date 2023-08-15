@@ -245,7 +245,7 @@
                     case SiteEnvironment.MNL:
                         return "stateConnectionString=\"tcpip=10.2.12.10:42424\"";
                     case SiteEnvironment.UAT:
-                        return "stateConnectionString=\"tcpip=10.2.190.41:42424\"";
+                        return "stateConnectionString=\"tcpip=10.2.27.8:42424 \"";
 					 case SiteEnvironment.SIT:
 						return "stateConnectionString=\"tcpip=172.16.4.107:42424\"";
                     default:
@@ -296,7 +296,7 @@
                     case SiteEnvironment.PRO:                    
 					case SiteEnvironment.SIT:
 					case SiteEnvironment.UAT:
-                        return "http://10.40.40.22:8091/pools/default";
+                        return "http://10.40.40.11:8091/pools/default";
                     case SiteEnvironment.PROAWS:
                         return "http://10.99.99.51:8091/pools/default";
                     case SiteEnvironment.MNL:
