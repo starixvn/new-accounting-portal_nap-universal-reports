@@ -31,7 +31,7 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Report
         public ExcelPackage Build(string title, SummaryEntity<CustomerPerformanceByDangerExcelModel> model)
         {
             LoadTemplate();
-            BuilTitle(title, "A1:O1");
+            BuilTitle(title, "A1:P1");
             sheet.ApplyVertical(model.Entities, StartRowIndex);
             BuildTotalRow(model);
             ClearTemplate();
@@ -53,7 +53,7 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Report
         {
             var endRowIndex = StartRowIndex + model.Entities.Count;
             sheet.ApplyModel(totalSheet, model.Total, StartRowIndex + model.Entities.Count);
-            var cellAddressOfTotalText = new ExcelAddressBase(endRowIndex, 1, endRowIndex, 9);
+            var cellAddressOfTotalText = new ExcelAddressBase(endRowIndex, 1, endRowIndex, 7);
             sheet.Cells[cellAddressOfTotalText.Address].Value = "Total";
             sheet.Cells[cellAddressOfTotalText.Address].Merge = true;
         }
