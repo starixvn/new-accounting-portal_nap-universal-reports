@@ -17,6 +17,8 @@
 
         public string DangerLevel { get; set; }
 
+        public decimal GivenCredit { get; set; }
+
         public int BetCount { get; set; }
 
         public decimal MemberTO { get; set; }
@@ -44,6 +46,7 @@
                 Division = string.Empty,
                 Currency = string.Empty,
                 DangerLevel = string.Empty,
+                GivenCredit = a.GivenCredit + b.GivenCredit,
                 BetCount = a.BetCount + b.BetCount,
                 MemberTO = a.MemberTO + b.MemberTO,
                 MemberWL = a.MemberWL + b.MemberWL,

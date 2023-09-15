@@ -14,6 +14,7 @@ export interface CustomerPerformanceByDangerModel {
   AVGStake: number;
   NumberOfAssociatedAccount: number;
   Margin: number;
+  GivenCredit: number;
 }
 
 export interface SummaryEntity {
