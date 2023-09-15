@@ -9,6 +9,7 @@
       <col style="width: 280px" />
       <col style="width: 80px" />
       <col style="width: 120px" />
+      <col style="width: 120px" />
       <col style="width: 100px" />
       <col style="width: 120px" />
       <col style="width: 120px" />
@@ -27,6 +28,7 @@
           <th>Division</th>
           <th>Currency</th>
           <th>Danger Level</th>
+          <th>Given Credit</th>
           <th>Bet Count</th>
           <th>Member Turnover</th>
           <th>Member Win Loss</th>
@@ -53,6 +55,7 @@
   <td>{{ item.Division }}</td>
   <td>{{ item.Currency }}</td>
   <td class="text-center">{{ item.DangerLevel }}</td>
+  <td class="text-right" [napDecimalFormat]="item.GivenCredit"></td>
   <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
   <td class="text-right" [napDecimalFormat]="item.MemberTO"></td>
   <td class="text-right red-positive" [napDecimalFormat]="item.MemberWL"></td>
@@ -64,11 +67,11 @@
 </ng-template>
 <div *ngIf="dataModel" [ngSwitch]="dataModel.Entities.length > 0">
   <div class="nap-grid">
-      <div style="width: 1890px;">
+      <div style="width: 2010px;">
           <nap-breadcrumb *ngSwitchCase="true" [items]="breadcrumbItems" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
           <nap-breadcrumb *ngSwitchCase="false" [items]="breadcrumbItems"></nap-breadcrumb>
       </div>
-      <div style="width: 1890px">
+      <div style="width: 2010px">
           <div class="header">
               <table>
                   <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
@@ -90,7 +93,7 @@
               <table>
                   <tbody>
                       <tr>
-                          <th class="no-data" colspan="15">
+                          <th class="no-data" colspan="16">
                               There is no data
                           </th>
                       </tr>
@@ -103,6 +106,7 @@
                   <tfoot>
                       <tr class="font-weight-bold">
                           <td colspan="7" class="text-right">Total</td>
+                          <td class="text-right" [napDecimalFormat]="dataModel.Total.GivenCredit"></td>
                           <td class="text-right" [napIntegerFormat]="dataModel.Total.BetCount"></td>
                           <td class="text-right" [napDecimalFormat]="dataModel.Total.MemberTO"></td>
                           <td class="text-right red-positive" [napDecimalFormat]="dataModel.Total.MemberWL"></td>
@@ -113,7 +117,7 @@
                           <td class="text-right" [napIntegerFormat]="dataModel.Total.NumberOfAssociatedAccount"></td>
                       </tr>
                       <tr>
-                          <td colspan="15">
+                          <td colspan="16">
                               <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange($event)"></nap-pagination>
                           </td>
                       </tr>

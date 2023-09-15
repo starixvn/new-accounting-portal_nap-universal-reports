@@ -13,7 +13,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
             // Arrange
             var firstObject = new ExchangeEntity
             {
-                LicenseeName = "Any name",
+                Name = "Any name",
                 MemberCount = 1,
                 BetCount = 1,
                 TurnOver = 22,
@@ -31,7 +31,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
 
             var secondObject = new ExchangeEntity
             {
-                LicenseeName = "Any name 1",
+                Name = "Any name 1",
                 MemberCount = 2,
                 BetCount = 2,
                 TurnOver = 25,
@@ -49,7 +49,7 @@ namespace UniversalReports.Exchange.UnitTests.Report
 
             var expectedObject = new ExchangeEntity
             {
-                LicenseeName = "Grand Total",
+                Name = "Grand Total",
                 MemberCount = 3,
                 BetCount = 3,
                 TurnOver = 47,
