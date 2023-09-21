@@ -26,6 +26,7 @@ namespace UniversalReports.SBPerformance.Main
         public async Task<SummaryEntity<ItemModel>> Query(HttpParameter parammeter)
         {
             var criteria = Mapper.Map<Criteria>(parammeter);
+            criteria.Source = dataSourceChooser.GetSource(parammeter.TimeRange);
             var summaryEntities = (await repository.FetchAsync<Entity>(criteria)).CalculateSummaryEntity();
 
             var result = BindingItems(parammeter.IsShowFullColumn, summaryEntities);
