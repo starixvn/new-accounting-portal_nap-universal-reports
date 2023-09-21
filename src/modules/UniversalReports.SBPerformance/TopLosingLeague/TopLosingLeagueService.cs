@@ -25,7 +25,6 @@ namespace UniversalReports.SBPerformance.TopLosingLeague
         public async Task<SummaryEntity<TopLosingLeagueItemModel>> Query(TopLosingLeagueHttpParameter parammeter)
         {
             var criteria = Mapper.Map<TopLosingLeagueCriteria>(parammeter);
-            criteria.Source = dataSourceChooser.GetSource(parammeter.TimeRange);
             var summaryEntities = (await repository.FetchAsync<TopLosingLeagueEntity>(criteria)).CalculateSummaryEntity();
 
             var result = BindingItems(parammeter.IsShowFullColumn, summaryEntities);

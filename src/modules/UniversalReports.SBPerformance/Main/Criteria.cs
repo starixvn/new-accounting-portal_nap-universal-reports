@@ -30,10 +30,7 @@ namespace UniversalReports.SBPerformance.Main
 
         public bool ExcludeParlay { get; set; }
 
-        [SpParam(Ignored = true)]
-        public string Source { get; set; }
-
-        public override string GetSettingKey() => $"SBPerformanceMonitor-Dashboard-{Source}";
+        public override string GetSettingKey() => $"SBPerformanceMonitor-Dashboard";
 
         public override bool IsValid() => true;
     }

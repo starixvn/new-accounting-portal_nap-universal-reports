@@ -25,7 +25,6 @@ namespace UniversalReports.SBPerformance.MarginBySport
         public async Task<SummaryEntity<MarginBySportItemModel>> Query(MarginBySportHttpParameter parammeter)
         {
             var criteria = Mapper.Map<MarginBySportCriteria>(parammeter);
-            criteria.Source = dataSourceChooser.GetSource(parammeter.TimeRange);
             var summaryEntities = (await repository.FetchAsync<MarginBySportEntity>(criteria)).CalculateSummaryEntity();
 
             var result = BindingItems(parammeter.IsShowFullColumn, summaryEntities);

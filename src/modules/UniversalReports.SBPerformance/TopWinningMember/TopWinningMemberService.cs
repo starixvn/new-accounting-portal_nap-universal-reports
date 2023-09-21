@@ -25,7 +25,6 @@ namespace UniversalReports.SBPerformance.TopWinningMember
         public async Task<SummaryEntity<TopWinningMemberItemModel>> Query(TopWinningMemberHttpParameter parammeter)
         {
             var criteria = Mapper.Map<TopWinningMemberCriteria>(parammeter);
-            criteria.Source = dataSourceChooser.GetSource(parammeter.TimeRange);
             var summaryEntities = (await repository.FetchAsync<TopWinningMemberEntity>(criteria)).CalculateSummaryEntity();
 
             var result = BindingItems(parammeter.IsShowFullColumn, summaryEntities);
