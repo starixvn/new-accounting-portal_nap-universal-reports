@@ -32,7 +32,7 @@ namespace UniversalReports.SBPerformance.TopWinningMember
 
         public int? MatchID { get; set; }
 
-        public override string GetSettingKey() => $"SBPerformanceMonitor-Member-";
+        public override string GetSettingKey() => $"SBPerformanceMonitor-Member";
 
         public override bool IsValid() => true;
     }

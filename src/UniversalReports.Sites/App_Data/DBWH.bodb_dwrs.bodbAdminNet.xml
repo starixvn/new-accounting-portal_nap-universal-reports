@@ -128,7 +128,7 @@
 		<Setting Key="Acc_Rpt_AbnormalBet_LeagueSel" SpName="Acc_Rpt_AbnormalBet_LeagueSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 	</Function>
 	<Function Name="SBPerformance">
-		<Setting Key="SBPerformanceMonitor-Dashboard-Warehouse" SpName="Acc_Rpt_SBPerformanceMonitor_Dashboard_DWH" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
+		<Setting Key="SBPerformanceMonitor-Dashboard" SpName="Acc_Rpt_SBPerformanceMonitor_Dashboard_DWH" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="SBPerformanceMonitor-Site" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Site" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="SBPerformanceMonitor-Sport" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_Sport" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="SBPerformanceMonitor-League" SpName="Acc_Rpt_SBPerformanceMonitor_DWH_League" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
