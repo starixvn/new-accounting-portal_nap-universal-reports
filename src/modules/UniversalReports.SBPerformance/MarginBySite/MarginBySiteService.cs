@@ -25,7 +25,6 @@ namespace UniversalReports.SBPerformance.MarginBySite
         public async Task<SummaryEntity<MarginBySiteItemModel>> Query(MarginBySiteHttpParameter parammeter)
         {
             var criteria = Mapper.Map<MarginBySiteCriteria>(parammeter);
-            criteria.Source = dataSourceChooser.GetSource(parammeter.TimeRange);
             var summaryEntities = (await repository.FetchAsync<MarginBySiteEntity>(criteria)).CalculateSummaryEntity();
 
             var result = BindingItems(parammeter.IsShowFullColumn, summaryEntities);

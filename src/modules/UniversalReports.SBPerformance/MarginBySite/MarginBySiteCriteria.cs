@@ -32,10 +32,7 @@ namespace UniversalReports.SBPerformance.MarginBySite
 
         public int? MatchID { get; set; }
 
-        [SpParam(Ignored = true)]
-        public string Source { get; set; }
-
-        public override string GetSettingKey() => $"SBPerformanceMonitor-Site-{Source}";
+        public override string GetSettingKey() => $"SBPerformanceMonitor-Site";
 
         public override bool IsValid() => true;
     }
