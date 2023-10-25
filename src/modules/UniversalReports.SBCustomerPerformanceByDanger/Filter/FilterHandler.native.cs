@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UniversalReports.SBCustomerPerformanceByDanger.Filter
 {
-    public class FilterHandler : RequestHandler<MoveBetDateQueryHttpParameter, DateTime>,
+    public class FilterHandler : RequestHandler<BalanceUpDateQueryHttpParameter, DateTime>,
         IRequestHandler<SportQueryHttpParameter, List<SportModel>>,
         IRequestHandler<DivisionQueryHttpParameter, IEnumerable<DivisionModel>>,
         IRequestHandler<LeagueGroupQueryHttpParameter, IEnumerable<LeagueGroupModel>>,
@@ -45,9 +45,9 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Filter
             return await filterService.GetSport(criteria);
         }
 
-        protected override DateTime Handle(MoveBetDateQueryHttpParameter request)
+        protected override DateTime Handle(BalanceUpDateQueryHttpParameter request)
         {
-            return filterService.GetMoveBetDate();
+            return filterService.GetBalanceUpDate();
         } 
     }
 }

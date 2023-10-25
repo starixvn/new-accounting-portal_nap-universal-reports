@@ -3,7 +3,7 @@ using System;
 
 namespace UniversalReports.SBCustomerPerformanceByDanger.Filter
 {
-    public class MoveBetDateQueryHttpParameter : IRequest<DateTime>
+    public class BalanceUpDateQueryHttpParameter : IRequest<DateTime>
     {
     }
 }

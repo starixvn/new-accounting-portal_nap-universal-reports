@@ -14,10 +14,10 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Filter
             this.mediator = mediator;
         }
 
-        [Route("move-bet")]
-        public async Task<IHttpActionResult> MoveBetDate()
+        [Route("balance-up-date")]
+        public async Task<IHttpActionResult> BalanceUpDate()
         {
-            var viewModel = await mediator.Send(new MoveBetDateQueryHttpParameter());
+            var viewModel = await mediator.Send(new BalanceUpDateQueryHttpParameter());
             return Json(viewModel);
         }
 

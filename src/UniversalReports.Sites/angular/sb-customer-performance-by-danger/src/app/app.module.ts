@@ -72,10 +72,10 @@ export class AppModule { }
 
 export function initConfiguration(service: AppService): Function {
   return () => new Promise(resolve => {
-    forkJoin([service.getToday(), service.getMoveBet()]).subscribe(data => {
+    forkJoin([service.getToday(), service.getBalanceUpDate()]).subscribe(data => {
       const today = moment.utc(data[0]);
-      const moveBet = moment.utc(data[1]);
-      CONFIG.date = new DateConfig(today, moveBet);
+      const balanceUpDate = moment.utc(data[1]);
+      CONFIG.date = new DateConfig(today, balanceUpDate);
       resolve(true);
     });
   });

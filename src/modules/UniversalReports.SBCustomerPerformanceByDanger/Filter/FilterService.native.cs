@@ -17,7 +17,7 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Filter
 
         Task<List<SportModel>> GetSport(SportQueryCriteria criteria);
 
-        DateTime GetMoveBetDate();
+        DateTime GetBalanceUpDate();
     }
 
     public class FilterServiceImp : FilterService
@@ -47,9 +47,9 @@ namespace UniversalReports.SBCustomerPerformanceByDanger.Filter
             return await repository.FetchAsync<string>(criteria);
         }
 
-        public DateTime GetMoveBetDate()
+        public DateTime GetBalanceUpDate()
         {
-            return balanceUpService.Query().MoveBetsDate;
+            return balanceUpService.Query().BalanceUpDate;
         }
 
         public async Task<List<SportModel>> GetSport(SportQueryCriteria criteria)

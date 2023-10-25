@@ -13,7 +13,7 @@ export class AppService {
         return this.httpService.post<moment.Moment>('state-api/application/today');
     }
 
-    getMoveBet(): Observable<moment.Moment> {
-      return this.httpService.post<moment.Moment>('api/sb-customer-performance-by-danger/filter/move-bet');
+    getBalanceUpDate(): Observable<moment.Moment> {
+      return this.httpService.post<moment.Moment>('api/sb-customer-performance-by-danger/filter/balance-up-date');
     }
 }
