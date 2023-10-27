@@ -167,4 +167,7 @@
 		<Setting Key="Exchange-ReportQuery" SpName="Acc_Rpt_ExchangePerformance" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="Exchange-SportQuery" SpName="Acc_Rpt_ExchangePerformance_SporttypeSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 	</Function>
+	<Function Name="SBCustomerPerformanceByDangers">
+		<Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_WareHouse" SpName="Acc_Rpt_SBCustPerfByDangerLevel" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="150"/>
+	</Function>
 </Functions>
