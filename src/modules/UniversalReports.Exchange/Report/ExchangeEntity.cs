@@ -4,6 +4,8 @@
     {
         public string Name { get; set; }
 
+        public string MarketType { get; set; }
+
         public int MemberCount { get; set; }
 
         public int BetCount { get; set; }

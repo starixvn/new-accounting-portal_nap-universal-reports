@@ -115,6 +115,8 @@
     <Compile Include="Report\ExcelBuilder.cs" />
     <Compile Include="Report\ExchangeController.cs" />
     <Compile Include="Report\ExchangeExcelEntity.cs" />
+    <Compile Include="Report\ExchangeItemModel.cs" />
+    <Compile Include="Report\ExchangeModel.cs" />
     <Compile Include="Report\Handler.cs" />
     <Compile Include="Report\HandlerExcel.cs" />
     <Compile Include="Report\HttpParameterExcel.cs" />

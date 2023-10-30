@@ -5,7 +5,7 @@ using MediatR;
 
 namespace UniversalReports.Exchange.Report
 {
-    public class Handler : IRequestHandler<HttpParameterJson, SummaryEntity<ExchangeEntity>>
+    public class Handler : IRequestHandler<HttpParameterJson, ExchangeModel>
     {
         private readonly Service service;
 
@@ -14,7 +14,7 @@ namespace UniversalReports.Exchange.Report
             this.service = service;
         }
 
-        public async Task<SummaryEntity<ExchangeEntity>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
+        public async Task<ExchangeModel> Handle(HttpParameterJson request, CancellationToken cancellationToken)
         {
 
             return await service.Query(request);
