@@ -118,7 +118,7 @@
     <Compile Include="Filter\LeagueGroupQueryHttpParameter.native.cs" />
     <Compile Include="Filter\LeagueQueryCriteria.native.cs" />
     <Compile Include="Filter\LeagueQueryHttpParameter.native.cs" />
-    <Compile Include="Filter\MoveBetDateQueryHttpParameter.native.cs" />
+    <Compile Include="Filter\BalanceUpDateQueryHttpParameter.native.cs" />
     <Compile Include="Filter\SportItemModel.native.cs" />
     <Compile Include="Filter\SportModel.native.cs" />
     <Compile Include="Filter\SportQueryCriteria.native.cs" />

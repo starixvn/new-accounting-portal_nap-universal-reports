@@ -3,15 +3,15 @@ import * as moment from 'moment';
 export class DateConfig {
   constructor(
     private _today: moment.Moment,
-    private _moveBet: moment.Moment = _today
+    private _balanceUpDate: moment.Moment = _today
   ) { }
 
   get today(): moment.Moment {
     return this._today;
   }
 
-  get moveBet(): moment.Moment {
-    return this._moveBet;
+  get balanceUpDate(): moment.Moment {
+    return this._balanceUpDate;
   }
 }
 

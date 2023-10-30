@@ -24,7 +24,7 @@ export class FilterComponent implements OnInit {
   @Output() generated = new EventEmitter<FilterModel>();
   @Output() reset = new EventEmitter();
   today: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
-  minStartDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.moveBet.add(1, 'day'));
+  minStartDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.balanceUpDate);
   maxEndDate: NapDateStruct = DateHelper.convertMomentToDateStruct(CONFIG.date.today);
   fromDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
   toDate: NapDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
@@ -165,10 +165,10 @@ export class FilterComponent implements OnInit {
   private get isValid(): boolean {
     const fromDate = DateHelper.convertDateStructToMoment(this.fromDate);
     const toDate = DateHelper.convertDateStructToMoment(this.toDate);
-    const maxDate = fromDate.add(3, 'days');
+    const maxDate = fromDate.add(7, 'days');
 
     if (!toDate.isBefore(maxDate)) {
-      this.toastService.activate(`Date range should not exceed 3 days!`);
+      this.toastService.activate(`Date range should not exceed 7 days!`);
       return false;
     }
 
