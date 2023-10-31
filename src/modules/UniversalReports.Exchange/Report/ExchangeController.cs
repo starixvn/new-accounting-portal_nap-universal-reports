@@ -16,6 +16,20 @@ namespace UniversalReports.Exchange.Report
             this.mediator = mediator;
         }
 
+        [Route("main-report")]
+        public async Task<IHttpActionResult> ExchangeLincensee(LicenseeHttpParameterJson httpParameter)
+        {
+            var viewModel = await mediator.Send(httpParameter);
+            return Json(viewModel);
+        }
+
+        [Route("main-excel")]
+        public async Task<IHttpActionResult> ExcelExchangeLincensee(HttpParameterExcel httpParameter)
+        {
+            var excelPackage = await mediator.Send(httpParameter);
+            return new EpplusExcelResult(excelPackage);
+        }
+
         [Route("report")]
         public async Task<IHttpActionResult> Exchange(HttpParameterJson httpParameter)
         {

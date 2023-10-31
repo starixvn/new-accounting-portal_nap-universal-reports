@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Exchange, ExchangeModel, Grid, GridType } from '../grid.model';
+import { ExchangeItemModel, ExchangeModel, Grid, GridType } from '../grid.model';
 import { Observable } from 'rxjs';
 import { GridService } from '../grid.service';
 import { PaginatePipe, PaginationInstance, PaginationService as NgxPaginationService } from 'ngx-pagination';
@@ -14,7 +14,7 @@ import { EventService } from './event.service';
 })
 export class EventComponent implements Grid {
   exchangeModel: ExchangeModel;
-  displayExchange: Exchange[];
+  displayExchange: ExchangeItemModel[];
   paginationInstance: PaginationInstance;
   private paginatePipe: PaginatePipe;
 

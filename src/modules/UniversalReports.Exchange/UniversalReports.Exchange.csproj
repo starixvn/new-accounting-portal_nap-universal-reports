@@ -120,6 +120,7 @@
     <Compile Include="Report\Handler.cs" />
     <Compile Include="Report\HandlerExcel.cs" />
     <Compile Include="Report\HttpParameterExcel.cs" />
+    <Compile Include="Report\LicenseeHttpParameterJson.cs" />
     <Compile Include="Report\HttpParameterJson.cs" />
     <Compile Include="Report\ExchangeEntity.cs" />
     <Compile Include="Report\Service.cs" />

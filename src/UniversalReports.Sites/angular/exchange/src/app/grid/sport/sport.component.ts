@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Exchange, ExchangeModel, Grid, GridType, QueryModel } from '../grid.model';
+import { ExchangeItemModel, ExchangeModel, Grid, GridType, QueryModel } from '../grid.model';
 import { Observable } from 'rxjs';
 import { SportService } from './sport.service';
 import { GridService } from '../grid.service';
@@ -14,7 +14,7 @@ import * as _ from 'lodash';
 })
 export class SportComponent implements Grid {
   exchangeModel: ExchangeModel;
-  displayExchange: Exchange[];
+  displayExchange: ExchangeItemModel[];
   paginationInstance: PaginationInstance;
   private paginatePipe: PaginatePipe;
 

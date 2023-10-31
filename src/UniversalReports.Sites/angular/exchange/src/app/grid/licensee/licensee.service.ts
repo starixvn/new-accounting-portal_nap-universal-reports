@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from 'nap-components/http';
 import { Observable } from 'rxjs';
 import { GridService } from '../grid.service';
-import { ExchangeModel } from '../grid.model';
+import { ExchangeLicenseeModel } from '../grid.model';
 import { Helper } from 'nap-components/helper';
 import * as _ from 'lodash';
 
@@ -16,15 +16,15 @@ export class LicenseeService {
     private gridService: GridService
   ) { }
 
-  query(): Observable<ExchangeModel> {
-    const url = 'api/exchange/report';
+  query(): Observable<ExchangeLicenseeModel> {
+    const url = 'api/exchange/main-report';
     const queryModel = this.gridService.queryModel;
     this.gridService.cachedLicenseeFilterModel = _.clone(this.gridService.queryModel);
-    return this.httpService.post<ExchangeModel>(url, queryModel);
+    return this.httpService.post<ExchangeLicenseeModel>(url, queryModel);
   }
 
   exportExcel(): void {
-    const url = 'api/exchange/excel';
+    const url = 'api/exchange/main-excel';
     const queryModel = this.gridService.cachedLicenseeFilterModel;
     const fromDate =  queryModel.fromDate.replace(',', '').replace(/ /g, '_');
     const toDate = queryModel.toDate.replace(',', '').replace(/ /g, '_');

@@ -1,15 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Fanex.Data.Repository;
 using Linq.DynamicSum;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace UniversalReports.Exchange.Report
 {
     public interface Service
     {
-        Task<ExchangeModel> Query(HttpParameterJson message);
+        Task<SummaryEntity<ExchangeItemModel>> Query(HttpParameterJson message);
+
+        Task<ExchangeModel> QueryLicensee(LicenseeHttpParameterJson message);
     }
 
     public class ServiceImp : Service
@@ -21,7 +23,16 @@ namespace UniversalReports.Exchange.Report
             this.repository = repository;
         }
 
-        public async Task<ExchangeModel> Query(HttpParameterJson message)
+        public async Task<SummaryEntity<ExchangeItemModel>> Query(HttpParameterJson message)
+        {
+            var criteria = Mapper.Map<Criteria>(message);
+            var rawData = await repository.FetchAsync<ExchangeEntity>(criteria);
+            var data = Mapper.Map<IEnumerable<ExchangeItemModel>>(rawData);
+
+            return data.CalculateSummaryEntity();
+        }
+
+        public async Task<ExchangeModel> QueryLicensee(LicenseeHttpParameterJson message)
         {
             var criteria = Mapper.Map<Criteria>(message);
             var rawData = await repository.FetchAsync<ExchangeEntity>(criteria);
@@ -30,12 +41,14 @@ namespace UniversalReports.Exchange.Report
             var licenseeExchange = CalculateExchangeByLicensee(rawData);
             var grandTotal = CalculateGrandTotal(rawData);
             var marketTotal = CalculateTotal(rawData);
+            var totalItems = rawData.Count();
 
             var result = new ExchangeModel
             {
                 ExchangeLicensees = licenseeExchange,
                 GrandTotal = grandTotal,
-                MarketTypeTotal = marketTotal
+                MarketTypeTotal = marketTotal,
+                TotalItems = totalItems
             };
 
             return result;
