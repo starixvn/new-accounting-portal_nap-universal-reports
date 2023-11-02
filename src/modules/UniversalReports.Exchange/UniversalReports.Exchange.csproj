@@ -116,13 +116,17 @@
     <Compile Include="Report\ExchangeController.cs" />
     <Compile Include="Report\ExchangeExcelEntity.cs" />
     <Compile Include="Report\ExchangeItemModel.cs" />
+    <Compile Include="Report\ExchangeExcelModel.cs" />
     <Compile Include="Report\ExchangeModel.cs" />
     <Compile Include="Report\Handler.cs" />
+    <Compile Include="Report\LicenseeHandlerExcel.cs" />
     <Compile Include="Report\HandlerExcel.cs" />
     <Compile Include="Report\HttpParameterExcel.cs" />
-    <Compile Include="Report\LicenseeHttpParameterJson.cs" />
     <Compile Include="Report\HttpParameterJson.cs" />
     <Compile Include="Report\ExchangeEntity.cs" />
+    <Compile Include="Report\LicenseeExcelBuilder.cs" />
+    <Compile Include="Report\LicenseeHttpParameterExcel.cs" />
+    <Compile Include="Report\LicenseeHttpParameterJson.cs" />
     <Compile Include="Report\Service.cs" />
   </ItemGroup>
   <ItemGroup>

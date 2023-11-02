@@ -848,6 +848,7 @@
     </Content>
     <Content Include="ExcelTemplate\CashOutPerformance\CashOutPerformance.xlsx" />
     <Content Include="ExcelTemplate\CashOutPerformance\SimpleCashOutPerformance.xlsx" />
+    <Content Include="ExcelTemplate\Exchange\LicenseeExchange.xlsx" />
     <None Include="packages.config" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />

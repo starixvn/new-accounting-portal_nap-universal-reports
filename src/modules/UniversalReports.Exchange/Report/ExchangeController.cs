@@ -24,7 +24,7 @@ namespace UniversalReports.Exchange.Report
         }
 
         [Route("main-excel")]
-        public async Task<IHttpActionResult> ExcelExchangeLincensee(HttpParameterExcel httpParameter)
+        public async Task<IHttpActionResult> ExcelExchangeLincensee(LicenseeHttpParameterExcel httpParameter)
         {
             var excelPackage = await mediator.Send(httpParameter);
             return new EpplusExcelResult(excelPackage);

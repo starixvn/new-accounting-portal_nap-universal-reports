@@ -9,6 +9,7 @@ namespace UniversalReports.Sites.SimpleInjector
         {
             container.Register<Service, ServiceImp>();
             container.Register<ExcelBuilder, ExcelBuilderImp>();
+            container.Register<LicenseeExcelBuilder, LicenseeExcelBuilderImp>();
             return container;
         }
     }

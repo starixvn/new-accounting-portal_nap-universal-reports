@@ -47,8 +47,7 @@ namespace UniversalReports.Exchange.Report
             {
                 ExchangeLicensees = licenseeExchange,
                 GrandTotal = grandTotal,
-                MarketTypeTotal = marketTotal,
-                TotalItems = totalItems
+                MarketTypeTotal = marketTotal
             };
 
             return result;
