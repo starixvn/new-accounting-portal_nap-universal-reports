@@ -385,7 +385,6 @@
     <Compile Include="Controllers\CN88WinLossByProductsController.cs" />
     <Compile Include="Controllers\LegacyPathAdapterController.cs" />
     <Compile Include="Controllers\LegacyUrlResolver.cs" />
-    <Compile Include="Controllers\PlayForFunController.cs" />
     <Compile Include="Controllers\PunterAnalysisController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
