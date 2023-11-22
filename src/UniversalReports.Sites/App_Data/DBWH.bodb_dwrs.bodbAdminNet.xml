@@ -122,11 +122,7 @@
 		<Setting Key="SMAWinLoss-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="SMAWinLoss-ReportLatestDate" SpName="Acc_Rpt_SMAWinlossSummary_ReportLatestDate" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="SMAWinLoss-BetFromSel" SpName="Acc_Rpt_SMAWinlossSummary_BetfromSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-	</Function>
-	<Function Name="Fraud and Risk">
-		<Setting Key="Acc_Rpt_SBTurnoverComparison_Daily" SpName="Acc_Rpt_SBTurnoverComparison_Daily" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-		<Setting Key="DailyJob_CheckTasksStatus" SpName="DailyJob_CheckTasksStatus" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
-	</Function>
+	</Function>	
 	<Function Name="SBCustomerPerformanceByDangers">
 		<Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SiteList" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 	</Function>

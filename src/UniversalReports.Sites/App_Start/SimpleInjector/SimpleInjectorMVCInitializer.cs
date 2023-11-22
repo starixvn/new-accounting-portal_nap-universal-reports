@@ -30,7 +30,6 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterSBPerformanceServices()
                 .RegisterVoidingSettledTicketsServices()
                 .RegisterSMAWinLossServices()
-                .RegisterDailyTurnoverServices()
                 .RegisterSBCustomerPerformanceByDangerServices()
                 .RegisterCashOutPerformanceServices();
 

@@ -357,7 +357,6 @@
     <Compile Include="App_Start\OnebookUMInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\CashOutPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBCustomerPerformanceByDangerInjector.cs" />
-    <Compile Include="App_Start\SimpleInjector\DailyTurnoverInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SMAWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\AbnormalBetInjector.cs" />
@@ -377,7 +376,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CashOutPerformanceController.cs" />
     <Compile Include="Controllers\SBCustomerPerformanceByDangersController.cs" />
-    <Compile Include="Controllers\DailyTurnoverComparisonController.cs" />
     <Compile Include="Controllers\AbnormalBetController.cs" />
     <Compile Include="Controllers\ActualMemberBetController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
@@ -658,19 +656,6 @@
     <Content Include="wwwroot\cash-out-performance\runtime.js" />
     <Content Include="wwwroot\cash-out-performance\spinner.39d0d6bd1fbec2b1c53f.gif" />
     <Content Include="wwwroot\cash-out-performance\styles.css" />
-    <Content Include="wwwroot\daily-turnover-comparison\3rdpartylicenses.txt" />
-    <Content Include="wwwroot\daily-turnover-comparison\assets\logo.png" />
-    <Content Include="wwwroot\daily-turnover-comparison\assets\spinner.gif" />
-    <Content Include="wwwroot\daily-turnover-comparison\es2015-polyfills.js" />
-    <Content Include="wwwroot\daily-turnover-comparison\favicon.ico" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.912ec66d7572ff821749.svg" />
-    <Content Include="wwwroot\daily-turnover-comparison\index.html" />
-    <Content Include="wwwroot\daily-turnover-comparison\logo.c6dee9a0f0d2da3e324d.png" />
-    <Content Include="wwwroot\daily-turnover-comparison\main.js" />
-    <Content Include="wwwroot\daily-turnover-comparison\polyfills.js" />
-    <Content Include="wwwroot\daily-turnover-comparison\runtime.js" />
-    <Content Include="wwwroot\daily-turnover-comparison\spinner.ea9634b3c5182edadb3c.gif" />
-    <Content Include="wwwroot\daily-turnover-comparison\styles.css" />
     <Content Include="wwwroot\exchange\3rdpartylicenses.txt" />
     <Content Include="wwwroot\exchange\assets\logo.png" />
     <Content Include="wwwroot\exchange\assets\spinner.gif" />
@@ -843,12 +828,6 @@
     </Content>
     <Content Include="ExcelTemplate\VoidingSettledTicket\Product.xlsx" />
     <Content Include="ExcelTemplate\VoidingSettledTicket\Ticket.xlsx" />
-    <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison-NoData.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="App_Configuration\Web.PROAWS.config">
       <DependentUpon>Web.config.tt</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1075,11 +1054,6 @@
     <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\cash-out-performance\index.cshtml" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.fee66e712a8a08eef580.woff" />
-    <Content Include="wwwroot\daily-turnover-comparison\index.cshtml" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1112,10 +1086,6 @@
     <ProjectReference Include="..\modules\UniversalReports.CN88WinLoss\UniversalReports.CN88WinLoss.csproj">
       <Project>{a79cc236-0cc6-4c85-b74a-9ca67a85ee06}</Project>
       <Name>UniversalReports.CN88WinLoss</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\modules\UniversalReports.DailyTurnoverComparison\UniversalReports.DailyTurnoverComparison.csproj">
-      <Project>{cf13bc47-9a90-43c3-9701-9d8c03d0050d}</Project>
-      <Name>UniversalReports.DailyTurnoverComparison</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.Exchange\UniversalReports.Exchange.csproj">
       <Project>{247f87c2-0b58-4dbb-9caa-2607d4875997}</Project>
