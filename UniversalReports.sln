@@ -87,8 +87,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.SMAWinLoss
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.SMAWinLoss.Tests", "tests\integration\modules\UniversalReports.SMAWinLoss.Tests\UniversalReports.SMAWinLoss.Tests.csproj", "{DB724C65-7DD1-4394-BA2B-2240F73E83A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.VoidingSettledTickets", "src\modules\UniversalReports.VoidingSettledTickets\UniversalReports.VoidingSettledTickets.csproj", "{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.SBCustomerPerformanceByDanger", "src\modules\UniversalReports.SBCustomerPerformanceByDanger\UniversalReports.SBCustomerPerformanceByDanger.csproj", "{E79A0B96-75E6-4A0B-89CE-72965897DF56}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.CashOutPerformance", "src\modules\UniversalReports.CashOutPerformance\UniversalReports.CashOutPerformance.csproj", "{AAA004C8-9C5C-41ED-8847-F2242F45D3E4}"
@@ -205,10 +203,6 @@ Global
 		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB724C65-7DD1-4394-BA2B-2240F73E83A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E79A0B96-75E6-4A0B-89CE-72965897DF56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E79A0B96-75E6-4A0B-89CE-72965897DF56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E79A0B96-75E6-4A0B-89CE-72965897DF56}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -260,14 +254,13 @@ Global
 		{B949C4EB-81BF-4971-9CDA-350394BDE2C6} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{BCEAD9EE-25BE-4B14-B061-808CBD4E8C12} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 		{DB724C65-7DD1-4394-BA2B-2240F73E83A7} = {F73C2584-286D-49E1-9DE1-768A517F5719}
-		{C7E4B1CE-B7C0-4487-90AA-33DB559C69DE} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{E79A0B96-75E6-4A0B-89CE-72965897DF56} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{AAA004C8-9C5C-41ED-8847-F2242F45D3E4} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{2B77ABF0-3387-4F83-BDAD-71FCDD7E32EA} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		SolutionGuid = {3EA15C1E-9F92-4DB6-AFF6-2740D02DBE8E}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

@@ -18,7 +18,6 @@ using UniversalReports.SBPerformance;
 using UniversalReports.Sites.App_Start;
 using UniversalReports.SMAWinLoss;
 using UniversalReports.UpdatedUsernameCredit;
-using UniversalReports.VoidingSettledTickets;
 using UniversalReports.CashOutPerformance;
 
 namespace UniversalReports.Sites
@@ -47,7 +46,6 @@ namespace UniversalReports.Sites
                 cfg.InitializeAbnormalBet();
                 cfg.InitializeSBPerformance();
                 cfg.InitializeSMAWinLoss();
-                cfg.InitializeVoidingSettledTickets();
                 cfg.InitializeSBCustomerPerformanceByDanger();
                 cfg.InitializeCashOutPerformance();
             });

@@ -27,7 +27,6 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterAbnormalBetServices()
                 .RegisterSBPerformanceServices()
                 .RegisterSMAWinLossServices()
-                .RegisterVoidingSettledTicketsServices()
                 .RegisterSBCustomerPerformanceByDangerServices()
                 .RegisterCashOutPerformanceServices();
 

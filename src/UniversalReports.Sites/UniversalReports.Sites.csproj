@@ -372,7 +372,6 @@
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorAPIConfig.cs" />
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
-    <Compile Include="App_Start\SimpleInjector\VoidingSettledTicketsInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CashOutPerformanceController.cs" />
     <Compile Include="Controllers\SBCustomerPerformanceByDangersController.cs" />
@@ -391,7 +390,6 @@
     <Compile Include="Controllers\SMAWinLossController.cs" />
     <Compile Include="Controllers\SBPerformanceMonitorController.cs" />
     <Compile Include="Controllers\UpdatedUsernameAndGivenCreditController.cs" />
-    <Compile Include="Controllers\VoidingSettledTickets.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -523,7 +521,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\DBBAH.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBCUST.IPDB.bodbAdminNet.xml" />
     <Content Include="App_Data\DBEXT.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
@@ -825,8 +822,6 @@
     <Content Include="ExcelTemplate\SMAWinLoss\Summary.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ExcelTemplate\VoidingSettledTicket\Product.xlsx" />
-    <Content Include="ExcelTemplate\VoidingSettledTicket\Ticket.xlsx" />
     <Content Include="App_Configuration\Web.PROAWS.config">
       <DependentUpon>Web.config.tt</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -995,19 +990,6 @@
     <Content Include="wwwroot\updated-username-credit\main.bundle.js" />
     <Content Include="wwwroot\updated-username-credit\polyfills.bundle.js" />
     <Content Include="wwwroot\updated-username-credit\styles.bundle.css" />
-    <Content Include="wwwroot\voiding-settled-tickets\3rdpartylicenses.txt" />
-    <Content Include="wwwroot\voiding-settled-tickets\assets\logo.png" />
-    <Content Include="wwwroot\voiding-settled-tickets\assets\spinner.gif" />
-    <Content Include="wwwroot\voiding-settled-tickets\favicon.ico" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg" />
-    <Content Include="wwwroot\voiding-settled-tickets\index.html" />
-    <Content Include="wwwroot\voiding-settled-tickets\logo.6e8f5e4696c2161db75f.png" />
-    <Content Include="wwwroot\voiding-settled-tickets\main.js" />
-    <Content Include="wwwroot\voiding-settled-tickets\polyfills-es5.js" />
-    <Content Include="wwwroot\voiding-settled-tickets\polyfills.js" />
-    <Content Include="wwwroot\voiding-settled-tickets\runtime.js" />
-    <Content Include="wwwroot\voiding-settled-tickets\spinner.39d0d6bd1fbec2b1c53f.gif" />
-    <Content Include="wwwroot\voiding-settled-tickets\styles.css" />
     <Content Include="wwwroot\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1038,11 +1020,6 @@
     <Content Include="wwwroot\sma-win-loss\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\sma-win-loss\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\sma-win-loss\index.cshtml" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.1e59d2330b4c6deb84b3.ttf" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.20fd1704ea223900efa9.woff2" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.8b43027f47b20503057d.eot" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.f691f37e57f04c152e23.woff" />
-    <Content Include="wwwroot\voiding-settled-tickets\index.cshtml" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1101,10 +1078,6 @@
     <ProjectReference Include="..\modules\UniversalReports.SMAWinLoss\UniversalReports.SMAWinLoss.csproj">
       <Project>{b949c4eb-81bf-4971-9cda-350394bde2c6}</Project>
       <Name>UniversalReports.SMAWinLoss</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\modules\UniversalReports.VoidingSettledTickets\UniversalReports.VoidingSettledTickets.csproj">
-      <Project>{c7e4b1ce-b7c0-4487-90aa-33db559c69de}</Project>
-      <Name>UniversalReports.VoidingSettledTickets</Name>
     </ProjectReference>
     <ProjectReference Include="..\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
