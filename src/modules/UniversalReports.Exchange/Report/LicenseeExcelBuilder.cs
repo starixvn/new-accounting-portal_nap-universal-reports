@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Epplus.Mapper.Extensions;
-using Linq.DynamicSum;
 using OfficeOpenXml;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.Exchange.Report
 {
+    using Configurations;
+
     public interface LicenseeExcelBuilder
     {
         ExcelPackage Build(LicenseeHttpParameterExcel excelParams, ExchangeExcelModel model);
