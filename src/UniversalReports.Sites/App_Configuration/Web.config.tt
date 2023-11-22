@@ -48,9 +48,13 @@
 	</appSettings>
 
 	<system.web>
-		<pages controlRenderingCompatibilityVersion="4.0" />
-		<compilation debug="<#= site.DebugMode #>" targetFramework="4.6"/>
-	
+		<pages controlRenderingCompatibilityVersion="4.0" />		
+	    <compilation debug="<#= site.DebugMode #>" targetFramework="4.7.2">
+            <assemblies>
+                <add assembly="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+            </assemblies>
+        </compilation>
+        <httpRuntime targetFramework="4.7.2" maxRequestLength="1048576" executionTimeout="3600" maxUrlLength="1048576" maxQueryStringLength="1048576" relaxedUrlToFileSystemMapping="true" />
 		<authentication mode="Forms">
 			<forms
 			  name=".REPORTASPXAUTH"
@@ -70,8 +74,7 @@
                     decryptionKey="B7271A769CAB3FB8B3700AECCB487C85AF502DB67101FA21C23BBF600BE372EC"
                     validation="SHA1" decryption="AES" />
 		<customErrors mode="<#=site.ErrorMode#>" defaultRedirect="~/Views/Errors/GeneralError.htm" />
-		<globalization culture="en-US" uiCulture="en-US" fileEncoding="utf-8" requestEncoding="utf-8" responseEncoding="utf-8" />
-		<httpRuntime maxRequestLength="1048576" executionTimeout="3600" maxUrlLength="1048576" maxQueryStringLength="1048576" relaxedUrlToFileSystemMapping="true" />
+		<globalization culture="en-US" uiCulture="en-US" fileEncoding="utf-8" requestEncoding="utf-8" responseEncoding="utf-8" />		
 	</system.web>
 <#
     if(site.Environment == SiteEnvironment.DEV){
@@ -116,7 +119,7 @@
       </dependentAssembly>
       <dependentAssembly>
         <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral"/>
-        <bindingRedirect oldVersion="0.0.0.0-12.0.0.0" newVersion="12.0.0.0"/>
+        <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0"/>
       </dependentAssembly>
       <dependentAssembly>
         <assemblyIdentity name="NPOI" publicKeyToken="0df73ec7942b34e1" culture="neutral"/>
@@ -134,10 +137,7 @@
         <assemblyIdentity name="SimpleInjector" publicKeyToken="984cb50dea722e99" culture="neutral"/>
         <bindingRedirect oldVersion="0.0.0.0-4.6.2.0" newVersion="4.6.2.0"/>
       </dependentAssembly>
-      <dependentAssembly>
-        <assemblyIdentity name="System.Net.Http" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/>
-        <bindingRedirect oldVersion="0.0.0.0-4.2.0.0" newVersion="4.1.1.3" />
-      </dependentAssembly>
+      
       <dependentAssembly>
         <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31BF3856AD364E35" culture="neutral"/>
         <bindingRedirect oldVersion="0.0.0.0-5.2.7.0" newVersion="5.2.7.0"/>
