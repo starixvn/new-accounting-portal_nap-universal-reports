@@ -1,7 +1,7 @@
 ﻿<#@ template debug="true" hostspecific="true" language="C#" #> 
 <#@ import namespace="System.IO" #>
 <#@ output extension=".txt" #>
-<#@ include file="$(SolutionDir)\Packages\T4.TemplateFileManager.2.2.1\tools\ttinc\TemplateFilemanager.CS.ttinclude" #>
+<#@ include file="$(ProjectDir)\T4.FileManager.VisualStudio.ttinclude" #>
 <#@ include file="Configuration.ttinclude" #>
 <#
     var manager = TemplateFileManager.Create(this);
@@ -12,7 +12,7 @@
         var appSettingsFileName = string.Format("App_Configuration\\{0}\\Web.AppSettings.config", site.Environment);
         var connectionStringFileName = string.Format("App_Configuration\\Web.ConnectionString.{0}.config", site.Environment);
 
-        manager.StartNewFile(fileName);
+        manager.StartNewFile(fileName,"","App_Configuration");
 #>
 <?xml version="1.0" encoding="utf-8"?>
 <!--
