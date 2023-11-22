@@ -26,11 +26,7 @@
     <Setting Key="CN88WinLoss-Soccer-Minor-SportType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_CN88" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="CN88WinLoss-Soccer-Minor-BetType-BetTrans" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes_CN88" DbName="DBACC.bodb02.bodbAdminNet" />
   </Function>
-  <Function Name="PlayForFun">
-    <Setting Key="PlayForFun-ProductQuery" SpName="Acc_Rpt_PlayForFun_ProductSel" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="PlayForFun-Summary" SpName="Acc_Rpt_PlayForFun_Summary" DbName="DBACC.bodb02.bodbAdminNet" />
-    <Setting Key="PlayForFun-Detail" SpName="Acc_Rpt_PlayForFun_Detail" DbName="DBACC.bodb02.bodbAdminNet" />
-  </Function>
+  
   <Function Name="SBCustomerPerformanceByDangers">
     <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_LeagueBySportSel" SpName="Acc_Rpt_SBCustPerfByDangerLevel_LeagueBySportSel" DbName="DBACC.bodb02.bodbAdminNet" />
     <Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_LeagueGroupBySportSel" SpName="Acc_Rpt_SBCustPerfByDangerLevel_LeagueGroupBySportSel" DbName="DBACC.bodb02.bodbAdminNet" />

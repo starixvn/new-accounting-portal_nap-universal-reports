@@ -12,14 +12,12 @@ using UniversalReports.ActualMemberBet;
 using UniversalReports.CN88WinLoss;
 using UniversalReports.Exchange;
 using UniversalReports.HouseWinLoss;
-using UniversalReports.NG2Statistics;
 using UniversalReports.PunterAnalysis;
 using UniversalReports.SBCustomerPerformanceByDanger;
 using UniversalReports.SBPerformance;
 using UniversalReports.Sites.App_Start;
 using UniversalReports.SMAWinLoss;
 using UniversalReports.UpdatedUsernameCredit;
-using UniversalReports.VoidingSettledTickets;
 using UniversalReports.CashOutPerformance;
 
 namespace UniversalReports.Sites
@@ -40,7 +38,6 @@ namespace UniversalReports.Sites
             Mapper.Initialize(cfg =>
             {
                 cfg.InitializeHouseWinLoss();
-                cfg.InitializeNG2Statistics();
                 cfg.InitializePunterAnalysis();
                 cfg.InitializeUpdatedUsernameCredit();
                 cfg.InitializeExchange();
@@ -49,7 +46,6 @@ namespace UniversalReports.Sites
                 cfg.InitializeAbnormalBet();
                 cfg.InitializeSBPerformance();
                 cfg.InitializeSMAWinLoss();
-                cfg.InitializeVoidingSettledTickets();
                 cfg.InitializeSBCustomerPerformanceByDanger();
                 cfg.InitializeCashOutPerformance();
             });

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Functions>
-  <Function Name="Voiding Settled Tickets">
-    <Setting Key="Acc_Rpt_VoidingSettledTicket" SpName="Acc_Rpt_VoidingSettledTicket" DbName="DBBAH.bodb02.bodbAdminNet" />
-    <Setting Key="Acc_Rpt_VoidingSettledTicket_Product" SpName="Acc_Rpt_VoidingSettledTicket_Product" DbName="DBBAH.bodb02.bodbAdminNet" />
-  </Function>
-</Functions>

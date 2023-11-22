@@ -21,7 +21,6 @@ namespace UniversalReports.Sites.SimpleInjector
             Container.RegiserGlobalServices()
                 .RegisterMediator()
                 .RegisterHouseWinLossServices()
-                .RegisterNG2Services()
                 .RegisterPunterAnalysisServices()
                 .RegisterUpdatedUsernameAndCreditServices()
                 .RegisterExchangeServices()
@@ -29,9 +28,7 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterCN88WinLossServices()
                 .RegisterAbnormalBetServices()
                 .RegisterSBPerformanceServices()
-                .RegisterVoidingSettledTicketsServices()
                 .RegisterSMAWinLossServices()
-                .RegisterDailyTurnoverServices()
                 .RegisterSBCustomerPerformanceByDangerServices()
                 .RegisterCashOutPerformanceServices();
 

@@ -357,7 +357,6 @@
     <Compile Include="App_Start\OnebookUMInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\CashOutPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBCustomerPerformanceByDangerInjector.cs" />
-    <Compile Include="App_Start\SimpleInjector\DailyTurnoverInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SMAWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\AbnormalBetInjector.cs" />
@@ -368,17 +367,14 @@
     <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\PunterAnalysisInjector.cs" />
-    <Compile Include="App_Start\SimpleInjector\NG2Injector.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjector\HouseWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorAPIConfig.cs" />
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
-    <Compile Include="App_Start\SimpleInjector\VoidingSettledTicketsInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CashOutPerformanceController.cs" />
     <Compile Include="Controllers\SBCustomerPerformanceByDangersController.cs" />
-    <Compile Include="Controllers\DailyTurnoverComparisonController.cs" />
     <Compile Include="Controllers\AbnormalBetController.cs" />
     <Compile Include="Controllers\ActualMemberBetController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
@@ -388,15 +384,12 @@
     <Compile Include="Controllers\CN88WinLossByProductsController.cs" />
     <Compile Include="Controllers\LegacyPathAdapterController.cs" />
     <Compile Include="Controllers\LegacyUrlResolver.cs" />
-    <Compile Include="Controllers\PlayForFunController.cs" />
     <Compile Include="Controllers\PunterAnalysisController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NG2StatisticsController.cs" />
     <Compile Include="Controllers\SMAWinLossController.cs" />
     <Compile Include="Controllers\SBPerformanceMonitorController.cs" />
     <Compile Include="Controllers\UpdatedUsernameAndGivenCreditController.cs" />
-    <Compile Include="Controllers\VoidingSettledTickets.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -436,19 +429,6 @@
     <Content Include="app\house-win-loss\tab\tab.directive.html" />
     <Content Include="app\house-win-loss\tab\tab.directive.js" />
     <Content Include="app\house-win-loss\tab\tab.service.js" />
-    <Content Include="app\ng2-statistics\app.config.js" />
-    <Content Include="app\ng2-statistics\app.js" />
-    <Content Include="app\ng2-statistics\bettype\bettype.controller.js" />
-    <Content Include="app\ng2-statistics\breadcrumb\breadcrumb.service.js" />
-    <Content Include="app\ng2-statistics\breadcrumb\title.service.js" />
-    <Content Include="app\ng2-statistics\common\common.controller.js" />
-    <Content Include="app\ng2-statistics\common\common.service.js" />
-    <Content Include="app\ng2-statistics\filter\filter.service.js" />
-    <Content Include="app\ng2-statistics\filter\filter.directive.html" />
-    <Content Include="app\ng2-statistics\filter\filter.directive.js" />
-    <Content Include="app\ng2-statistics\grandtotal\grandtotal.service.js" />
-    <Content Include="app\ng2-statistics\ng2-statistics.controller.js" />
-    <Content Include="app\ng2-statistics\ng2-statistics.html" />
     <Content Include="app\cn88-win-loss\app.config.js" />
     <Content Include="app\cn88-win-loss\app.js" />
     <Content Include="app\cn88-win-loss\breadcrumb\breadcrumb.service.js" />
@@ -497,12 +477,6 @@
     <Content Include="app\root\components\ngDialog\ngDialog-theme-plain.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.js" />
-    <Content Include="app\ng2-statistics\shared\fanex-grid-with-title.html" />
-    <Content Include="app\ng2-statistics\tab\pane.directive.js" />
-    <Content Include="app\ng2-statistics\tab\pane.service.js" />
-    <Content Include="app\ng2-statistics\tab\tab.directive.html" />
-    <Content Include="app\ng2-statistics\tab\tab.directive.js" />
-    <Content Include="app\ng2-statistics\tab\tab.service.js" />
     <Content Include="app\root\app.config.js" />
     <Content Include="app\root\components\angucomplete-alt\angucomplete-alt.css" />
     <Content Include="app\root\components\angucomplete-alt\angucomplete-alt.js" />
@@ -547,7 +521,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\DBBAH.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBCUST.IPDB.bodbAdminNet.xml" />
     <Content Include="App_Data\DBEXT.bodb02.bodbAdminNet.xml" />
     <Content Include="App_Data\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
@@ -566,9 +539,6 @@
     <Content Include="bundle\house-win-loss.chunk.js" />
     <Content Include="bundle\lib.chunk.js" />
     <Content Include="bundle\lib.css" />
-    <Content Include="bundle\ng2-statistics-style.chunk.js" />
-    <Content Include="bundle\ng2-statistics-style.css" />
-    <Content Include="bundle\ng2-statistics.chunk.js" />
     <Content Include="content\house-win-loss.css">
       <DependentUpon>house-win-loss.scss</DependentUpon>
     </Content>
@@ -682,19 +652,6 @@
     <Content Include="wwwroot\cash-out-performance\runtime.js" />
     <Content Include="wwwroot\cash-out-performance\spinner.39d0d6bd1fbec2b1c53f.gif" />
     <Content Include="wwwroot\cash-out-performance\styles.css" />
-    <Content Include="wwwroot\daily-turnover-comparison\3rdpartylicenses.txt" />
-    <Content Include="wwwroot\daily-turnover-comparison\assets\logo.png" />
-    <Content Include="wwwroot\daily-turnover-comparison\assets\spinner.gif" />
-    <Content Include="wwwroot\daily-turnover-comparison\es2015-polyfills.js" />
-    <Content Include="wwwroot\daily-turnover-comparison\favicon.ico" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.912ec66d7572ff821749.svg" />
-    <Content Include="wwwroot\daily-turnover-comparison\index.html" />
-    <Content Include="wwwroot\daily-turnover-comparison\logo.c6dee9a0f0d2da3e324d.png" />
-    <Content Include="wwwroot\daily-turnover-comparison\main.js" />
-    <Content Include="wwwroot\daily-turnover-comparison\polyfills.js" />
-    <Content Include="wwwroot\daily-turnover-comparison\runtime.js" />
-    <Content Include="wwwroot\daily-turnover-comparison\spinner.ea9634b3c5182edadb3c.gif" />
-    <Content Include="wwwroot\daily-turnover-comparison\styles.css" />
     <Content Include="wwwroot\exchange\3rdpartylicenses.txt" />
     <Content Include="wwwroot\exchange\assets\logo.png" />
     <Content Include="wwwroot\exchange\assets\spinner.gif" />
@@ -728,7 +685,6 @@
     <Content Include="Scripts\Fanex.Grid.js" />
     <Content Include="Scripts\Fanex.Pagination.js" />
     <Content Include="content\house-win-loss.scss" />
-    <Content Include="content\ng2-statistics.scss" />
     <Content Include="content\scoreInformation.scss" />
     <Content Include="content\site.scss" />
     <Content Include="App_Configuration\Configuration.ttinclude" />
@@ -775,9 +731,6 @@
     <Content Include="bundle\house-win-loss-style.css.map" />
     <Content Include="bundle\house-win-loss.chunk.js.map" />
     <Content Include="bundle\lib.chunk.js.map" />
-    <Content Include="bundle\ng2-statistics-style.chunk.js.map" />
-    <Content Include="bundle\ng2-statistics-style.css.map" />
-    <Content Include="bundle\ng2-statistics.chunk.js.map" />
     <Content Include="App_Configuration\Web.AppSettings.config" />
     <Content Include="App_Configuration\Web.AppSettings.DEV.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
@@ -867,14 +820,6 @@
     <Content Include="ExcelTemplate\AbNormalBet\Licensee.xlsx" />
     <Content Include="ExcelTemplate\AbNormalBet\Member.xlsx" />
     <Content Include="ExcelTemplate\SMAWinLoss\Summary.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ExcelTemplate\VoidingSettledTicket\Product.xlsx" />
-    <Content Include="ExcelTemplate\VoidingSettledTicket\Ticket.xlsx" />
-    <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ExcelTemplate\TurnoverComparison\TurnoverComparison-NoData.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Configuration\Web.PROAWS.config">
@@ -991,7 +936,6 @@
     <Content Include="stylesheets\_bootstrap-mincer.scss" />
     <Content Include="webpack.config.sh" />
     <Content Include="stylesheets\_bootstrap.scss" />
-    <Content Include="Views\NG2Statistics\Index.cshtml" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1046,19 +990,6 @@
     <Content Include="wwwroot\updated-username-credit\main.bundle.js" />
     <Content Include="wwwroot\updated-username-credit\polyfills.bundle.js" />
     <Content Include="wwwroot\updated-username-credit\styles.bundle.css" />
-    <Content Include="wwwroot\voiding-settled-tickets\3rdpartylicenses.txt" />
-    <Content Include="wwwroot\voiding-settled-tickets\assets\logo.png" />
-    <Content Include="wwwroot\voiding-settled-tickets\assets\spinner.gif" />
-    <Content Include="wwwroot\voiding-settled-tickets\favicon.ico" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg" />
-    <Content Include="wwwroot\voiding-settled-tickets\index.html" />
-    <Content Include="wwwroot\voiding-settled-tickets\logo.6e8f5e4696c2161db75f.png" />
-    <Content Include="wwwroot\voiding-settled-tickets\main.js" />
-    <Content Include="wwwroot\voiding-settled-tickets\polyfills-es5.js" />
-    <Content Include="wwwroot\voiding-settled-tickets\polyfills.js" />
-    <Content Include="wwwroot\voiding-settled-tickets\runtime.js" />
-    <Content Include="wwwroot\voiding-settled-tickets\spinner.39d0d6bd1fbec2b1c53f.gif" />
-    <Content Include="wwwroot\voiding-settled-tickets\styles.css" />
     <Content Include="wwwroot\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1089,11 +1020,6 @@
     <Content Include="wwwroot\sma-win-loss\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\sma-win-loss\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\sma-win-loss\index.cshtml" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.1e59d2330b4c6deb84b3.ttf" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.20fd1704ea223900efa9.woff2" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.8b43027f47b20503057d.eot" />
-    <Content Include="wwwroot\voiding-settled-tickets\fontawesome-webfont.f691f37e57f04c152e23.woff" />
-    <Content Include="wwwroot\voiding-settled-tickets\index.cshtml" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1104,11 +1030,6 @@
     <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\cash-out-performance\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\cash-out-performance\index.cshtml" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
-    <Content Include="wwwroot\daily-turnover-comparison\fontawesome-webfont.fee66e712a8a08eef580.woff" />
-    <Content Include="wwwroot\daily-turnover-comparison\index.cshtml" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\exchange\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1142,10 +1063,6 @@
       <Project>{a79cc236-0cc6-4c85-b74a-9ca67a85ee06}</Project>
       <Name>UniversalReports.CN88WinLoss</Name>
     </ProjectReference>
-    <ProjectReference Include="..\modules\UniversalReports.DailyTurnoverComparison\UniversalReports.DailyTurnoverComparison.csproj">
-      <Project>{cf13bc47-9a90-43c3-9701-9d8c03d0050d}</Project>
-      <Name>UniversalReports.DailyTurnoverComparison</Name>
-    </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.Exchange\UniversalReports.Exchange.csproj">
       <Project>{247f87c2-0b58-4dbb-9caa-2607d4875997}</Project>
       <Name>UniversalReports.Exchange</Name>
@@ -1162,10 +1079,6 @@
       <Project>{b949c4eb-81bf-4971-9cda-350394bde2c6}</Project>
       <Name>UniversalReports.SMAWinLoss</Name>
     </ProjectReference>
-    <ProjectReference Include="..\modules\UniversalReports.VoidingSettledTickets\UniversalReports.VoidingSettledTickets.csproj">
-      <Project>{c7e4b1ce-b7c0-4487-90aa-33db559c69de}</Project>
-      <Name>UniversalReports.VoidingSettledTickets</Name>
-    </ProjectReference>
     <ProjectReference Include="..\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
       <Name>UniversalReports</Name>
@@ -1173,10 +1086,6 @@
     <ProjectReference Include="..\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\modules\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj">
-      <Project>{c92f93f9-051f-4531-97ec-0a66cfd44693}</Project>
-      <Name>UniversalReports.NG2Statistics</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
       <Project>{57b473ff-1385-4d2e-9eb1-5e9a7c586cf0}</Project>

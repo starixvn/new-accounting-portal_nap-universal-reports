@@ -41,29 +41,7 @@
 		<Setting Key="CN88WinLoss-Soccer-Minor-SportType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="CN88WinLoss-Soccer-Minor-BetType-Warehouse" SpName="Acc_Rpt_CompanyWinLoss_Soccer_Minor_Bettypes_CN88_Old" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 	</Function>
-	<Function Name="NG2-Statistics">
-		<Setting Key="NG2-Statistics-Sports" SpName="Acc_Rpt_NG2Statistic_SportBettype_Select" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-		<Setting Key="NG2-Statistics-Daily" SpName="Acc_Rpt_NG2Statistic_Daily" DbName="DBWH.bodb_dwrs.bodbAdminNet">
-			<Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
-			<Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
-			<Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
-		</Setting>
-		<Setting Key="NG2-Statistics-GrandTotal" SpName="Acc_Rpt_NG2Statistic_GrandTotal" DbName="DBWH.bodb_dwrs.bodbAdminNet">
-			<Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
-			<Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
-			<Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
-		</Setting>
-		<Setting Key="NG2-Statistics-UserName" SpName="Acc_Rpt_NG2Statistic_Username" DbName="DBWH.bodb_dwrs.bodbAdminNet">
-			<Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
-			<Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
-			<Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
-		</Setting>
-		<Setting Key="NG2-Statistics-Bettype" SpName="Acc_Rpt_NG2Statistic_bettype" DbName="DBWH.bodb_dwrs.bodbAdminNet">
-			<Mapping DataField="CompanyTurnover" ObjectProperty="HouseTurnover" />
-			<Mapping DataField="CompanyComm" ObjectProperty="HouseComm" />
-			<Mapping DataField="CompanyNetIncome" ObjectProperty="HouseNetIncome" />
-		</Setting>
-	</Function>
+	
 	<Function Name="Punter-Analysis">
 		<Setting Key="Punter-BetCount" SpName="Acc_Punter_Top_DrillDownBetcount" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="Punter-BetType" SpName="Acc_Punter_Top_DrillDownUsernameSportType" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
@@ -144,11 +122,7 @@
 		<Setting Key="SMAWinLoss-AvailabeDatabaseQuery" SpName="Acc_CheckDailyTaskReadiness" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="SMAWinLoss-ReportLatestDate" SpName="Acc_Rpt_SMAWinlossSummary_ReportLatestDate" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 		<Setting Key="SMAWinLoss-BetFromSel" SpName="Acc_Rpt_SMAWinlossSummary_BetfromSel" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-	</Function>
-	<Function Name="Fraud and Risk">
-		<Setting Key="Acc_Rpt_SBTurnoverComparison_Daily" SpName="Acc_Rpt_SBTurnoverComparison_Daily" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
-		<Setting Key="DailyJob_CheckTasksStatus" SpName="DailyJob_CheckTasksStatus" DbName="DBWH.bodb_dwrs.bodbAdminNet" TimeOut="0" />
-	</Function>
+	</Function>	
 	<Function Name="SBCustomerPerformanceByDangers">
 		<Setting Key="Acc_Rpt_SBCustPerfByDangerLevel_DivisionSel" SpName="Acc_Rpt_SiteList" TimeOut="0" DbName="DBWH.bodb_dwrs.bodbAdminNet" />
 	</Function>
