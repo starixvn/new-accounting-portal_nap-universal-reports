@@ -1,11 +1,12 @@
 ﻿using Fanex.NAP.Core.Business;
 using Fanex.NAP.Core.Web.Attribute;
 using System.Web.Mvc;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Sites.Settings;
 
 namespace UniversalReports.Sites.Controllers
 {
+    using BalanceUpServices;
+
     public class SMAWinLossController : LegacyPathAdapterController
     {
         public SMAWinLossController(BalanceUpService balanceUpService) : base(balanceUpService)

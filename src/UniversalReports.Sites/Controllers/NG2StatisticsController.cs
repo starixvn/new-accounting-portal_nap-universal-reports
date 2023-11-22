@@ -1,11 +1,12 @@
 ﻿using System.Web.Mvc;
 using Fanex.NAP.Core.Business;
 using Fanex.NAP.Core.Web.Attribute;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.Sites.Settings;
 
 namespace UniversalReports.Sites.Controllers
 {
+    using BalanceUpServices;
+
     public class NG2StatisticsController : LegacyPathAdapterController
     {
         public NG2StatisticsController(BalanceUpService balanceUpService) : base(balanceUpService)

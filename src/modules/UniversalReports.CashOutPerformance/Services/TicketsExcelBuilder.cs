@@ -7,10 +7,11 @@ using System.Linq;
 using UniversalReports.CashOutPerformance.Constants;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.ViewModels;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.CashOutPerformance.Services
 {
+    using Configurations;
+
     public interface TicketsExcelBuilder<T>
     {
         ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn);

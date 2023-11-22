@@ -2,10 +2,11 @@
 using System.Web.Http;
 using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Soccer.BetTypeFull
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/soccer/bettype-full")]
     public class SoccerBetTypeFullController : ApiController
     {

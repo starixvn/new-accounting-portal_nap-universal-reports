@@ -1,10 +1,11 @@
 ﻿using MediatR;
-using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace UniversalReports.SBCustomerPerformanceByDanger.Report
 {
+    using Results;
+
     [RoutePrefix("api/sb-customer-performance-by-danger/report")]
     public class CustomerPerformanceByDangerController : ApiController
     {

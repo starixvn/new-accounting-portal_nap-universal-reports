@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C074583A-B1D9-412C-8649-DD98B9234224}"
 EndProject
@@ -34,7 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statistics", "src\modules\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj", "{C92F93F9-051F-4531-97EC-0A66CFD44693}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core", "src\shared\UniversalReports.Core\UniversalReports.Core.csproj", "{94BAB182-85DE-4715-B396-BB6696D8BC81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports", "src\shared\UniversalReports\UniversalReports.csproj", "{94BAB182-85DE-4715-B396-BB6696D8BC81}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PunterAnalysis", "src\modules\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj", "{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}"
 EndProject
@@ -49,8 +49,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 		SonarQube\nap-universal-reports\CSharp\SonarLint.xml = SonarQube\nap-universal-reports\CSharp\SonarLint.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.Core.Tests", "tests\integration\shared\UniversalReports.Core.Tests\UniversalReports.Core.Tests.csproj", "{BF1091EB-4B9C-40FA-9CB7-80FF294322BF}"
-EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.UpdatedUsernameCredit", "src\modules\UniversalReports.ChangedUsernameOrCredit\UniversalReports.UpdatedUsernameCredit.csproj", "{847C5BA4-FF43-4683-940F-30CFEFA00892}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.UpdatedUsernameCredit.UnitTests", "tests\unit\modules\UniversalReports.UpdatedUsernameAndCredit.UnitTests\UniversalReports.UpdatedUsernameCredit.UnitTests.csproj", "{88AB653E-E7A8-4C57-AEB6-34D3B6119490}"
@@ -287,8 +286,8 @@ Global
 		{2B77ABF0-3387-4F83-BDAD-71FCDD7E32EA} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		SolutionGuid = {3EA15C1E-9F92-4DB6-AFF6-2740D02DBE8E}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

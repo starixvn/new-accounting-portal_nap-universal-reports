@@ -3,10 +3,11 @@ using Fanex.Caching;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.HouseWinLoss.UnitTests.Common.Services
 {
+    using BalanceUpServices;
+
     [TestFixture]
     [Category("HouseWinLossUnitTests")]
     public class CommonBalanceUpServiceTests

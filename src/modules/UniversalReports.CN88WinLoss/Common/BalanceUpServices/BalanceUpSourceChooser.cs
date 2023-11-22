@@ -1,9 +1,10 @@
 ﻿using System;
 using UniversalReports.CN88WinLoss.Common.Criteria;
-using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.CN88WinLoss.Common.BalanceUpServices
 {
+    using UniversalReports.BalanceUpServices;
+
     public interface BalanceUpSourceChooser
     {
         string Determine(WinLossCriteria criteria);

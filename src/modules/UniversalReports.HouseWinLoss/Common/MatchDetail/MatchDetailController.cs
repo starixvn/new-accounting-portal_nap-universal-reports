@@ -2,10 +2,11 @@
 using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 {
+    using Results;
+
     public class MatchDetailController : ApiController
     {
         private readonly WinLossService service;

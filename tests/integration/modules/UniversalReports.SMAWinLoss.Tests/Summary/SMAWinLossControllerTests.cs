@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using System;
 using System.Collections.Generic;
@@ -11,6 +10,8 @@ using UniversalReports.SMAWinLoss.Tests.DependencyInjection;
 
 namespace UniversalReports.SMAWinLoss.Tests.Summary
 {
+    using Results;
+
     [TestFixture]
     public class SMAWinLossControllerTests
     {

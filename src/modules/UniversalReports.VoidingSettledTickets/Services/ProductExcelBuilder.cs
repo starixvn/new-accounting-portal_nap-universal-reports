@@ -2,11 +2,12 @@
 using Linq.DynamicSum;
 using OfficeOpenXml;
 using System.IO;
-using UniversalReports.Core.Configurations;
 using UniversalReports.VoidingSettledTickets.Models;
 
 namespace UniversalReports.VoidingSettledTickets.Services
 {
+    using Configurations;
+
     public interface ProductExcelBuilder
     {
         ExcelPackage Build(SummaryEntity<ProductExcelModel> productsExcel);

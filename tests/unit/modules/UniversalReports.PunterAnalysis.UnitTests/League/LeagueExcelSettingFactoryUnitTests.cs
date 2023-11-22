@@ -1,12 +1,13 @@
 ﻿using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.League
 {
+    using Configurations;
+
     public class LeagueExcelSettingFactoryUnitTests
     {
         [Test]

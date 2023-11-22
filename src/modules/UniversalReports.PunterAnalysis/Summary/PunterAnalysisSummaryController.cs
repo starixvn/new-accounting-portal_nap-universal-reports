@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Epplus;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {
+    using Results;
+
     [RoutePrefix("api/punter-analysis/summary")]
     public class PunterAnalysisSummaryController : ApiController
     {

@@ -3,10 +3,11 @@ using Fanex.Excel.Models;
 using UniversalReports.CN88WinLoss.Common.ColumnDecorators;
 using UniversalReports.CN88WinLoss.Common.Criteria;
 using UniversalReports.CN88WinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CN88WinLoss.Common.BasicWinLoss
 {
+    using Results;
+
     public class CN88BasicWinLossController : ApiController
     {
         public CN88BasicWinLossController(

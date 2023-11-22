@@ -2,10 +2,11 @@
 using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Parlay.Site
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/parlay/site")]
     public class ParlaySiteController : ApiController
     {

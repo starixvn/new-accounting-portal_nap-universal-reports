@@ -6,13 +6,14 @@ using NUnit.CompareNetObjects;
 using NUnit.Framework;
 using Olympus.FPSAPI.Client;
 using System.Threading.Tasks;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Summary
 {
+    using Configurations;
+
     public class SummaryServiceUnitTests
     {
         private readonly Fixture fixture = new Fixture();

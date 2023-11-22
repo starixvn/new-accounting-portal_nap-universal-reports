@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.NG2.BetType;
 using UniversalReports.HouseWinLoss.Tests.Controllers;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Universal.BetType
 {
+    using BalanceUpServices;
+    using Results;
+
     public class UniversalBetTypeControllerTests : BaseControllerTests
     {
         [Test]

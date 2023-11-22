@@ -2,10 +2,11 @@
 using Epplus.Mapper.Extensions;
 using Linq.DynamicSum;
 using OfficeOpenXml;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.Exchange.Report
 {
+    using Configurations;
+
     public interface ExcelBuilder
     {
         ExcelPackage Build(HttpParameterExcel excelParams, SummaryEntity<ExchangeExcelEntity> model);

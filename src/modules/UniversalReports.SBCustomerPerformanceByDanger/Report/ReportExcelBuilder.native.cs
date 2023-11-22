@@ -2,10 +2,11 @@
 using Linq.DynamicSum;
 using OfficeOpenXml;
 using System.IO;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.SBCustomerPerformanceByDanger.Report
 {
+    using Configurations;
+
     public interface ReportExcelBuilder
     {
         ExcelPackage Build(string title, SummaryEntity<CustomerPerformanceByDangerExcelModel> model);

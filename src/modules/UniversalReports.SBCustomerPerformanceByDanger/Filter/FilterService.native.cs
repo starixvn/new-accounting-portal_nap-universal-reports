@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.SBCustomerPerformanceByDanger.Filter
 {
+    using BalanceUpServices;
+
     public interface FilterService
     {
         Task<IEnumerable<DivisionModel>> GetDivision(DivisionQueryCriteria criteria);

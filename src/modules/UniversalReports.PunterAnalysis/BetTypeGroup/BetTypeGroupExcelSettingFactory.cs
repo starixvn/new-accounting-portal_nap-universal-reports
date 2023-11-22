@@ -1,8 +1,9 @@
-﻿using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.Summary;
+﻿using UniversalReports.PunterAnalysis.Summary;
 
 namespace UniversalReports.PunterAnalysis.BetTypeGroup
 {
+    using Configurations;
+
     public class BetTypeGroupExcelSettingFactory : SummaryExcelSettingFactory
     {
         public BetTypeGroupExcelSettingFactory(ConfigurationService configurationService) : base(configurationService)

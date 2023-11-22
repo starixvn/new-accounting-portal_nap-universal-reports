@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.UpdatedUsernameCredit.Tests.DependencyInjection;
 using UniversalReports.UpdatedUsernameCredit.UpdatedCredit;
 
 namespace UniversalReports.UpdatedUsernameCredit.Tests.UpdatedCredit
 {
+    using Results;
+
     [TestFixture]
     public class UpdatedCreditControllerTests
     {

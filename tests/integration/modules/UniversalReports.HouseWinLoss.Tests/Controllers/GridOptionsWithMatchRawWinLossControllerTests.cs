@@ -2,11 +2,12 @@
 using NUnit.Framework;
 using System;
 using System.Web.Http.Results;
-using UniversalReports.MVC.Results;
 using dailyWinLoss2hSoccerMinor = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
+    using Results;
+
     public class GridOptionsWithMatchRawWinLossControllerTests : BaseControllerTests
     {
         public static string[] ControllerList => new[]

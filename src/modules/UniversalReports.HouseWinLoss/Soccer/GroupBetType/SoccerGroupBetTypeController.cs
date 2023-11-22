@@ -2,10 +2,11 @@
 using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Soccer.GroupBetType
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/soccer/group-bettype")]
     public class SoccerGroupBetTypeController : ApiController
     {

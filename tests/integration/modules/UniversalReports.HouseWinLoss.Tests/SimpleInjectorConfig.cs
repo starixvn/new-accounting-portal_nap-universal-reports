@@ -5,7 +5,6 @@ using Fanex.Caching.Memory;
 using Fanex.Data.Repository;
 using Fanex.RemotingRef;
 using SimpleInjector;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Tests.TestDoubles;
 using BasicWinLoss = UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using CommonServices = UniversalReports.HouseWinLoss.Common.Services;
@@ -18,6 +17,8 @@ using Daily2hSoccerBettype = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerM
 using Daily2hSoccerMinor = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor;
 namespace UniversalReports.HouseWinLoss.Tests
 {
+    using BalanceUpServices;
+
     public class SimpleInjectorConfig
     {
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725

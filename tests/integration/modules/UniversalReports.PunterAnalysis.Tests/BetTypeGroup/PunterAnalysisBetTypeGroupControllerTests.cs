@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.PunterAnalysis.BetTypeGroup;
 using UniversalReports.PunterAnalysis.BetTypeGroup.Model;
@@ -8,6 +7,8 @@ using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 
 namespace UniversalReports.PunterAnalysis.Tests.BetTypeGroup
 {
+    using Results;
+
     public class PunterAnalysisBetTypeGroupControllerTests
     {
         private const string FakeRepositoryDataFileName = "BetTypeGroup-FileRepository.json";

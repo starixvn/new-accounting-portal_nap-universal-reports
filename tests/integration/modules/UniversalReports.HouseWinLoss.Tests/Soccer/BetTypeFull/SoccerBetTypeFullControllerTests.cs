@@ -4,17 +4,18 @@ using System.Web.Http;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Soccer.BetType;
 using UniversalReports.HouseWinLoss.Soccer.GroupBetType;
 using UniversalReports.HouseWinLoss.Soccer.SumBetType;
 using UniversalReports.HouseWinLoss.Tests.Controllers;
-using UniversalReports.MVC.Results;
 using ExcelQueryModel = UniversalReports.HouseWinLoss.Soccer.BetTypeFull.ExcelQueryModel;
 
 namespace UniversalReports.HouseWinLoss.Tests.Soccer.BetTypeFull
 {
+    using BalanceUpServices;
+    using Results;
+
     public class SoccerBetTypeFullControllerTests
     {
         [Category("ControllersTests")]

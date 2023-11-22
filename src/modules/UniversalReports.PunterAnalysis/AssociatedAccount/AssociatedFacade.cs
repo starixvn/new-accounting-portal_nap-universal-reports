@@ -4,11 +4,12 @@ using Olympus.FPSAPI.Client;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
+    using Configurations;
+
     public interface AssociatedFacade
     {
         Task<SummaryEntity<AssociatedSummaryModel>> Query(HttpParameterJson request);

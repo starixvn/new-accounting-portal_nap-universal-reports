@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.Exchange.Report;
 using UniversalReports.Exchange.Tests.DependencyInjection;
 
 namespace UniversalReports.Exchange.Tests.Report
 {
+    using Results;
+
     [TestFixture]
     public class ExchangeControllerTest
     {

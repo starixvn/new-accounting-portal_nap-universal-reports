@@ -3,10 +3,11 @@ using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.BasicWinLoss
 {
+    using Results;
+
     public class BasicWinLossController : ApiController
     {
         public BasicWinLossController(

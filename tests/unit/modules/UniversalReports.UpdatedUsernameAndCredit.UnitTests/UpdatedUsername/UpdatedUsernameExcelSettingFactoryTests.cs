@@ -2,12 +2,13 @@
 using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.Core.Configurations;
 using UniversalReports.UpdatedUsernameCredit.Common;
 using UniversalReports.UpdatedUsernameCredit.UpdatedUsername;
 
 namespace UniversalReports.UpdatedUsernameCredit.UnitTests.UpdatedUsername
 {
+    using Configurations;
+
     [TestFixture]
     public class UpdatedUsernameExcelSettingFactoryTests
     {

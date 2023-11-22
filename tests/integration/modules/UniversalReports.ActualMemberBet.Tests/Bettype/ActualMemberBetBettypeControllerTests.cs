@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.ActualMemberBet.Bettype;
 using UniversalReports.ActualMemberBet.Tests.DependencyInjection;
 
 namespace UniversalReports.ActualMemberBet.Tests.Bettype
 {
+    using Results;
+
     public class ActualMemberBetBettypeControllerTests
     {
         private const string FakeRepositoryDataFileName = "Bettype-ActualMemberBet-FileRepository.json";

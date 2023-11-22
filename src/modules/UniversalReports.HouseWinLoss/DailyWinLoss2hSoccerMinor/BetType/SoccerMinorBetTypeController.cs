@@ -6,10 +6,11 @@ using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/soccer-minor/bet-type")]
     public class SoccerMinorBetTypeController : ApiController
     {

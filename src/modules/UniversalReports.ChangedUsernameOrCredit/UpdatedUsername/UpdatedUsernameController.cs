@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Epplus;
 
 namespace UniversalReports.UpdatedUsernameCredit.UpdatedUsername
 {
+    using Results;
+
     [RoutePrefix("api/updated-username")]
     public class UpdatedUsernameController : ApiController
     {

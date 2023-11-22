@@ -1,8 +1,9 @@
-﻿using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.Summary;
+﻿using UniversalReports.PunterAnalysis.Summary;
 
 namespace UniversalReports.PunterAnalysis.SportType
 {
+    using Configurations;
+
     public class SportTypeExcelSettingFactory : SummaryExcelSettingFactory
     {
         public SportTypeExcelSettingFactory(ConfigurationService configurationService) : base(configurationService)

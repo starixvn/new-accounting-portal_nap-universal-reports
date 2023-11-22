@@ -2,11 +2,12 @@
 using System.Web.Http;
 using MediatR;
 using OfficeOpenXml;
-using Olympus.WebApi.Epplus;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
+    using Results;
+
     [RoutePrefix("api/punter-analysis/associated-account")]
     public class PunterAnalysisAssociatedAccountController : ApiController
     {

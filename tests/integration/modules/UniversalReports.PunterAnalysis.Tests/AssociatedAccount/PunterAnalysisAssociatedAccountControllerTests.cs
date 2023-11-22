@@ -3,7 +3,6 @@ using Linq.DynamicSum;
 using NSubstitute;
 using NUnit.Framework;
 using Olympus.FPSAPI.Client;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using System.Threading.Tasks;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
@@ -16,6 +15,8 @@ using UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector;
 
 namespace UniversalReports.PunterAnalysis.Tests.AssociatedAccount
 {
+    using Results;
+
     public class PunterAnalysisAssociatedAccountControllerTests
     {
         [Test]

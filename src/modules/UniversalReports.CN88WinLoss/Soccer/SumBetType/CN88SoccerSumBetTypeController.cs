@@ -2,10 +2,11 @@
 using AutoMapper;
 using UniversalReports.CN88WinLoss.Common.ColumnDecorators;
 using UniversalReports.CN88WinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CN88WinLoss.Soccer.SumBetType
 {
+    using Results;
+
     [RoutePrefix("api/cn88-win-loss-by-products/soccer/sum-bettype")]
     public class CN88SoccerSumBetTypeController : ApiController
     {

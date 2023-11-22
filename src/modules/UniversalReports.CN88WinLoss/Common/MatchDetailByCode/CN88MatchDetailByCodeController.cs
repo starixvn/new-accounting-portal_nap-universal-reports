@@ -3,10 +3,11 @@ using Fanex.Excel.Models;
 using UniversalReports.CN88WinLoss.Common.ColumnDecorators;
 using UniversalReports.CN88WinLoss.Common.Criteria;
 using UniversalReports.CN88WinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CN88WinLoss.Common.MatchDetailByCode
 {
+    using Results;
+
     public class CN88MatchDetailByCodeController : ApiController
     {
         private readonly WinLossService service;

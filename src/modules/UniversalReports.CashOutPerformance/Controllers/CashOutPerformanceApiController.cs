@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.CashOutPerformance.Models;
@@ -7,6 +6,8 @@ using UniversalReports.CashOutPerformance.Requests;
 
 namespace UniversalReports.CashOutPerformance.Controllers
 {
+    using Results;
+
     [RoutePrefix("api/cash-out-performance")]
     public class CashOutPerformanceApiController : ApiController
     {

@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.PunterAnalysis.SportType;
 using UniversalReports.PunterAnalysis.SportType.Model;
@@ -8,6 +7,8 @@ using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 
 namespace UniversalReports.PunterAnalysis.Tests.SportType
 {
+    using Results;
+
     public class PunterAnalysisSportTypeControllerTests
     {
         private const string FakeRepositoryDataFileName = "SportType-FileRepository.json";

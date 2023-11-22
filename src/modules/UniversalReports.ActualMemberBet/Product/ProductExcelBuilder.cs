@@ -2,10 +2,11 @@
 using Epplus.Mapper.Extensions;
 using Linq.DynamicSum;
 using OfficeOpenXml;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.ActualMemberBet.Product
 {
+    using Configurations;
+
     public interface ProductExcelBuilder
     {
         ExcelPackage Build(SummaryEntity<ProductActualMemberBetExcel> productActualMemberBetExcel);

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Web.Mvc;
-using UniversalReports.Core.BalanceUpServices;
 
 namespace UniversalReports.Sites.Controllers
 {
+    using BalanceUpServices;
+
     public class LegacyPathAdapterController : Controller
     {
         private readonly BalanceUpService balanceUpService;

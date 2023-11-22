@@ -1,11 +1,12 @@
 ﻿using System.Linq;
 using AutoMapper;
 using Fanex.Data.Repository;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistics.BaseServices;
 
 namespace UniversalReports.NG2Statistics.GrandTotal
 {
+    using BalanceUpServices;
+
     public interface GrandTotalService
     {
         GrandTotalModel Query(QueryModel queryModel);

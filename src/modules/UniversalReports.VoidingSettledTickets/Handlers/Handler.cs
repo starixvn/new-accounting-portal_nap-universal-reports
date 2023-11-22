@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.VoidingSettledTickets.Criteria;
 using UniversalReports.VoidingSettledTickets.Models;
 using UniversalReports.VoidingSettledTickets.Requests;
@@ -13,6 +12,8 @@ using UniversalReports.VoidingSettledTickets.Services;
 
 namespace UniversalReports.VoidingSettledTickets.Handlers
 {
+    using BalanceUpServices;
+
     public class Handler : RequestHandler<MoveBetsDateRequest, DateTime>,
         IRequestHandler<ProductRequest, SummaryEntity<ProductModel>>,
         IRequestHandler<TicketRequest, VoidTicketModel>

@@ -3,11 +3,12 @@ using Fanex.Caching.Memory;
 using Fanex.NAP.Core.Web.Session;
 using NSubstitute;
 using SimpleInjector;
-using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.PunterAnalysis.Tests.DependencyInjection.SimpleInjector
 {
+    using BalanceUpServices;
+    using Configurations;
+
     internal static class GlobalInjector
     {
         internal static Container RegiserGlobalServices(this Container container)

@@ -7,10 +7,11 @@ using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.CashOut.LiveNonLive
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/cash-out/live-non-live")]
     public class CashOutLiveNonLiveController : ApiController
     {

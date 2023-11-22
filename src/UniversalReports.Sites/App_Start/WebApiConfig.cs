@@ -3,10 +3,11 @@ using System.Net.Http.Formatting;
 using System.Web.Http;
 using Microsoft.AspNet.WebApi.TrimmingFormatter;
 using Olympus.HttpLogger;
-using Olympus.WebApi.Attributes;
 
 namespace UniversalReports.Sites
 {
+    using Attributes;
+
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration configuration)

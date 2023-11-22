@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Epplus;
 using UniversalReports.PunterAnalysis.SportType.Model;
 
 namespace UniversalReports.PunterAnalysis.SportType
 {
+    using Results;
+
     [RoutePrefix("api/punter-analysis/sport-type")]
     public class PunterAnalysisSportTypeController : ApiController
     {
