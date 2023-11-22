@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
@@ -42,7 +42,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>UniversalReports.Sites.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,7 +51,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
-    <CodeAnalysisRuleSet>UniversalReports.Sites.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <!-- Exclude the project from analysis -->
@@ -588,9 +586,6 @@
     <Content Include="app\house-win-loss\shared\bet-type.controller.js" />
     <Content Include="app\house-win-loss\house-win-loss.constant.js" />
     <Content Include="app\house-win-loss\house-win-loss.service.js" />
-    <CodeAnalysisDictionary Include="..\..\FXCop\FxCopDictionary.xml">
-      <Link>FxCopDictionary.xml</Link>
-    </CodeAnalysisDictionary>
     <Content Include="app\house-win-loss\shared\two-fanex-grid-with-title.html" />
     <Content Include="app\house-win-loss\ng2\ng2.live-non-live.controller.js" />
     <Content Include="app\house-win-loss\shared\fanex-grid-with-title.html" />
@@ -1123,7 +1118,6 @@
     </Content>
     <Content Include="Views\Shared\_AngularLayout.cshtml" />
     <Content Include="Views\FakeLogin\Index.cshtml" />
-    <Content Include="UniversalReports.Sites.ruleset" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\updated-username-credit\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1251,10 +1245,6 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CFG.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
