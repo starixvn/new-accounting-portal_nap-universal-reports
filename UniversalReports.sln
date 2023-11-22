@@ -32,8 +32,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		FXCop\FxCopDictionary.xml = FXCop\FxCopDictionary.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.NG2Statistics", "src\modules\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj", "{C92F93F9-051F-4531-97EC-0A66CFD44693}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports", "src\shared\UniversalReports\UniversalReports.csproj", "{94BAB182-85DE-4715-B396-BB6696D8BC81}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.PunterAnalysis", "src\modules\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj", "{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0}"
@@ -49,7 +47,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 		SonarQube\nap-universal-reports\CSharp\SonarLint.xml = SonarQube\nap-universal-reports\CSharp\SonarLint.xml
 	EndProjectSection
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.UpdatedUsernameCredit", "src\modules\UniversalReports.ChangedUsernameOrCredit\UniversalReports.UpdatedUsernameCredit.csproj", "{847C5BA4-FF43-4683-940F-30CFEFA00892}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalReports.UpdatedUsernameCredit.UnitTests", "tests\unit\modules\UniversalReports.UpdatedUsernameAndCredit.UnitTests\UniversalReports.UpdatedUsernameCredit.UnitTests.csproj", "{88AB653E-E7A8-4C57-AEB6-34D3B6119490}"
@@ -114,10 +111,6 @@ Global
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C92F93F9-051F-4531-97EC-0A66CFD44693}.Release|Any CPU.Build.0 = Release|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94BAB182-85DE-4715-B396-BB6696D8BC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -134,10 +127,6 @@ Global
 		{2C02BD35-ECC4-4BE1-939D-FAAD3D527B5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C02BD35-ECC4-4BE1-939D-FAAD3D527B5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C02BD35-ECC4-4BE1-939D-FAAD3D527B5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF1091EB-4B9C-40FA-9CB7-80FF294322BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF1091EB-4B9C-40FA-9CB7-80FF294322BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF1091EB-4B9C-40FA-9CB7-80FF294322BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF1091EB-4B9C-40FA-9CB7-80FF294322BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{847C5BA4-FF43-4683-940F-30CFEFA00892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{847C5BA4-FF43-4683-940F-30CFEFA00892}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{847C5BA4-FF43-4683-940F-30CFEFA00892}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -253,12 +242,10 @@ Global
 		{FD42C969-EAA2-4487-AA8A-CD5439BA3698} = {C48F9114-8C9E-4CEA-BC5D-F12CAA3BF2EB}
 		{D25667AF-2C4D-4DB0-A018-808E48D0AD00} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{73CB7E36-B8D7-41BD-8740-3F3C016CC5D0} = {DE058F5A-050F-4458-B87B-01567F1F5631}
-		{C92F93F9-051F-4531-97EC-0A66CFD44693} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{94BAB182-85DE-4715-B396-BB6696D8BC81} = {C053837F-4E18-4573-A8D7-E71BE83695CA}
 		{57B473FF-1385-4D2E-9EB1-5E9A7C586CF0} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{6D6F9E96-BBC5-4028-A665-A3D7B2F9324D} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 		{2C02BD35-ECC4-4BE1-939D-FAAD3D527B5C} = {F73C2584-286D-49E1-9DE1-768A517F5719}
-		{BF1091EB-4B9C-40FA-9CB7-80FF294322BF} = {EEB87026-387C-4E69-BDC6-13246ECFB276}
 		{847C5BA4-FF43-4683-940F-30CFEFA00892} = {B738DF95-4EF2-44AD-857E-51A084A2922D}
 		{88AB653E-E7A8-4C57-AEB6-34D3B6119490} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 		{E9997C73-BA5E-4567-B54C-A4B1D89EF657} = {F73C2584-286D-49E1-9DE1-768A517F5719}
@@ -286,8 +273,8 @@ Global
 		{2B77ABF0-3387-4F83-BDAD-71FCDD7E32EA} = {FD42C969-EAA2-4487-AA8A-CD5439BA3698}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3EA15C1E-9F92-4DB6-AFF6-2740D02DBE8E}
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45
+		SolutionGuid = {3EA15C1E-9F92-4DB6-AFF6-2740D02DBE8E}
 	EndGlobalSection
 EndGlobal

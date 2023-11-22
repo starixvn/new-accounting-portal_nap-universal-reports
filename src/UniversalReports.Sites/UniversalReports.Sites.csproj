@@ -368,7 +368,6 @@
     <Compile Include="App_Start\SimpleInjector\MediatorInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\GlobalInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\PunterAnalysisInjector.cs" />
-    <Compile Include="App_Start\SimpleInjector\NG2Injector.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SimpleInjector\HouseWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorAPIConfig.cs" />
@@ -392,7 +391,6 @@
     <Compile Include="Controllers\PunterAnalysisController.cs" />
     <Compile Include="Controllers\HouseWinLossByProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NG2StatisticsController.cs" />
     <Compile Include="Controllers\SMAWinLossController.cs" />
     <Compile Include="Controllers\SBPerformanceMonitorController.cs" />
     <Compile Include="Controllers\UpdatedUsernameAndGivenCreditController.cs" />
@@ -436,19 +434,6 @@
     <Content Include="app\house-win-loss\tab\tab.directive.html" />
     <Content Include="app\house-win-loss\tab\tab.directive.js" />
     <Content Include="app\house-win-loss\tab\tab.service.js" />
-    <Content Include="app\ng2-statistics\app.config.js" />
-    <Content Include="app\ng2-statistics\app.js" />
-    <Content Include="app\ng2-statistics\bettype\bettype.controller.js" />
-    <Content Include="app\ng2-statistics\breadcrumb\breadcrumb.service.js" />
-    <Content Include="app\ng2-statistics\breadcrumb\title.service.js" />
-    <Content Include="app\ng2-statistics\common\common.controller.js" />
-    <Content Include="app\ng2-statistics\common\common.service.js" />
-    <Content Include="app\ng2-statistics\filter\filter.service.js" />
-    <Content Include="app\ng2-statistics\filter\filter.directive.html" />
-    <Content Include="app\ng2-statistics\filter\filter.directive.js" />
-    <Content Include="app\ng2-statistics\grandtotal\grandtotal.service.js" />
-    <Content Include="app\ng2-statistics\ng2-statistics.controller.js" />
-    <Content Include="app\ng2-statistics\ng2-statistics.html" />
     <Content Include="app\cn88-win-loss\app.config.js" />
     <Content Include="app\cn88-win-loss\app.js" />
     <Content Include="app\cn88-win-loss\breadcrumb\breadcrumb.service.js" />
@@ -497,12 +482,6 @@
     <Content Include="app\root\components\ngDialog\ngDialog-theme-plain.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.css" />
     <Content Include="app\root\components\ngDialog\ngDialog.js" />
-    <Content Include="app\ng2-statistics\shared\fanex-grid-with-title.html" />
-    <Content Include="app\ng2-statistics\tab\pane.directive.js" />
-    <Content Include="app\ng2-statistics\tab\pane.service.js" />
-    <Content Include="app\ng2-statistics\tab\tab.directive.html" />
-    <Content Include="app\ng2-statistics\tab\tab.directive.js" />
-    <Content Include="app\ng2-statistics\tab\tab.service.js" />
     <Content Include="app\root\app.config.js" />
     <Content Include="app\root\components\angucomplete-alt\angucomplete-alt.css" />
     <Content Include="app\root\components\angucomplete-alt\angucomplete-alt.js" />
@@ -566,9 +545,6 @@
     <Content Include="bundle\house-win-loss.chunk.js" />
     <Content Include="bundle\lib.chunk.js" />
     <Content Include="bundle\lib.css" />
-    <Content Include="bundle\ng2-statistics-style.chunk.js" />
-    <Content Include="bundle\ng2-statistics-style.css" />
-    <Content Include="bundle\ng2-statistics.chunk.js" />
     <Content Include="content\house-win-loss.css">
       <DependentUpon>house-win-loss.scss</DependentUpon>
     </Content>
@@ -728,7 +704,6 @@
     <Content Include="Scripts\Fanex.Grid.js" />
     <Content Include="Scripts\Fanex.Pagination.js" />
     <Content Include="content\house-win-loss.scss" />
-    <Content Include="content\ng2-statistics.scss" />
     <Content Include="content\scoreInformation.scss" />
     <Content Include="content\site.scss" />
     <Content Include="App_Configuration\Configuration.ttinclude" />
@@ -775,9 +750,6 @@
     <Content Include="bundle\house-win-loss-style.css.map" />
     <Content Include="bundle\house-win-loss.chunk.js.map" />
     <Content Include="bundle\lib.chunk.js.map" />
-    <Content Include="bundle\ng2-statistics-style.chunk.js.map" />
-    <Content Include="bundle\ng2-statistics-style.css.map" />
-    <Content Include="bundle\ng2-statistics.chunk.js.map" />
     <Content Include="App_Configuration\Web.AppSettings.config" />
     <Content Include="App_Configuration\Web.AppSettings.DEV.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
@@ -991,7 +963,6 @@
     <Content Include="stylesheets\_bootstrap-mincer.scss" />
     <Content Include="webpack.config.sh" />
     <Content Include="stylesheets\_bootstrap.scss" />
-    <Content Include="Views\NG2Statistics\Index.cshtml" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
@@ -1173,10 +1144,6 @@
     <ProjectReference Include="..\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
       <Name>UniversalReports.HouseWinLoss</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\modules\UniversalReports.NG2Statistics\UniversalReports.NG2Statistics.csproj">
-      <Project>{c92f93f9-051f-4531-97ec-0a66cfd44693}</Project>
-      <Name>UniversalReports.NG2Statistics</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.PunterAnalysis\UniversalReports.PunterAnalysis.csproj">
       <Project>{57b473ff-1385-4d2e-9eb1-5e9a7c586cf0}</Project>
