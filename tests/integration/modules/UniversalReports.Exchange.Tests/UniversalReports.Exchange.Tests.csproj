@@ -40,7 +40,7 @@
       <HintPath>..\..\..\..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Dapper.2.1.21\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
@@ -48,11 +48,11 @@
     <Reference Include="Epplus.Mapper, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Epplus.Mapper.1.0.0.13\lib\net461\Epplus.Mapper.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Data, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Fanex.Data.4.2.0\lib\net461\Fanex.Data.dll</HintPath>
+    <Reference Include="Fanex.Data, Version=4.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Data.4.2.5\lib\net471\Fanex.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Data.Repository, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Fanex.Data.Repository.4.2.0\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    <Reference Include="Fanex.Data.Repository, Version=4.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Fanex.Data.Repository.4.2.5\lib\net471\Fanex.Data.Repository.dll</HintPath>
     </Reference>
     <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=4.61.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\CompareNETObjects.4.61.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>

@@ -38,7 +38,7 @@
       <HintPath>..\..\..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+      <HintPath>..\..\..\packages\Dapper.2.1.21\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Caching, Version=2.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Caching.2.2.4\lib\net471\Fanex.Caching.dll</HintPath>
@@ -46,11 +46,11 @@
     <Reference Include="Fanex.Common, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Common.1.1.1.1\lib\netstandard2.0\Fanex.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Data, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Data.4.2.0\lib\net461\Fanex.Data.dll</HintPath>
+    <Reference Include="Fanex.Data, Version=4.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Data.4.2.5\lib\net471\Fanex.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Data.Repository, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Data.Repository.4.2.0\lib\net461\Fanex.Data.Repository.dll</HintPath>
+    <Reference Include="Fanex.Data.Repository, Version=4.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Data.Repository.4.2.5\lib\net471\Fanex.Data.Repository.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Excel, Version=2.2.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Excel.2.2.2.5\lib\net40\Fanex.Excel.dll</HintPath>
