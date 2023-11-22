@@ -7,12 +7,13 @@ using Olympus.FPSAPI.Client;
 using Olympus.FPSAPI.Client.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.AssociatedAccount;
 using UniversalReports.PunterAnalysis.AssociatedAccount.Model;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 {
+    using Configurations;
+
     public class AssociatedFacadeUnitTests
     {
         [Test]

@@ -6,10 +6,11 @@ using Fanex.Excel.Models;
 using UniversalReports.CN88WinLoss.Common.BasicWinLoss;
 using UniversalReports.CN88WinLoss.Common.ColumnDecorators;
 using UniversalReports.CN88WinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CN88WinLoss.Soccer.LiveNonLive
 {
+    using Results;
+
     [RoutePrefix("api/cn88-win-loss-by-products/soccer/live-nonlive")]
     public class CN88SoccerLiveNonLiveController : ApiController
     {

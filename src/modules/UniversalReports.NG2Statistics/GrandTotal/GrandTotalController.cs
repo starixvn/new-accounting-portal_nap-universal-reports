@@ -1,9 +1,10 @@
 ﻿using System.Web.Http;
-using UniversalReports.MVC.Results;
 using UniversalReports.NG2Statistics.BaseServices;
 
 namespace UniversalReports.NG2Statistics.GrandTotal
 {
+    using Results;
+
     [RoutePrefix("api/ng2-statistics/grandtotal")]
     public class GrandTotalController : ApiController
     {

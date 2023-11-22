@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.DailyTurnoverComparison.Service
 {
+    using Configurations;
+
     public interface ExcelService
     {
         ExcelPackage Export(List<DataTable> dataTables);

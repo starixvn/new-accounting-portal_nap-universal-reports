@@ -55,7 +55,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.NAP.Core.Client, Version=1.2.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.NAP.Core.Client.2.0.0\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.NAP.Core.Client.2.0.0.2\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
     </Reference>
     <Reference Include="Linq.DynamicSum, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Linq.DynamicSum.1.0.0.3\lib\net461\Linq.DynamicSum.dll</HintPath>

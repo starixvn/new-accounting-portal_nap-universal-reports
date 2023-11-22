@@ -144,10 +144,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UniversalReports.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Olympus.UniversalReports.MVC.1.0.1\lib\net461\UniversalReports.MVC.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
@@ -310,9 +306,9 @@
     <Compile Include="VirtualSports\SportsbookDetail\CN88VirtualSportsSportsbookDetailController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\..\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
-      <Name>UniversalReports.Core</Name>
+      <Name>UniversalReports</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

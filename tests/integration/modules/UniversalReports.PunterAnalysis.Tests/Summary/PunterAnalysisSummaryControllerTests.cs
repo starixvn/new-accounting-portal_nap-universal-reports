@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.PunterAnalysis.Summary;
 using UniversalReports.PunterAnalysis.Summary.Model;
@@ -8,6 +7,8 @@ using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 
 namespace UniversalReports.PunterAnalysis.Tests.Summary
 {
+    using Results;
+
     public class PunterAnalysisSummaryControllerTests
     {
         private const string FakeRepositoryDataFileName = "Summary-FileRepository.json";

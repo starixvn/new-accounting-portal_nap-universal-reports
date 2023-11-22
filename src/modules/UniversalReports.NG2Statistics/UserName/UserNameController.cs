@@ -1,9 +1,10 @@
 ﻿using System.Web.Http;
-using UniversalReports.MVC.Results;
 using UniversalReports.NG2Statistics.BaseServices;
 
 namespace UniversalReports.NG2Statistics.UserName
 {
+    using Results;
+
     [RoutePrefix("api/ng2-statistics/username")]
     public class UserNameController : ApiController
     {

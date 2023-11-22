@@ -1,7 +1,7 @@
-﻿using Fanex.Data.Repository;
-
-namespace UniversalReports.Core.BalanceUpServices
+﻿namespace UniversalReports.BalanceUpServices
 {
+    using Fanex.Data.Repository;
+
     public class BalanceUpCriteria : CriteriaBase
     {
         public override string GetSettingKey() => "GetBalanceUpRange";

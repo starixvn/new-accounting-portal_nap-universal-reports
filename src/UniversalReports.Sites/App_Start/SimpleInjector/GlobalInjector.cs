@@ -13,11 +13,12 @@ using ONEbook.UM.NETFramework;
 using ONEbook.UM.Services;
 using ONEbook.UM.Transport;
 using SimpleInjector;
-using UniversalReports.Core.BalanceUpServices;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.Sites.SimpleInjector
 {
+    using BalanceUpServices;
+    using Configurations;
+
     internal static class GlobalInjector
     {
         internal static Container RegiserGlobalServices(this Container container)

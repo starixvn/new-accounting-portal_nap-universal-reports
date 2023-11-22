@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Fanex.Data.Repository;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistics.BaseServices;
 using UniversalReports.NG2Statistics.SortUtility;
 
 namespace UniversalReports.NG2Statistics.Daily
 {
+    using BalanceUpServices;
+
     public interface DailyService
     {
         DailyModel Query(QueryModel queryModel);

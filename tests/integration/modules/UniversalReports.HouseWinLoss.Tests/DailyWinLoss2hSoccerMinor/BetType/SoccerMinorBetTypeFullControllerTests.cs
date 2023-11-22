@@ -4,14 +4,15 @@ using System.Web.Http;
 using Fanex.Data.Repository;
 using NSubstitute;
 using NUnit.Framework;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Models;
 using UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType;
 using UniversalReports.HouseWinLoss.Tests.Controllers;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.DailyWinLoss2hSoccerMinor.BetType
 {
+    using BalanceUpServices;
+    using Results;
+
     public class SoccerMinorBetTypeFullControllerTests
     {
         [Category("ControllersTests")]

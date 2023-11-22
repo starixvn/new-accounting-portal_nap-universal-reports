@@ -1,8 +1,8 @@
-﻿using Fanex.Caching;
-using Fanex.Data.Repository;
-
-namespace UniversalReports.Core.BalanceUpServices
+﻿namespace UniversalReports.BalanceUpServices
 {
+    using Fanex.Caching;
+    using Fanex.Data.Repository;
+
     public interface BalanceUpService
     {
         BalanceUpRange Query();

@@ -1,8 +1,9 @@
-﻿using UniversalReports.Core.Configurations;
-using UniversalReports.UpdatedUsernameCredit.Common;
+﻿using UniversalReports.UpdatedUsernameCredit.Common;
 
 namespace UniversalReports.UpdatedUsernameCredit.UpdatedCredit
 {
+    using Configurations;
+
     public class UpdatedCreditExcelSettingFactory : ExcelSettingFactory
     {
         private const string TemplatePath = @"ExcelTemplate\UpdatedUsernameAndCredit\UpdatedCredit.xlsx";

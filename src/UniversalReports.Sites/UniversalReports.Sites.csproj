@@ -140,7 +140,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.NAP.Core.Client, Version=1.2.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.NAP.Core.Client.2.0.0\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
+      <HintPath>..\..\packages\Fanex.NAP.Core.Client.2.0.0.2\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.RemotingRef, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.RemotingRef.1.5.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
@@ -216,14 +216,6 @@
     </Reference>
     <Reference Include="Olympus.HttpLogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Olympus.HttpLogger.1.0.0.13\lib\net461\Olympus.HttpLogger.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Olympus.WebApi.Attributes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Olympus.WebApi.Attributes.1.0.0.5\lib\net461\Olympus.WebApi.Attributes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Olympus.WebApi.Epplus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Olympus.WebApi.Epplus.1.0.0.1\lib\net461\Olympus.WebApi.Epplus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ONEbook.UM, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -400,13 +392,6 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UniversalReports.Application, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Olympus.UniversalReports.Application.1.0.1.5\lib\net461\UniversalReports.Application.dll</HintPath>
-    </Reference>
-    <Reference Include="UniversalReports.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Olympus.UniversalReports.MVC.1.0.1\lib\net461\UniversalReports.MVC.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="WebActivator, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
       <Private>True</Private>
@@ -1239,9 +1224,9 @@
       <Project>{c7e4b1ce-b7c0-4487-90aa-33db559c69de}</Project>
       <Name>UniversalReports.VoidingSettledTickets</Name>
     </ProjectReference>
-    <ProjectReference Include="..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
-      <Name>UniversalReports.Core</Name>
+      <Name>UniversalReports</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>
@@ -1297,7 +1282,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v17.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,10 +1,11 @@
-﻿using Olympus.WebApi.Epplus;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.DailyTurnoverComparison.Service;
 
 namespace UniversalReports.DailyTurnoverComparison
 {
+    using Results;
+
     [RoutePrefix("api/daily-turnover-comparison")]
     public class DailyTurnoverComparisonExportController : ApiController
     {

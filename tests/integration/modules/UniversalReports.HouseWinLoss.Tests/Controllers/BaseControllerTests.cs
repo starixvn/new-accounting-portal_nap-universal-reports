@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Web.Http;
 using Fanex.Data.Repository;
 using NSubstitute;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 using UniversalReports.HouseWinLoss.Common.Models;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
+    using BalanceUpServices;
+
     public abstract class BaseControllerTests
     {
         internal ApiController GetControllerWithRawWinLoss(string controllerName)

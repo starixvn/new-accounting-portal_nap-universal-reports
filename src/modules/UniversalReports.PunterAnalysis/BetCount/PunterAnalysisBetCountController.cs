@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Epplus;
 using UniversalReports.PunterAnalysis.BetCount.Model;
 
 namespace UniversalReports.PunterAnalysis.BetCount
 {
+    using Results;
+
     [RoutePrefix("api/punter-analysis/bet-count")]
     public class PunterAnalysisBetCountController : ApiController
     {

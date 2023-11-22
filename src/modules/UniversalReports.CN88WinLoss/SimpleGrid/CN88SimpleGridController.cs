@@ -3,10 +3,11 @@ using System.Web.Http;
 using Fanex.Excel.Models;
 using UniversalReports.CN88WinLoss.Common.BasicWinLoss;
 using UniversalReports.CN88WinLoss.Common.ColumnDecorators;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CN88WinLoss.SimpleGrid
 {
+    using Results;
+
     [RoutePrefix("api/cn88-win-loss-by-products/simple-grid")]
     public class CN88SimpleGridController : ApiController
     {

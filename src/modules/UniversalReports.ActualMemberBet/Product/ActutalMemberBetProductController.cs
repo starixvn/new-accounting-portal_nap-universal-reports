@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Epplus;
 
 namespace UniversalReports.ActualMemberBet.Product
 {
+    using Results;
+
     [RoutePrefix("api/actual-member-bet/product")]
     public class ActutalMemberBetProductController : ApiController
     {

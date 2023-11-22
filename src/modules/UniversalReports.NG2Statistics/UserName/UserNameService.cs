@@ -2,12 +2,13 @@
 using System.Linq;
 using AutoMapper;
 using Fanex.Data.Repository;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.NG2Statistics.BaseServices;
 using UniversalReports.NG2Statistics.SortUtility;
 
 namespace UniversalReports.NG2Statistics.UserName
 {
+    using BalanceUpServices;
+
     public interface UserNameService
     {
         UserNameModel Query(QueryModel queryModel);

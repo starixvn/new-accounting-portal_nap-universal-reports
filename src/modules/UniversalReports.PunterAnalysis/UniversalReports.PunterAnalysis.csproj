@@ -75,7 +75,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.NAP.Core.Client, Version=1.2.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.NAP.Core.Client.2.0.0\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.NAP.Core.Client.2.0.0.2\lib\net40\Fanex.NAP.Core.Client.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.1.0.145, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SharpZipLib.1.1.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -116,10 +116,6 @@
     </Reference>
     <Reference Include="Olympus.FPSAPI.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Olympus.FPSAPI.Client.1.0.0.14\lib\net461\Olympus.FPSAPI.Client.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Olympus.WebApi.Epplus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Olympus.WebApi.Epplus.1.0.0.1\lib\net461\Olympus.WebApi.Epplus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -322,9 +318,9 @@
     <None Include="UniversalReports.PunterAnalysis.ruleset" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\..\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94BAB182-85DE-4715-B396-BB6696D8BC81}</Project>
-      <Name>UniversalReports.Core</Name>
+      <Name>UniversalReports</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

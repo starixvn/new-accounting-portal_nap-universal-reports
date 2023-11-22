@@ -3,10 +3,11 @@ using System.Reflection;
 using System.Web.Http.Results;
 using Fanex.Excel.Models;
 using NUnit.Framework;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
+    using Results;
+
     public class GridOptionsWithRawWinLossControllerTests : BaseControllerTests
     {
         public static string[] ControllerList => new[]

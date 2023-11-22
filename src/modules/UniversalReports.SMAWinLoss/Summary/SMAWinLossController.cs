@@ -1,10 +1,11 @@
 ﻿using MediatR;
-using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace UniversalReports.SMAWinLoss.Summary
 {
+    using Results;
+
     [RoutePrefix("api/sma-win-loss/summary")]
     public class SMAWinLossController : ApiController
     {

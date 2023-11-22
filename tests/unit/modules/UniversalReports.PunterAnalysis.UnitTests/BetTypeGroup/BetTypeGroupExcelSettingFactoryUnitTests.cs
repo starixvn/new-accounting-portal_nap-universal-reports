@@ -1,12 +1,13 @@
 ﻿using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.BetTypeGroup;
 using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.BetTypeGroup
 {
+    using Configurations;
+
     public class BetTypeGroupExcelSettingFactoryUnitTests
     {
         [Test]

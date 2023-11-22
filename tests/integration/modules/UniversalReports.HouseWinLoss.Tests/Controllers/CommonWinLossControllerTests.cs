@@ -2,10 +2,11 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Web.Http.Results;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Tests.Controllers
 {
+    using Results;
+
     public class CommonWinLossControllerTests : BaseControllerTests
     {
         public static string[] ControllerList => new[]

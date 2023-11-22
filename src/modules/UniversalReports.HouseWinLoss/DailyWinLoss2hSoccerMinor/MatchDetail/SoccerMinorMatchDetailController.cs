@@ -4,10 +4,11 @@ using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Common.MatchDetail;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.MatchDetail
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/soccer-minor/match-detail")]
     public class SoccerMinorMatchDetailController : ApiController
     {

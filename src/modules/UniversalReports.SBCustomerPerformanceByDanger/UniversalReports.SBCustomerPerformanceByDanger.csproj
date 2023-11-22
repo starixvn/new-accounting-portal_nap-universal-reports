@@ -69,10 +69,6 @@
       <HintPath>..\..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Olympus.WebApi.Epplus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Olympus.WebApi.Epplus.1.0.0.1\lib\net461\Olympus.WebApi.Epplus.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -144,9 +140,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\..\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
-      <Name>UniversalReports.Core</Name>
+      <Name>UniversalReports</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

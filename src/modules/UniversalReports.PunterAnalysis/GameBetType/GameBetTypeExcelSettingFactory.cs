@@ -1,8 +1,9 @@
-﻿using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.Shared;
+﻿using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.GameBetType
 {
+    using Configurations;
+
     public class GameBetTypeExcelSettingFactory : ExcelSettingFactory
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\GameBettype.xlsx";

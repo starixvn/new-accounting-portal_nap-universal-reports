@@ -1,10 +1,11 @@
 ﻿using System.Web.Http;
 using UniversalReports.CN88WinLoss.Common.ColumnDecorators;
 using UniversalReports.CN88WinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CN88WinLoss.Products
 {
+    using Results;
+
     [RoutePrefix("api/cn88-win-loss-by-products/product")]
     public class CN88ProductController : ApiController
     {

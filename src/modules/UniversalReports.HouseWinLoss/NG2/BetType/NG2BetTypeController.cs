@@ -7,10 +7,11 @@ using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.NG2.BetType
 {
+    using Results;
+
     public class NG2BetTypeController : ApiController
     {
         private readonly BasicWinLossService service;

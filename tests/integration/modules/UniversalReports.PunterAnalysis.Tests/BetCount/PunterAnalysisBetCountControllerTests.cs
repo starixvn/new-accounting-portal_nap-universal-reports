@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.BetCount.Model;
@@ -8,6 +7,8 @@ using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 
 namespace UniversalReports.PunterAnalysis.Tests.BetCount
 {
+    using Results;
+
     public class PunterAnalysisBetCountControllerTests
     {
         private const string FakeRepositoryDataFileName = "BetCount-FileRepository.json";

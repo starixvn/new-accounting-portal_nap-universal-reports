@@ -2,12 +2,13 @@
 using Linq.DynamicSum;
 using Olympus.FPSAPI.Client;
 using System.Threading.Tasks;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.Summary.Model;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {
+    using Configurations;
+
     public interface SummaryService
     {
         Task<SummaryEntity<SummaryModel>> GetSummaries(Criteria criteria);

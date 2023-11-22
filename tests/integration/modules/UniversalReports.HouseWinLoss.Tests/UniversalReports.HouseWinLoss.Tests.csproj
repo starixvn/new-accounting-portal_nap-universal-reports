@@ -200,10 +200,6 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="UniversalReports.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Olympus.UniversalReports.MVC.1.0.1\lib\net461\UniversalReports.MVC.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperSetup.cs" />
@@ -557,9 +553,9 @@
     <None Include="UniversalReports.HouseWinLoss.Tests.ruleset" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
-      <Name>UniversalReports.Core</Name>
+      <Name>UniversalReports</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\src\modules\UniversalReports.HouseWinLoss\UniversalReports.HouseWinLoss.csproj">
       <Project>{d25667af-2c4d-4db0-a018-808e48d0ad00}</Project>

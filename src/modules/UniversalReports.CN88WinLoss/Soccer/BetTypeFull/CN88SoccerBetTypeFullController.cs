@@ -2,10 +2,11 @@
 using System.Web.Http;
 using Fanex.Excel.Models;
 using UniversalReports.CN88WinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CN88WinLoss.Soccer.BetTypeFull
 {
+    using Results;
+
     [RoutePrefix("api/cn88-win-loss-by-products/soccer/bettype-full")]
     public class CN88SoccerBetTypeFullController : ApiController
     {

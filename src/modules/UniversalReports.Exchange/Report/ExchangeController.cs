@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Epplus;
 
 namespace UniversalReports.Exchange.Report
 {
+    using Results;
+
     [RoutePrefix("api/exchange")]
     public class ExchangeController : ApiController
     {

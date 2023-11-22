@@ -1,10 +1,11 @@
 ﻿using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.ProductBetType
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/product-bettype")]
     public class ProductBetTypeController : ApiController
     {

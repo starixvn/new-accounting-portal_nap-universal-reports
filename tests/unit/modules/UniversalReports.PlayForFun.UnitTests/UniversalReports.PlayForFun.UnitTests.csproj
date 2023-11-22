@@ -171,9 +171,9 @@
       <Project>{b22fce31-6c4c-4e6d-90d7-6f69584c4583}</Project>
       <Name>UniversalReports.PlayForFun</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\..\..\..\src\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
-      <Name>UniversalReports.Core</Name>
+      <Name>UniversalReports</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

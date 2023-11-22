@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using System;
 using System.Threading.Tasks;
@@ -10,6 +9,8 @@ using UniversalReports.AbnormalBet.Tests.DependencyInjection;
 
 namespace UniversalReports.AbnormalBet.Tests.Report
 {
+    using Results;
+
     public class AbnormalBetReportControllerTests
     {
         private const string FakeRepositoryDataFileName = "Member-AbnormalBet-FileRepository.json";

@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Http;
 using MediatR;
-using Olympus.WebApi.Epplus;
 using UniversalReports.PunterAnalysis.BetTypeGroup.Model;
 
 namespace UniversalReports.PunterAnalysis.BetTypeGroup
 {
+    using Results;
+
     [RoutePrefix("api/punter-analysis/bet-type-group")]
     public class PunterAnalysisBetTypeGroupController : ApiController
     {

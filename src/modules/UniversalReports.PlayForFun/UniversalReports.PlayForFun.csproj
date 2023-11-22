@@ -181,9 +181,9 @@
     <None Include="UniversalReports.PlayForFun.ruleset" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\shared\UniversalReports.Core\UniversalReports.Core.csproj">
+    <ProjectReference Include="..\..\shared\UniversalReports\UniversalReports.csproj">
       <Project>{94BAB182-85DE-4715-B396-BB6696D8BC81}</Project>
-      <Name>UniversalReports.Core</Name>
+      <Name>UniversalReports</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

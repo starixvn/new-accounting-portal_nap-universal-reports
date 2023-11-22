@@ -2,10 +2,11 @@
 using AutoMapper;
 using UniversalReports.CN88WinLoss.Common.ColumnDecorators;
 using UniversalReports.CN88WinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.CN88WinLoss.Soccer.GroupBetType
 {
+    using Results;
+
     [RoutePrefix("api/cn88-win-loss-by-products/soccer/group-bettype")]
     public class CN88SoccerGroupBetTypeController : ApiController
     {

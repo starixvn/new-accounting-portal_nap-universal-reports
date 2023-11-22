@@ -1,8 +1,9 @@
-﻿using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.Shared;
+﻿using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.Summary
 {
+    using Configurations;
+
     public class SummaryExcelSettingFactory : ExcelSettingFactory
     {
         private readonly ConfigurationService configurationService;

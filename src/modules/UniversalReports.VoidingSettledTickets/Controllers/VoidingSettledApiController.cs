@@ -1,11 +1,12 @@
 ﻿using MediatR;
-using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.VoidingSettledTickets.Requests;
 
 namespace UniversalReports.VoidingSettledTickets.Controllers
 {
+    using Results;
+
     [RoutePrefix("api/voiding-settled-tickets")]
     public class VoidingSettledApiController : ApiController
     {

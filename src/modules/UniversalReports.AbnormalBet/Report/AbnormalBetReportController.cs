@@ -1,11 +1,12 @@
 ﻿using MediatR;
-using Olympus.WebApi.Epplus;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.AbnormalBet.HttpParameter;
 
 namespace UniversalReports.AbnormalBet.Report
 {
+    using Results;
+
     [RoutePrefix("api/ab-normal-bet/report")]
     public class AbnormalBetReportController : ApiController
     {

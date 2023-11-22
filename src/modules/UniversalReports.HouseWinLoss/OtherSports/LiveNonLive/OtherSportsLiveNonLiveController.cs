@@ -6,10 +6,11 @@ using Fanex.Excel.Models;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.OtherSports.LiveNonLive
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/other-sports/live-non-live")]
     public class OtherSportsLiveNonLiveController : ApiController
     {

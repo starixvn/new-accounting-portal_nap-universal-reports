@@ -1,8 +1,9 @@
-﻿using UniversalReports.Core.Configurations;
-using UniversalReports.PunterAnalysis.Shared;
+﻿using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.AssociatedAccount
 {
+    using Configurations;
+
     public class AssociatedAccountExcelSettingFactory : ExcelSettingFactory
     {
         private const string TemplatePath = @"ExcelTemplate\PunterAnalysis\AssociatedAccount.xlsx";

@@ -3,10 +3,11 @@ using AutoMapper;
 using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.SportType
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/soccer-minor/sport-type")]
     public class SoccerMinorSportTypeController : BasicWinLossController
     {

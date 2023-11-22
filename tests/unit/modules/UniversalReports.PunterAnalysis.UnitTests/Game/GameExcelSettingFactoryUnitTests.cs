@@ -1,12 +1,13 @@
 ﻿using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.Game;
 using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.Game
 {
+    using Configurations;
+
     public class GameExcelSettingFactoryUnitTests
     {
         [Test]

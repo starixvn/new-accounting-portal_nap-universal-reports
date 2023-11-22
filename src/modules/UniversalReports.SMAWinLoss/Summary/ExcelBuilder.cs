@@ -1,10 +1,11 @@
 ﻿using OfficeOpenXml;
 using System;
 using System.IO;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.SMAWinLoss.Summary
 {
+    using Configurations;
+
     public interface ExcelBuilder
     {
         ExcelPackage Build(int year, string title, WinLossModel winlosses);

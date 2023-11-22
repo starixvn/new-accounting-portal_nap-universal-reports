@@ -3,11 +3,12 @@ using Epplus.Mapper.Extensions;
 using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
-using UniversalReports.Core.Configurations;
 using UniversalReports.VoidingSettledTickets.Models;
 
 namespace UniversalReports.VoidingSettledTickets.Services
 {
+    using Configurations;
+
     public interface TicketsExcelBuilder
     {
         ExcelPackage Build(string productName, VoidTicketModel tickets);

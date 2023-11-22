@@ -1,12 +1,13 @@
 ﻿using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.BetCount;
 using UniversalReports.PunterAnalysis.Shared;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.AssociatedAccount
 {
+    using Configurations;
+
     public class AssociatedAccountExcelSettingUnitTests
     {
         [Test]

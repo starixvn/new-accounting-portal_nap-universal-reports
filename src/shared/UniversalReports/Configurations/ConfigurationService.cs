@@ -1,8 +1,8 @@
-﻿using System;
-using System.Configuration;
-
-namespace UniversalReports.Core.Configurations
+﻿namespace UniversalReports.Configurations
 {
+    using System;
+    using System.Configuration;
+
     public interface ConfigurationService
     {
         string FraudSystemApi { get; }

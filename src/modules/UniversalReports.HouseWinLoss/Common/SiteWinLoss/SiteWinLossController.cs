@@ -1,10 +1,11 @@
 ﻿using System.Web.Http;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.Common.SiteWinLoss
 {
+    using Results;
+
     public class SiteWinLossController : ApiController
     {
         private readonly WinLossService service;

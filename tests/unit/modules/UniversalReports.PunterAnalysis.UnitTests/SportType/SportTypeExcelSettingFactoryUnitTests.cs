@@ -1,12 +1,13 @@
 ﻿using NSubstitute;
 using NUnit.CompareNetObjects;
 using NUnit.Framework;
-using UniversalReports.Core.Configurations;
 using UniversalReports.PunterAnalysis.Shared;
 using UniversalReports.PunterAnalysis.SportType;
 
 namespace UniversalReports.PunterAnalysis.UnitTests.SportType
 {
+    using Configurations;
+
     public class SportTypeExcelSettingFactoryUnitTests
     {
         [Test]

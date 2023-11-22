@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Olympus.WebApi.Epplus;
 using SimpleInjector;
 using UniversalReports.PunterAnalysis.League;
 using UniversalReports.PunterAnalysis.League.Model;
@@ -8,6 +7,8 @@ using UniversalReports.PunterAnalysis.Tests.DependencyInjection;
 
 namespace UniversalReports.PunterAnalysis.Tests.League
 {
+    using Results;
+
     public class PunterAnalysisLeagueControllerTests
     {
         private const string FakeRepositoryDataFileName = "League-FileRepository.json";

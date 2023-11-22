@@ -3,10 +3,11 @@ using OfficeOpenXml;
 using System.Collections.Generic;
 using System.IO;
 using UniversalReports.AbnormalBet.Model;
-using UniversalReports.Core.Configurations;
 
 namespace UniversalReports.AbnormalBet.Report
 {
+    using Configurations;
+
     public interface ReportExcelBuilder
     {
         ExcelPackage Build(string title, IEnumerable<LicenseeExcelModel> licenseeModel);

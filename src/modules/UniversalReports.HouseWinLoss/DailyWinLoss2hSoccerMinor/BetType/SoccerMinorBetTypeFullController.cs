@@ -6,10 +6,11 @@ using UniversalReports.HouseWinLoss.Common.BasicWinLoss;
 using UniversalReports.HouseWinLoss.Common.ColumnDecorators;
 using UniversalReports.HouseWinLoss.Common.Criteria;
 using UniversalReports.HouseWinLoss.Configuration;
-using UniversalReports.MVC.Results;
 
 namespace UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType
 {
+    using Results;
+
     [RoutePrefix("api/house-win-loss-by-products/soccer-minor/bet-type-full")]
     public class SoccerMinorBetTypeFullController : ApiController
     {

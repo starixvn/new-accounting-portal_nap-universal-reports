@@ -5,12 +5,13 @@ using Fanex.NAP.Core.Web.Attribute;
 using Fanex.NAP.Core.Web.Session;
 using System.Linq;
 using System.Web.Mvc;
-using UniversalReports.Core.BalanceUpServices;
 using UniversalReports.HouseWinLoss.Common.Services;
 using UniversalReports.Sites.Settings;
 
 namespace UniversalReports.Sites.Controllers
 {
+    using BalanceUpServices;
+
     public class HouseWinLossByProductsController : LegacyPathAdapterController
     {
         private readonly IUserService userService;
