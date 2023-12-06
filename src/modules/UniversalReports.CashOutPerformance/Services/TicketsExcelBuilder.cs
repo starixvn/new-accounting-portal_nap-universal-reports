@@ -117,7 +117,6 @@ namespace UniversalReports.CashOutPerformance.Services
             if (!IsShowFullColumn)
             {
                 sheet.DeleteColumn(usernameColumnIndex);
-                totalSheet.DeleteColumn(usernameColumnIndex);
             }
         }
 
