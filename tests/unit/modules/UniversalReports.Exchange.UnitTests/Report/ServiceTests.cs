@@ -31,12 +31,12 @@ namespace UniversalReports.Exchange.UnitTests.Report
         }
 
 
-        private SummaryEntity<ExchangeEntity> CreateEmptyModelBaseWithTypeModel()
+        private SummaryEntity<ExchangeItemModel> CreateEmptyModelBaseWithTypeModel()
         {
-            return new SummaryEntity<ExchangeEntity>
+            return new SummaryEntity<ExchangeItemModel>
             {
-                Entities = new List<ExchangeEntity>(),
-                Total = new ExchangeEntity()
+                Entities = new List<ExchangeItemModel>(),
+                Total = new ExchangeItemModel()
             };
         }
 

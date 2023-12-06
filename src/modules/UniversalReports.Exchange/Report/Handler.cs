@@ -1,11 +1,11 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Linq.DynamicSum;
+﻿using Linq.DynamicSum;
 using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace UniversalReports.Exchange.Report
 {
-    public class Handler : IRequestHandler<HttpParameterJson, SummaryEntity<ExchangeEntity>>
+    public class Handler : IRequestHandler<LicenseeHttpParameterJson, ExchangeModel>, IRequestHandler<HttpParameterJson, SummaryEntity<ExchangeItemModel>>
     {
         private readonly Service service;
 
@@ -14,9 +14,14 @@ namespace UniversalReports.Exchange.Report
             this.service = service;
         }
 
-        public async Task<SummaryEntity<ExchangeEntity>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
+        public async Task<ExchangeModel> Handle(LicenseeHttpParameterJson request, CancellationToken cancellationToken)
         {
 
+            return await service.QueryLicensee(request);
+        }
+
+        public async Task<SummaryEntity<ExchangeItemModel>> Handle(HttpParameterJson request, CancellationToken cancellationToken)
+        {
             return await service.Query(request);
         }
     }

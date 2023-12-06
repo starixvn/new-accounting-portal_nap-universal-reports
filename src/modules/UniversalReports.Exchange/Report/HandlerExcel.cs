@@ -1,9 +1,9 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Linq.DynamicSum;
 using MediatR;
 using OfficeOpenXml;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace UniversalReports.Exchange.Report
 {

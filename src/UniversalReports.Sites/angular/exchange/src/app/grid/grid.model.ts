@@ -2,7 +2,7 @@ import { Observable } from "rxjs";
 
 export interface Grid {
     title: string;
-    query(): Observable<ExchangeModel>;
+    query(): Observable<any>;
     exportExcel(): void;
 }
 
@@ -18,8 +18,9 @@ export interface QueryModel {
   drillLevel: number;
 }
 
-export interface Exchange {
+export interface ExchangeItemModel {
     Name: string;
+    MarketType: string;
     MemberCount: number;
     BetCount: number;
     TurnOver: number;
@@ -35,7 +36,19 @@ export interface Exchange {
     CompanyNetIncome: number;
   }
 
+  export interface ExchangeLicenseeItemModel {
+    Entities: ExchangeItemModel[];
+    Total: ExchangeItemModel;
+  }
+
+  export interface ExchangeLicenseeModel {
+    ExchangeLicensees: ExchangeLicenseeModel[];
+    GrandTotal: ExchangeItemModel;
+    MarketTypeTotal: ExchangeItemModel[];
+    TotalItems: number;
+  }
+
   export interface ExchangeModel {
-    Entities: Exchange[];
-    Total: Exchange;
+    Entities: ExchangeItemModel[];
+    Total: ExchangeItemModel;
   }

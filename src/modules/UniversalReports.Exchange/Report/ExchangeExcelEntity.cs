@@ -45,5 +45,7 @@ namespace UniversalReports.Exchange.Report
 
         [Cell("N5")]
         public decimal CompanyNetIncome { get; set; }
+
+        public string MarketType { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using MediatR;
 
 namespace UniversalReports.Exchange.Report
 {
-    public class HttpParameterJson : IRequest<SummaryEntity<ExchangeEntity>>
+    public class HttpParameterJson : IRequest<SummaryEntity<ExchangeItemModel>>
     {
         public DateTime FromDate { get; set; }
 
