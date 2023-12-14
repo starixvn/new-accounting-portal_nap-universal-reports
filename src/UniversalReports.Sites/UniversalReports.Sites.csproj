@@ -718,6 +718,9 @@
     <Content Include="App_Configuration\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
+    <Content Include="App_Configuration\Web.KLDR.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
     <Content Include="app\root\app.constant.js" />
     <Content Include="app\root\crosscutting\fanex-grid.service.js" />
     <Content Include="app\root\crosscutting\logger.service.js" />
@@ -758,6 +761,9 @@
     <Content Include="App_Configuration\Web.AppSettings.MNL.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
     </Content>
+    <Content Include="App_Configuration\Web.AppSettings.KLDR.config">
+      <DependentUpon>Web.AppSettings.config</DependentUpon>
+    </Content>
     <Content Include="App_Configuration\Web.AppSettings.PRO.config">
       <DependentUpon>Web.AppSettings.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -792,6 +798,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Configuration\Web.ConnectionString.PRO.config">
+      <DependentUpon>Web.ConnectionString.config</DependentUpon>
+    </Content>
+    <Content Include="App_Configuration\Web.ConnectionString.KLDR.config">
       <DependentUpon>Web.ConnectionString.config</DependentUpon>
     </Content>
     <Content Include="App_Configuration\Web.ConnectionString.PROAWS.config">
@@ -1141,7 +1150,6 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
-  
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
