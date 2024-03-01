@@ -1,0 +1,62 @@
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { DateHelper } from 'nap-components/date'
+import * as moment from "moment";
+import { CONFIG } from '../common/date-config';
+import { TreeviewConfig } from 'ngx-treeview';
+import { FilterModel, LeagueModel } from './filter.model';
+import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
+import { FilterService } from './filter.service';
+import { SelectItem } from 'nap-components/dropdown-select';
+import * as _ from 'lodash';
+
+@Component({
+  selector: 'app-filter',
+  templateUrl: './filter.component.html',
+  styleUrls: ['./filter.component.scss']
+})
+export class FilterComponent implements OnInit {
+  @Output() generated = new EventEmitter<FilterModel>();
+
+  sport: string = '1';
+  sportSelectItems: SelectItem[] = [];
+  minStartDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today).subtract(30, 'day'));;
+  maxEndDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
+  startDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
+  endDate: NgbDateStruct = DateHelper.convertMomentToDateStruct(moment.utc(CONFIG.date.today));
+  leagueGroups: LeagueModel[] = [];
+  leagueGroupTreeviewConfig = TreeviewConfig.create({
+    hasFilter: true,
+    hasAllCheckBox: true,
+    hasCollapseExpand: false,
+    maxHeight: 500
+  });
+  selectedLeagueGroups: number[] = [];
+  leagueName = '';
+  leagueNamePlaceholder = 'All';
+  leagueNameTypeaheadQuery = this.buildLeagueNameTypeaheadQuery();
+  
+  constructor(private readonly filterService: FilterService) { }
+
+  ngOnInit(): void {
+    this.sportSelectItems = this.filterService.getSportSelectItems();
+    this.filterService.queryLeagueSuggestion(this.sport, '').subscribe(data => this.leagueGroups = data);
+  }
+
+  onSportChange(): void {
+    this.filterService.queryLeagueSuggestion(this.sport, '').subscribe(data => this.leagueGroups = data);
+  }
+
+  private buildLeagueNameTypeaheadQuery(): TypeaheadQuery {
+    return new TypeaheadQuery(term => {
+      let searchText = term.replace(/,/g, '');
+      let words = searchText.split(' ');
+      words = words.filter(word => word.trim() !== '');
+      searchText = words.join(',');
+      return this.filterService.queryLeagueSuggestion(this.sport, searchText)
+        .map(list => {
+          return _.take(list, 20).map(item => item.LeagueName);
+        });
+    });
+  }
+}

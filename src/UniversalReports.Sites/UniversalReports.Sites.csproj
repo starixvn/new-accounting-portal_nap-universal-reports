@@ -392,6 +392,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\OnebookUMInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\CashOutPerformanceInjector.cs" />
+    <Compile Include="App_Start\SimpleInjector\ResultAnalysisInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBCustomerPerformanceByDangerInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SMAWinLossInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBPerformanceInjector.cs" />
@@ -1112,6 +1113,10 @@
     <ProjectReference Include="..\modules\UniversalReports.Exchange\UniversalReports.Exchange.csproj">
       <Project>{247f87c2-0b58-4dbb-9caa-2607d4875997}</Project>
       <Name>UniversalReports.Exchange</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.ResultAnalysis\UniversalReports.ResultAnalysis.csproj">
+      <Project>{09e58d10-acbf-41b8-96cf-a03c30f02c31}</Project>
+      <Name>UniversalReports.ResultAnalysis</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.SBCustomerPerformanceByDanger\UniversalReports.SBCustomerPerformanceByDanger.csproj">
       <Project>{e79a0b96-75e6-4a0b-89ce-72965897df56}</Project>
