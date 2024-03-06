@@ -8,10 +8,7 @@ export interface LeagueModel {
 export interface FilterModel {
     fromDate: string;
     toDate: string;
-    sportBettype: string;
     sportId: number;
-    leagueIds: string;
-    pageIndex: number;
-    pageSize: number;
-    isPageChanged: boolean;
+    leagueGroupIds: string;
+    leagueName?: string;
   }

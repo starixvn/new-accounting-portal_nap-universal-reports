@@ -12,5 +12,5 @@ export class AppService {
 
   getToday(): Observable<moment.Moment> {
     return this.httpService.post<moment.Moment>('state-api/application/today');
-}
+  }
 }

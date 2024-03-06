@@ -21,5 +21,12 @@ namespace UniversalReports.ResultAnalysis.Controllers
 			var viewModel = await mediator.Send(request);
 			return Json(viewModel);
 		}
+
+		[Route("result-analysis")]
+		public async Task<IHttpActionResult> ResultAnalysis(ResultAnalysisRequest request)
+		{
+			var viewModel = await mediator.Send(request);
+			return Json(viewModel);
+		}
 	}
 }

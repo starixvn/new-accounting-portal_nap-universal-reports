@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, Injectable, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,12 @@ import { DropdownTypeaheadModule } from 'nap-components/dropdown-typeahead';
 import { DateModule } from 'nap-components/date';
 import { CommonModule } from '@angular/common';
 import { GridComponent } from './grid/grid.component';
+import { NumberFormatModule } from 'nap-components/number-format';
+import { SummaryGridComponent } from './grid/summary-grid/summary-grid.component';
+import { ItemGridComponent } from './grid/item-grid/item-grid.component';
+import { BreadcrumbModule } from 'nap-components/breadcrumb';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginationModule, PaginationConfig } from 'nap-components/pagination';
 
 declare module "@angular/core" {
   interface ModuleWithProviders<T = any> {
@@ -28,12 +34,20 @@ declare module "@angular/core" {
   }
 }
 
+@Injectable()
+export class CustomPaginationConfig extends PaginationConfig {
+    pageSizes = [1000, 2000, 3000, 4000, 5000];
+    itemsPerPage = 1000;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
     FilterItemTreeviewPipe,
-    GridComponent
+    GridComponent,
+    SummaryGridComponent,
+    ItemGridComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +61,15 @@ declare module "@angular/core" {
     TreeviewModule.forRoot(),
     DropdownSelectModule,
     DropdownTypeaheadModule,
-    DateModule
+    DateModule,
+    NumberFormatModule,
+    BreadcrumbModule,
+    NgxPaginationModule,
+    PaginationModule.forRoot()
   ],
   providers: [
     { provide: NavbarService, useClass: CustomNavbarService },
+    { provide: PaginationConfig, useClass: CustomPaginationConfig },
     AppService,
     {
       provide: APP_INITIALIZER,

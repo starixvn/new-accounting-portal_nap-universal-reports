@@ -5,57 +5,9 @@
         </div>
     </div>
 </ng-template>
-<ng-template #colgroup>
-    <colgroup>
-      <col style="width: 150px" />
-      <col style="width: 150px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-      <col style="width: 100px" />
-    </colgroup>
-  </ng-template>
-  <div>
-    <div class="nap-grid">
-        <nap-breadcrumb [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
-        <div class="header">
-            <table>
-                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
-                <thead>
-                    <tr>
-                        <th rowspan="2">Total League</th>
-                        <th rowspan="2">Total Match</th>
-                        <th colspan="3">HDP RESULT</th>
-                        <th colspan="3">OU RESULT</th>
-                        <th colspan="3">1x2 RESULT</th>
-                        <th colspan="4">TG RESULT</th>
-                    </tr>
-                    <tr>
-                        <th>Fav</th>
-                        <th>Underdog</th>
-                        <th>Draw</th>
-                        <th>Over</th>
-                        <th>Under</th>
-                        <th>Draw</th>
-                        <th>Fav</th>
-                        <th>Underdog</th>
-                        <th>Draw</th>
-                        <th>0-1</th>
-                        <th>2-3</th>
-                        <th>4-6</th>
-                        <th>7+</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-  </div>
+<div *ngIf="data !== undefined && data.Items.length > 0">
+    <nap-breadcrumb class="excel-title" [items]="[title]" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
+    <app-summary-grid [data]="data.Summary"></app-summary-grid>
+    <br/>
+    <app-item-grid [data]="data.Items"></app-item-grid>
+</div>

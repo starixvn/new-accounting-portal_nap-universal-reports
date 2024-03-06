@@ -21,7 +21,6 @@ export class FilterItemTreeviewPipe implements PipeTransform {
       const item = new TreeviewItem({ text: data.GroupName, value: data.GroupId });
       treeItems.push(item);
     });
-    treeItems.push(new TreeviewItem({ text: 'Non-group Leagues', value: -1 }));
 
     return treeItems;
   }

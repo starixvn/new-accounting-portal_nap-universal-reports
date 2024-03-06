@@ -1,21 +1,28 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FilterModel } from '../filter/filter.model';
+import { ResultAnalysisModel } from './grid.model';
+import { GridService } from './grid.service';
 
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss']
 })
-export class GridComponent implements OnInit {
+export class GridComponent implements OnChanges {
   @Input() filterModel!: FilterModel;
+  data!: ResultAnalysisModel;
+  title: string = '';
 
-  constructor() { }
+  constructor(private readonly service: GridService) { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.filterModel !== undefined) {
+      this.service.getData(this.filterModel).subscribe(data => this.data = data);
+      this.title = `Result Analysis Report From ${this.filterModel.fromDate} To ${this.filterModel.toDate}`;
+    }
   }
 
   exportExcel(): void {
-    
+    this.service.exportExcel(this.filterModel);
   }
-
 }

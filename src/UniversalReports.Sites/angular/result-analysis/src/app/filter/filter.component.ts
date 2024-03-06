@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { DateHelper } from 'nap-components/date'
+import { DateFormat, DateHelper } from 'nap-components/date'
 import * as moment from "moment";
 import { CONFIG } from '../common/date-config';
 import { TreeviewConfig } from 'ngx-treeview';
@@ -45,6 +45,17 @@ export class FilterComponent implements OnInit {
 
   onSportChange(): void {
     this.filterService.queryLeagueSuggestion(this.sport, '').subscribe(data => this.leagueGroups = data);
+  }
+
+  onGenerateClick() {
+    const model: FilterModel = {
+      fromDate: DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(this.startDate), DateFormat.Date),
+      toDate: DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(this.endDate), DateFormat.Date),
+      leagueGroupIds: this.selectedLeagueGroups.join(','),
+      sportId: Number(this.sport),
+      leagueName: this.leagueName == '' ? undefined : this.leagueName
+    };
+    this.generated.emit(model);
   }
 
   private buildLeagueNameTypeaheadQuery(): TypeaheadQuery {

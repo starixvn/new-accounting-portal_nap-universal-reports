@@ -5,14 +5,14 @@ import { HttpService } from 'nap-components/http';
 import { LeagueModel } from './filter.model';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import { CommonConstants } from '../common/constants';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  private readonly url = 'api/result-analysis';
-
+  
   constructor(private readonly httpService: HttpService) { }
 
   getSportSelectItems(): SelectItem[] {
@@ -23,7 +23,7 @@ export class FilterService {
    }
 
    queryLeagueSuggestion(sportId: string, searchText: string): Observable<LeagueModel[]> {
-    const url = `${this.url}/leagues`;
+    const url = `${CommonConstants.API}/leagues`;
     return this.httpService.post<LeagueModel[]>(url, {
       sportId,
       searchText
