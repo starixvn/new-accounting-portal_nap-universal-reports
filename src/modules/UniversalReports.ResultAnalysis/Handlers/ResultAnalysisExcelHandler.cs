@@ -26,7 +26,8 @@ namespace UniversalReports.ResultAnalysis.Handlers
 			var criteria = Mapper.Map<ResultAnalysisCriteria>(request);
 			var data = await service.GetResultAnalysis(criteria);
 			var excelModel = Mapper.Map<ResultAnalysisExcelModel>(data);
-			return excelService.Build("", excelModel);
+			var title = $"Result Analysis Report From {criteria.FromDate:MMM dd, yyyy} To {criteria.ToDate:MMM dd, yyyy}";
+			return excelService.Build(title, excelModel, request.SportId);
 		}
 	}
 }

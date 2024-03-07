@@ -411,6 +411,7 @@
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CashOutPerformanceController.cs" />
+    <Compile Include="Controllers\ResultAnalysisController.cs" />
     <Compile Include="Controllers\SBCustomerPerformanceByDangersController.cs" />
     <Compile Include="Controllers\AbnormalBetController.cs" />
     <Compile Include="Controllers\ActualMemberBetController.cs" />
@@ -881,6 +882,8 @@
     <Content Include="ExcelTemplate\CashOutPerformance\CashOutPerformance.xlsx" />
     <Content Include="ExcelTemplate\CashOutPerformance\SimpleCashOutPerformance.xlsx" />
     <Content Include="ExcelTemplate\Exchange\LicenseeExchange.xlsx" />
+    <Content Include="ExcelTemplate\ResultAnalysis\ResultAnalysis.xlsx" />
+    <Content Include="ExcelTemplate\ResultAnalysis\SimpleResultAnalysis.xlsx" />
     <None Include="packages.config" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
@@ -988,6 +991,18 @@
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
     <Content Include="wwwroot\punter-analysis\fontawesome-webfont.fee66e712a8a08eef580.woff" />
     <Content Include="wwwroot\punter-analysis\index.cshtml" />
+    <Content Include="wwwroot\result-analysis\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\result-analysis\assets\logo.png" />
+    <Content Include="wwwroot\result-analysis\assets\spinner.gif" />
+    <Content Include="wwwroot\result-analysis\favicon.ico" />
+    <Content Include="wwwroot\result-analysis\fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg" />
+    <Content Include="wwwroot\result-analysis\index.html" />
+    <Content Include="wwwroot\result-analysis\logo.6e8f5e4696c2161db75f.png" />
+    <Content Include="wwwroot\result-analysis\main.js" />
+    <Content Include="wwwroot\result-analysis\polyfills.js" />
+    <Content Include="wwwroot\result-analysis\runtime.js" />
+    <Content Include="wwwroot\result-analysis\spinner.39d0d6bd1fbec2b1c53f.gif" />
+    <Content Include="wwwroot\result-analysis\styles.css" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\3rdpartylicenses.txt" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\assets\logo.png" />
     <Content Include="wwwroot\sb-customer-performance-by-danger\assets\spinner.gif" />
@@ -1084,6 +1099,11 @@
     <Content Include="wwwroot\exchange\index.cshtml" />
     <Content Include="T4.FileManager.VisualStudio19.ttinclude" />
     <Content Include="T4.FileManager.VisualStudio.ttinclude" />
+    <Content Include="wwwroot\result-analysis\fontawesome-webfont.1e59d2330b4c6deb84b3.ttf" />
+    <Content Include="wwwroot\result-analysis\fontawesome-webfont.20fd1704ea223900efa9.woff2" />
+    <Content Include="wwwroot\result-analysis\fontawesome-webfont.8b43027f47b20503057d.eot" />
+    <Content Include="wwwroot\result-analysis\fontawesome-webfont.f691f37e57f04c152e23.woff" />
+    <Content Include="wwwroot\result-analysis\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />

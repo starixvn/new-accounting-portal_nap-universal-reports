@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FilterModel } from '../filter/filter.model';
 import { ResultAnalysisModel } from './grid.model';
 import { GridService } from './grid.service';
+import { CommonConstants } from '../common/constants';
 
 @Component({
   selector: 'app-grid',
@@ -24,5 +25,9 @@ export class GridComponent implements OnChanges {
 
   exportExcel(): void {
     this.service.exportExcel(this.filterModel);
+  }
+
+  isShowTGResult(): boolean {
+    return this.filterModel.sportId === CommonConstants.SOCCER;
   }
 }

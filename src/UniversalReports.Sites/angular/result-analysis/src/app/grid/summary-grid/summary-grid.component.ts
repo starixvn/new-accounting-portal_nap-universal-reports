@@ -8,4 +8,5 @@ import { ResultAnalysisSummaryModel } from '../grid.model';
 })
 export class SummaryGridComponent {
   @Input() data!: ResultAnalysisSummaryModel;
+  @Input() isShowTGResult: boolean = true;
 }

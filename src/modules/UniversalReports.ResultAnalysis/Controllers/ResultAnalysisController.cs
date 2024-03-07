@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.ResultAnalysis.Requests;
+using UniversalReports.Results;
 
 namespace UniversalReports.ResultAnalysis.Controllers
 {
@@ -27,6 +28,14 @@ namespace UniversalReports.ResultAnalysis.Controllers
 		{
 			var viewModel = await mediator.Send(request);
 			return Json(viewModel);
+		}
+
+		[Route("export-excel")]
+		[HttpPost]
+		public async Task<IHttpActionResult> Excel(ResultAnalysisExcelRequest request)
+		{
+			var excelPackage = await mediator.Send(request);
+			return new EpplusExcelResult(excelPackage);
 		}
 	}
 }

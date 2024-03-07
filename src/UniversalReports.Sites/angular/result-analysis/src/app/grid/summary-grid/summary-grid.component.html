@@ -11,10 +11,10 @@
       <col style="width: 80px" />
       <col style="width: 80px" />
       <col style="width: 80px" />
-      <col style="width: 80px" />
-      <col style="width: 80px" />
-      <col style="width: 80px" />
-      <col style="width: 80px" />
+      <col *ngIf="isShowTGResult" style="width: 80px" />
+      <col *ngIf="isShowTGResult" style="width: 80px" />
+      <col *ngIf="isShowTGResult" style="width: 80px" />
+      <col *ngIf="isShowTGResult" style="width: 80px" />
     </colgroup>
   </ng-template>
   <ng-template #thead>
@@ -25,7 +25,7 @@
             <th scope="col" colspan="3" class="bg-375623">HDP RESULT</th>
             <th scope="col" colspan="3" class="bg-833c0c">OU RESULT</th>
             <th scope="col" colspan="3" class="bg-375623">1x2 RESULT</th>
-            <th scope="col" colspan="4" class="bg-833c0c">TG RESULT</th>
+            <th *ngIf="isShowTGResult" scope="col" colspan="4" class="bg-833c0c">TG RESULT</th>
         </tr>
         <tr>
             <th scope="col" class="bg-c6e0b4 text-black">FAV</th>
@@ -37,10 +37,10 @@
             <th scope="col" class="bg-c6e0b4 text-black">FAV</th>
             <th scope="col" class="bg-c6e0b4 text-black">Underdog</th>
             <th scope="col" class="bg-c6e0b4 text-black">Draw</th>
-            <th scope="col" class="bg-f8cbad text-black">0-1</th>
-            <th scope="col" class="bg-f8cbad text-black">2-3</th>
-            <th scope="col" class="bg-f8cbad text-black">4-6</th>
-            <th scope="col" class="bg-f8cbad text-black">7+</th>
+            <th *ngIf="isShowTGResult" scope="col" class="bg-f8cbad text-black">0-1</th>
+            <th *ngIf="isShowTGResult" scope="col" class="bg-f8cbad text-black">2-3</th>
+            <th *ngIf="isShowTGResult" scope="col" class="bg-f8cbad text-black">4-6</th>
+            <th *ngIf="isShowTGResult" scope="col" class="bg-f8cbad text-black">7+</th>
         </tr>
     </thead>
   </ng-template>
@@ -56,12 +56,12 @@
     <td class="text-center bg-e2efda">{{item.Fav1x2Result}}</td>
     <td class="text-center bg-e2efda">{{item.Underdog1x2Result}}</td>
     <td class="text-center bg-e2efda">{{item.Draw1x2Result}}</td>
-    <td class="text-center bg-fce4d6">{{item.TgResult01}}</td>
-    <td class="text-center bg-fce4d6">{{item.TgResult23}}</td>
-    <td class="text-center bg-fce4d6">{{item.TgResult46}}</td>
-    <td class="text-center bg-fce4d6">{{item.TgResult7}}</td>
+    <td *ngIf="isShowTGResult" class="text-center bg-fce4d6">{{item.TgResult01}}</td>
+    <td *ngIf="isShowTGResult" class="text-center bg-fce4d6">{{item.TgResult23}}</td>
+    <td *ngIf="isShowTGResult" class="text-center bg-fce4d6">{{item.TgResult46}}</td>
+    <td *ngIf="isShowTGResult" class="text-center bg-fce4d6">{{item.TgResult7}}</td>
   </ng-template>
-  <div style="width: 1458px">
+  <div [ngStyle]="{'width': isShowTGResult ? '1458px' : '1138px'}">
     <div class="nap-grid">
         <div class="header">
             <table>

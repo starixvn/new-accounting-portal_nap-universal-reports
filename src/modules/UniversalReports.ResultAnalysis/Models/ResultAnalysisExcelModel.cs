@@ -13,7 +13,7 @@ namespace UniversalReports.ResultAnalysis.Models
 
 	public class ResultAnalysisSummaryExcelModel
 	{
-		[Cell("A6")]
+		[Cell("A6:B6")]
 		public int TotalLeague { get; set; }
 
 		[Cell("C6")]

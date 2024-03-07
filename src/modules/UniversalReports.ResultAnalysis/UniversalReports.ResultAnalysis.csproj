@@ -120,7 +120,12 @@
     <Compile Include="Services\ExcelBuilderService.cs" />
     <Compile Include="Services\ResultAnalysisService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\UniversalReports\UniversalReports.csproj">
+      <Project>{94bab182-85de-4715-b396-bb6696d8bc81}</Project>
+      <Name>UniversalReports</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
