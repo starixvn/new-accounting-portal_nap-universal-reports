@@ -9,5 +9,7 @@
 		public int LeagueId { get; set; }
 
 		public string LeagueName { get; set; }
+
+		public int LengthOfLeagueName => LeagueName.Length;
 	}
 }

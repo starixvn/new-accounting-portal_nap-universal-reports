@@ -3,6 +3,7 @@ export interface LeagueModel {
     GroupName: string;
     LeagueId: number;
     LeagueName: string;
+    LengthOfLeagueName: number;
 }
 
 export interface FilterModel {
