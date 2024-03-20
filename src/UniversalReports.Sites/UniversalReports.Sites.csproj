@@ -557,9 +557,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\DBCUST.IPDB.bodbAdminNet.xml" />
-    <Content Include="App_Data\DBEXT.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\DBLOG.bodb_CustomerLog.bodbAdminNet.xml" />
+    <Content Include="App_Data\DBCUST.IPDB.wsv_nap.xml" />
+    <Content Include="App_Data\DBEXT.bodb02.wsv_nap.xml" />
+    <Content Include="App_Data\DBLOG.bodb_CustomerLog.wsv_nap.xml" />
     <Content Include="app\house-win-loss\soccer\soccer-major-minor.controller.js" />
     <Content Include="bundle\app-style.chunk.js" />
     <Content Include="bundle\app-style.css" />
@@ -711,11 +711,11 @@
     <Content Include="wwwroot\punter-analysis\scripts.bundle.js" />
     <Content Include="wwwroot\punter-analysis\styles.bundle.css" />
     <None Include="app\root\components\fanex-dropdowntree\fanex.dropdowntree.directive.less" />
-    <Content Include="App_Data\DBACC.bodb02.bodbAdminNet.xml">
+    <Content Include="App_Data\DBACC.bodb02.wsv_nap.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\DBAGE.bodb02.bodbAdminNet.xml" />
-    <Content Include="App_Data\DBWH.bodb_dwrs.bodbAdminNet.xml">
+    <Content Include="App_Data\DBAGE.bodb02.wsv_nap.xml" />
+    <Content Include="App_Data\DBWH.bodb_dwrs.wsv_nap.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\Fanex.Grid.js" />

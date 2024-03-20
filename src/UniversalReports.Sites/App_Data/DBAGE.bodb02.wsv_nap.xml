@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions>
   <Function Name="Core - Report Service">
-    <Setting Key="GetBalanceUpRange" SpName="Age_SelBalanceUpDay" DbName="DBAGE.bodb02.bodbAdminNet">
+    <Setting Key="GetBalanceUpRange" SpName="Age_SelBalanceUpDay" DbName="DBAGE.bodb02.wsv_nap">
       <Mapping DataField="BalanceUpDay" ObjectProperty="BalanceUpDate" />
       <Mapping DataField="MoveBetsDay" ObjectProperty="MoveBetsDate" />
     </Setting>
   </Function>
   <Function Name="Punter Analysis">
-    <Setting Key="Punter-UserNameSuggestion" SpName="Acc_CustomerSelUserSearch" DbName="DBAGE.bodb02.bodbAdminNet" />
+    <Setting Key="Punter-UserNameSuggestion" SpName="Acc_CustomerSelUserSearch" DbName="DBAGE.bodb02.wsv_nap" />
   </Function>
 </Functions>
