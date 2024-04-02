@@ -5,7 +5,7 @@
         </div>
     </div>
 </ng-template>
-<div *ngIf="data !== undefined && data.Items.length > 0">
+<div *ngIf="data !== undefined">
     <nap-breadcrumb [ngStyle]="{'width': isShowTGResult() ? '1458px' : '1138px'}" class="excel-title" [items]="[title]" [toolboxTemplate]="breadcrumbToolboxTemplate"></nap-breadcrumb>
     <app-summary-grid [data]="data.Summary" [isShowTGResult]="isShowTGResult()"></app-summary-grid>
     <br/>

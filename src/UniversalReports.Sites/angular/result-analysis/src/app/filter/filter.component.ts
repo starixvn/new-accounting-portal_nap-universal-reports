@@ -9,6 +9,7 @@ import { TypeaheadQuery } from 'nap-components/dropdown-typeahead';
 import { FilterService } from './filter.service';
 import { SelectItem } from 'nap-components/dropdown-select';
 import * as _ from 'lodash';
+import { ToastService } from 'nap-components/toast';
 
 @Component({
   selector: 'app-filter',
@@ -36,7 +37,8 @@ export class FilterComponent implements OnInit {
   leagueNamePlaceholder = 'All';
   leagueNameTypeaheadQuery = this.buildLeagueNameTypeaheadQuery();
   
-  constructor(private readonly filterService: FilterService) { }
+  constructor(private readonly filterService: FilterService,
+    private readonly toastService: ToastService) { }
 
   ngOnInit(): void {
     this.sportSelectItems = this.filterService.getSportSelectItems();
@@ -48,14 +50,19 @@ export class FilterComponent implements OnInit {
   }
 
   onGenerateClick() {
-    const model: FilterModel = {
-      fromDate: DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(this.startDate), DateFormat.Date),
-      toDate: DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(this.endDate), DateFormat.Date),
-      leagueGroupIds: this.selectedLeagueGroups.join(','),
-      sportId: Number(this.sport),
-      leagueName: this.leagueName == '' ? undefined : this.leagueName
-    };
-    this.generated.emit(model);
+    if (this.selectedLeagueGroups.join(',').length === 0) {
+      this.toastService.activate(`Please select at least one League Group!`);
+      return;
+    } else {
+      const model: FilterModel = {
+        fromDate: DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(this.startDate), DateFormat.Date),
+        toDate: DateHelper.formatMomentDate(DateHelper.convertDateStructToMoment(this.endDate), DateFormat.Date),
+        leagueGroupIds: this.selectedLeagueGroups.join(','),
+        sportId: Number(this.sport),
+        leagueName: this.leagueName == '' ? undefined : this.leagueName
+      };
+      this.generated.emit(model);
+    }
   }
 
   private buildLeagueNameTypeaheadQuery(): TypeaheadQuery {
