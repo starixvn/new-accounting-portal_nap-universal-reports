@@ -89,7 +89,7 @@
                   </tbody>
                 </table>
               </div>
-            <div class="footer">
+            <div class="footer" *ngIf="displayedData.length > 0">
                 <table>
                     <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                     <tfoot>

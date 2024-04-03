@@ -1,7 +1,8 @@
 <ng-template #breadcrumbToolboxTemplate>
     <div class="breadcrumb-toolbox">
         <div class="toolbox-item">
-            <i class="nap-icon nap-icon-breadcrumb-excel" aria-hidden="true" title="Export excel" (click)="exportExcel()"></i>
+            <i *ngIf="data !== undefined && data.Items.length > 0" class="nap-icon nap-icon-breadcrumb-excel" aria-hidden="true" title="Export excel" (click)="exportExcel()">
+            </i>
         </div>
     </div>
 </ng-template>
