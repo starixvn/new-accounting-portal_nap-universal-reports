@@ -36,9 +36,9 @@ export class ItemGridComponent implements OnChanges {
   formatMatch(match: string, fav: string) {
     if (match === null) return '';
     if (fav === null) return match;
-    const teams = match.split('-vs-');
-    if (fav === 'Home') {
-      return `<span style="color: red;">${teams[0]}</span> -vs- ${teams[1]}`;
+    const teams = match.split(' -vs- ');
+    if (fav.toLowerCase() === 'home') {
+      return this.sanitizer.bypassSecurityTrustHtml(`<span style="color: red;">${teams[0]}</span> -vs- ${teams[1]}`);
     }
     return this.sanitizer.bypassSecurityTrustHtml(`${teams[0]} -vs- <span style="color: red;">${teams[1]}</span>`);
   }

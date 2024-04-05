@@ -1,9 +1,13 @@
-﻿using Epplus.Mapper.Extensions;
+﻿using System;
+using System.Drawing;
+using Epplus.Mapper.Extensions;
 using OfficeOpenXml;
 using System.IO;
 using System.Linq;
 using UniversalReports.Configurations;
 using UniversalReports.ResultAnalysis.Models;
+using OfficeOpenXml.Style;
+using System.Collections.Generic;
 
 namespace UniversalReports.ResultAnalysis.Services
 {
@@ -46,7 +50,9 @@ namespace UniversalReports.ResultAnalysis.Services
 			{
 				this.ResetValueForUnusedCell(model.Items.Count());
 			}
-			return ExcelPackage;
+            FormatOddEvenBackground(model, isSoccer);
+            HighlightFavoriteTeam(model.Items.ToList());
+            return ExcelPackage;
 		}
 
 		private void LoadTemplate(string fileExcel)
@@ -74,5 +80,37 @@ namespace UniversalReports.ResultAnalysis.Services
 			sheet.Cells["M6"].Value = sheet.Cells["N6"].Value = sheet.Cells["O6"].Value = sheet.Cells["P6"].Value = "";
 			sheet.Cells[$"N10:N{StartDetailedRowIndex + totalOfDetailedItems}"].Value = "";
 		}
+
+        private void FormatOddEvenBackground(ResultAnalysisExcelModel model, bool isSoccer)
+        {
+            for (var i = 0; i < model.Items.Count(); i++)
+            {
+                var rowIndex = StartDetailedRowIndex + i;
+                var cellAddress = isSoccer ? $"A{rowIndex}:N{rowIndex}" : $"A{rowIndex}:M{rowIndex}";
+                var backgroundColor = i % 2 == 0 ? Color.White : Color.FromArgb(228, 242, 253);
+                sheet.Cells[cellAddress].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                sheet.Cells[cellAddress].Style.Fill.BackgroundColor.SetColor(backgroundColor);
+            }
+        }
+
+        private void HighlightFavoriteTeam(List<DetailedResultAnalysisExcelModel> data)
+        {
+            string[] separatingString = { " -vs- " };
+            for (var i = 0; i < data.Count; i++)
+            {
+                var match = data[i].Match.Split(separatingString, StringSplitOptions.None);
+                var isFavHome = data[i].Fav.ToLower() == "home";
+                var rowIndex = StartDetailedRowIndex + i;
+                var cellAddress = $"C{rowIndex}";
+                sheet.Cells[cellAddress].Value = string.Empty;
+                sheet.Cells[cellAddress].IsRichText = true;
+                var home = sheet.Cells[cellAddress].RichText.Add(match[0]);
+                home.Color = isFavHome ? Color.Red : Color.Black;
+				var vsText = sheet.Cells[cellAddress].RichText.Add(" -vs- ");
+                vsText.Color = Color.Black;
+                var away = sheet.Cells[cellAddress].RichText.Add(match[1]);
+                away.Color = isFavHome ? Color.Black : Color.Red;
+            }
+        }
 	}
 }

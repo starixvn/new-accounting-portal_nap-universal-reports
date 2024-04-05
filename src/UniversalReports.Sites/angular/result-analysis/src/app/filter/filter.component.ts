@@ -73,6 +73,7 @@ export class FilterComponent implements OnInit {
       searchText = words.join(',');
       return this.filterService.queryLeagueSuggestion(this.sport, searchText)
         .map(list => {
+          list = list.filter(x => x.LeagueId !== -1);
           list = _.orderBy(list, ['LengthOfLeagueName', 'LeagueName'], ['asc', 'asc']);
           return _.take(list, 20).map(item => item.LeagueName);
         });
