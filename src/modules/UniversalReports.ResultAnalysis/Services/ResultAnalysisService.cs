@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OfficeOpenXml.Interfaces.Drawing.Text;
 using UniversalReports.ResultAnalysis.Criteria;
 using UniversalReports.ResultAnalysis.Models;
 
@@ -40,11 +41,10 @@ namespace UniversalReports.ResultAnalysis.Services
 
 		private static ResultAnalysisSummaryModel GetSummaryModel(List<DetailedResultAnalysisModel> data)
 		{
-			var total = data.Count;
-			var result = new ResultAnalysisSummaryModel
+            var result = new ResultAnalysisSummaryModel
 			{
-				TotalLeague = total,
-				TotalMatch = total,
+				TotalLeague = data.Select(item => item.League).Distinct().Count(),
+				TotalMatch = data.Select(item => item.Match).Distinct().Count(),
 				FavHdpResult = data.Count(item => item.ResultHDP == "Fav"),
 				UnderdogHdpResult = data.Count(item => item.ResultHDP == "Underdog"),
 				DrawHdpResult = data.Count(item => item.ResultHDP == "Draw"),

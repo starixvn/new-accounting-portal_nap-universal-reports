@@ -48,10 +48,9 @@ namespace UniversalReports.ResultAnalysis.Services
 			sheet.ApplyVertical(model.Items, StartDetailedRowIndex);
 			if (!isSoccer)
 			{
-				this.ResetValueForUnusedCell(model.Items.Count());
+				ResetValueForUnusedCell(model.Items.Count());
 			}
-            FormatOddEvenBackground(model, isSoccer);
-            HighlightFavoriteTeam(model.Items.ToList());
+            FormatSheet(model.Items.ToList(), isSoccer);
             return ExcelPackage;
 		}
 
@@ -81,36 +80,39 @@ namespace UniversalReports.ResultAnalysis.Services
 			sheet.Cells[$"N10:N{StartDetailedRowIndex + totalOfDetailedItems}"].Value = "";
 		}
 
-        private void FormatOddEvenBackground(ResultAnalysisExcelModel model, bool isSoccer)
-        {
-            for (var i = 0; i < model.Items.Count(); i++)
-            {
-                var rowIndex = StartDetailedRowIndex + i;
-                var cellAddress = isSoccer ? $"A{rowIndex}:N{rowIndex}" : $"A{rowIndex}:M{rowIndex}";
-                var backgroundColor = i % 2 == 0 ? Color.White : Color.FromArgb(228, 242, 253);
-                sheet.Cells[cellAddress].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                sheet.Cells[cellAddress].Style.Fill.BackgroundColor.SetColor(backgroundColor);
-            }
-        }
-
-        private void HighlightFavoriteTeam(List<DetailedResultAnalysisExcelModel> data)
+        private void FormatSheet(List<DetailedResultAnalysisExcelModel> data, bool isSoccer)
         {
             string[] separatingString = { " -vs- " };
             for (var i = 0; i < data.Count; i++)
             {
-                var match = data[i].Match.Split(separatingString, StringSplitOptions.None);
-                var isFavHome = data[i].Fav.ToLower() == "home";
-                var rowIndex = StartDetailedRowIndex + i;
-                var cellAddress = $"C{rowIndex}";
-                sheet.Cells[cellAddress].Value = string.Empty;
-                sheet.Cells[cellAddress].IsRichText = true;
-                var home = sheet.Cells[cellAddress].RichText.Add(match[0]);
-                home.Color = isFavHome ? Color.Red : Color.Black;
-				var vsText = sheet.Cells[cellAddress].RichText.Add(" -vs- ");
-                vsText.Color = Color.Black;
-                var away = sheet.Cells[cellAddress].RichText.Add(match[1]);
-                away.Color = isFavHome ? Color.Black : Color.Red;
+                FormatOddEvenBackground(isSoccer, i);
+                HighlightFavoriteTeam(data[i], i, separatingString);
             }
         }
-	}
+
+        private void FormatOddEvenBackground(bool isSoccer,int index)
+        {
+            var rowIndex = StartDetailedRowIndex + index;
+            var cellAddress = isSoccer ? $"A{rowIndex}:N{rowIndex}" : $"A{rowIndex}:M{rowIndex}";
+            var backgroundColor = index % 2 == 0 ? Color.White : Color.FromArgb(228, 242, 253);
+            sheet.Cells[cellAddress].Style.Fill.PatternType = ExcelFillStyle.Solid;
+            sheet.Cells[cellAddress].Style.Fill.BackgroundColor.SetColor(backgroundColor);
+        }
+
+        private void HighlightFavoriteTeam(DetailedResultAnalysisExcelModel model, int index, string[] separatingString)
+        {
+            var match = model.Match.Split(separatingString, StringSplitOptions.None);
+            var isFavHome = model.Fav.ToLower() == "home";
+            var rowIndex = StartDetailedRowIndex + index;
+            var cellAddress = $"C{rowIndex}";
+            sheet.Cells[cellAddress].Value = string.Empty;
+            sheet.Cells[cellAddress].IsRichText = true;
+            var home = sheet.Cells[cellAddress].RichText.Add(match[0]);
+            home.Color = isFavHome ? Color.Red : Color.Black;
+            var vsText = sheet.Cells[cellAddress].RichText.Add(" -vs- ");
+            vsText.Color = Color.Black;
+            var away = sheet.Cells[cellAddress].RichText.Add(match[1]);
+            away.Color = isFavHome ? Color.Black : Color.Red;
+        }
+    }
 }
