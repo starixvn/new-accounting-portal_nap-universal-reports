@@ -57,13 +57,13 @@ namespace UniversalReports.ResultAnalysis.Models
 
 		public string Fav { get; set; }
 
-		public int HtScoreHome { get; set; }
+		public string HtScoreHome { get; set; }
 
-		public int HtScoreAway { get; set; }
+		public string HtScoreAway { get; set; }
 
-		public int FtScoreHome { get; set; }
+		public string FtScoreHome { get; set; }
 
-		public int FtScoreAway { get; set; }
+		public string FtScoreAway { get; set; }
 
 		public string ResultHDP { get; set; }
 
@@ -71,6 +71,6 @@ namespace UniversalReports.ResultAnalysis.Models
 
 		public string Result1x2 { get; set; }
 
-		public int ResultTG { get; set; }
+		public string ResultTG { get; set; }
 	}
 }

@@ -80,16 +80,16 @@ namespace UniversalReports.ResultAnalysis.Models
 		public string Fav { get; set; }
 
 		[Cell("G10")]
-		public int HtScoreHome { get; set; }
+		public string HtScoreHome { get; set; }
 
 		[Cell("H10")]
-		public int HtScoreAway { get; set; }
+		public string HtScoreAway { get; set; }
 
 		[Cell("I10")]
-		public int FtScoreHome { get; set; }
+		public string FtScoreHome { get; set; }
 
 		[Cell("J10")]
-		public int FtScoreAway { get; set; }
+		public string FtScoreAway { get; set; }
 
 		[Cell("K10")]
 		public string ResultHDP { get; set; }
@@ -101,6 +101,6 @@ namespace UniversalReports.ResultAnalysis.Models
 		public string Result1x2 { get; set; }
 
 		[Cell("N10")]
-		public int ResultTG { get; set; }
+		public string ResultTG { get; set; }
 	}
 }

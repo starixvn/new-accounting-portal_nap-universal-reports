@@ -23,14 +23,14 @@ export interface DetailedResultAnalysisModel {
     HDP: number;
     OU: number;
     Fav: string;
-    HtScoreHome: number;
-    HtScoreAway: number;
-    FtScoreHome: number;
-    FtScoreAway: number;
+    HtScoreHome: string;
+    HtScoreAway: string;
+    FtScoreHome: string;
+    FtScoreAway: string;
     ResultHDP: string;
     ResultOU: string;
     Result1x2: string;
-    ResultTG: number;
+    ResultTG: string;
 }
 
 export interface ResultAnalysisModel {

@@ -54,12 +54,20 @@ namespace UniversalReports.ResultAnalysis.Services
 				Fav1x2Result = data.Count(item => item.Result1x2 == "Fav"),
 				Underdog1x2Result = data.Count(item => item.Result1x2 == "Underdog"),
 				Draw1x2Result = data.Count(item => item.Result1x2 == "Draw"),
-				TgResult01 = data.Count(item => item.ResultTG == 1 || item.ResultTG == 0),
-				TgResult23 = data.Count(item => item.ResultTG == 2 || item.ResultTG == 3),
-				TgResult46 = data.Count(item => item.ResultTG >= 4 && item.ResultTG <= 6),
-				TgResult7 = data.Count(item => item.ResultTG >= 7),
+				TgResult01 = data.Count(item => CheckResultTg(item.ResultTG, 0, 1)),
+				TgResult23 = data.Count(item => CheckResultTg(item.ResultTG, 2, 3)),
+				TgResult46 = data.Count(item => CheckResultTg(item.ResultTG, 4, 6)),
+				TgResult7 = data.Count(item => CheckResultTg(item.ResultTG, 7, -1)),
 			};
 			return result;
+		}
+
+		private static bool CheckResultTg(string data, int first, int second)
+		{
+			if (data == "-") return false;
+			var number = int.Parse(data);
+			if (second > 0) return number >= first && number <= second;
+			return number >= first;
 		}
 	}
 }
