@@ -101,6 +101,7 @@ namespace UniversalReports.ResultAnalysis.Services
 
         private void HighlightFavoriteTeam(DetailedResultAnalysisExcelModel model, int index, string[] separatingString)
         {
+            if (string.IsNullOrEmpty(model.Match) || string.IsNullOrEmpty(model.Fav)) return;
             var match = model.Match.Split(separatingString, StringSplitOptions.None);
             var isFavHome = model.Fav.ToLower() == "home";
             var rowIndex = StartDetailedRowIndex + index;
