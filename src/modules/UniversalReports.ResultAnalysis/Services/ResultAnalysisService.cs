@@ -1,4 +1,5 @@
-﻿using Fanex.Data.Repository;
+﻿using System;
+using Fanex.Data.Repository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace UniversalReports.ResultAnalysis.Services
             var result = new ResultAnalysisSummaryModel
 			{
 				TotalLeague = data.Select(item => item.League).Distinct().Count(),
-				TotalMatch = data.Select(item => item.Match).Distinct().Count(),
+				TotalMatch = data.Select(item => item.MatchID).Distinct().Count(),
 				FavHdpResult = data.Count(item => item.ResultHDP == "Fav"),
 				UnderdogHdpResult = data.Count(item => item.ResultHDP == "Underdog"),
 				DrawHdpResult = data.Count(item => item.ResultHDP == "Draw"),

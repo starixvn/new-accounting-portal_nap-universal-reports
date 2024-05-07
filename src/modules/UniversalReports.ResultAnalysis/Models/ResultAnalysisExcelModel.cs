@@ -70,8 +70,10 @@ namespace UniversalReports.ResultAnalysis.Models
 		[Cell("C10")]
 		public string Match { get; set; }
 
-		[Cell("D10")]
-		public decimal HDP { get; set; }
+        public string HDP { get; set; }
+
+        [Cell("D10")]
+        public string HdpString => HDP == "-" ? "-" : Math.Round(decimal.Parse(HDP), 2).ToString();
 
 		[Cell("E10")]
 		public decimal OU { get; set; }

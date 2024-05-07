@@ -44,7 +44,8 @@
     <td class="text-center">{{item.Date | date: 'dd-MMM-yy'}}</td>
     <td>{{item.League}}</td>
     <td [innerHtml]="formatMatch(item.Match, item.Fav)"></td>
-    <td class="text-center" [napDecimalFormat]="item.HDP"></td>
+    <td *ngIf="item.HDP === '-'" class="text-center">-</td>
+    <td *ngIf="item.HDP !== '-'" class="text-center" [napDecimalFormat]="item.HDP"></td>
     <td class="text-center" [napDecimalFormat]="item.OU"></td>
     <td class="text-center">{{item.Fav}}</td>
     <td class="text-center">{{item.HtScoreHome}}</td>

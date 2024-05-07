@@ -51,7 +51,9 @@ namespace UniversalReports.ResultAnalysis.Models
 
 		public string Match { get; set; }
 
-		public decimal HDP { get; set; }
+		public int MatchID { get; set; }
+
+		public string HDP { get; set; }
 
 		public decimal OU { get; set; }
 

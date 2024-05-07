@@ -20,7 +20,7 @@ export interface DetailedResultAnalysisModel {
     Date: string;
     League: string;
     Match: string;
-    HDP: number;
+    HDP: string;
     OU: number;
     Fav: string;
     HtScoreHome: string;
