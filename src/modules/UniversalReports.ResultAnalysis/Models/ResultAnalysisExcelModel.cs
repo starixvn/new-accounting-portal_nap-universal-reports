@@ -75,10 +75,12 @@ namespace UniversalReports.ResultAnalysis.Models
         [Cell("D10")]
         public string HdpString => HDP == "-" ? "-" : Math.Round(decimal.Parse(HDP), 2).ToString();
 
-		[Cell("E10")]
-		public decimal OU { get; set; }
+        public string OU { get; set; }
 
-		[Cell("F10")]
+        [Cell("E10")]
+		public string OuString => OU == "-" ? "-" : Math.Round(decimal.Parse(OU), 2).ToString();
+
+        [Cell("F10")]
 		public string Fav { get; set; }
 
 		[Cell("G10")]

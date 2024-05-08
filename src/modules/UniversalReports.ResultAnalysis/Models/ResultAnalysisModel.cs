@@ -55,7 +55,7 @@ namespace UniversalReports.ResultAnalysis.Models
 
 		public string HDP { get; set; }
 
-		public decimal OU { get; set; }
+		public string OU { get; set; }
 
 		public string Fav { get; set; }
 

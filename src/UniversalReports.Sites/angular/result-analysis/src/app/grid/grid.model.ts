@@ -21,7 +21,7 @@ export interface DetailedResultAnalysisModel {
     League: string;
     Match: string;
     HDP: string;
-    OU: number;
+    OU: string;
     Fav: string;
     HtScoreHome: string;
     HtScoreAway: string;

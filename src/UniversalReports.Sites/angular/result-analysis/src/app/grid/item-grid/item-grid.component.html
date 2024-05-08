@@ -46,7 +46,8 @@
     <td [innerHtml]="formatMatch(item.Match, item.Fav)"></td>
     <td *ngIf="item.HDP === '-'" class="text-center">-</td>
     <td *ngIf="item.HDP !== '-'" class="text-center" [napDecimalFormat]="item.HDP"></td>
-    <td class="text-center" [napDecimalFormat]="item.OU"></td>
+    <td *ngIf="item.OU === '-'" class="text-center">-</td>
+    <td *ngIf="item.OU !== '-'" class="text-center" [napDecimalFormat]="item.OU"></td>
     <td class="text-center">{{item.Fav}}</td>
     <td class="text-center">{{item.HtScoreHome}}</td>
     <td class="text-center">{{item.HtScoreAway}}</td>
