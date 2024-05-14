@@ -7,6 +7,7 @@ using UniversalReports.ActualMemberBet;
 using UniversalReports.CashOutPerformance;
 using UniversalReports.Exchange;
 using UniversalReports.PunterAnalysis.Shared;
+using UniversalReports.ResultAnalysis;
 using UniversalReports.SBCustomerPerformanceByDanger;
 using UniversalReports.SBPerformance;
 using UniversalReports.SMAWinLoss;
@@ -33,6 +34,7 @@ namespace UniversalReports.Sites.SimpleInjector
             yield return typeof(SMAWinLossAttribute).GetTypeInfo().Assembly;
             yield return typeof(SBCustomerPerformanceByDangerAttribute).GetTypeInfo().Assembly;
             yield return typeof(CashOutPerformanceAttribute).GetTypeInfo().Assembly;
-        }
+            yield return typeof(ResultAnalysisAttribute).GetTypeInfo().Assembly;
+		}
     }
 }

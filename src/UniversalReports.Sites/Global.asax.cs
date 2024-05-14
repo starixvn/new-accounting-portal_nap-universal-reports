@@ -19,6 +19,7 @@ using UniversalReports.Sites.App_Start;
 using UniversalReports.SMAWinLoss;
 using UniversalReports.UpdatedUsernameCredit;
 using UniversalReports.CashOutPerformance;
+using UniversalReports.ResultAnalysis;
 
 namespace UniversalReports.Sites
 {
@@ -48,6 +49,7 @@ namespace UniversalReports.Sites
                 cfg.InitializeSMAWinLoss();
                 cfg.InitializeSBCustomerPerformanceByDanger();
                 cfg.InitializeCashOutPerformance();
+                cfg.InitializeResultAnalysis();
             });
         }
 

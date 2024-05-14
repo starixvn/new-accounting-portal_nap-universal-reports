@@ -2,6 +2,7 @@
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
 using System.Web.Http;
+using UniversalReports.Sites.App_Start.SimpleInjector;
 using UniversalReports.Sites.SimpleInjector;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(SimpleInjectorApiConfig), "Initialize")]
@@ -28,7 +29,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterSBPerformanceServices()
                 .RegisterSMAWinLossServices()
                 .RegisterSBCustomerPerformanceByDangerServices()
-                .RegisterCashOutPerformanceServices();
+                .RegisterCashOutPerformanceServices()
+				.RegisterResultAnalysisServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             Container.Verify();
