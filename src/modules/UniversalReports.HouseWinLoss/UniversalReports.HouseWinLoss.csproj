@@ -207,6 +207,7 @@
     <Compile Include="BetBuilder\Site\ExcelQueryModel.cs" />
     <Compile Include="BetBuilder\Site\QueryModel.cs" />
     <Compile Include="BetBuilder\Site\BetBuilderSiteController.cs" />
+    <Compile Include="BetBuilder\SportType\BetBuilderSportTypeWinLossService.cs" />
     <Compile Include="BetBuilder\SportType\ExcelQueryModel.cs" />
     <Compile Include="BetBuilder\SportType\BetBuilderSportTypeController..native.cs" />
     <Compile Include="BetBuilder\SportType\QueryModel.cs" />

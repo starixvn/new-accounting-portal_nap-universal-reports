@@ -878,7 +878,7 @@ import moment from "moment";
                 getTitleFunction: "getProductBetTypeTitle"
             },
             sportType: {
-                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                templateUrl: "app/house-win-loss/shared/two-fanex-grid-with-title.html",
                 controller: "BetBuilderSportTypeController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/bet-builder/sport-type",
