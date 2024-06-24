@@ -116,8 +116,15 @@
         }
 
         function exportExcel() {
+            var betTypeTitle = tab.generateBreadcrumbTextWithSuffix("");
+            var liveNonLiveTitle = tab.generateBreadcrumbTextWithSuffix(" Live/Non-Live");
+
             var httpData = {};
             angular.extend(httpData, pane.data);
+            angular.extend(httpData, {
+                betTypeTitle: betTypeTitle,
+                liveNonLiveTitle: liveNonLiveTitle
+            });
 
             pane.service.exportExcel($scope.viewSetting, httpData, pane.getFileName());
         }

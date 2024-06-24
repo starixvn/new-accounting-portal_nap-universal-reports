@@ -43,11 +43,11 @@ namespace UniversalReports.HouseWinLoss.BetBuilder.SportType
             var criteria = Mapper.Map<UniversalSecondLevelCriteria>(queryModel);
             var winlosses = service.Query(criteria).ToArray();
 
-            var majorMinorGridOptions = builder.Build(winlosses.First(), "");
+            var majorMinorGridOptions = builder.Build(winlosses.First(), queryModel.BetTypeTitle);
             const int mainColumnWidth = 220;
             majorMinorGridOptions = decorator.Build(majorMinorGridOptions, "Sport Type", mainColumnWidth);
 
-            var liveNonLiveGridOptions = builder.Build(winlosses.Last(), "Live/Non-Live");
+            var liveNonLiveGridOptions = builder.Build(winlosses.Last(), queryModel.LiveNonLiveTitle);
             liveNonLiveGridOptions = decorator.Build(liveNonLiveGridOptions, "Live/Non-Live", mainColumnWidth);
 
             return new FanexExcelResult(
