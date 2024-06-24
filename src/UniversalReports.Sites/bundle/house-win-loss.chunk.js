@@ -947,7 +947,7 @@ webpackJsonp([5],{
 	                controller: "SiteController",
 	                service: "remoteDataService",
 	                serviceBaseUrl: "api/house-win-loss-by-products/bet-builder/site",
-	                mainParameters: { sheetName: "House Win Loss by Products" },
+	                mainParameters: { sheetName: "House Win Loss by Products", bettype: 38 },
 	                getTitleFunction: "getSiteTitle"
 	            },
 	            matchDetail: {
@@ -955,7 +955,7 @@ webpackJsonp([5],{
 	                controller: "SportsbookMatchDetailController",
 	                service: "sportsbookMatchDetailService",
 	                serviceBaseUrl: 'api/house-win-loss-by-products/bet-builder/match-detail',
-	                mainParameters: { sheetName: "House Win Loss by Products" },
+	                mainParameters: { sheetName: "House Win Loss by Products", bettype: 38 },
 	                getTitleFunction: "getMatchDetailTitle"
 	            }
 	        },
