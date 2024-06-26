@@ -17,6 +17,7 @@ using Soccer = UniversalReports.HouseWinLoss.Soccer;
 using Daily2hSoccerBettype = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor.BetType;
 using Daily2hSoccerMinor = UniversalReports.HouseWinLoss.DailyWinLoss2hSoccerMinor;
 using ProductBetType = UniversalReports.HouseWinLoss.ProductBetType;
+using BetBuilder = UniversalReports.HouseWinLoss.BetBuilder;
 
 
 namespace UniversalReports.Sites.SimpleInjector
@@ -76,6 +77,8 @@ namespace UniversalReports.Sites.SimpleInjector
 
             container.Register<ProductBetType.Service, ProductBetType.ServiceImp>();
             container.Register<ProductBetType.GridOptionsBuilder, ProductBetType.GridOptionsBuilderImp>();
+
+            container.Register<BetBuilder.SportType.BetBuilderSportTypeWinLossService, BetBuilder.SportType.BetBuilderSportTypeWinLossServiceImp>();
 
             return container;
         }
