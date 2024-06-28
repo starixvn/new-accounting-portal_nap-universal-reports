@@ -1,6 +1,7 @@
 ﻿using System;
 using MediatR;
 using OfficeOpenXml;
+using UniversalReports.PunterAnalysis.Constants;
 
 namespace UniversalReports.PunterAnalysis.League.Model
 {
@@ -22,7 +23,7 @@ namespace UniversalReports.PunterAnalysis.League.Model
 
         public int BetTypeId { get; set; }
 
-        public int LiveStatusId { get; set; }
+        public int LiveStatusId { get; set; } = CommonConstant.LiveAndNonLive;
 
         public string Title { get; set; }
 
