@@ -1,19 +1,2 @@
-webpackJsonp([6],{
-
-/***/ 0:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(254);
-
-
-/***/ },
-
-/***/ 254:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }
-
-});
+webpackJsonp([6],{0:function(n,o,c){n.exports=c(248)},248:function(n,o){}});
 //# sourceMappingURL=house-win-loss-style.chunk.js.map
