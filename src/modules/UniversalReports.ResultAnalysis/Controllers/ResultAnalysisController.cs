@@ -30,7 +30,14 @@ namespace UniversalReports.ResultAnalysis.Controllers
 			return Json(viewModel);
 		}
 
-		[Route("export-excel")]
+        [Route("result-analysis-of-quarter")]
+        public async Task<IHttpActionResult> ResultAnalysisOfQuarter(ResultAnalysisOfQuarterRequest request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("export-excel")]
 		[HttpPost]
 		public async Task<IHttpActionResult> Excel(ResultAnalysisExcelRequest request)
 		{

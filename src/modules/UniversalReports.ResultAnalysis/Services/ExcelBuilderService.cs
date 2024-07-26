@@ -56,7 +56,7 @@ namespace UniversalReports.ResultAnalysis.Services
 
 		private void LoadTemplate(string fileExcel)
 		{
-			var templateAbsolutelyPath = $"{configurationService.CurrentDirectory}\\ExcelTemplate\\ResultAnalysis\\{fileExcel}";
+			var templateAbsolutelyPath = $@"{configurationService.CurrentDirectory}\ExcelTemplate\ResultAnalysis\{fileExcel}";
 			using (var stream = new FileStream(templateAbsolutelyPath, FileMode.Open, FileAccess.Read))
 			{
 				ExcelPackage = new ExcelPackage(stream);

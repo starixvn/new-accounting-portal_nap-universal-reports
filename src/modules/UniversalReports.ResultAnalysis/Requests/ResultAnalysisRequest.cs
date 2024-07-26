@@ -1,11 +1,10 @@
 ﻿using MediatR;
 using System;
-using System.Collections.Generic;
 using UniversalReports.ResultAnalysis.Models;
 
 namespace UniversalReports.ResultAnalysis.Requests
 {
-	public class ResultAnalysisRequest: IRequest<ResultAnalysisModel>
+    public class ResultAnalysisRequest: IRequest<ResultAnalysisModel>
 	{
 		public DateTime FromDate { get; set; }
 

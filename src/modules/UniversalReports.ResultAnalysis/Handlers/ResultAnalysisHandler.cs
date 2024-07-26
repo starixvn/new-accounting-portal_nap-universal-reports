@@ -11,8 +11,9 @@ using UniversalReports.ResultAnalysis.Services;
 namespace UniversalReports.ResultAnalysis.Handlers
 {
 	public class ResultAnalysisHandler: IRequestHandler<LeagueRequest, IEnumerable<LeagueModel>>,
-		IRequestHandler<ResultAnalysisRequest, ResultAnalysisModel>
-	{
+		IRequestHandler<ResultAnalysisRequest, ResultAnalysisModel>,
+        IRequestHandler<ResultAnalysisOfQuarterRequest, ResultAnalysisOfQuarterModel>
+    {
 		private readonly ResultAnalysisService service;
 
 		public ResultAnalysisHandler(ResultAnalysisService service)
@@ -20,16 +21,22 @@ namespace UniversalReports.ResultAnalysis.Handlers
 			this.service = service;
 		}
 
-		public async Task<IEnumerable<LeagueModel>> Handle(LeagueRequest request, CancellationToken cancellationToken)
+		public Task<IEnumerable<LeagueModel>> Handle(LeagueRequest request, CancellationToken cancellationToken)
 		{
 			var criteria = Mapper.Map<LeagueCriteria>(request);
-			return await service.GetLeagues(criteria);
+			return service.GetLeagues(criteria);
 		}
 
-		public async Task<ResultAnalysisModel> Handle(ResultAnalysisRequest request, CancellationToken cancellationToken)
+		public Task<ResultAnalysisModel> Handle(ResultAnalysisRequest request, CancellationToken cancellationToken)
 		{
 			var criteria = Mapper.Map<ResultAnalysisCriteria>(request);
-			return await service.GetResultAnalysis(criteria);
+			return service.GetResultAnalysis(criteria);
 		}
-	}
+
+        public Task<ResultAnalysisOfQuarterModel> Handle(ResultAnalysisOfQuarterRequest request, CancellationToken cancellationToken)
+        {
+            var criteria = Mapper.Map<ResultAnalysisCriteria>(request);
+            return service.GetResultAnalysisOfQuarter(criteria);
+        }
+    }
 }

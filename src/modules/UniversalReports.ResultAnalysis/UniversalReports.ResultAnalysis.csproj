@@ -110,12 +110,16 @@
     <Compile Include="Criteria\ResultAnalysisCriteria.cs" />
     <Compile Include="Handlers\ResultAnalysisExcelHandler.cs" />
     <Compile Include="Handlers\ResultAnalysisHandler.cs" />
+    <Compile Include="Models\BaseResultAnalysisModel.cs" />
     <Compile Include="Models\LeagueModel.cs" />
     <Compile Include="Models\ResultAnalysisExcelModel.cs" />
     <Compile Include="Models\ResultAnalysisModel.cs" />
+    <Compile Include="Models\ResultAnalysisOfQuarterExcelModel.cs" />
+    <Compile Include="Models\ResultAnalysisOfQuarterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\LeagueRequest.cs" />
     <Compile Include="Requests\ResultAnalysisExcelRequest.cs" />
+    <Compile Include="Requests\ResultAnalysisOfQuarterRequest.cs" />
     <Compile Include="Requests\ResultAnalysisRequest.cs" />
     <Compile Include="ResultAnalysisAttribute.cs" />
     <Compile Include="Services\ExcelBuilderService.cs" />

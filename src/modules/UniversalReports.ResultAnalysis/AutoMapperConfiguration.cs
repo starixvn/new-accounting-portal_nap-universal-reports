@@ -13,6 +13,7 @@ namespace UniversalReports.ResultAnalysis
 			cfg.CreateMap<ResultAnalysisRequest, ResultAnalysisCriteria>();
 			cfg.CreateMap<ResultAnalysisExcelRequest, ResultAnalysisCriteria>();
 			cfg.CreateMap<ResultAnalysisExcelModel, ResultAnalysisModel>();
-		}
+            cfg.CreateMap<ResultAnalysisOfQuarterRequest, ResultAnalysisCriteria>();
+        }
 	}
 }
