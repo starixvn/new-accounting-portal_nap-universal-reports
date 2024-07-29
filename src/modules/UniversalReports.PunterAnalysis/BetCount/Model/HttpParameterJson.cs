@@ -1,6 +1,7 @@
 ﻿using System;
 using Linq.DynamicSum;
 using MediatR;
+using UniversalReports.PunterAnalysis.Constants;
 
 namespace UniversalReports.PunterAnalysis.BetCount.Model
 {
@@ -22,7 +23,7 @@ namespace UniversalReports.PunterAnalysis.BetCount.Model
 
         public int BetTypeId { get; set; }
 
-        public int LiveStatusId { get; set; }
+        public int LiveStatusId { get; set; } = CommonConstant.LiveAndNonLive;
 
         public string ListLeagueGroupId { get; set; }
 
