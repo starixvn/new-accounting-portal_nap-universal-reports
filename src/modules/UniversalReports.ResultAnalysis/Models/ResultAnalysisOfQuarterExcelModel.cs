@@ -4,13 +4,6 @@ using System.Collections.Generic;
 
 namespace UniversalReports.ResultAnalysis.Models
 {
-    public class ResultAnalysisOfQuarterExcelModel
-    {
-        public IEnumerable<DetailedResultAnalysisOfQuarterExcelModel> Items { get; set; }
-
-        public ResultAnalysisSummaryOfQuarterExcelModel Summary { get; set; }
-    }
-
     public class ResultAnalysisSummaryOfQuarterExcelModel
     {
         [Cell("A6:B6")]
@@ -47,67 +40,131 @@ namespace UniversalReports.ResultAnalysis.Models
         public int Draw1x2Result { get; set; }
     }
 
-    public class DetailedResultAnalysisOfQuarterExcelModel
+    public class DetailedResultAnalysisOfHomeQuarterExcelModel
     {
-        [Cell("A10")]
+        [Cell("A9")]
         public DateTime Date { get; set; }
 
-        [Cell("B10")]
+        [Cell("B9")]
         public string League { get; set; }
 
-        [Cell("C10")]
+        [Cell("C9")]
         public string Match { get; set; }
 
         public string HDP { get; set; }
 
-        [Cell("D10")]
+        [Cell("D9")]
         public string HdpString => HDP == "-" ? "-" : Math.Round(decimal.Parse(HDP), 2).ToString();
 
         public string OU { get; set; }
 
-        [Cell("E10")]
+        [Cell("E9")]
         public string OuString => OU == "-" ? "-" : Math.Round(decimal.Parse(OU), 2).ToString();
 
-        [Cell("F10")]
+        [Cell("F9")]
         public string Fav { get; set; }
 
-        [Cell("G10")]
-        public string Q1 { get; set; }
+        [Cell("G9")]
+        public string Q1Home { get; set; }
 
-        [Cell("H10")]
-        public string Q2 { get; set; }
+        [Cell("H9")]
+        public string Q2Home { get; set; }
 
-        [Cell("I10")]
-        public string Q3 { get; set; }
+        [Cell("I9")]
+        public string Q3Home { get; set; }
 
-        [Cell("J10")]
-        public string Q4 { get; set; }
+        [Cell("J9")]
+        public string Q4Home { get; set; }
 
-        [Cell("K10")]
-        public string OT { get; set; }
+        [Cell("K9")]
+        public string OtHome { get; set; }
 
-        [Cell("L10")]
-        public string HtScore { get; set; }
+        [Cell("L9")]
+        public string HtScoreHome { get; set; }
 
-        [Cell("M10")]
-        public string H2Score { get; set; }
+        [Cell("M9")]
+        public string ShtScoreHome { get; set; }
 
-        [Cell("N10")]
-        public string FtScore { get; set; }
+        [Cell("N9")]
+        public string FtScoreHome { get; set; }
 
-        [Cell("O10")]
+        [Cell("O9")]
         public string ResultHDP { get; set; }
 
-        [Cell("P10")]
+        [Cell("P9")]
         public string ResultOU { get; set; }
 
-        [Cell("Q10")]
-        public string ResultML{ get; set; }
+        [Cell("Q9")]
+        public string Result1x2 { get; set; }
 
-        [Cell("R10")]
+        [Cell("R9")]
         public string HtWM { get; set; }
 
-        [Cell("S10")]
+        [Cell("S9")]
+        public string FtWM { get; set; }
+    }
+
+    public class DetailedResultAnalysisOfAwayQuarterExcelModel
+    {
+        [Cell("A9")]
+        public DateTime Date { get; set; }
+
+        [Cell("B9")]
+        public string League { get; set; }
+
+        [Cell("C9")]
+        public string Match { get; set; }
+
+        public string HDP { get; set; }
+
+        [Cell("D9")]
+        public string HdpString => HDP == "-" ? "-" : Math.Round(decimal.Parse(HDP), 2).ToString();
+
+        public string OU { get; set; }
+
+        [Cell("E9")]
+        public string OuString => OU == "-" ? "-" : Math.Round(decimal.Parse(OU), 2).ToString();
+
+        [Cell("F9")]
+        public string Fav { get; set; }
+
+        [Cell("G9")]
+        public string Q1Away { get; set; }
+
+        [Cell("H9")]
+        public string Q2Away { get; set; }
+
+        [Cell("I9")]
+        public string Q3Away { get; set; }
+
+        [Cell("J9")]
+        public string Q4Away { get; set; }
+
+        [Cell("K9")]
+        public string OtAway { get; set; }
+
+        [Cell("L9")]
+        public string HtScoreAway { get; set; }
+
+        [Cell("M9")]
+        public string ShtScoreAway { get; set; }
+
+        [Cell("N9")]
+        public string FtScoreAway { get; set; }
+
+        [Cell("O9")]
+        public string ResultHDP { get; set; }
+
+        [Cell("P9")]
+        public string ResultOU { get; set; }
+
+        [Cell("Q9")]
+        public string Result1x2 { get; set; }
+
+        [Cell("R9")]
+        public string HtWM { get; set; }
+
+        [Cell("S9")]
         public string FtWM { get; set; }
     }
 }

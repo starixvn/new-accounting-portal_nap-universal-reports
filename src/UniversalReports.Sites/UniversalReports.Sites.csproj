@@ -883,7 +883,7 @@
     <Content Include="ExcelTemplate\CashOutPerformance\SimpleCashOutPerformance.xlsx" />
     <Content Include="ExcelTemplate\Exchange\LicenseeExchange.xlsx" />
     <Content Include="ExcelTemplate\ResultAnalysis\ResultAnalysis.xlsx" />
-    <Content Include="ExcelTemplate\ResultAnalysis\SimpleResultAnalysis.xlsx" />
+    <Content Include="ExcelTemplate\ResultAnalysis\ResultAnalysisOfQuarter.xlsx" />
     <None Include="packages.config" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />

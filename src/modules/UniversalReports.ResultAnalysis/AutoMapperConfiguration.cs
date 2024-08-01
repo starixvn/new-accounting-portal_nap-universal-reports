@@ -14,6 +14,9 @@ namespace UniversalReports.ResultAnalysis
 			cfg.CreateMap<ResultAnalysisExcelRequest, ResultAnalysisCriteria>();
 			cfg.CreateMap<ResultAnalysisExcelModel, ResultAnalysisModel>();
             cfg.CreateMap<ResultAnalysisOfQuarterRequest, ResultAnalysisCriteria>();
+            cfg.CreateMap<ResultAnalysisSummaryOfQuarterExcelModel, BaseResultAnalysisSummaryModel>();
+            cfg.CreateMap<DetailedResultAnalysisOfHomeQuarterExcelModel, DetailedResultAnalysisOfQuarterModel>();
+            cfg.CreateMap<DetailedResultAnalysisOfAwayQuarterExcelModel, DetailedResultAnalysisOfQuarterModel>();
         }
 	}
 }
