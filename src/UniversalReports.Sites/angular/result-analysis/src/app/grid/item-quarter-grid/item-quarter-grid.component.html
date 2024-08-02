@@ -38,9 +38,9 @@
             <th scope="col">HT Score</th>
             <th scope="col">2H Score</th>
             <th scope="col">FT Score</th>
-            <th scope="col">HDP Result</th>
-            <th scope="col">OU Result</th>
-            <th scope="col">ML Result</th>
+            <th scope="col">HDP RESULT</th>
+            <th scope="col">OU RESULT</th>
+            <th scope="col">ML RESULT</th>
             <th scope="col">1H WM</th>
             <th scope="col">FT WM</th>
         </tr>
@@ -82,49 +82,49 @@
       <td class="text-center">{{item.FtScoreAway}}</td>
     </tr>
   </ng-template>
-  <div style="width: 1827px">
-    <div [ngSwitch]="displayedData.length > 0">
-        <div class="nap-grid">
-            <div class="header">
-                <table>
-                    <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
-                    <ng-template [ngTemplateOutlet]="thead"></ng-template>
-                </table>
-            </div>
-            <div *ngSwitchCase="true" class="body">
-                <table>
-                    <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
-                    <tbody>
-                        <ng-container *ngFor="let item of displayedData; index as index">
-                            <ng-template [ngTemplateOutlet]="detailedData" [ngTemplateOutletContext]="{ item: item, index: index }">
-                            </ng-template>
-                        </ng-container>
-                      </tbody>
-                </table>
-            </div>
-            <div *ngSwitchCase="false" class="body stretch">
-                <table>
+  <div [ngSwitch]="displayedData.length > 0">
+      <div class="nap-grid">
+        <div style="width: 1827px">
+          <div class="header">
+            <table>
+                <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                <ng-template [ngTemplateOutlet]="thead"></ng-template>
+            </table>
+          </div>
+          <div *ngSwitchCase="true" class="body">
+              <table>
+                  <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
                   <tbody>
-                    <tr>
-                      <th scope="col" class="no-data" colspan="19">
-                        There is no data
-                      </th>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            <div class="footer" *ngIf="displayedData.length > 0">
-                <table>
-                    <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
-                    <tfoot>
-                        <tr>
-                            <td colspan="19">
-                                <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange()"></nap-pagination>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
+                      <ng-container *ngFor="let item of displayedData; index as index">
+                          <ng-template [ngTemplateOutlet]="detailedData" [ngTemplateOutletContext]="{ item: item, index: index }">
+                          </ng-template>
+                      </ng-container>
+                    </tbody>
+              </table>
+          </div>
+          <div *ngSwitchCase="false" class="body stretch">
+            <table>
+              <tbody>
+                <tr>
+                  <th scope="col" class="no-data" colspan="19">
+                    There is no data
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="footer" *ngIf="displayedData.length > 0">
+              <table>
+                  <ng-template [ngTemplateOutlet]="colgroup"></ng-template>
+                  <tfoot>
+                      <tr>
+                          <td colspan="19">
+                              <nap-pagination [config]="paginationInstance" (pageChange)="onPageChange()"></nap-pagination>
+                          </td>
+                      </tr>
+                  </tfoot>
+              </table>
+          </div>
         </div>
-    </div>
+      </div>
   </div>
