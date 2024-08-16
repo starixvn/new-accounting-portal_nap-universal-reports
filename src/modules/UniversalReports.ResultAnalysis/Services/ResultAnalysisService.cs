@@ -1,20 +1,20 @@
-﻿using System;
-using Fanex.Data.Repository;
+﻿using Fanex.Data.Repository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using OfficeOpenXml.Interfaces.Drawing.Text;
 using UniversalReports.ResultAnalysis.Criteria;
 using UniversalReports.ResultAnalysis.Models;
 
 namespace UniversalReports.ResultAnalysis.Services
 {
-	public interface ResultAnalysisService
+    public interface ResultAnalysisService
 	{
 		Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria);
 
 		Task<ResultAnalysisModel> GetResultAnalysis(ResultAnalysisCriteria criteria);
-	}
+
+        Task<ResultAnalysisOfQuarterModel> GetResultAnalysisOfQuarter(ResultAnalysisCriteria criteria);
+    }
 
 	public class ResultAnalysisServiceImp : ResultAnalysisService
 	{
@@ -24,9 +24,9 @@ namespace UniversalReports.ResultAnalysis.Services
 		{
 			this.repository = repository;
 		}
-		public async Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria)
+		public Task<IEnumerable<LeagueModel>> GetLeagues(LeagueCriteria criteria)
 		{
-			return await repository.FetchAsync<LeagueModel>(criteria);
+			return repository.FetchAsync<LeagueModel>(criteria);
 		}
 
 		public async Task<ResultAnalysisModel> GetResultAnalysis(ResultAnalysisCriteria criteria)
@@ -40,7 +40,18 @@ namespace UniversalReports.ResultAnalysis.Services
 			return await Task.FromResult(result);
 		}
 
-		private static ResultAnalysisSummaryModel GetSummaryModel(List<DetailedResultAnalysisModel> data)
+        public async Task<ResultAnalysisOfQuarterModel> GetResultAnalysisOfQuarter(ResultAnalysisCriteria criteria)
+        {
+            var items = (await repository.FetchAsync<DetailedResultAnalysisOfQuarterModel>(criteria)).ToList();
+            var result = new ResultAnalysisOfQuarterModel
+            {
+                Items = items,
+                Summary = GetSummaryModel(items)
+            };
+            return await Task.FromResult(result);
+        }
+
+        private static ResultAnalysisSummaryModel GetSummaryModel(List<DetailedResultAnalysisModel> data)
 		{
             var result = new ResultAnalysisSummaryModel
 			{
@@ -63,7 +74,26 @@ namespace UniversalReports.ResultAnalysis.Services
 			return result;
 		}
 
-		private static bool CheckResultTg(string data, int first, int second)
+        private static ResultAnalysisSummaryModel GetSummaryModel(List<DetailedResultAnalysisOfQuarterModel> data)
+        {
+            var result = new ResultAnalysisSummaryModel
+            {
+                TotalLeague = data.Select(item => item.League).Distinct().Count(),
+                TotalMatch = data.Select(item => item.MatchID).Distinct().Count(),
+                FavHdpResult = data.Count(item => item.ResultHDP == "Fav"),
+                UnderdogHdpResult = data.Count(item => item.ResultHDP == "Underdog"),
+                DrawHdpResult = data.Count(item => item.ResultHDP == "Draw"),
+                OverOuResult = data.Count(item => item.ResultOU == "Over"),
+                UnderOuResult = data.Count(item => item.ResultOU == "Under"),
+                DrawOuResult = data.Count(item => item.ResultOU == "Draw"),
+                Fav1x2Result = data.Count(item => item.Result1x2 == "Fav"),
+                Underdog1x2Result = data.Count(item => item.Result1x2 == "Underdog"),
+                Draw1x2Result = data.Count(item => item.Result1x2 == "Draw")
+            };
+            return result;
+        }
+
+        private static bool CheckResultTg(string data, int first, int second)
 		{
 			if (data == "-") return false;
 			var number = int.Parse(data);

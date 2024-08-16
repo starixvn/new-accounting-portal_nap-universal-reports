@@ -14,6 +14,7 @@ namespace UniversalReports.ResultAnalysis.Handlers
 	{
 		private readonly ResultAnalysisService service;
 		private readonly ExcelBuilderService excelService;
+        private const int Soccer = 1;
 
 		public ResultAnalysisExcelHandler(ResultAnalysisService service, ExcelBuilderService excelService)
 		{
@@ -24,10 +25,19 @@ namespace UniversalReports.ResultAnalysis.Handlers
 		public async Task<ExcelPackage> Handle(ResultAnalysisExcelRequest request, CancellationToken cancellationToken)
 		{
 			var criteria = Mapper.Map<ResultAnalysisCriteria>(request);
-			var data = await service.GetResultAnalysis(criteria);
-			var excelModel = Mapper.Map<ResultAnalysisExcelModel>(data);
 			var title = $"Result Analysis Report From {criteria.FromDate:MMM dd, yyyy} To {criteria.ToDate:MMM dd, yyyy}";
-			return excelService.Build(title, excelModel, request.SportId);
+            if (request.SportId == Soccer)
+            {
+                var data = await service.GetResultAnalysis(criteria);
+                var excelModel = Mapper.Map<ResultAnalysisExcelModel>(data);
+                return excelService.Build(title, excelModel);
+            }
+            else
+            {
+                var data = await service.GetResultAnalysisOfQuarter(criteria);
+                return excelService.BuildForQuarter(title, data);
+            }
+			
 		}
 	}
 }
