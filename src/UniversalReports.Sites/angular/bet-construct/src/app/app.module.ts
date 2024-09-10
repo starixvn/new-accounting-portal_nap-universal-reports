@@ -16,6 +16,11 @@ import { FormsModule } from '@angular/forms';
 import { DateModule } from 'nap-components/date';
 import { AuthenticationModule } from 'nap-components/authentication';
 import { DropdownSelectModule } from 'nap-components/dropdown-select';
+import { GridComponent } from './grid/grid.component';
+import { BreadcrumbModule } from 'nap-components/breadcrumb';
+import { SportGridComponent } from './grid/sport-grid/sport-grid.component';
+import { SportDetailGridComponent } from './grid/sport-detail-grid/sport-detail-grid.component';
+import { DecimalFormatDirective } from './directive/decimal-format.directive';
 
 declare module "@angular/core" {
   interface ModuleWithProviders<T = any> {
@@ -27,7 +32,11 @@ declare module "@angular/core" {
 @NgModule({
   declarations: [
     AppComponent,
-    FilterComponent
+    FilterComponent,
+    GridComponent,
+    SportGridComponent,
+    SportDetailGridComponent,
+    DecimalFormatDirective
   ],
   imports: [
     BrowserModule,
@@ -39,7 +48,8 @@ declare module "@angular/core" {
     CommonModule,
     FormsModule,
     DateModule,
-    DropdownSelectModule
+    DropdownSelectModule,
+    BreadcrumbModule
   ],
   providers: [
     { provide: NavbarService, useClass: CustomNavbarService },

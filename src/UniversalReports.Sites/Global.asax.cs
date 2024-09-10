@@ -9,6 +9,7 @@ using System.Web.Routing;
 using System.Web.SessionState;
 using UniversalReports.AbnormalBet;
 using UniversalReports.ActualMemberBet;
+using UniversalReports.BetConstructPerformance;
 using UniversalReports.CN88WinLoss;
 using UniversalReports.Exchange;
 using UniversalReports.HouseWinLoss;
@@ -50,6 +51,7 @@ namespace UniversalReports.Sites
                 cfg.InitializeSBCustomerPerformanceByDanger();
                 cfg.InitializeCashOutPerformance();
                 cfg.InitializeResultAnalysis();
+                cfg.InitializeBetConstructPerformance();
             });
         }
 

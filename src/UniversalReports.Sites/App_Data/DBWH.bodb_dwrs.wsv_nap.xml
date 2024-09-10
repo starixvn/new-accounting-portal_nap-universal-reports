@@ -148,4 +148,7 @@
 		<Setting Key="Acc_Rpt_ResultAnalysis_LeagueSel" SpName="Acc_Rpt_ResultAnalysis_LeagueSel" DbName="DBWH.bodb_dwrs.wsv_nap" />
 		<Setting Key="Acc_Rpt_ResultAnalysis" SpName="Acc_Rpt_ResultAnalysis" DbName="DBWH.bodb_dwrs.wsv_nap" />
 	</Function>
+	<Function Name="BeConstructPerformance">
+		<Setting Key="Acc_Rpt_BetConstructPerformance" SpName="Acc_Rpt_BetConstructPerformance" DbName="DBWH.bodb_dwrs.wsv_nap" />
+	</Function>
 </Functions>

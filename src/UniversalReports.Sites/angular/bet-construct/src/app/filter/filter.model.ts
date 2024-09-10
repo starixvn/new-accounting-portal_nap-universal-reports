@@ -3,4 +3,5 @@ export interface FilterModel {
     toDate: string;
     sportId?: number;
     noDraw: boolean;
+    breadCrumb: string[];
   }

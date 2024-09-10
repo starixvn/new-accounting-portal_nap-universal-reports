@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UniversalReports.AbnormalBet;
 using UniversalReports.ActualMemberBet;
+using UniversalReports.BetConstructPerformance;
 using UniversalReports.CashOutPerformance;
 using UniversalReports.Exchange;
 using UniversalReports.PunterAnalysis.Shared;
@@ -35,6 +36,7 @@ namespace UniversalReports.Sites.SimpleInjector
             yield return typeof(SBCustomerPerformanceByDangerAttribute).GetTypeInfo().Assembly;
             yield return typeof(CashOutPerformanceAttribute).GetTypeInfo().Assembly;
             yield return typeof(ResultAnalysisAttribute).GetTypeInfo().Assembly;
-		}
+            yield return typeof(BetConstructPerformanceAttribute).GetTypeInfo().Assembly;
+        }
     }
 }

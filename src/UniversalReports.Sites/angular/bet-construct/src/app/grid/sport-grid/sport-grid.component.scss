@@ -1,0 +1,21 @@
+@import '~nap-theme/scss/grid';
+@import '~nap-theme/scss/breadcrumb';
+
+.nap-grid {
+    .red-positive.number-positive {
+      color: red;
+    }
+    .red-negative.number-negative {
+      color: red;
+    }
+    .body {
+      overflow-x: hidden;
+      .table {
+        margin-bottom: 1px;
+      }
+    }
+    overflow-x: hidden;
+    .footer {
+        border-top: 3px solid #ff6600;
+    }
+}

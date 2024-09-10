@@ -11,7 +11,7 @@ export class FilterService {
 
   constructor() { }
 
-  getFTurnoverOptions(): SelectItem[] {
+  getTurnoverOptions(): SelectItem[] {
     return [{
         text: 'Normal',
         value: TurnoverType.Normal

@@ -391,6 +391,7 @@
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\OnebookUMInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\BetConstructPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\CashOutPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\ResultAnalysisInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBCustomerPerformanceByDangerInjector.cs" />
@@ -1117,6 +1118,10 @@
     <ProjectReference Include="..\modules\UniversalReports.ActualMemberBet\UniversalReports.ActualMemberBet.csproj">
       <Project>{2d0401ab-8145-4c02-8c23-0b1ce8920c66}</Project>
       <Name>UniversalReports.ActualMemberBet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.BetConstructPerformance\UniversalReports.BetConstructPerformance.csproj">
+      <Project>{a69c7e14-bbfb-4edb-ae41-22f286192e4c}</Project>
+      <Name>UniversalReports.BetConstructPerformance</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.CashOutPerformance\UniversalReports.CashOutPerformance.csproj">
       <Project>{aaa004c8-9c5c-41ed-8847-f2242f45d3e4}</Project>
