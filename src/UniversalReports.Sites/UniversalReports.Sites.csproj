@@ -885,6 +885,8 @@
     <Content Include="ExcelTemplate\Exchange\LicenseeExchange.xlsx" />
     <Content Include="ExcelTemplate\ResultAnalysis\ResultAnalysis.xlsx" />
     <Content Include="ExcelTemplate\ResultAnalysis\ResultAnalysisOfQuarter.xlsx" />
+    <Content Include="ExcelTemplate\BetConstruct\Sport.xlsx" />
+    <Content Include="ExcelTemplate\BetConstruct\SportDetail.xlsx" />
     <None Include="packages.config" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />

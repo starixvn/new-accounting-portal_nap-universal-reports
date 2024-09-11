@@ -149,6 +149,8 @@
 		<Setting Key="Acc_Rpt_ResultAnalysis" SpName="Acc_Rpt_ResultAnalysis" DbName="DBWH.bodb_dwrs.wsv_nap" />
 	</Function>
 	<Function Name="BeConstructPerformance">
-		<Setting Key="Acc_Rpt_BetConstructPerformance" SpName="Acc_Rpt_BetConstructPerformance" DbName="DBWH.bodb_dwrs.wsv_nap" />
+		<Setting Key="Acc_Rpt_BetConstructPerformance" SpName="Acc_Rpt_BetConstructPerformance" DbName="DBWH.bodb_dwrs.wsv_nap" >
+			<Mapping DataField="RptDate" ObjectProperty="Date" />
+		</Setting>
 	</Function>
 </Functions>

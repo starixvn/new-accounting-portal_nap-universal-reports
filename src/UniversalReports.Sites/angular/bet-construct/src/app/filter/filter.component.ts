@@ -41,6 +41,7 @@ export class FilterComponent implements OnInit {
       fromDate: DateHelper.formatMomentDate(fromDate, DateFormat.Date),
       toDate: DateHelper.formatMomentDate(toDate, DateFormat.Date),
       sportId: undefined,
+      sportName: '',
       noDraw: this.turnover === TurnoverType.NoDraw,
       breadCrumb: []
     };

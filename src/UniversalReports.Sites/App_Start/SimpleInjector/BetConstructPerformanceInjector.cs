@@ -8,6 +8,7 @@ namespace UniversalReports.Sites.App_Start.SimpleInjector
         public static Container RegisterBetConstructPerformanceServices(this Container container)
         {
             container.Register<BetConstructPerformanceService, BetConstructPerformanceServiceImp>();
+            container.Register<ExcelBuilderService, ExcelBuilderServiceImp>();
             return container;
         }
     }

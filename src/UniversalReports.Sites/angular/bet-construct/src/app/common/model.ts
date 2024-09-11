@@ -6,6 +6,11 @@
   export interface SportItemModel {
     SportId: number;
     Sport: string;
+    Date: Date;
+    LeagueName: string;
+    MatchName: string;
+    BetTypeName: string;
+    LiveStatus: string;
     MatchCount: number;
     BetCount: number;
     MemberWinLoss: number;

@@ -14,10 +14,14 @@ export class DecimalFormatDirective implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    let data = this.decimalPipe.transform(this.value, '1.2-2');
-    this.render.setProperty(this.element.nativeElement, 'innerHTML', data);
+    let result = '';
     if (this.value < 0) {
       this.element.nativeElement.style.color = 'red';
+      this.value = Math.abs(this.value);
+      result = `(${this.decimalPipe.transform(this.value, '1.2-2')??''})`;
+    } else {
+      result = this.decimalPipe.transform(this.value, '1.2-2')??'';
     }
+    this.render.setProperty(this.element.nativeElement, 'innerHTML', result);
   }
 }

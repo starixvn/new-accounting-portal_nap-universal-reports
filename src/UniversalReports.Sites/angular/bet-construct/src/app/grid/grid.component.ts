@@ -23,7 +23,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     private readonly service: GridService) { }
 
   ngOnInit(): void {
-    this.service.generate = (gridType: GridType,) => this.generate(gridType);
+    this.service.generate = (gridType: GridType) => this.generate(gridType);
   }
 
   ngOnDestroy(): void {
@@ -80,7 +80,7 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
   private updateBreadcrumb(): void {
     this.breadcrumbItems = [];
     this.components.forEach((component, index) => {
-      const componentTitle = component.instance.title.toUpperCase();
+      const componentTitle = component.instance.title;
       this.breadcrumbItems.push(componentTitle);
     });
     this.service.filterModel.breadCrumb = this.breadcrumbItems;
@@ -97,11 +97,27 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  private destroyComponentsFrom(index: number): void {
+    while (this.components.length - 1 > index) {
+      const component = this.components.pop();
+      component?.destroy();
+    }
+
+    this.service.activeGrid = this.components[this.components.length - 1].instance;
+    this.showGridAndBreadcrumb();
+  }
+
   onBreadcrumbItemClick(event: number): void {
-    
+    this.destroyComponentsFrom(event);
+    this.showGridAndBreadcrumb();
   }
 
   exportExcel(): void {
-
+    if (this.components.length === 0) {
+        return;
+    }
+    const component = this.components[this.components.length - 1];
+    const grid = component.instance;
+    grid.exportExcel();
   }
 }

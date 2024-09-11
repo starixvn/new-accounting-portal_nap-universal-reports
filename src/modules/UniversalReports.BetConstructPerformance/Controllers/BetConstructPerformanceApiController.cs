@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.BetConstructPerformance.Requests;
+using UniversalReports.Results;
 
 namespace UniversalReports.BetConstructPerformance.Controllers
 {
@@ -20,6 +21,14 @@ namespace UniversalReports.BetConstructPerformance.Controllers
         {
             var viewModel = await mediator.Send(request);
             return Json(viewModel);
+        }
+
+        [Route("excel-sports")]
+        [HttpPost]
+        public async Task<IHttpActionResult> Excel(SportExcelRequest request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
         }
     }
 }

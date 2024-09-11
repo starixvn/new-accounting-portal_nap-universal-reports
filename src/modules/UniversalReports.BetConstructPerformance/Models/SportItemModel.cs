@@ -1,10 +1,22 @@
-﻿namespace UniversalReports.BetConstructPerformance.Models
+﻿using System;
+
+namespace UniversalReports.BetConstructPerformance.Models
 {
     public class SportItemModel
     {
         public int SportId { get; set; }
 
         public string Sport { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public string LeagueName { get; set; }
+
+        public string MatchName { get; set; }
+
+        public string BetTypeName { get; set; }
+
+        public string LiveStatus { get; set; }
 
         public int MatchCount { get; set; }
 
