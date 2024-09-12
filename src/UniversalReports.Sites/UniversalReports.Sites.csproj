@@ -411,6 +411,7 @@
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BetConstructPerformanceController.cs" />
     <Compile Include="Controllers\CashOutPerformanceController.cs" />
     <Compile Include="Controllers\ResultAnalysisController.cs" />
     <Compile Include="Controllers\SBCustomerPerformanceByDangersController.cs" />
@@ -679,6 +680,18 @@
     <Content Include="wwwroot\actual-member-bet\main.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\polyfills.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\styles.bundle.css" />
+    <Content Include="wwwroot\bet-construct\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\bet-construct\assets\logo.png" />
+    <Content Include="wwwroot\bet-construct\assets\spinner.gif" />
+    <Content Include="wwwroot\bet-construct\favicon.ico" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg" />
+    <Content Include="wwwroot\bet-construct\index.html" />
+    <Content Include="wwwroot\bet-construct\logo.6e8f5e4696c2161db75f.png" />
+    <Content Include="wwwroot\bet-construct\main.js" />
+    <Content Include="wwwroot\bet-construct\polyfills.js" />
+    <Content Include="wwwroot\bet-construct\runtime.js" />
+    <Content Include="wwwroot\bet-construct\spinner.39d0d6bd1fbec2b1c53f.gif" />
+    <Content Include="wwwroot\bet-construct\styles.css" />
     <Content Include="wwwroot\cash-out-performance\3rdpartylicenses.txt" />
     <Content Include="wwwroot\cash-out-performance\assets\logo.png" />
     <Content Include="wwwroot\cash-out-performance\assets\spinner.gif" />
@@ -1107,6 +1120,11 @@
     <Content Include="wwwroot\result-analysis\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\result-analysis\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\result-analysis\index.cshtml" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.1e59d2330b4c6deb84b3.ttf" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.20fd1704ea223900efa9.woff2" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.8b43027f47b20503057d.eot" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.f691f37e57f04c152e23.woff" />
+    <Content Include="wwwroot\bet-construct\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />

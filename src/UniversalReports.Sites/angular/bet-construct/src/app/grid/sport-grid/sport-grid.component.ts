@@ -37,6 +37,7 @@ export class SportGridComponent implements Grid {
   }
 
   exportExcel(): void {
+    this.gridService.filterModel.sportId = undefined;
     this.service.exportExcel(this.gridService.filterModel);
   }
 }
