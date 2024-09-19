@@ -23,5 +23,6 @@
         public const string SBCustomerPerformanceByDangers = "SBCustomerPerformanceByDangers";
         public const string CashOutPerformance = "CashOutPerformance";
         public const string ResultAnalysis = "ResultAnalysis";
-	}
+        public const string BetConstructPerformance = "BetConstructPerformance";
+    }
 }

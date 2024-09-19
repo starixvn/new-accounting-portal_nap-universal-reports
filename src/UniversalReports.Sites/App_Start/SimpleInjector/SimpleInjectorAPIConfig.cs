@@ -30,7 +30,8 @@ namespace UniversalReports.Sites.SimpleInjector
                 .RegisterSMAWinLossServices()
                 .RegisterSBCustomerPerformanceByDangerServices()
                 .RegisterCashOutPerformanceServices()
-				.RegisterResultAnalysisServices();
+				.RegisterResultAnalysisServices()
+                .RegisterBetConstructPerformanceServices();
 
             Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             Container.Verify();

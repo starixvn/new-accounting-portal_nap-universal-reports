@@ -391,6 +391,7 @@
     <Compile Include="App_Start\FanexData.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\OnebookUMInitializer.cs" />
+    <Compile Include="App_Start\SimpleInjector\BetConstructPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\CashOutPerformanceInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\ResultAnalysisInjector.cs" />
     <Compile Include="App_Start\SimpleInjector\SBCustomerPerformanceByDangerInjector.cs" />
@@ -410,6 +411,7 @@
     <Compile Include="App_Start\SimpleInjector\SimpleInjectorMVCInitializer.cs" />
     <Compile Include="App_Start\SimpleInjector\UpdatedUsernameAndCreditInjector.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BetConstructPerformanceController.cs" />
     <Compile Include="Controllers\CashOutPerformanceController.cs" />
     <Compile Include="Controllers\ResultAnalysisController.cs" />
     <Compile Include="Controllers\SBCustomerPerformanceByDangersController.cs" />
@@ -678,6 +680,18 @@
     <Content Include="wwwroot\actual-member-bet\main.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\polyfills.bundle.js" />
     <Content Include="wwwroot\actual-member-bet\styles.bundle.css" />
+    <Content Include="wwwroot\bet-construct\3rdpartylicenses.txt" />
+    <Content Include="wwwroot\bet-construct\assets\logo.png" />
+    <Content Include="wwwroot\bet-construct\assets\spinner.gif" />
+    <Content Include="wwwroot\bet-construct\favicon.ico" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg" />
+    <Content Include="wwwroot\bet-construct\index.html" />
+    <Content Include="wwwroot\bet-construct\logo.6e8f5e4696c2161db75f.png" />
+    <Content Include="wwwroot\bet-construct\main.js" />
+    <Content Include="wwwroot\bet-construct\polyfills.js" />
+    <Content Include="wwwroot\bet-construct\runtime.js" />
+    <Content Include="wwwroot\bet-construct\spinner.39d0d6bd1fbec2b1c53f.gif" />
+    <Content Include="wwwroot\bet-construct\styles.css" />
     <Content Include="wwwroot\cash-out-performance\3rdpartylicenses.txt" />
     <Content Include="wwwroot\cash-out-performance\assets\logo.png" />
     <Content Include="wwwroot\cash-out-performance\assets\spinner.gif" />
@@ -884,6 +898,8 @@
     <Content Include="ExcelTemplate\Exchange\LicenseeExchange.xlsx" />
     <Content Include="ExcelTemplate\ResultAnalysis\ResultAnalysis.xlsx" />
     <Content Include="ExcelTemplate\ResultAnalysis\ResultAnalysisOfQuarter.xlsx" />
+    <Content Include="ExcelTemplate\BetConstruct\Sport.xlsx" />
+    <Content Include="ExcelTemplate\BetConstruct\SportDetail.xlsx" />
     <None Include="packages.config" />
     <None Include="stylesheets\bootstrap\mixins\_border-radius.scss" />
     <Content Include="stylesheets\bootstrap\mixins\_forms.scss" />
@@ -1104,6 +1120,11 @@
     <Content Include="wwwroot\result-analysis\fontawesome-webfont.8b43027f47b20503057d.eot" />
     <Content Include="wwwroot\result-analysis\fontawesome-webfont.f691f37e57f04c152e23.woff" />
     <Content Include="wwwroot\result-analysis\index.cshtml" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.1e59d2330b4c6deb84b3.ttf" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.20fd1704ea223900efa9.woff2" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.8b43027f47b20503057d.eot" />
+    <Content Include="wwwroot\bet-construct\fontawesome-webfont.f691f37e57f04c152e23.woff" />
+    <Content Include="wwwroot\bet-construct\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\root\app.js" />
@@ -1117,6 +1138,10 @@
     <ProjectReference Include="..\modules\UniversalReports.ActualMemberBet\UniversalReports.ActualMemberBet.csproj">
       <Project>{2d0401ab-8145-4c02-8c23-0b1ce8920c66}</Project>
       <Name>UniversalReports.ActualMemberBet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\modules\UniversalReports.BetConstructPerformance\UniversalReports.BetConstructPerformance.csproj">
+      <Project>{a69c7e14-bbfb-4edb-ae41-22f286192e4c}</Project>
+      <Name>UniversalReports.BetConstructPerformance</Name>
     </ProjectReference>
     <ProjectReference Include="..\modules\UniversalReports.CashOutPerformance\UniversalReports.CashOutPerformance.csproj">
       <Project>{aaa004c8-9c5c-41ed-8847-f2242f45d3e4}</Project>
