@@ -224,12 +224,14 @@
     <Compile Include="CashOut\MatchDetail\QueryModel.cs" />
     <Compile Include="Common\BasicWinLoss\BasicWinLossController.cs" />
     <Compile Include="Common\ColumnDecorators\GridOptionColumnRemoval.cs" />
+    <Compile Include="Common\ColumnDecorators\MatchGridOptionColumnDecoratorVirtualSport.native.cs" />
     <Compile Include="Common\Criteria\NumberGameDrilldownCriteria.cs" />
     <Compile Include="Common\Criteria\UniversalSecondLevelCriteria.cs" />
     <Compile Include="Common\Criteria\UniversalSportbookMatchDetailCriteria.cs" />
     <Compile Include="Common\Criteria\UniversalThirdPartyMatchDetailCriteria.cs" />
     <Compile Include="Common\Criteria\UniversalThirdPartySiteCriteria.cs" />
     <Compile Include="Common\Criteria\UniversalThirdPartyBetTypeCriteria.cs" />
+    <Compile Include="Common\MatchDetail\SportTypeConstants.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\BettypeGridOptionColumnDecorator.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\BetType\BettypeGridOptionColumnDecoratorFull.native.cs" />
     <Compile Include="DailyWinLoss2hSoccerMinor\MatchDetail\SoccerMinorMatchGridOptionColumnDecoratorFull.cs" />
@@ -417,6 +419,7 @@
     <Compile Include="VirtualSportsBetradar\MatchDetail\ExcelQueryModel.cs" />
     <Compile Include="VirtualSportsBetradar\MatchDetail\QueryModel.cs" />
     <Compile Include="VirtualSportsBetradar\MatchDetail\VirtualSportsBetradarMatchDetailController.cs" />
+    <Compile Include="VirtualSportsBetradar\MatchDetail\VirtualSportsBetradarSpecialMatchDetailController.cs" />
     <Compile Include="VirtualSports\RacingDetail\ExcelQueryModel.cs" />
     <Compile Include="VirtualSports\RacingDetail\VirtualSportsRacingDetailController.cs" />
     <Compile Include="Common\MatchDetail\CalculationService.cs" />
