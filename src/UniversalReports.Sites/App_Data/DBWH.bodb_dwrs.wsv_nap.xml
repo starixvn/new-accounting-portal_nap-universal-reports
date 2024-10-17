@@ -13,7 +13,7 @@
 		<Setting Key="HouseWinlossByProducts_LvlN_Sportsbook_Site" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_Sportsbook_Site" DbName="DBWH.bodb_dwrs.wsv_nap" TimeOut="180" />
 		<Setting Key="HouseWinlossByProducts_LvlN_NumberGame" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_NumberGame" DbName="DBWH.bodb_dwrs.wsv_nap" TimeOut="180" />
 		<Setting Key="HouseWinlossByProducts_LvlN_3rd_Bettype" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_Bettype" DbName="DBWH.bodb_dwrs.wsv_nap" TimeOut="180" />
-		<Setting Key="HouseWinlossByProducts_LvlN_3rd_MatchDetail" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_MatchDetail" DbName="DBWH.bodb_dwrs.wsv_nap" TimeOut="180" />
+		<Setting Key="HouseWinlossByProducts_LvlN_3rd_MatchDetail" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_MatchDetail_UAT1" DbName="DBWH.bodb_dwrs.wsv_nap" TimeOut="180" />
 		<Setting Key="HouseWinlossByProducts_LvlN_3rd_Site" SpName="Acc_Rpt_HouseWinlossByProducts_LvlN_3rd_Site" DbName="DBWH.bodb_dwrs.wsv_nap" TimeOut="180" />
 		<Setting Key="HouseWinlossByProducts_Lvl2_BettypePerformance" SpName="Acc_Rpt_HouseWinlossByProducts_BettypePerformance" DbName="DBWH.bodb_dwrs.wsv_nap" TimeOut="180" />
 	</Function>
