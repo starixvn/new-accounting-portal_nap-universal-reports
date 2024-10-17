@@ -59,7 +59,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         {
             var leagueTotal = CalculateSumWinLoss(rawWinLoss);
             leagueTotal.LeagueId = leagueId;
-            leagueTotal.LeagueName = GetLeague(leagueId, leagueCode);
+            leagueTotal.LeagueName = rawWinLoss.FirstOrDefault()?.LeagueName;
             var matches = rawWinLoss.Select(FromRawWinLoss)
                 .OrderBy(m => m.MatchCode)
                 .ThenBy(m => m.HomeName);
