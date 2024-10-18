@@ -19,6 +19,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
     {
         private readonly RemotingRefService refService;
 
+        private const int TenMillion = 10000000;
+
         public CalculationServiceImp(RemotingRefService refService)
         {
             this.refService = refService;
@@ -29,7 +31,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             var winLoss = Mapper.Map<WinLoss>(rawWinLoss);
             winLoss.HomeName = GetHomeName(rawWinLoss.HomeId, rawWinLoss.IsNeutral);
             winLoss.AwayName = refService.GetTeamName(rawWinLoss.AwayId);
-            winLoss.LeagueName = refService.GetLeagueName(rawWinLoss.LeagueId);
+            winLoss.LeagueName = rawWinLoss.LeagueName;
             winLoss.MatchCode = refService.GetMatchCode(winLoss.MatchCode);
             return winLoss;
         }
@@ -40,10 +42,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 + (isNeutral ? " (N)" : string.Empty);
         }
 
-        private string GetLeague(int leagueId, string leagueCode)
+        private string GetLeague(string leagueCode, string leagueName)
         {
-            string leagueName = refService.GetLeagueName(leagueId);
-
             return string.IsNullOrEmpty(leagueCode) ? leagueName : $"{leagueCode} - {leagueName}";
         }
 
@@ -59,7 +59,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         {
             var leagueTotal = CalculateSumWinLoss(rawWinLoss);
             leagueTotal.LeagueId = leagueId;
-            leagueTotal.LeagueName = rawWinLoss.FirstOrDefault()?.LeagueName;
+            leagueTotal.LeagueName = GetLeague(leagueCode, rawWinLoss.FirstOrDefault()?.LeagueName);
             var matches = rawWinLoss.Select(FromRawWinLoss)
                 .OrderBy(m => m.MatchCode)
                 .ThenBy(m => m.HomeName);
