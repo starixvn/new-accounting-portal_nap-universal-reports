@@ -15,6 +15,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
     {
         private readonly GetTeamNameAndSuffixService teamNameService;
 
+        private readonly List<int> notDisplayHomeAwaySportTypeList = new List<int> { SportTypeConstants.VirtualDogRacing, SportTypeConstants.VirtualHorseRacing };
+
         public GridOptionsBuilderImp(GetTeamNameAndSuffixService teamNameService)
         {
             this.teamNameService = teamNameService;
@@ -88,8 +90,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         private GridDataRow BuidMatchRow(WinLoss item, string leagueName)
         {
-            string homeName = teamNameService.GetTeamNameWithSuffixByMatchCode(item.HomeName, item.MatchCode);
-            string awayName = teamNameService.GetTeamNameWithSuffixByMatchCode(item.AwayName, item.MatchCode);
+            var homeName = teamNameService.GetTeamNameWithSuffixByMatchCode(item.HomeName, item.MatchCode);
+            var awayName = teamNameService.GetTeamNameWithSuffixByMatchCode(item.AwayName, item.MatchCode);
 
             var columnIndex = 0;
             var customAttributes = $"{item.SportType},{item.MatchId},'{item.EventDate:MMM dd, yyyy}','{leagueName}','{item.MatchCode}'";
@@ -101,12 +103,18 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                     Bold = true,
                     CssClass = "league-match-code",
                     CellAlignment = HAlignment.Center
-                },
-                new Columns(columnIndex++, "Home", homeName),
-                new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center },
-                new Columns(columnIndex++, "Away", awayName) { CellAlignment = HAlignment.Left },
+                }
             };
-
+            if (notDisplayHomeAwaySportTypeList.Contains(item.SportType))
+            {
+                colummns.Add(new Columns(columnIndex++, "Home", item.MatchId) { CellAlignment = HAlignment.Center });
+            }
+            else
+            {
+                colummns.Add(new Columns(columnIndex++, "Home", homeName));
+                colummns.Add(new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center });
+                colummns.Add(new Columns(columnIndex++, "Away", awayName) { CellAlignment = HAlignment.Left });
+            }
             var baseColumns = CreateBaseColumns(columnIndex, item);
             colummns.AddRange(baseColumns);
 
@@ -129,7 +137,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         private GridDataRow BuildTotalRow(WinLoss item, string totalText)
         {
-            const int BaseColumnIndex = 4;
+            var baseColumnIndex = notDisplayHomeAwaySportTypeList.Contains(item.SportType) ? 2 : 4;
             var colummns = new List<Columns>
             {
                 new Columns
@@ -137,12 +145,12 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                     ColumnIndex = 0,
                     Name = "MatchCode",
                     Value = totalText,
-                    MergeColNumber = 4,
+                    MergeColNumber = baseColumnIndex,
                     CellAlignment = HAlignment.Right
                 }
             };
 
-            var baseColumns = CreateBaseColumns(BaseColumnIndex, item);
+            var baseColumns = CreateBaseColumns(baseColumnIndex, item);
             colummns.AddRange(baseColumns);
 
             return new GridDataRow { Columns = colummns };

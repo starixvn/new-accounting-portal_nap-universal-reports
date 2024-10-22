@@ -8,6 +8,8 @@ namespace UniversalReports.HouseWinLoss.Common.Services
 
         string GetLeagueName(int leagueId);
 
+        string GetLeagueName3rd(int leagueId);
+
         string GetMatchCode(string matchCode);
     }
 
@@ -30,6 +32,12 @@ namespace UniversalReports.HouseWinLoss.Common.Services
         {
             var leagueIdString = leagueId.ToString();
             return remotingRefService.GetLeagueName(leagueIdString, "en", string.Empty);
+        }
+
+        public string GetLeagueName3rd(int leagueId)
+        {
+            var leagueIdString = leagueId.ToString();
+            return remotingRefService.GetLeagueName3rd(leagueIdString, "en", string.Empty);
         }
 
         public string GetMatchCode(string matchCode)
@@ -62,6 +70,12 @@ namespace UniversalReports.HouseWinLoss.Common.Services
         {
             var teamIdString = teamId.ToString();
             return remotingRefService.GetTeamName3rd(teamIdString, "en", string.Empty);
+        }
+
+        public string GetLeagueName3rd(int leagueId)
+        {
+            var leagueIdString = leagueId.ToString();
+            return remotingRefService.GetLeagueName3rd(leagueIdString, "en", string.Empty);
         }
 
         public string GetMatchCode(string matchCode)

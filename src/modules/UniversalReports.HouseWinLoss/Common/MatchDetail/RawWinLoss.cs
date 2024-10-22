@@ -24,6 +24,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
 
         public int LeagueId { get; set; }
 
+        public string LeagueName { get; set; }
+
         public string LeagueCode { get; set; }
 
         public decimal MemberWinLoss { get; set; }
