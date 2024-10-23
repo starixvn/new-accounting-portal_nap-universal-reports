@@ -33,6 +33,8 @@ namespace UniversalReports.CashOutPerformance.Criteria
 
         public int FilterType { get; set; }
 
+        public bool? EvenOddCust { get; set; }
+
         public override string GetSettingKey() => $"Acc_Rpt_COPerformance_LiveStatus_{Server}";
 
         public override bool IsValid() => true;

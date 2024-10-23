@@ -51,6 +51,14 @@ export class FilterService {
     ];
    }
 
+   getevenOddCustSelectItems(): SelectItem[] {
+    return [
+        { text: 'All customers', value: null },
+        { text: 'Odd Customer ID', value: true },
+        { text: 'Even Customer ID', value: false }
+    ];
+   }
+
    getGlobalShowTimeFilterItems(): FilterItemModel[] {
     return [
         { Id: 1, Name: '12:00 - 12:59'},
