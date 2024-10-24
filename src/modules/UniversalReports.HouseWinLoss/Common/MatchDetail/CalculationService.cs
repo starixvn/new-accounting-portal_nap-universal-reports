@@ -60,6 +60,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
             var leagueTotal = CalculateSumWinLoss(rawWinLoss);
             leagueTotal.LeagueId = leagueId;
             leagueTotal.LeagueName = GetLeague(leagueCode, rawWinLoss.FirstOrDefault()?.LeagueName);
+            leagueTotal.SportType = rawWinLoss.FirstOrDefault()?.SportType??0;
             var matches = rawWinLoss.Select(FromRawWinLoss)
                 .OrderBy(m => m.MatchCode)
                 .ThenBy(m => m.HomeName);
@@ -76,7 +77,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         {
             var matchWinLosses = rawWinLosses.Where(r => r.MatchId > 0 && r.LeagueId > 0);
             var sumWinLoss = matchWinLosses.DynamicSum();
-
+            sumWinLoss.SportType = rawWinLosses.FirstOrDefault()?.SportType ?? 0;
             return FromRawWinLoss(sumWinLoss);
         }
 

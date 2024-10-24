@@ -12,7 +12,6 @@ namespace UniversalReports.HouseWinLoss.Common.ColumnDecorators
 
         public GridOptions Build(GridOptions gridOptions)
         {
-            RemoveBodyAndFooterColumn(gridOptions, VirtualSport2VirtualMarginIndex, VirtualSport2VirtualTurnoverIndex, VirtualSport2VirtualIncomeIndex, VirtualSport2VarianceIndex);
             gridOptions.BodyRows[0].Columns[1].MergeColNumber -= 2;
             gridOptions.CustomizeHeader = true;
             gridOptions.Columns = BuildBasicMatchColumns();

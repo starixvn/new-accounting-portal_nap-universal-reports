@@ -105,17 +105,19 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                     CellAlignment = HAlignment.Center
                 }
             };
+            var baseColumns = new List<Columns>();
             if (notDisplayHomeAwaySportTypeList.Contains(item.SportType))
             {
                 colummns.Add(new Columns(columnIndex++, "Home", item.MatchId) { CellAlignment = HAlignment.Center });
+                baseColumns = CreateBaseColumnsForNotDisplayHomeAway(columnIndex, item);
             }
             else
             {
                 colummns.Add(new Columns(columnIndex++, "Home", homeName));
                 colummns.Add(new Columns(columnIndex++, "VS", "-vs-") { CellAlignment = HAlignment.Center });
                 colummns.Add(new Columns(columnIndex++, "Away", awayName) { CellAlignment = HAlignment.Left });
+                baseColumns = CreateBaseColumns(columnIndex, item);
             }
-            var baseColumns = CreateBaseColumns(columnIndex, item);
             colummns.AddRange(baseColumns);
 
             return new GridDataRow
@@ -150,7 +152,8 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 }
             };
 
-            var baseColumns = CreateBaseColumns(baseColumnIndex, item);
+            var baseColumns = notDisplayHomeAwaySportTypeList.Contains(item.SportType) ? CreateBaseColumnsForNotDisplayHomeAway(baseColumnIndex, item)
+                : CreateBaseColumns(baseColumnIndex, item);
             colummns.AddRange(baseColumns);
 
             return new GridDataRow { Columns = colummns };
@@ -170,6 +173,20 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
                 new Columns(columnIndex++, "VirtualTurnover", item.VirtualTurnover),
                 new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex++, "VirtualMargin", item.ExcelVirtualMargin()),
+                new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
+            };
+        }
+
+        private static List<Columns> CreateBaseColumnsForNotDisplayHomeAway(int columnIndex, WinLoss item)
+        {
+            return new List<Columns>
+            {
+                new Columns(columnIndex++, "MemberWinLoss", item.MemberWinLoss),
+                new Columns(columnIndex++, "SMAWinLoss", item.SMAWinLoss),
+                new Columns(columnIndex++, "SMAWinLoss", item.ExtraPT),
+                new Columns(columnIndex++, "Commission", item.Commission),
+                new Columns(columnIndex++, "RealIncome", item.RealIncome),
+                new Columns(columnIndex++, "RealTurnover", item.RealTurnover),
                 new Columns(columnIndex, "RealMargin", item.ExcelRealMargin())
             };
         }
