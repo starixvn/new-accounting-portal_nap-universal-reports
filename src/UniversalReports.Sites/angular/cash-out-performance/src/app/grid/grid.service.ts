@@ -13,6 +13,9 @@ export class GridService {
   activeGrid: Grid;
   eventTitle: string;
   betTypeTitle: string;
+  gameTimeTitle: string;
+  winningProbabilityTitle: string;
+  detailGameTimeTitle: string;
   matchDetailTitle: string;
   cachedLiveIndicator: number;
   generate: (gridType: GridType) => void;

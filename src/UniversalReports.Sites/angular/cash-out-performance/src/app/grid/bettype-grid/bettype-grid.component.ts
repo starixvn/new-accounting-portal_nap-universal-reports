@@ -85,7 +85,11 @@ export class BettypeGridComponent implements Grid {
     return _.isNil(data);
   }
 
-  showMatchDetailLevel(betType: number, betTypeName: string): void{
+  isLive(): boolean {
+    return this.gridService.filterModel.liveIndicator === 1;
+  }
+
+  showMatchDetailLevel(betType: number, betTypeName: string): void {
     this.gridService.matchDetailTitle = betTypeName;
     const sportBettypeList =
       this.gridService.cachedSportBettypeForSport.split(',').filter(x => x.split('_')[1] === betType.toString()).join(',');
@@ -95,4 +99,8 @@ export class BettypeGridComponent implements Grid {
     this.gridService.generate(GridType.MatchDetail);
   }
 
+  showGameTimeLevel(outCome: string): void {
+    this.gridService.gameTimeTitle = outCome;
+    this.gridService.generate(GridType.GameTime);
+  }
 }

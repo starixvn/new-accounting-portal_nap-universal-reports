@@ -55,6 +55,8 @@ export interface EventStatusLevelModel extends CommonTicketModel {
 export interface BetTypeLevelModel extends CommonTicketModel {
   BetType: number;
   BetTypeName: string;
+  BetCount: number;
+  OutCome: string;
 }
 
 export interface MatchDetailLevelModel extends CommonTicketModel {

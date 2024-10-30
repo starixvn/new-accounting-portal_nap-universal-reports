@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Fanex.Caching;
+using Linq.DynamicSum;
 using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
@@ -18,13 +21,19 @@ namespace UniversalReports.CashOutPerformance.Handlers
         IRequestHandler<TicketRequest<BetTypeLevelModel>, TicketViewModel<BetTypeLevelModel>>,
         IRequestHandler<TicketRequest<MatchDetailLevelModel>, TicketViewModel<MatchDetailLevelModel>>,
         IRequestHandler<LeagueRequest, IEnumerable<LeagueModel>>,
-        IRequestHandler<LeagueGroupRequest, IEnumerable<FilterItemModel>>
+        IRequestHandler<LeagueGroupRequest, IEnumerable<FilterItemModel>>,
+        IRequestHandler<BetTypeDrillDownRequest, TicketViewModel<BetTypeLevelModel>>
     {
+        private const string BetTypeDataCacheKey = "BetTypeDataCacheKey";
+
         private readonly CashOutPerformanceService service;
 
-        public Handler(CashOutPerformanceService service)
+        private readonly ICacheService cacheService;
+
+        public Handler(CashOutPerformanceService service, ICacheService cacheService)
         {
             this.service = service;
+            this.cacheService = cacheService;
         }
 
         public async Task<IEnumerable<FilterGroupItemModel>> Handle(SportRequest request, CancellationToken cancellationToken)
@@ -54,7 +63,10 @@ namespace UniversalReports.CashOutPerformance.Handlers
         public async Task<TicketViewModel<BetTypeLevelModel>> Handle(TicketRequest<BetTypeLevelModel> request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
-            return await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            var result = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            await cacheService.SetAsync(BetTypeDataCacheKey, result);
+            UpdateBetTypeViewModel(result);
+            return result;
         }
 
         public async Task<TicketViewModel<MatchDetailLevelModel>> Handle(TicketRequest<MatchDetailLevelModel> request, CancellationToken cancellationToken)
@@ -73,6 +85,29 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var criteria = Mapper.Map<LeagueGroupCriteria>(request);
             return await service.GetLeagueGroups(criteria);
+        }
+
+        private static void UpdateBetTypeViewModel(TicketViewModel<BetTypeLevelModel> data)
+        {
+            var result = new List<BetTypeLevelModel>();
+            var groups = data.TicketList.GroupBy(x => x.BetType);
+            foreach (var group in groups)
+            {
+                var betType = group.DynamicSum();
+                var groupedOutComes = group.GroupBy(item => item.OutCome);
+                foreach (var outCome in groupedOutComes)
+                {
+                    var item = outCome.DynamicSum();
+                    betType.ChildItems.Add(item);
+                }
+                result.Add(betType);
+            }
+            data.TicketList = result;
+        }
+
+        public async Task<TicketViewModel<BetTypeLevelModel>> Handle(BetTypeDrillDownRequest request, CancellationToken cancellationToken)
+        {
+            return await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>(BetTypeDataCacheKey);
         }
     }
 }

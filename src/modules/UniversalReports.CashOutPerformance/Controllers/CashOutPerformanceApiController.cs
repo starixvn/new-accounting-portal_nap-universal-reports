@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System.Linq;
+using MediatR;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.CashOutPerformance.Models;
@@ -7,6 +8,8 @@ using UniversalReports.CashOutPerformance.Requests;
 namespace UniversalReports.CashOutPerformance.Controllers
 {
     using Results;
+    using UniversalReports.CashOutPerformance.Criteria;
+    using UniversalReports.CashOutPerformance.Utility;
 
     [RoutePrefix("api/cash-out-performance")]
     public class CashOutPerformanceApiController : ApiController
@@ -67,6 +70,16 @@ namespace UniversalReports.CashOutPerformance.Controllers
         public async Task<IHttpActionResult> BetTypeLevel(TicketRequest<BetTypeLevelModel> request)
         {
             var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
+        [Route("game-time-level")]
+        [HttpPost]
+        public async Task<IHttpActionResult> GameTimeLevel(GameTimeCriteria criteria)
+        {
+            var request = new BetTypeDrillDownRequest();
+            var data = await mediator.Send(request);
+            var viewModel = ModelsHelper.UpdateGameTimeLevelModel(data.TicketList.ToList(), criteria);
             return Json(viewModel);
         }
 
