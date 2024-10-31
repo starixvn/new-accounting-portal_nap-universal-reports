@@ -57,6 +57,7 @@ export interface BetTypeLevelModel extends CommonTicketModel {
   BetTypeName: string;
   BetCount: number;
   OutCome: string;
+  WinningProbabilityQuantile: string;
 }
 
 export interface MatchDetailLevelModel extends CommonTicketModel {
@@ -114,4 +115,9 @@ export interface ExcelQueryModel {
   export enum FilterType {
     SettledDate,
     CashedOutDate
+  }
+
+  export interface BetTypeDrillDownQueryModel {
+    betType: number;
+    outCome: string;
   }

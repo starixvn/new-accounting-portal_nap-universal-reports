@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Grid } from '../grid.model';
 import { Observable } from 'rxjs';
+import * as _ from 'lodash';
+import { WinningProbabilityGridService } from './winning-probability-grid.service';
+import { GridService } from '../grid.service';
+import { BetTypeLevelModel, TicketViewModel } from '../../../app/common/model';
 
 @Component({
   selector: 'app-winning-probability-grid',
@@ -9,14 +13,28 @@ import { Observable } from 'rxjs';
 })
 export class WinningProbabilityGridComponent implements Grid {
 
-  constructor() { }
+  dataViewModel: TicketViewModel<BetTypeLevelModel>;
 
-  title: string;
+  constructor(private readonly service: WinningProbabilityGridService,
+    private readonly gridService: GridService,) { }
+
+  get title(): string {
+    return this.gridService.winningProbabilityTitle;
+  }
 
   query(): Observable<any> {
-    throw new Error('Method not implemented.');
+    return new Observable(observer => {
+      this.service.getTickets(this.gridService.betTypeDrillDownQueryModel).subscribe(data => {
+        this.dataViewModel = data;
+      });
+      observer.complete();
+    });
   }
-  
+
+  isShowNotAvailable(data: number) : boolean {
+    return _.isNil(data);
+  }
+
   exportExcel(): void {
     throw new Error('Method not implemented.');
   }

@@ -44,10 +44,10 @@
                                       class="fa"></i>&nbsp;
       <a href="javascript:;" (click)="showMatchDetailLevel(item.BetType, item.BetTypeName)">{{item.BetTypeName}}</a></td>
     <td class="text-right">
-      <a href="javascript:;" (click)="showMatchDetailLevel(item.BetType, item.BetTypeName)">{{item.BetCount}}</a>
+      <a href="javascript:;" (click)="showWinningProbabilityLevel(item.BetType, item.BetTypeName)">{{item.BetCount}}</a>
     </td>
     <td *ngIf="isLive()" class="text-right">
-      <a [napDecimalFormat]="item.COTurnover_RM" href="javascript:;" (click)="showMatchDetailLevel(item.BetType, item.BetTypeName)">{{item.COTurnover_RM}}</a>
+      <a [napDecimalFormat]="item.COTurnover_RM" href="javascript:;" (click)="showDetailGameTimeLevel(item.BetType, item.BetTypeName)">{{item.COTurnover_RM}}</a>
     </td>
     <td *ngIf="!isLive()" class="text-right" [napDecimalFormat]="item.COTurnover_RM"></td>
     <td *ngIf="isShowNotAvailable(item.ActualTurnover)" class="text-right">&nbsp;</td>
@@ -70,7 +70,7 @@
 </ng-template>
 <ng-template #rowOutComeItem let-item="item">
   <td *ngIf="isLive()" class="text-right">
-    <a href="javascript:;" (click)="showMatchDetailLevel(item.BetType, item.BetTypeName)">{{item.OutCome}}</a>
+    <a href="javascript:;" (click)="showGameTimeLevel(item.OutCome, item.BetType, item.BetTypeName)">{{item.OutCome}}</a>
   </td>
   <td *ngIf="!isLive()" class="text-right">{{item.OutCome}}</td>
   <td class="text-right">{{item.BetCount}}</td>

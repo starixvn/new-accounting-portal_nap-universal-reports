@@ -83,6 +83,26 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
+        [Route("winning-probability-level")]
+        [HttpPost]
+        public async Task<IHttpActionResult> WinningProbabilityLevel(GameTimeCriteria criteria)
+        {
+            var request = new BetTypeDrillDownRequest();
+            var data = await mediator.Send(request);
+            var viewModel = ModelsHelper.UpdateWinningProbabilityLevelModel(data.TicketList.ToList(), criteria);
+            return Json(viewModel);
+        }
+
+        [Route("detail-game-time-level")]
+        [HttpPost]
+        public async Task<IHttpActionResult> DetailGameTimeLevel(GameTimeCriteria criteria)
+        {
+            var request = new BetTypeDrillDownRequest();
+            var data = await mediator.Send(request);
+            var viewModel = ModelsHelper.UpdateDetailGameTimeLevelModel(data.TicketList.ToList(), criteria);
+            return Json(viewModel);
+        }
+
         [Route("match-detail-level")]
         [HttpPost]
         public async Task<IHttpActionResult> MatchDetailLevel(TicketRequest<MatchDetailLevelModel> request)

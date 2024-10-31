@@ -25,6 +25,7 @@ namespace UniversalReports.CashOutPerformance.Models
                 BetType = a.BetType,
                 BetTypeName = a.BetTypeName,
                 OutCome = a.OutCome,
+                GameTime = a.GameTime,
                 WinningProbabilityQuantile = a.WinningProbabilityQuantile,
                 BetCount = a.BetCount + b.BetCount,
                 COTurnover_RM = a.COTurnover_RM + b.COTurnover_RM,

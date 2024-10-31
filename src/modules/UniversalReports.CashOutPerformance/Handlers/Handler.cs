@@ -63,9 +63,9 @@ namespace UniversalReports.CashOutPerformance.Handlers
         public async Task<TicketViewModel<BetTypeLevelModel>> Handle(TicketRequest<BetTypeLevelModel> request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
-            var result = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
-            await cacheService.SetAsync(BetTypeDataCacheKey, result);
-            UpdateBetTypeViewModel(result);
+            var data = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            await cacheService.SetAsync(BetTypeDataCacheKey, data);
+            var result = UpdateBetTypeViewModel(data);
             return result;
         }
 
@@ -87,9 +87,10 @@ namespace UniversalReports.CashOutPerformance.Handlers
             return await service.GetLeagueGroups(criteria);
         }
 
-        private static void UpdateBetTypeViewModel(TicketViewModel<BetTypeLevelModel> data)
+        private static TicketViewModel<BetTypeLevelModel> UpdateBetTypeViewModel(TicketViewModel<BetTypeLevelModel> data)
         {
-            var result = new List<BetTypeLevelModel>();
+            var result = new TicketViewModel<BetTypeLevelModel>();
+            var ticketList = new List<BetTypeLevelModel>();
             var groups = data.TicketList.GroupBy(x => x.BetType);
             foreach (var group in groups)
             {
@@ -100,9 +101,13 @@ namespace UniversalReports.CashOutPerformance.Handlers
                     var item = outCome.DynamicSum();
                     betType.ChildItems.Add(item);
                 }
-                result.Add(betType);
+                ticketList.Add(betType);
             }
-            data.TicketList = result;
+
+            result.TicketList = ticketList;
+            result.Total = data.Total;
+            result.TotalTicket = data.TotalTicket;
+            return result;
         }
 
         public async Task<TicketViewModel<BetTypeLevelModel>> Handle(BetTypeDrillDownRequest request, CancellationToken cancellationToken)

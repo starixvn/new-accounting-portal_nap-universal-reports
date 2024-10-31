@@ -20,7 +20,10 @@ import { GameTimeGridComponent } from './game-time-grid/game-time-grid.component
     MatchDetailGridComponent,
     SportGridComponent,
     EventStatusGridComponent,
-    BettypeGridComponent
+    BettypeGridComponent,
+    GameTimeGridComponent,
+    WinningProbabilityGridComponent,
+    DetailGameTimeGridComponent
   ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {

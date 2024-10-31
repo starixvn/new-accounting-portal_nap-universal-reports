@@ -6,7 +6,7 @@ import { HttpService } from 'nap-components/http';
 import { Observable } from 'rxjs';
 import { FilterModel } from '../../../app/filter/filter.model';
 import { CommonConfig } from '../../../app/common/constants';
-import { BetTypeLevelModel, ExcelQueryModel, TicketViewModel } from '../../../app/common/model';
+import { BetTypeDrillDownQueryModel, BetTypeLevelModel, ExcelQueryModel, TicketViewModel } from '../../../app/common/model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class GameTimeService {
 
   constructor(private httpService: HttpService) { }
 
-  getTickets(): Observable<TicketViewModel<BetTypeLevelModel>> {
-    return this.httpService.post<TicketViewModel<BetTypeLevelModel>>(`${CommonConfig.API}game-time-level`);
+  getTickets(model: BetTypeDrillDownQueryModel): Observable<TicketViewModel<BetTypeLevelModel>> {
+    return this.httpService.post<TicketViewModel<BetTypeLevelModel>>(`${CommonConfig.API}game-time-level`, model);
   }
 
   exportExcel(filterModel: FilterModel): void {
