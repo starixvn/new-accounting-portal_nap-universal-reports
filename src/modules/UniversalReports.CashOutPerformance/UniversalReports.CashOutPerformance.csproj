@@ -116,7 +116,10 @@
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="CashOutPerformanceAttribute.cs" />
     <Compile Include="Common\CashOutPerformanceCommonApiController.cs" />
+    <Compile Include="Constants\DataCacheKeyConstants.cs" />
+    <Compile Include="Constants\ExcelConstants.cs" />
     <Compile Include="Constants\ExcelType.cs" />
+    <Compile Include="Constants\GameTimeConstants.cs" />
     <Compile Include="Controllers\CashOutPerformanceApiController.cs" />
     <Compile Include="Criteria\BetTypeLevelCriteria.cs" />
     <Compile Include="Criteria\EventStatusLevelCriteria.cs" />
@@ -136,6 +139,7 @@
     <Compile Include="Models\EventStatusLevelModel.cs" />
     <Compile Include="Models\FilterGroupItemModel.cs" />
     <Compile Include="Models\FilterItemModel.cs" />
+    <Compile Include="Models\GameTimeLevelExcelModel.cs" />
     <Compile Include="Models\LeagueModel.cs" />
     <Compile Include="Models\MatchDetailLevelExcelModel.cs" />
     <Compile Include="Models\MatchDetailLevelModel.cs" />
@@ -147,7 +151,9 @@
     <Compile Include="Models\SportLevelExcelModel.cs" />
     <Compile Include="Models\SportLevelModel.cs" />
     <Compile Include="Models\SportModel.cs" />
+    <Compile Include="Models\WinningProbabilityLevelExcelModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\BetTypeDrillDownExcelRequest.cs" />
     <Compile Include="Requests\BetTypeDrillDownRequest.cs" />
     <Compile Include="Requests\LeagueGroupRequest.cs" />
     <Compile Include="Requests\LeagueRequest.cs" />

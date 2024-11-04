@@ -10,7 +10,9 @@ using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 using UniversalReports.CashOutPerformance.Services;
+using UniversalReports.CashOutPerformance.Utility;
 using UniversalReports.CashOutPerformance.ViewModels;
+using UniversalReports.CashOutPerformance.Constants;
 
 namespace UniversalReports.CashOutPerformance.Handlers
 {
@@ -24,8 +26,6 @@ namespace UniversalReports.CashOutPerformance.Handlers
         IRequestHandler<LeagueGroupRequest, IEnumerable<FilterItemModel>>,
         IRequestHandler<BetTypeDrillDownRequest, TicketViewModel<BetTypeLevelModel>>
     {
-        private const string BetTypeDataCacheKey = "BetTypeDataCacheKey";
-
         private readonly CashOutPerformanceService service;
 
         private readonly ICacheService cacheService;
@@ -64,8 +64,8 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
             var data = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
-            await cacheService.SetAsync(BetTypeDataCacheKey, data);
-            var result = UpdateBetTypeViewModel(data);
+            await cacheService.SetAsync(DataCacheKeyConstants.BetType, data);
+            var result = ModelsHelper.UpdateBetTypeViewModel(data);
             return result;
         }
 
@@ -87,32 +87,9 @@ namespace UniversalReports.CashOutPerformance.Handlers
             return await service.GetLeagueGroups(criteria);
         }
 
-        private static TicketViewModel<BetTypeLevelModel> UpdateBetTypeViewModel(TicketViewModel<BetTypeLevelModel> data)
-        {
-            var result = new TicketViewModel<BetTypeLevelModel>();
-            var ticketList = new List<BetTypeLevelModel>();
-            var groups = data.TicketList.GroupBy(x => x.BetType);
-            foreach (var group in groups)
-            {
-                var betType = group.DynamicSum();
-                var groupedOutComes = group.GroupBy(item => item.OutCome);
-                foreach (var outCome in groupedOutComes)
-                {
-                    var item = outCome.DynamicSum();
-                    betType.ChildItems.Add(item);
-                }
-                ticketList.Add(betType);
-            }
-
-            result.TicketList = ticketList;
-            result.Total = data.Total;
-            result.TotalTicket = data.TotalTicket;
-            return result;
-        }
-
         public async Task<TicketViewModel<BetTypeLevelModel>> Handle(BetTypeDrillDownRequest request, CancellationToken cancellationToken)
         {
-            return await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>(BetTypeDataCacheKey);
+            return await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>(DataCacheKeyConstants.BetType);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace UniversalReports.CashOutPerformance.Models
 
         public int BetCount { get; set; }
 
-        public List<BetTypeLevelModel> ChildItems { get; set; } = new List<BetTypeLevelModel>();
+        public List<ChildItemBetTypeModel> ChildItems { get; set; } = new List<ChildItemBetTypeModel>();
 
         public static BetTypeLevelModel operator +(BetTypeLevelModel a, BetTypeLevelModel b)
         {
@@ -40,5 +40,20 @@ namespace UniversalReports.CashOutPerformance.Models
                 COProfit = a.COProfit + b.COProfit
             };
         }
+    }
+
+    public class ChildItemBetTypeModel : CommonTicketModel
+    {
+        public int BetType { get; set; }
+
+        public string BetTypeName { get; set; }
+
+        public string OutCome { get; set; }
+
+        public string WinningProbabilityQuantile { get; set; }
+
+        public string GameTime { get; set; }
+
+        public int BetCount { get; set; }
     }
 }

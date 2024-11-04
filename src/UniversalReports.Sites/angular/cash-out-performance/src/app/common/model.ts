@@ -120,4 +120,6 @@ export interface ExcelQueryModel {
   export interface BetTypeDrillDownQueryModel {
     betType: number;
     outCome: string;
+    title: string;
+    breadCrumb: string[];
   }

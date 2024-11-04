@@ -19,22 +19,15 @@ export class WinningProbabilityGridService {
     return this.httpService.post<TicketViewModel<BetTypeLevelModel>>(`${CommonConfig.API}winning-probability-level`, model);
   }
 
-  exportExcel(filterModel: FilterModel): void {
-    const excelQueryModel = this.createExcelQueryModel(filterModel);
+  exportExcel(filterModel: FilterModel, model: BetTypeDrillDownQueryModel): void {
+    model.title = `Cash Out Performance Report From ${filterModel.startDate} To ${filterModel.endDate}`;
+    model.breadCrumb = filterModel.breadCrumb;
 
-    const fromDate = moment(excelQueryModel.startDate).format('YYYY_MM_DD');
-    const toDate = moment(excelQueryModel.endDate).format('YYYY_MM_DD');
-    this.httpService.download(`${CommonConfig.API}excel-game-time`, excelQueryModel).subscribe(response => {
+    const fromDate = moment(filterModel.startDate).format('YYYY_MM_DD');
+    const toDate = moment(filterModel.endDate).format('YYYY_MM_DD');
+    this.httpService.download(`${CommonConfig.API}excel-winning-probability`, model).subscribe(response => {
       const fileName = `Cash_Out_Performance_Report_From_${fromDate}_To_${toDate}.xlsx`;
       Helper.downloadFile(response, fileName);
     });
-  }
-
-  private createExcelQueryModel(filterModel: FilterModel): ExcelQueryModel {
-    const title = `Cash Out Performance Report From ${filterModel.startDate} To ${filterModel.endDate}`;
-    const excelQueryModel: ExcelQueryModel = _.extend({}, { title }, filterModel);
-    excelQueryModel.pageIndex = 0;
-    excelQueryModel.pageSize = 0;
-    return excelQueryModel;
   }
 }

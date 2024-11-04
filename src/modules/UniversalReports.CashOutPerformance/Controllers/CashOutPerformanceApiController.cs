@@ -7,6 +7,7 @@ using UniversalReports.CashOutPerformance.Requests;
 
 namespace UniversalReports.CashOutPerformance.Controllers
 {
+    using OfficeOpenXml;
     using Results;
     using UniversalReports.CashOutPerformance.Criteria;
     using UniversalReports.CashOutPerformance.Utility;
@@ -130,6 +131,14 @@ namespace UniversalReports.CashOutPerformance.Controllers
         [Route("excel-bettype")]
         [HttpPost]
         public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<BetTypeLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-game-time")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(BetTypeDrillDownExcelRequest request)
         {
             var excelPackage = await mediator.Send(request);
             return new EpplusExcelResult(excelPackage);

@@ -101,19 +101,19 @@ export class BettypeGridComponent implements Grid {
 
   showGameTimeLevel(outCome: string, betType: number, bettypeName: string): void {
     this.gridService.gameTimeTitle = `${bettypeName} | ${outCome}`;
-    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: outCome };
+    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: outCome, title: '', breadCrumb: [] };
     this.gridService.generate(GridType.GameTime);
   }
 
   showWinningProbabilityLevel(betType: number, bettypeName: string): void {
     this.gridService.winningProbabilityTitle = `${bettypeName}`;
-    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: '' };
+    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: '', title: '', breadCrumb: [] };
     this.gridService.generate(GridType.WinningProbability);
   }
 
   showDetailGameTimeLevel(betType: number, bettypeName: string): void {
     this.gridService.detailGameTimeTitle = `${bettypeName}`;
-    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: '' };
+    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: '', title: '', breadCrumb: [] };
     this.gridService.generate(GridType.DetailGameTime);
   }
 }

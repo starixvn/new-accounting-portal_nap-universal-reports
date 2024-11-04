@@ -39,7 +39,7 @@
   </ng-template>
   <ng-template #rowItem let-item="item">
     <tr>
-        <td class="text-right">{{item.GameTime.replace("45z", "Halftime Break")}}</td>
+        <td class="text-right">{{item.GameTime}}</td>
         <td class="text-right">{{item.BetCount}}</td>
         <td class="text-right" [napDecimalFormat]="item.COTurnover_RM"></td>
         <td *ngIf="isShowNotAvailable(item.ActualTurnover)" class="text-right">&nbsp;</td>

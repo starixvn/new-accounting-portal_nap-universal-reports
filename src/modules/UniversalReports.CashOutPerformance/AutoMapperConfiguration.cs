@@ -31,6 +31,9 @@ namespace UniversalReports.CashOutPerformance
             cfg.CreateMap<SportLevelModel, SportLevelExcelModel>();
             cfg.CreateMap<SportLevelRequest, SportLevelCriteria>();
             cfg.CreateMap<SportLevelExcelRequest, SportLevelCriteria>();
+            cfg.CreateMap<BetTypeLevelModel, ChildItemBetTypeModel>();
+            cfg.CreateMap<BetTypeLevelModel, BetTypeLevelExcelModel>();
+            cfg.CreateMap<BetTypeDrillDownExcelRequest, GameTimeCriteria>();
         }
     }
 }
