@@ -1,17 +1,31 @@
-﻿using Linq.DynamicSum;
+﻿using AutoMapper;
+using Linq.DynamicSum;
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
+using UniversalReports.CashOutPerformance.Constants;
 using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.ViewModels;
-using UniversalReports.CashOutPerformance.Constants;
 
-namespace UniversalReports.CashOutPerformance.Utility
+namespace UniversalReports.CashOutPerformance.Services
 {
-    public static class ModelsHelper
+    public interface ModelsHelperService
     {
-        public static TicketViewModel<BetTypeLevelModel> UpdateGameTimeLevelModel(List<BetTypeLevelModel> data, GameTimeCriteria criteria)
+        TicketViewModel<BetTypeLevelModel> UpdateGameTimeLevelModel(List<BetTypeLevelModel> data,
+            GameTimeCriteria criteria);
+
+        TicketViewModel<BetTypeLevelModel> UpdateWinningProbabilityLevelModel(List<BetTypeLevelModel> data,
+            GameTimeCriteria criteria);
+
+        TicketViewModel<BetTypeLevelModel> UpdateDetailGameTimeLevelModel(List<BetTypeLevelModel> data,
+            GameTimeCriteria criteria);
+
+        TicketViewModel<BetTypeLevelModel> UpdateBetTypeViewModel(TicketViewModel<BetTypeLevelModel> data);
+    }
+
+    public class ModelsHelperServiceImp : ModelsHelperService
+    {
+        public TicketViewModel<BetTypeLevelModel> UpdateGameTimeLevelModel(List<BetTypeLevelModel> data, GameTimeCriteria criteria)
         {
             var result = new TicketViewModel<BetTypeLevelModel>();
             var rawData = data.Where(item => item.BetType == criteria.BetType && item.OutCome == criteria.OutCome);
@@ -29,18 +43,21 @@ namespace UniversalReports.CashOutPerformance.Utility
             return result;
         }
 
-        public static TicketViewModel<BetTypeLevelModel> UpdateWinningProbabilityLevelModel(List<BetTypeLevelModel> data, GameTimeCriteria criteria)
+        public TicketViewModel<BetTypeLevelModel> UpdateWinningProbabilityLevelModel(List<BetTypeLevelModel> data, GameTimeCriteria criteria)
         {
             var result = new TicketViewModel<BetTypeLevelModel>();
             var rawData = data.Where(item => item.BetType == criteria.BetType);
-            var ticketList = rawData.GroupBy(x => x.WinningProbabilityQuantile).Select(ticket => ticket.DynamicSum());
-            result.TicketList = ticketList.OrderBy(x => x.WinningProbabilityQuantile);
+            var ticketList = rawData.GroupBy(x => x.WinningProbabilityQuantile)
+                .Select(ticket => ticket.DynamicSum())
+                .OrderBy(x => x.WinningProbabilityQuantile).ToList();
+            ticketList.ForEach(b => b.BetTypeName = b.WinningProbabilityQuantile);
+            result.TicketList = ticketList;
             result.TotalTicket = rawData.DynamicSum();
             result.Total = ticketList.Count();
             return result;
         }
 
-        public static TicketViewModel<BetTypeLevelModel> UpdateDetailGameTimeLevelModel(List<BetTypeLevelModel> data, GameTimeCriteria criteria)
+        public TicketViewModel<BetTypeLevelModel> UpdateDetailGameTimeLevelModel(List<BetTypeLevelModel> data, GameTimeCriteria criteria)
         {
             var result = new TicketViewModel<BetTypeLevelModel>();
             var rawData = data.Where(item => item.BetType == criteria.BetType).OrderBy(o => o.GameTime);
@@ -49,13 +66,15 @@ namespace UniversalReports.CashOutPerformance.Utility
             foreach (var group in groups)
             {
                 var gameTime = group.DynamicSum();
-                gameTime.GameTime =
-                    gameTime.GameTime.Replace(GameTimeConstants.HalftimeValue, GameTimeConstants.HalftimeText);
+                gameTime.ChildItems = new List<ChildItemBetTypeModel>();
+                gameTime.GameTime = gameTime.GameTime.Replace(GameTimeConstants.HalftimeValue, GameTimeConstants.HalftimeText);
+                gameTime.BetTypeName = gameTime.GameTime;
                 var groupedOutComes = group.GroupBy(item => item.OutCome);
                 foreach (var outCome in groupedOutComes)
                 {
                     var item = outCome.DynamicSum();
                     var childItem = Mapper.Map<ChildItemBetTypeModel>(item);
+                    childItem.BetTypeName = childItem.OutCome;
                     gameTime.ChildItems.Add(childItem);
                 }
                 ticketList.Add(gameTime);
@@ -67,7 +86,7 @@ namespace UniversalReports.CashOutPerformance.Utility
             return result;
         }
 
-        public static TicketViewModel<BetTypeLevelModel> UpdateBetTypeViewModel(TicketViewModel<BetTypeLevelModel> data)
+        public TicketViewModel<BetTypeLevelModel> UpdateBetTypeViewModel(TicketViewModel<BetTypeLevelModel> data)
         {
             var result = new TicketViewModel<BetTypeLevelModel>();
             var ticketList = new List<BetTypeLevelModel>();

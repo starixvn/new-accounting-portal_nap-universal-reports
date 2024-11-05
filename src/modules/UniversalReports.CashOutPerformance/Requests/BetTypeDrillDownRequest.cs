@@ -6,5 +6,10 @@ namespace UniversalReports.CashOutPerformance.Requests
 {
     public class BetTypeDrillDownRequest : IRequest<TicketViewModel<BetTypeLevelModel>>
     {
+        public int BetType { get; set; }
+
+        public string OutCome { get; set; }
+
+        public string Type { get; set; }
     }
 }

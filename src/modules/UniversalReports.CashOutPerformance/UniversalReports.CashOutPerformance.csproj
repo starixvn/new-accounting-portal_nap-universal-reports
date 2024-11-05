@@ -116,6 +116,7 @@
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="CashOutPerformanceAttribute.cs" />
     <Compile Include="Common\CashOutPerformanceCommonApiController.cs" />
+    <Compile Include="Constants\BetTypeDrillDownTypeConstants.cs" />
     <Compile Include="Constants\DataCacheKeyConstants.cs" />
     <Compile Include="Constants\ExcelConstants.cs" />
     <Compile Include="Constants\ExcelType.cs" />
@@ -143,6 +144,8 @@
     <Compile Include="Models\LeagueModel.cs" />
     <Compile Include="Models\MatchDetailLevelExcelModel.cs" />
     <Compile Include="Models\MatchDetailLevelModel.cs" />
+    <Compile Include="Models\SimpleBetTypeLevelExcelModel.cs" />
+    <Compile Include="Models\SimpleBetTypeLevelModel.cs" />
     <Compile Include="Models\SiteModel.cs" />
     <Compile Include="Models\SportBetTypeModel.cs" />
     <Compile Include="Models\SportExcelModel.cs" />
@@ -164,8 +167,8 @@
     <Compile Include="Requests\TicketExcelRequest.cs" />
     <Compile Include="Requests\TicketRequest.cs" />
     <Compile Include="Services\CashOutPerformanceService.cs" />
+    <Compile Include="Services\ModelsHelperService.cs" />
     <Compile Include="Services\TicketsExcelBuilder.cs" />
-    <Compile Include="Utility\ModelsHelper.cs" />
     <Compile Include="ViewModels\TicketViewExcelModel.cs" />
     <Compile Include="ViewModels\TicketViewModel.cs" />
   </ItemGroup>

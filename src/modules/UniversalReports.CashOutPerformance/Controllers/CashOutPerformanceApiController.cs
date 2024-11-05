@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using MediatR;
+﻿using MediatR;
 using System.Threading.Tasks;
 using System.Web.Http;
 using UniversalReports.CashOutPerformance.Models;
@@ -7,10 +6,7 @@ using UniversalReports.CashOutPerformance.Requests;
 
 namespace UniversalReports.CashOutPerformance.Controllers
 {
-    using OfficeOpenXml;
     using Results;
-    using UniversalReports.CashOutPerformance.Criteria;
-    using UniversalReports.CashOutPerformance.Utility;
 
     [RoutePrefix("api/cash-out-performance")]
     public class CashOutPerformanceApiController : ApiController
@@ -66,6 +62,14 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
+        [Route("simple-bettype-level")]
+        [HttpPost]
+        public async Task<IHttpActionResult> SimpleBetTypeLevel(TicketRequest<SimpleBetTypeLevelModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
         [Route("bettype-level")]
         [HttpPost]
         public async Task<IHttpActionResult> BetTypeLevel(TicketRequest<BetTypeLevelModel> request)
@@ -74,35 +78,14 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
-        [Route("game-time-level")]
+        [Route("drill-down-bettype-level")]
         [HttpPost]
-        public async Task<IHttpActionResult> GameTimeLevel(GameTimeCriteria criteria)
+        public async Task<IHttpActionResult> GameTimeLevel(BetTypeDrillDownRequest request)
         {
-            var request = new BetTypeDrillDownRequest();
-            var data = await mediator.Send(request);
-            var viewModel = ModelsHelper.UpdateGameTimeLevelModel(data.TicketList.ToList(), criteria);
+            var viewModel = await mediator.Send(request);
             return Json(viewModel);
         }
 
-        [Route("winning-probability-level")]
-        [HttpPost]
-        public async Task<IHttpActionResult> WinningProbabilityLevel(GameTimeCriteria criteria)
-        {
-            var request = new BetTypeDrillDownRequest();
-            var data = await mediator.Send(request);
-            var viewModel = ModelsHelper.UpdateWinningProbabilityLevelModel(data.TicketList.ToList(), criteria);
-            return Json(viewModel);
-        }
-
-        [Route("detail-game-time-level")]
-        [HttpPost]
-        public async Task<IHttpActionResult> DetailGameTimeLevel(GameTimeCriteria criteria)
-        {
-            var request = new BetTypeDrillDownRequest();
-            var data = await mediator.Send(request);
-            var viewModel = ModelsHelper.UpdateDetailGameTimeLevelModel(data.TicketList.ToList(), criteria);
-            return Json(viewModel);
-        }
 
         [Route("match-detail-level")]
         [HttpPost]
@@ -136,7 +119,15 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return new EpplusExcelResult(excelPackage);
         }
 
-        [Route("excel-game-time")]
+        [Route("excel-simple-bettype")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<SimpleBetTypeLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-drill-down-bettype")]
         [HttpPost]
         public async Task<IHttpActionResult> TicketsExcel(BetTypeDrillDownExcelRequest request)
         {

@@ -16,14 +16,17 @@ namespace UniversalReports.CashOutPerformance
             cfg.CreateMap<TicketRequest<SportLevelModel>, SportLevelCriteria>();
             cfg.CreateMap<TicketRequest<EventStatusLevelModel>, EventStatusLevelCriteria>();
             cfg.CreateMap<TicketRequest<BetTypeLevelModel>, BetTypeLevelCriteria>();
+            cfg.CreateMap<TicketRequest<SimpleBetTypeLevelModel>, BetTypeLevelCriteria>();
             cfg.CreateMap<TicketRequest<MatchDetailLevelModel>, MatchDetailLevelCriteria>();
             cfg.CreateMap<TicketExcelRequest<SportLevelModel>, SportLevelCriteria>();
             cfg.CreateMap<TicketExcelRequest<EventStatusLevelModel>, EventStatusLevelCriteria>();
             cfg.CreateMap<TicketExcelRequest<BetTypeLevelModel>, BetTypeLevelCriteria>();
+            cfg.CreateMap<TicketExcelRequest<SimpleBetTypeLevelModel>, BetTypeLevelCriteria>();
             cfg.CreateMap<TicketExcelRequest<MatchDetailLevelModel>, MatchDetailLevelCriteria>();
             cfg.CreateMap<TicketViewModel<SportLevelModel>, TicketViewExcelModel<SportLevelExcelModel>>();
             cfg.CreateMap<TicketViewModel<EventStatusLevelModel>, TicketViewExcelModel<EventStatusLevelExcelModel>>();
             cfg.CreateMap<TicketViewModel<BetTypeLevelModel>, TicketViewExcelModel<BetTypeLevelExcelModel>>();
+            cfg.CreateMap<TicketViewModel<SimpleBetTypeLevelModel>, TicketViewExcelModel<SimpleBetTypeLevelExcelModel>>();
             cfg.CreateMap<TicketViewModel<MatchDetailLevelModel>, TicketViewExcelModel<MatchDetailLevelExcelModel>>();
             cfg.CreateMap<LeagueGroupRequest, LeagueGroupCriteria>();
             cfg.CreateMap<SportItemModel, SportItemExcelModel>();
@@ -34,6 +37,7 @@ namespace UniversalReports.CashOutPerformance
             cfg.CreateMap<BetTypeLevelModel, ChildItemBetTypeModel>();
             cfg.CreateMap<BetTypeLevelModel, BetTypeLevelExcelModel>();
             cfg.CreateMap<BetTypeDrillDownExcelRequest, GameTimeCriteria>();
+            cfg.CreateMap<BetTypeDrillDownRequest, GameTimeCriteria>();
         }
     }
 }

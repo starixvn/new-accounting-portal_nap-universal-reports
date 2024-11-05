@@ -12,5 +12,7 @@ namespace UniversalReports.CashOutPerformance.Requests
         public string Title { get; set; }
 
         public string[] BreadCrumb { get; set; }
+
+        public string Type { get; set; }
     }
 }

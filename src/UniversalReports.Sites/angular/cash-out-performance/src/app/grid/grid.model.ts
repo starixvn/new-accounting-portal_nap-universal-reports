@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 export enum GridType {
     Sport,
     Event,
+    SimpleBetType,
     BetType,
     MatchDetail,
     GameTime,

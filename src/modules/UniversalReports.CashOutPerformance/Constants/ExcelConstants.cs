@@ -13,5 +13,7 @@
         public const string BetType = "BetType";
 
         public const string GameTime = "Game Time";
+
+        public const string WinningProbability = "Winning Probability (%)";
     }
 }

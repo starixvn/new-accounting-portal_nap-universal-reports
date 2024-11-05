@@ -11,6 +11,7 @@ import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
 import { DetailGameTimeGridComponent } from './detail-game-time-grid/detail-game-time-grid.component';
 import { WinningProbabilityGridComponent } from './winning-probability-grid/winning-probability-grid.component';
 import { GameTimeGridComponent } from './game-time-grid/game-time-grid.component';
+import { SimpleBettypeGridComponent } from './simple-bettype-grid/simple-bettype-grid.component';
 
 @Component({
   selector: 'app-grid',
@@ -23,7 +24,8 @@ import { GameTimeGridComponent } from './game-time-grid/game-time-grid.component
     BettypeGridComponent,
     GameTimeGridComponent,
     WinningProbabilityGridComponent,
-    DetailGameTimeGridComponent
+    DetailGameTimeGridComponent,
+    SimpleBettypeGridComponent
   ]
 })
 export class GridComponent implements OnInit, OnChanges, OnDestroy {
@@ -77,6 +79,8 @@ export class GridComponent implements OnInit, OnChanges, OnDestroy {
             return this.componentFactoryResolver.resolveComponentFactory(SportGridComponent);
         case GridType.Event:
             return this.componentFactoryResolver.resolveComponentFactory(EventStatusGridComponent);
+        case GridType.SimpleBetType:
+          return this.componentFactoryResolver.resolveComponentFactory(SimpleBettypeGridComponent);
         case GridType.BetType:
             return this.componentFactoryResolver.resolveComponentFactory(BettypeGridComponent);
         case GridType.MatchDetail:

@@ -13,6 +13,7 @@ import { BettypeGridComponent } from './bettype-grid/bettype-grid.component';
 import { DetailGameTimeGridComponent } from './detail-game-time-grid/detail-game-time-grid.component';
 import { WinningProbabilityGridComponent } from './winning-probability-grid/winning-probability-grid.component';
 import { GameTimeGridComponent } from './game-time-grid/game-time-grid.component';
+import { SimpleBettypeGridComponent } from './simple-bettype-grid/simple-bettype-grid.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GameTimeGridComponent } from './game-time-grid/game-time-grid.component
     BettypeGridComponent,
     DetailGameTimeGridComponent,
     WinningProbabilityGridComponent,
-    GameTimeGridComponent
+    GameTimeGridComponent,
+    SimpleBettypeGridComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,9 @@
-﻿using Epplus.Mapper.Extensions;
+﻿using AutoMapper;
+using Epplus.Mapper.Extensions;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using AutoMapper;
 using UniversalReports.CashOutPerformance.Constants;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.ViewModels;
@@ -191,8 +191,9 @@ namespace UniversalReports.CashOutPerformance.Services
                 var excelTicketList = Mapper.Map<IEnumerable<BetTypeLevelExcelModel>>(model.TicketList);
                 sheet.ApplyVertical(excelTicketList, startRowIndex);
                 var excelTotalTicket = Mapper.Map<BetTypeLevelExcelModel>(model.TotalTicket);
-                sheet.ApplyModel(totalSheet, excelTotalTicket, startRowIndex + model.Total);
-                sheet.Cells[$"A{startRowIndex}"].Value = "Grand Total";
+                var totalRowIndex = startRowIndex + model.Total;
+                sheet.ApplyModel(totalSheet, excelTotalTicket, totalRowIndex);
+                sheet.Cells[$"A{totalRowIndex}"].Value = "Grand Total";
             }
             
             sheet.Cells["A5"].Value = firstColumnText;

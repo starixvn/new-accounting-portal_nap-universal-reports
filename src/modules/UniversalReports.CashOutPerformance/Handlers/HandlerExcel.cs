@@ -11,7 +11,6 @@ using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
 using UniversalReports.CashOutPerformance.Services;
-using UniversalReports.CashOutPerformance.Utility;
 using UniversalReports.CashOutPerformance.ViewModels;
 
 namespace UniversalReports.CashOutPerformance.Handlers
@@ -19,29 +18,36 @@ namespace UniversalReports.CashOutPerformance.Handlers
     public class HandlerExcel : IRequestHandler<SportLevelExcelRequest, ExcelPackage>,
         IRequestHandler<TicketExcelRequest<EventStatusLevelModel>, ExcelPackage>,
         IRequestHandler<TicketExcelRequest<BetTypeLevelModel>, ExcelPackage>,
+        IRequestHandler<TicketExcelRequest<SimpleBetTypeLevelModel>, ExcelPackage>,
         IRequestHandler<TicketExcelRequest<MatchDetailLevelModel>, ExcelPackage>,
         IRequestHandler<BetTypeDrillDownExcelRequest, ExcelPackage>
     {
         private readonly TicketsExcelBuilder<SportLevelExcelModel> ticketsSportExcelBuilder;
         private readonly TicketsExcelBuilder<EventStatusLevelExcelModel> ticketsEventExcelBuilder;
         private readonly TicketsExcelBuilder<BetTypeLevelExcelModel> ticketsBetTypeExcelBuilder;
+        private readonly TicketsExcelBuilder<SimpleBetTypeLevelExcelModel> ticketsSimpleBetTypeExcelBuilder;
         private readonly TicketsExcelBuilder<MatchDetailLevelExcelModel> ticketsMatchExcelBuilder;
         private readonly CashOutPerformanceService service;
         private readonly ICacheService cacheService;
+        private readonly ModelsHelperService modelsHelperService;
 
         public HandlerExcel(TicketsExcelBuilder<SportLevelExcelModel> ticketsSportExcelBuilder,
             TicketsExcelBuilder<EventStatusLevelExcelModel> ticketsEventExcelBuilder,
             TicketsExcelBuilder<BetTypeLevelExcelModel> ticketsBetTypeExcelBuilder,
+            TicketsExcelBuilder<SimpleBetTypeLevelExcelModel> ticketsSimpleBetTypeExcelBuilder,
             TicketsExcelBuilder<MatchDetailLevelExcelModel> ticketsMatchExcelBuilder,
             CashOutPerformanceService service,
-            ICacheService cacheService)
+            ICacheService cacheService,
+            ModelsHelperService modelsHelperService)
         {
             this.ticketsSportExcelBuilder = ticketsSportExcelBuilder;
             this.ticketsEventExcelBuilder = ticketsEventExcelBuilder;
             this.ticketsBetTypeExcelBuilder = ticketsBetTypeExcelBuilder;
+            this.ticketsSimpleBetTypeExcelBuilder = ticketsSimpleBetTypeExcelBuilder;
             this.ticketsMatchExcelBuilder = ticketsMatchExcelBuilder;
             this.service = service;
             this.cacheService = cacheService;
+            this.modelsHelperService = modelsHelperService;
         }
 
         public async Task<ExcelPackage> Handle(SportLevelExcelRequest request, CancellationToken cancellationToken)
@@ -72,7 +78,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
             var reportData = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
-            var data = ModelsHelper.UpdateBetTypeViewModel(reportData);
+            var data = modelsHelperService.UpdateBetTypeViewModel(reportData);
             var excelPackage = ticketsBetTypeExcelBuilder.BuildBetTypeLevel(request.Title, request.BreadCrumb, data, ExcelConstants.BetType, true);
             return excelPackage;
         }
@@ -90,8 +96,37 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var reportData = await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>(DataCacheKeyConstants.BetType);
             var criteria = Mapper.Map<GameTimeCriteria>(request);
-            var data = ModelsHelper.UpdateGameTimeLevelModel(reportData.TicketList.ToList(), criteria);
-            var excelPackage = ticketsBetTypeExcelBuilder.BuildBetTypeLevel(request.Title, request.BreadCrumb, data, ExcelConstants.GameTime, false);
+            TicketViewModel<BetTypeLevelModel> data;
+            string firstColumnText;
+            bool hasChildLevel;
+            switch (request.Type)
+            {
+                case BetTypeDrillDownTypeConstants.GameTime:
+                    data = modelsHelperService.UpdateGameTimeLevelModel(reportData.TicketList.ToList(), criteria);
+                    firstColumnText = ExcelConstants.GameTime;
+                    hasChildLevel = false;
+                    break;
+                case BetTypeDrillDownTypeConstants.DetailGameTime:
+                    data = modelsHelperService.UpdateDetailGameTimeLevelModel(reportData.TicketList.ToList(), criteria);
+                    firstColumnText = ExcelConstants.GameTime;
+                    hasChildLevel = true;
+                    break;
+                default:
+                    data = modelsHelperService.UpdateWinningProbabilityLevelModel(reportData.TicketList.ToList(), criteria);
+                    firstColumnText = ExcelConstants.WinningProbability;
+                    hasChildLevel = false;
+                    break;
+            }
+            var excelPackage = ticketsBetTypeExcelBuilder.BuildBetTypeLevel(request.Title, request.BreadCrumb, data, firstColumnText, hasChildLevel);
+            return excelPackage;
+        }
+
+        public async Task<ExcelPackage> Handle(TicketExcelRequest<SimpleBetTypeLevelModel> request, CancellationToken cancellationToken)
+        {
+            var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
+            var reportData = await service.GetTickets<SimpleBetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            var excelModel = Mapper.Map<TicketViewExcelModel<SimpleBetTypeLevelExcelModel>>(reportData);
+            var excelPackage = ticketsSimpleBetTypeExcelBuilder.Build(request.Title, request.BreadCrumb, excelModel, ExcelType.BetType, true);
             return excelPackage;
         }
     }

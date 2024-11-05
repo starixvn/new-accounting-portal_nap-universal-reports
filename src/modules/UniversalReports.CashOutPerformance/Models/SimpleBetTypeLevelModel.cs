@@ -1,0 +1,8 @@
+﻿namespace UniversalReports.CashOutPerformance.Models
+{
+    public class SimpleBetTypeLevelModel : CommonTicketModel
+    {
+        public int BetType { get; set; }
+        public string BetTypeName { get; set; }
+    }
+}
