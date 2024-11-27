@@ -8,7 +8,7 @@ namespace UniversalReports.CashOutPerformance.Models
         public string BetTypeName { get; set; }
 
         [Cell("B6")]
-        public string BetCount { get; set; }
+        public int? BetCount { get; set; }
 
         [Cell("C6")]
         public decimal COTurnover_RM { get; set; }

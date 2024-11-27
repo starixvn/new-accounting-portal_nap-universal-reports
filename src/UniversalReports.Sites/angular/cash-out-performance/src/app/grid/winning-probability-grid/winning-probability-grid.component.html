@@ -40,7 +40,7 @@
   <ng-template #rowItem let-item="item">
     <tr>
         <td class="text-right">{{item.WinningProbabilityQuantile}}</td>
-        <td class="text-right">{{item.BetCount}}</td>
+        <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
         <td class="text-right" [napDecimalFormat]="item.COTurnover_RM"></td>
         <td *ngIf="isShowNotAvailable(item.ActualTurnover)" class="text-right">&nbsp;</td>
         <td *ngIf="!isShowNotAvailable(item.ActualTurnover)" class="text-right" [napDecimalFormat]="item.ActualTurnover"></td>
@@ -97,7 +97,7 @@
             <tfoot>
               <tr class="font-weight-bold">
                 <td class="text-right">Grand Total</td>
-                <td class="text-right">{{dataViewModel.TotalTicket.BetCount}}</td>
+                <td class="text-right" [napIntegerFormat]="dataViewModel.TotalTicket.BetCount"></td>
                 <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.COTurnover_RM"></td>
                 <td *ngIf="isShowNotAvailable(dataViewModel.TotalTicket.ActualTurnover)" class="text-right">&nbsp;</td>
                 <td *ngIf="!isShowNotAvailable(dataViewModel.TotalTicket.ActualTurnover)" class="text-right"

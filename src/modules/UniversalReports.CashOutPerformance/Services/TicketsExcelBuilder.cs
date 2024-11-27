@@ -181,7 +181,7 @@ namespace UniversalReports.CashOutPerformance.Services
                     }
                 }
                 mapperModel = Mapper.Map<BetTypeLevelExcelModel>(model.TotalTicket);
-                mapperModel.BetCount = "";
+                mapperModel.BetCount = mapperModel.BetCount == 0 ? null : mapperModel.BetCount;
                 sheet.ApplyModel(totalSheet, mapperModel, startRowIndex);
                 sheet.Cells[$"A{startRowIndex}"].Value = "Grand Total";
 
