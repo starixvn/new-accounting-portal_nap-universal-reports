@@ -104,7 +104,7 @@ namespace UniversalReports.CashOutPerformance.Services
                 ticketList.Add(betType);
             }
 
-            result.TicketList = ticketList;
+            result.TicketList = ticketList.OrderByDescending(s => s.TotalIncome_RM);
             result.Total = data.Total;
             result.TotalTicket = data.TotalTicket;
             return result;

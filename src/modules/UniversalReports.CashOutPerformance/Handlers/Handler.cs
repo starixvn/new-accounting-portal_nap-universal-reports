@@ -114,7 +114,9 @@ namespace UniversalReports.CashOutPerformance.Handlers
         public async Task<TicketViewModel<SimpleBetTypeLevelModel>> Handle(TicketRequest<SimpleBetTypeLevelModel> request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
-            return await service.GetTickets<SimpleBetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            var data =  await service.GetTickets<SimpleBetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            data.TicketList = data.TicketList.OrderByDescending(s => s.TotalIncome_RM);
+            return data;
         }
     }
 }

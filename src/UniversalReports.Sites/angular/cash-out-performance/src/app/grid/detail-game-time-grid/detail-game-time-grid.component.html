@@ -42,7 +42,7 @@
       <td (click)="item.collapsed=!item.collapsed">
         <i [ngClass]="{'fa-caret-down': item.collapsed, 'fa-caret-right': !item.collapsed}"
                                         class="fa"></i>&nbsp;{{item.GameTime}}</td>
-      <td class="text-right">{{item.BetCount}}</td>
+      <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
       <td class="text-right" [napDecimalFormat]="item.COTurnover_RM"></td>
       <td *ngIf="isShowNotAvailable(item.ActualTurnover)" class="text-right">&nbsp;</td>
       <td *ngIf="!isShowNotAvailable(item.ActualTurnover)" class="text-right" [napDecimalFormat]="item.ActualTurnover"></td>
@@ -64,7 +64,7 @@
   </ng-template>
   <ng-template #rowOutComeItem let-item="item">
     <td class="text-right">{{item.OutCome}}</td>
-    <td class="text-right">{{item.BetCount}}</td>
+    <td class="text-right" [napIntegerFormat]="item.BetCount"></td>
     <td class="text-right" [napDecimalFormat]="item.COTurnover_RM"></td>
     <td *ngIf="isShowNotAvailable(item.ActualTurnover)" class="text-right">&nbsp;</td>
     <td *ngIf="!isShowNotAvailable(item.ActualTurnover)" class="text-right" [napDecimalFormat]="item.ActualTurnover"></td>
@@ -126,7 +126,7 @@
             <tfoot>
               <tr class="font-weight-bold">
                 <td class="text-right">Grand Total</td>
-                <td></td>
+                <td class="text-right" [napIntegerFormat]="dataViewModel.TotalTicket.BetCount"></td>
                 <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.COTurnover_RM"></td>
                 <td *ngIf="isShowNotAvailable(dataViewModel.TotalTicket.ActualTurnover)" class="text-right">&nbsp;</td>
                 <td *ngIf="!isShowNotAvailable(dataViewModel.TotalTicket.ActualTurnover)" class="text-right"
