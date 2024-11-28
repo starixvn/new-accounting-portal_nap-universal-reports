@@ -135,7 +135,7 @@
           <tfoot>
             <tr class="font-weight-bold">
               <td class="text-right">Grand Total</td>
-              <td></td>
+              <td class="text-right" [napIntegerFormat]="dataViewModel.TotalTicket.BetCount"></td>
               <td class="text-right" [napDecimalFormat]="dataViewModel.TotalTicket.COTurnover_RM"></td>
               <td *ngIf="isShowNotAvailable(dataViewModel.TotalTicket.ActualTurnover)" class="text-right">&nbsp;</td>
               <td *ngIf="!isShowNotAvailable(dataViewModel.TotalTicket.ActualTurnover)" class="text-right"
