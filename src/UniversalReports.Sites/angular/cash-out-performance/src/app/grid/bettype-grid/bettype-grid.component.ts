@@ -63,19 +63,19 @@ export class BettypeGridComponent implements Grid {
 
   showGameTimeLevel(outCome: string, betType: number, bettypeName: string): void {
     this.gridService.gameTimeTitle = `${bettypeName} | ${outCome}`;
-    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: outCome, type: BetTypeDrillDownType.GAME_TIME };
+    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: outCome, type: BetTypeDrillDownType.GAME_TIME, guid: this.dataViewModel.TotalTicket.Guid };
     this.gridService.generate(GridType.GameTime);
   }
 
   showWinningProbabilityLevel(betType: number, bettypeName: string): void {
     this.gridService.winningProbabilityTitle = `${bettypeName}`;
-    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: '', type: BetTypeDrillDownType.WINNING_PROBABILITY };
+    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: '', type: BetTypeDrillDownType.WINNING_PROBABILITY, guid: this.dataViewModel.TotalTicket.Guid };
     this.gridService.generate(GridType.WinningProbability);
   }
 
   showDetailGameTimeLevel(betType: number, bettypeName: string): void {
     this.gridService.detailGameTimeTitle = `${bettypeName}`;
-    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: '', type: BetTypeDrillDownType.DETAIL_GAME_TIME };
+    this.gridService.betTypeDrillDownQueryModel = { betType : betType, outCome: '', type: BetTypeDrillDownType.DETAIL_GAME_TIME, guid: this.dataViewModel.TotalTicket.Guid };
     this.gridService.generate(GridType.DetailGameTime);
   }
 }

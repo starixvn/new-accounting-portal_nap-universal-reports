@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Fanex.Caching;
+using Fanex.NAP.Core.Web.Session;
 using MediatR;
 using OfficeOpenXml;
 using System.Globalization;
@@ -94,7 +95,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
 
         public async Task<ExcelPackage> Handle(BetTypeDrillDownExcelRequest request, CancellationToken cancellationToken)
         {
-            var reportData = await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>(DataCacheKeyConstants.BetType);
+            var reportData = await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>($"{DataCacheKeyConstants.BetType}-{request.Guid}");
             var criteria = Mapper.Map<GameTimeCriteria>(request);
             TicketViewModel<BetTypeLevelModel> data;
             string firstColumnText;

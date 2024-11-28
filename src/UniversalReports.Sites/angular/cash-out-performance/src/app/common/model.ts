@@ -58,6 +58,7 @@ export interface BetTypeLevelModel extends CommonTicketModel {
   BetCount: number;
   OutCome: string;
   WinningProbabilityQuantile: string;
+  Guid: string;
 }
 
 export interface MatchDetailLevelModel extends CommonTicketModel {
@@ -123,4 +124,5 @@ export interface ExcelQueryModel {
     title?: string;
     breadCrumb?: string[];
     type?: string;
+    guid: string;
   }
