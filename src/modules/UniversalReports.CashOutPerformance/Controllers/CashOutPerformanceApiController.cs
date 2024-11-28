@@ -62,6 +62,14 @@ namespace UniversalReports.CashOutPerformance.Controllers
             return Json(viewModel);
         }
 
+        [Route("simple-bettype-level")]
+        [HttpPost]
+        public async Task<IHttpActionResult> SimpleBetTypeLevel(TicketRequest<SimpleBetTypeLevelModel> request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
         [Route("bettype-level")]
         [HttpPost]
         public async Task<IHttpActionResult> BetTypeLevel(TicketRequest<BetTypeLevelModel> request)
@@ -69,6 +77,15 @@ namespace UniversalReports.CashOutPerformance.Controllers
             var viewModel = await mediator.Send(request);
             return Json(viewModel);
         }
+
+        [Route("drill-down-bettype-level")]
+        [HttpPost]
+        public async Task<IHttpActionResult> GameTimeLevel(BetTypeDrillDownRequest request)
+        {
+            var viewModel = await mediator.Send(request);
+            return Json(viewModel);
+        }
+
 
         [Route("match-detail-level")]
         [HttpPost]
@@ -97,6 +114,22 @@ namespace UniversalReports.CashOutPerformance.Controllers
         [Route("excel-bettype")]
         [HttpPost]
         public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<BetTypeLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-simple-bettype")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(TicketExcelRequest<SimpleBetTypeLevelModel> request)
+        {
+            var excelPackage = await mediator.Send(request);
+            return new EpplusExcelResult(excelPackage);
+        }
+
+        [Route("excel-drill-down-bettype")]
+        [HttpPost]
+        public async Task<IHttpActionResult> TicketsExcel(BetTypeDrillDownExcelRequest request)
         {
             var excelPackage = await mediator.Send(request);
             return new EpplusExcelResult(excelPackage);

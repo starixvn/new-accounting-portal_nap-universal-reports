@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
+using Fanex.Caching;
 using MediatR;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using UniversalReports.CashOutPerformance.Constants;
 using UniversalReports.CashOutPerformance.Criteria;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.Requests;
@@ -16,15 +20,23 @@ namespace UniversalReports.CashOutPerformance.Handlers
         IRequestHandler<SportLevelRequest, SportLevelModel>,
         IRequestHandler<TicketRequest<EventStatusLevelModel>, TicketViewModel<EventStatusLevelModel>>,
         IRequestHandler<TicketRequest<BetTypeLevelModel>, TicketViewModel<BetTypeLevelModel>>,
+        IRequestHandler<TicketRequest<SimpleBetTypeLevelModel>, TicketViewModel<SimpleBetTypeLevelModel>>,
         IRequestHandler<TicketRequest<MatchDetailLevelModel>, TicketViewModel<MatchDetailLevelModel>>,
         IRequestHandler<LeagueRequest, IEnumerable<LeagueModel>>,
-        IRequestHandler<LeagueGroupRequest, IEnumerable<FilterItemModel>>
+        IRequestHandler<LeagueGroupRequest, IEnumerable<FilterItemModel>>,
+        IRequestHandler<BetTypeDrillDownRequest, TicketViewModel<BetTypeLevelModel>>
     {
         private readonly CashOutPerformanceService service;
 
-        public Handler(CashOutPerformanceService service)
+        private readonly ICacheService cacheService;
+
+        private readonly ModelsHelperService modelsHelperService;
+
+        public Handler(CashOutPerformanceService service, ICacheService cacheService, ModelsHelperService modelsHelperService)
         {
             this.service = service;
+            this.cacheService = cacheService;
+            this.modelsHelperService = modelsHelperService;
         }
 
         public async Task<IEnumerable<FilterGroupItemModel>> Handle(SportRequest request, CancellationToken cancellationToken)
@@ -54,7 +66,10 @@ namespace UniversalReports.CashOutPerformance.Handlers
         public async Task<TicketViewModel<BetTypeLevelModel>> Handle(TicketRequest<BetTypeLevelModel> request, CancellationToken cancellationToken)
         {
             var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
-            return await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            var data = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            await cacheService.SetAsync(DataCacheKeyConstants.BetType, data, new CacheItemOptions { RelativeExpiration = TimeSpan.FromHours(1) });
+            var result = modelsHelperService.UpdateBetTypeViewModel(data);
+            return result;
         }
 
         public async Task<TicketViewModel<MatchDetailLevelModel>> Handle(TicketRequest<MatchDetailLevelModel> request, CancellationToken cancellationToken)
@@ -73,6 +88,35 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var criteria = Mapper.Map<LeagueGroupCriteria>(request);
             return await service.GetLeagueGroups(criteria);
+        }
+
+        public async Task<TicketViewModel<BetTypeLevelModel>> Handle(BetTypeDrillDownRequest request, CancellationToken cancellationToken)
+        {
+            var rawData =  await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>(DataCacheKeyConstants.BetType);
+            TicketViewModel<BetTypeLevelModel> data;
+            var gameTimeCriteria = Mapper.Map<GameTimeCriteria>(request);
+            switch (request.Type)
+            {
+                case BetTypeDrillDownTypeConstants.GameTime:
+                    data = modelsHelperService.UpdateGameTimeLevelModel(rawData.TicketList.ToList(), gameTimeCriteria);
+                    break;
+                case BetTypeDrillDownTypeConstants.DetailGameTime:
+                    data = modelsHelperService.UpdateDetailGameTimeLevelModel(rawData.TicketList.ToList(), gameTimeCriteria);
+                    break;
+                default:
+                    data = modelsHelperService.UpdateWinningProbabilityLevelModel(rawData.TicketList.ToList(), gameTimeCriteria);
+                    break;
+            }
+
+            return data;
+        }
+
+        public async Task<TicketViewModel<SimpleBetTypeLevelModel>> Handle(TicketRequest<SimpleBetTypeLevelModel> request, CancellationToken cancellationToken)
+        {
+            var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
+            var data =  await service.GetTickets<SimpleBetTypeLevelModel, BetTypeLevelCriteria>(criteria);
+            data.TicketList = data.TicketList.OrderByDescending(s => s.TotalIncome_RM);
+            return data;
         }
     }
 }

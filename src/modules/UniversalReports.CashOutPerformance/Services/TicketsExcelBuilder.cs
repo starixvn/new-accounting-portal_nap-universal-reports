@@ -1,9 +1,9 @@
-﻿using Epplus.Mapper.Extensions;
+﻿using AutoMapper;
+using Epplus.Mapper.Extensions;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UniversalReports.CashOutPerformance.Constants;
 using UniversalReports.CashOutPerformance.Models;
 using UniversalReports.CashOutPerformance.ViewModels;
@@ -14,9 +14,12 @@ namespace UniversalReports.CashOutPerformance.Services
 
     public interface TicketsExcelBuilder<T>
     {
-        ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn);
+        ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool isShowFullColumn);
 
-        ExcelPackage BuildSportLevel(string title, string[] breadCrumb, SportLevelExcelModel model, bool IsShowFullColumn);
+        ExcelPackage BuildSportLevel(string title, string[] breadCrumb, SportLevelExcelModel model, bool isShowFullColumn);
+
+        ExcelPackage BuildBetTypeLevel(string title, string[] breadCrumb,
+            TicketViewModel<BetTypeLevelModel> model, string firstColumnText, bool hasChildLevel);
     }
 
     public class TicketsExcelBuilderImp<T> : TicketsExcelBuilder<T>
@@ -29,7 +32,7 @@ namespace UniversalReports.CashOutPerformance.Services
 
         private ExcelWorksheet headerSheet;
 
-        private const int StartRowIndex = 6;
+        private const int SportColumnIndex = 13;
 
         private ExcelPackage ExcelPackage { get; set; }
 
@@ -40,11 +43,11 @@ namespace UniversalReports.CashOutPerformance.Services
             this.configurationService = configurationService;
         }
 
-        public ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool IsShowFullColumn)
+        public ExcelPackage Build(string title, string[] breadCrumb, TicketViewExcelModel<T> model, ExcelType excelType, bool isShowFullColumn)
         {
-            string fileExcel = "CashOutPerformance.xlsx";
-            string cellAddressOfTitle = "A1:AH1";
-            string cellAddressOfBreadCrumb = "A3:AH3";
+            var fileExcel = "CashOutPerformance.xlsx";
+            var cellAddressOfTitle = "A1:AH1";
+            var cellAddressOfBreadCrumb = "A3:AH3";
             byte totalLength = 23;
             if (excelType != ExcelType.Match)
             {
@@ -54,13 +57,13 @@ namespace UniversalReports.CashOutPerformance.Services
                 totalLength = 1;
             }
             LoadTemplate(fileExcel);
-            BuilTitle(title, cellAddressOfTitle);
+            BuildTitle(title, cellAddressOfTitle);
             BuildBreadCrumb(breadCrumb, cellAddressOfBreadCrumb);
             RenameFirstColumn(excelType);
-            sheet.ApplyVertical(model.TicketList, StartRowIndex);
+            sheet.ApplyVertical(model.TicketList, ExcelConstants.StartRowIndex);
             BuildTotalRow(model, totalLength);
             ClearTemplate();
-            RemoveUsernameColumn(IsShowFullColumn);
+            RemoveUsernameColumn(isShowFullColumn);
             return ExcelPackage;
         }
 
@@ -79,14 +82,14 @@ namespace UniversalReports.CashOutPerformance.Services
 
         private void BuildTotalRow(TicketViewExcelModel<T> model, byte totalLength)
         {
-            var endRowIndex = StartRowIndex + model.Total;
-            sheet.ApplyModel(totalSheet, model.TotalTicket, StartRowIndex + model.Total);
+            var endRowIndex = ExcelConstants.StartRowIndex + model.Total;
+            sheet.ApplyModel(totalSheet, model.TotalTicket, endRowIndex);
             var cellAddressOfTotalText = new ExcelAddressBase(endRowIndex, 1, endRowIndex, totalLength);
             sheet.Cells[cellAddressOfTotalText.Address].Value = "Grand Total";
             sheet.Cells[cellAddressOfTotalText.Address].Merge = true;
         }
 
-        private void BuilTitle(string title, string cellRange)
+        private void BuildTitle(string title, string cellRange)
         {
             sheet.Cells[cellRange].Value = title;
         }
@@ -111,16 +114,16 @@ namespace UniversalReports.CashOutPerformance.Services
             ExcelPackage.Workbook.Worksheets.Delete("HeaderTemplate");
         }
 
-        private void RemoveUsernameColumn(bool IsShowFullColumn)
+        private void RemoveUsernameColumn(bool isShowFullColumn)
         {
             const byte usernameColumnIndex = 2;
-            if (!IsShowFullColumn)
+            if (!isShowFullColumn)
             {
                 sheet.DeleteColumn(usernameColumnIndex);
             }
         }
 
-        public ExcelPackage BuildSportLevel(string title, string[] breadCrumb, SportLevelExcelModel model, bool IsShowFullColumn)
+        public ExcelPackage BuildSportLevel(string title, string[] breadCrumb, SportLevelExcelModel model, bool isShowFullColumn)
         {
             var fileExcel = "SimpleCashOutPerformance.xlsx";
             var cellAddressOfTitle = "A1:L1";
@@ -129,7 +132,7 @@ namespace UniversalReports.CashOutPerformance.Services
             var updateRowIndex = new List<int>();
     
             LoadTemplate(fileExcel);
-            BuilTitle(title, cellAddressOfTitle);
+            BuildTitle(title, cellAddressOfTitle);
             BuildBreadCrumb(breadCrumb, cellAddressOfBreadCrumb);
             
             foreach(var sportItem in model.Sports)
@@ -149,8 +152,52 @@ namespace UniversalReports.CashOutPerformance.Services
             sheet.Cells[$"A5"].Value = "Sport";
             UpdateValueColumnSport(updateRowIndex);
             ClearTemplate();
-            RemoveUsernameColumn(IsShowFullColumn);
+            RemoveUsernameColumn(isShowFullColumn);
             RemoveSportColumn();
+            return ExcelPackage;
+        }
+
+        public ExcelPackage BuildBetTypeLevel(string title, string[] breadCrumb, TicketViewModel<BetTypeLevelModel> model, string firstColumnText, bool hasChildLevel)
+        {
+            var startRowIndex = ExcelConstants.StartRowIndex;
+
+            LoadTemplate(ExcelConstants.BetTypeDrillDownExcelFile);
+            BuildTitle(title, ExcelConstants.CellAddressOfBetTypeDrillDownTitle);
+            BuildBreadCrumb(breadCrumb, ExcelConstants.CellAddressOfBetTypeDrillDownBreadCrumb);
+            if (hasChildLevel)
+            {
+                BetTypeLevelExcelModel mapperModel;
+                foreach (var item in model.TicketList)
+                {
+                    mapperModel = Mapper.Map<BetTypeLevelExcelModel>(item);
+                    sheet.ApplyModel(headerSheet, mapperModel, startRowIndex);
+                    startRowIndex += 1;
+                    foreach (var childItem in item.ChildItems)
+                    {
+                        mapperModel = Mapper.Map<BetTypeLevelExcelModel>(childItem);
+                        mapperModel.BetTypeName = childItem.OutCome;
+                        sheet.ApplyModel(templateSheet, mapperModel, startRowIndex);
+                        startRowIndex += 1;
+                    }
+                }
+                mapperModel = Mapper.Map<BetTypeLevelExcelModel>(model.TotalTicket);
+                mapperModel.BetCount = mapperModel.BetCount == 0 ? null : mapperModel.BetCount;
+                sheet.ApplyModel(totalSheet, mapperModel, startRowIndex);
+                sheet.Cells[$"A{startRowIndex}"].Value = "Grand Total";
+
+            }
+            else
+            {
+                var excelTicketList = Mapper.Map<IEnumerable<BetTypeLevelExcelModel>>(model.TicketList);
+                sheet.ApplyVertical(excelTicketList, startRowIndex);
+                var excelTotalTicket = Mapper.Map<BetTypeLevelExcelModel>(model.TotalTicket);
+                var totalRowIndex = startRowIndex + model.Total;
+                sheet.ApplyModel(totalSheet, excelTotalTicket, totalRowIndex);
+                sheet.Cells[$"A{totalRowIndex}"].Value = "Grand Total";
+            }
+            
+            sheet.Cells["A5"].Value = firstColumnText;
+            ClearTemplate();
             return ExcelPackage;
         }
 
@@ -164,8 +211,7 @@ namespace UniversalReports.CashOutPerformance.Services
 
         private void RemoveSportColumn()
         {
-            var sportColumnIndex = 13;
-            sheet.DeleteColumn(sportColumnIndex);
+            sheet.DeleteColumn(SportColumnIndex);
         }
     }
 }

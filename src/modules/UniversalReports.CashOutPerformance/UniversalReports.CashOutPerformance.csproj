@@ -51,6 +51,9 @@
     <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Caching, Version=2.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Caching.2.2.4\lib\net471\Fanex.Caching.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Common, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Common.1.1.1.1\lib\netstandard2.0\Fanex.Common.dll</HintPath>
     </Reference>
@@ -113,10 +116,15 @@
     <Compile Include="AutoMapperConfiguration.cs" />
     <Compile Include="CashOutPerformanceAttribute.cs" />
     <Compile Include="Common\CashOutPerformanceCommonApiController.cs" />
+    <Compile Include="Constants\BetTypeDrillDownTypeConstants.cs" />
+    <Compile Include="Constants\DataCacheKeyConstants.cs" />
+    <Compile Include="Constants\ExcelConstants.cs" />
     <Compile Include="Constants\ExcelType.cs" />
+    <Compile Include="Constants\GameTimeConstants.cs" />
     <Compile Include="Controllers\CashOutPerformanceApiController.cs" />
     <Compile Include="Criteria\BetTypeLevelCriteria.cs" />
     <Compile Include="Criteria\EventStatusLevelCriteria.cs" />
+    <Compile Include="Criteria\GameTimeCriteria.cs" />
     <Compile Include="Criteria\LeagueCriteria.cs" />
     <Compile Include="Criteria\LeagueGroupCriteria.cs" />
     <Compile Include="Criteria\LicenseeCriteria.cs" />
@@ -132,9 +140,12 @@
     <Compile Include="Models\EventStatusLevelModel.cs" />
     <Compile Include="Models\FilterGroupItemModel.cs" />
     <Compile Include="Models\FilterItemModel.cs" />
+    <Compile Include="Models\GameTimeLevelExcelModel.cs" />
     <Compile Include="Models\LeagueModel.cs" />
     <Compile Include="Models\MatchDetailLevelExcelModel.cs" />
     <Compile Include="Models\MatchDetailLevelModel.cs" />
+    <Compile Include="Models\SimpleBetTypeLevelExcelModel.cs" />
+    <Compile Include="Models\SimpleBetTypeLevelModel.cs" />
     <Compile Include="Models\SiteModel.cs" />
     <Compile Include="Models\SportBetTypeModel.cs" />
     <Compile Include="Models\SportExcelModel.cs" />
@@ -143,7 +154,10 @@
     <Compile Include="Models\SportLevelExcelModel.cs" />
     <Compile Include="Models\SportLevelModel.cs" />
     <Compile Include="Models\SportModel.cs" />
+    <Compile Include="Models\WinningProbabilityLevelExcelModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\BetTypeDrillDownExcelRequest.cs" />
+    <Compile Include="Requests\BetTypeDrillDownRequest.cs" />
     <Compile Include="Requests\LeagueGroupRequest.cs" />
     <Compile Include="Requests\LeagueRequest.cs" />
     <Compile Include="Requests\LicenseeRequest.cs" />
@@ -153,6 +167,7 @@
     <Compile Include="Requests\TicketExcelRequest.cs" />
     <Compile Include="Requests\TicketRequest.cs" />
     <Compile Include="Services\CashOutPerformanceService.cs" />
+    <Compile Include="Services\ModelsHelperService.cs" />
     <Compile Include="Services\TicketsExcelBuilder.cs" />
     <Compile Include="ViewModels\TicketViewExcelModel.cs" />
     <Compile Include="ViewModels\TicketViewModel.cs" />
@@ -167,6 +182,7 @@
       <Name>UniversalReports</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
