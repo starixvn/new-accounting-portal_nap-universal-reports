@@ -19,13 +19,13 @@ export class GameTimeService {
     return this.httpService.post<TicketViewModel<BetTypeLevelModel>>(`${CommonConfig.API}drill-down-bettype-level`, model);
   }
 
-  exportExcel(filterModel: FilterModel, model: BetTypeDrillDownQueryModel): void {
-    model.title = `Cash Out Performance Report From ${filterModel.startDate} To ${filterModel.endDate}`;
-    model.breadCrumb = filterModel.breadCrumb;
+  exportExcel(model: BetTypeDrillDownQueryModel): void {
+    model.title = `Cash Out Performance Report From ${model.startDate} To ${model.endDate}`;
+    model.breadCrumb = model.breadCrumb;
     model.type = BetTypeDrillDownType.GAME_TIME;
 
-    const fromDate = moment(filterModel.startDate).format('YYYY_MM_DD');
-    const toDate = moment(filterModel.endDate).format('YYYY_MM_DD');
+    const fromDate = moment(model.startDate).format('YYYY_MM_DD');
+    const toDate = moment(model.endDate).format('YYYY_MM_DD');
     this.httpService.download(`${CommonConfig.API}excel-drill-down-bettype`, model).subscribe(response => {
       const fileName = `Cash_Out_Performance_Report_From_${fromDate}_To_${toDate}.xlsx`;
       Helper.downloadFile(response, fileName);

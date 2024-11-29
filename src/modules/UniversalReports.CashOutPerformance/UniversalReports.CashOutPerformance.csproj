@@ -117,7 +117,6 @@
     <Compile Include="CashOutPerformanceAttribute.cs" />
     <Compile Include="Common\CashOutPerformanceCommonApiController.cs" />
     <Compile Include="Constants\BetTypeDrillDownTypeConstants.cs" />
-    <Compile Include="Constants\DataCacheKeyConstants.cs" />
     <Compile Include="Constants\ExcelConstants.cs" />
     <Compile Include="Constants\ExcelType.cs" />
     <Compile Include="Constants\GameTimeConstants.cs" />
