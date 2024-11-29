@@ -95,7 +95,8 @@ namespace UniversalReports.CashOutPerformance.Handlers
 
         public async Task<ExcelPackage> Handle(BetTypeDrillDownExcelRequest request, CancellationToken cancellationToken)
         {
-            var reportData = await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>($"{DataCacheKeyConstants.BetType}-{request.Guid}");
+            var betTypeCriteria = Mapper.Map<BetTypeLevelCriteria>(request);
+            var reportData = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(betTypeCriteria);
             var criteria = Mapper.Map<GameTimeCriteria>(request);
             TicketViewModel<BetTypeLevelModel> data;
             string firstColumnText;

@@ -16,8 +16,6 @@ namespace UniversalReports.CashOutPerformance.Models
 
         public int BetCount { get; set; }
 
-        public string Guid { get; set; }
-
         public List<ChildItemBetTypeModel> ChildItems { get; set; } = new List<ChildItemBetTypeModel>();
 
         public static BetTypeLevelModel operator +(BetTypeLevelModel a, BetTypeLevelModel b)

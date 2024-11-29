@@ -36,6 +36,6 @@ export class DetailGameTimeGridComponent implements Grid {
   }
 
   exportExcel(): void {
-    this.service.exportExcel(this.gridService.filterModel, this.gridService.betTypeDrillDownQueryModel);
+    this.service.exportExcel(this.gridService.betTypeDrillDownQueryModel);
   }
 }

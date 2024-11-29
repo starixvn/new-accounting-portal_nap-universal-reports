@@ -67,10 +67,7 @@ namespace UniversalReports.CashOutPerformance.Handlers
         {
             var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
             var data = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
-            var guid = Guid.NewGuid().ToString();
-            await cacheService.SetAsync($"{DataCacheKeyConstants.BetType}-{guid}", data, new CacheItemOptions { RelativeExpiration = TimeSpan.FromMinutes(30) });
             var result = modelsHelperService.UpdateBetTypeViewModel(data);
-            result.TotalTicket.Guid = guid;
             return result;
         }
 
@@ -94,7 +91,8 @@ namespace UniversalReports.CashOutPerformance.Handlers
 
         public async Task<TicketViewModel<BetTypeLevelModel>> Handle(BetTypeDrillDownRequest request, CancellationToken cancellationToken)
         {
-            var rawData =  await cacheService.GetAsync<TicketViewModel<BetTypeLevelModel>>($"{DataCacheKeyConstants.BetType}-{request.Guid}");
+            var criteria = Mapper.Map<BetTypeLevelCriteria>(request);
+            var rawData = await service.GetTickets<BetTypeLevelModel, BetTypeLevelCriteria>(criteria);
             TicketViewModel<BetTypeLevelModel> data;
             var gameTimeCriteria = Mapper.Map<GameTimeCriteria>(request);
             switch (request.Type)
