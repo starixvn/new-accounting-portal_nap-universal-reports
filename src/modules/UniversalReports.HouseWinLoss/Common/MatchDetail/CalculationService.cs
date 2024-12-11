@@ -19,8 +19,6 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
     {
         private readonly RemotingRefService refService;
 
-        private const int TenMillion = 10000000;
-
         public CalculationServiceImp(RemotingRefService refService)
         {
             this.refService = refService;
@@ -29,8 +27,18 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         public WinLoss FromRawWinLoss(RawWinLoss rawWinLoss)
         {
             var winLoss = Mapper.Map<WinLoss>(rawWinLoss);
-            winLoss.HomeName = GetHomeName(rawWinLoss.HomeId, rawWinLoss.IsNeutral);
-            winLoss.AwayName = refService.GetTeamName(rawWinLoss.AwayId);
+            
+            if (winLoss.SportType == SportTypeConstants.VirtualSoccer)
+            {
+                winLoss.AwayName = refService.GetTeamName3rd(rawWinLoss.AwayId);
+                winLoss.HomeName = GetHomeName3rd(rawWinLoss.HomeId, rawWinLoss.IsNeutral);
+            }
+            else
+            {
+                winLoss.AwayName = refService.GetTeamName(rawWinLoss.AwayId);
+                winLoss.HomeName = GetHomeName(rawWinLoss.HomeId, rawWinLoss.IsNeutral);
+            }
+            
             winLoss.LeagueName = rawWinLoss.LeagueName;
             winLoss.MatchCode = refService.GetMatchCode(winLoss.MatchCode);
             return winLoss;
@@ -40,6 +48,12 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         {
             return refService.GetTeamName(teamId)
                 + (isNeutral ? " (N)" : string.Empty);
+        }
+
+        private string GetHomeName3rd(int teamId, bool isNeutral)
+        {
+            return refService.GetTeamName3rd(teamId)
+                   + (isNeutral ? " (N)" : string.Empty);
         }
 
         private string GetLeague(string leagueCode, string leagueName)
