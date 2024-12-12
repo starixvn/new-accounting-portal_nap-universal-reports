@@ -525,7 +525,7 @@ import moment from "moment";
                            ? "api/house-win-loss-by-products/virtual-sports/racing-match-detail"
                            : "api/house-win-loss-by-products/virtual-sports/sportsbook-match-detail";
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -775,7 +775,7 @@ import moment from "moment";
                            ? "api/house-win-loss-by-products/virtual-sports-betradar/special-match-detail"
                            : "api/house-win-loss-by-products/virtual-sports-betradar/match-detail";
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -1200,7 +1200,7 @@ import moment from "moment";
                 controller: "MatchDetailController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/match-detail",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -1235,7 +1235,7 @@ import moment from "moment";
                 controller: "MatchDetailController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/match-detail",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -1289,7 +1289,7 @@ import moment from "moment";
                 controller: "MatchDetailController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/match-detail",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
