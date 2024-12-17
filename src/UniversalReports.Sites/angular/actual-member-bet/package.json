@@ -24,6 +24,7 @@
     "@angular/router": "5.1.2",
     "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.8",
     "bootstrap": "4.0.0-beta.2",
+    "cheerio": "^1.0.0-rc.2",
     "core-js": "^2.4.1",
     "font-awesome": "4.7.0",
     "moment": "^2.18.1",
@@ -44,7 +45,6 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "ajv": "^6.0.0",
-    "cheerio": "^1.0.0-rc.2",
     "codelyzer": "~3.2.0",
     "gulp": "^3.9.1",
     "jasmine-core": "~2.6.2",
@@ -59,6 +59,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "^2.4.2"
+    "typescript": "^2.5.3"
   }
 }

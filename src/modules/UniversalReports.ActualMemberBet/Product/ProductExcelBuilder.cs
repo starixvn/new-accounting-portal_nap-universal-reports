@@ -35,6 +35,7 @@ namespace UniversalReports.ActualMemberBet.Product
             LoadTemplate();
             BuilTitle();
             productActualMemberBetSheet.ApplyVertical(productActualMemberBetExcel.Entities, StartRowIndex);
+            productActualMemberBetExcel.Total.ProductName = "Grand Total";
             productActualMemberBetSheet.ApplyModel(totalSheet, productActualMemberBetExcel.Total, StartRowIndex + productActualMemberBetExcel.Entities.Count);
             ClearTemplate();
             return ExcelPackage;
