@@ -28,7 +28,7 @@ namespace UniversalReports.HouseWinLoss.Common.MatchDetail
         {
             var winLoss = Mapper.Map<WinLoss>(rawWinLoss);
             
-            if (winLoss.SportType == SportTypeConstants.VirtualSoccer)
+            if (winLoss.SportType == SportTypeConstants.VirtualSoccer || winLoss.SportType == SportTypeConstants.VirtualBetByBasketball)
             {
                 winLoss.AwayName = refService.GetTeamName3rd(rawWinLoss.AwayId);
                 winLoss.HomeName = GetHomeName3rd(rawWinLoss.HomeId, rawWinLoss.IsNeutral);
