@@ -525,7 +525,7 @@ import moment from "moment";
                            ? "api/house-win-loss-by-products/virtual-sports/racing-match-detail"
                            : "api/house-win-loss-by-products/virtual-sports/sportsbook-match-detail";
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -775,7 +775,7 @@ import moment from "moment";
                            ? "api/house-win-loss-by-products/virtual-sports-betradar/special-match-detail"
                            : "api/house-win-loss-by-products/virtual-sports-betradar/match-detail";
                 },
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -1200,7 +1200,7 @@ import moment from "moment";
                 controller: "MatchDetailController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/match-detail",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -1235,7 +1235,7 @@ import moment from "moment";
                 controller: "MatchDetailController",
                 service: "remoteDataService",
                 serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/match-detail",
-                mainParameters: { sheetName: "House Win Loss by Products" },
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
                 getTitleFunction: "getMatchDetailTitle"
             },
             site: {
@@ -1265,7 +1265,42 @@ import moment from "moment";
                 mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
                 getTitleFunction: "getSiteTitle"
             }
-        }
+        },
+        "Virtual Sports 5": {
+            mainView: "sportType",
+            sportType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SportTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", type: "universal-second-level", mainColumnText: "Sport Type" },
+                getTitleFunction: "getProductTitle"
+            },
+            betType: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "BetTypeController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-bettype", mainColumnText: "Bet Type" },
+                getTitleFunction: "getSportTypeTitle"
+            },
+            matchDetail: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "MatchDetailController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/virtual-sports-betradar/match-detail",
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2 },
+                getTitleFunction: "getMatchDetailTitle"
+            },
+            site: {
+                templateUrl: "app/house-win-loss/shared/fanex-grid-with-title.html",
+                controller: "SiteController",
+                service: "remoteDataService",
+                serviceBaseUrl: "api/house-win-loss-by-products/simple-site-grid",
+                mainParameters: { sheetName: "House Win Loss by Products", isLive: 2, type: "universal-thirdparty-site" },
+                getTitleFunction: "getSiteTitle"
+            }
+        },
     };
     angular
         .module("app.houseWinlossApp")
