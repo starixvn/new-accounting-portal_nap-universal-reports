@@ -7,5 +7,7 @@
         public const int VirtualDogRacing = 177;
 
         public const int VirtualSoccer = 147;
+
+        public const int VirtualBetByBasketball = 134;
     }
 }

@@ -6071,7 +6071,10 @@ h1, h2, h3, h4, h5, h6 {
     float: right; }
   .grid-boundary .freegrid .league-match-code {
     text-align: center;
-    font-weight: bold; }
+    font-weight: bold; 
+    display: block;
+    word-wrap: break-word;
+  }
   .grid-boundary .freegrid .grand-total-note {
     background: white !important;
     font-weight: bold;
