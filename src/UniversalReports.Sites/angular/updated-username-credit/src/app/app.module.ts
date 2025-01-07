@@ -50,7 +50,7 @@ export class AppModule {
     legendService: LegendService
   ) {
     legendService.resolveUrl = (id) => {
-      return `https://reports.oneops.net/Reports-Legend-API/api/legend/${id}`;
+      return `https://reportnet.oneops.net/Reports-Legend-API/api/legend/${id}`;
     };
   }
 }
